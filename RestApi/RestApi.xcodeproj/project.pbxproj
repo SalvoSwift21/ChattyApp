@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62328BCA2A27CF03006A2C74 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E6F2A271C3D004F5E44 /* URLProtocolStub.swift */; };
+		62328BCB2A27CF49006A2C74 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E702A271C3D004F5E44 /* URLSessionHTTPClientTests.swift */; };
 		62639E4A2A264837004F5E44 /* RestApi.docc in Sources */ = {isa = PBXBuildFile; fileRef = 62639E492A264837004F5E44 /* RestApi.docc */; };
 		62639E4B2A264837004F5E44 /* RestApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 62639E482A264837004F5E44 /* RestApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62639E632A271C0F004F5E44 /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62639E452A264837004F5E44 /* RestApi.framework */; };
@@ -315,7 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				62639E812A271CFE004F5E44 /* SharedTestHelpers.swift in Sources */,
+				62328BCA2A27CF03006A2C74 /* URLProtocolStub.swift in Sources */,
 				62639E822A271D0D004F5E44 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				62328BCB2A27CF49006A2C74 /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

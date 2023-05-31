@@ -3,29 +3,36 @@
 //
 
 import XCTest
-import EssentialFeed
+import RestApi
+import Combine
 
 class URLSessionHTTPClientTests: XCTestCase {
 	
+    private var cancellables: Set<AnyCancellable> = []
+
 	override func tearDown() {
 		super.tearDown()
 		
 		URLProtocolStub.removeStub()
+        self.cancellables.removeAll()
 	}
 	
-	func test_getFromURL_performsGETRequestWithURL() {
-		let url = anyURL()
+    func test_getFromURL_performsGETRequestWithURL() async {
+        let urlRequest = anyURLRequest()
 		let exp = expectation(description: "Wait for request")
 		
 		URLProtocolStub.observeRequests { request in
-			XCTAssertEqual(request.url, url)
+            XCTAssertEqual(request.url, urlRequest.url)
 			XCTAssertEqual(request.httpMethod, "GET")
 			exp.fulfill()
 		}
 		
-		makeSUT().get(from: url) { _ in }
-		
-		wait(for: [exp], timeout: 1.0)
+        await makeSUT()
+            .makeRequest(from: urlRequest)
+            .sink(receiveCompletion: { _ in }, receiveValue: { _ in })
+            .store(in: &cancellables)
+        
+        wait(for: [exp], timeout: 1.0)
 	}
 	
 	func test_cancelGetFromURLTask_cancelsURLRequest() {
