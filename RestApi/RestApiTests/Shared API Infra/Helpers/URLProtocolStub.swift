@@ -42,7 +42,11 @@ class URLProtocolStub: URLProtocol {
 	
 	override func startLoading() {
 		guard let stub = URLProtocolStub.stub else { return }
-		
+        
+        //Give default response, if not with async/await we have a crash
+        client?.urlProtocol(self, didReceive: HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
+        //client?.urlProtocol(self, didLoad: .init())
+        
 		if let data = stub.data {
 			client?.urlProtocol(self, didLoad: data)
 		}
@@ -53,9 +57,9 @@ class URLProtocolStub: URLProtocol {
 		
 		if let error = stub.error {
 			client?.urlProtocol(self, didFailWithError: error)
-		} else {
-			client?.urlProtocolDidFinishLoading(self)
 		}
+        
+        client?.urlProtocolDidFinishLoading(self)
 		
 		stub.requestObserver?(request)
 	}

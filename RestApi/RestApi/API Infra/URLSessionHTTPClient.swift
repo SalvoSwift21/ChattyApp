@@ -15,41 +15,37 @@ public final class URLSessionHTTPClient: HTTPClient {
     
     private struct UnexpectedValuesRepresentation: Error {}
     
-    private struct URLSessionTaskWrapper: HTTPClientTask {
-        let wrapped: URLSessionTask
+    private struct URLSessionTaskWrapper<Seccuss: Sendable, Failure: Error>: HTTPClientTask {
+        
+        let wrapped: Task<Seccuss, Failure>
         
         func cancel() {
             wrapped.cancel()
         }
-    }
-    
-    
-    public func makeRequest(from url: URLRequest) async -> (HTTPClient.Publisher) {
-        session.dataTaskPublisher(for: url)
-            .tryMap { data, response -> (Data, HTTPURLResponse) in
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    throw UnexpectedValuesRepresentation()
-                }
-                return (data, httpResponse)
+        
+        func result() async throws -> HTTPClient.Result {
+            guard let value = try await wrapped.value as? HTTPClient.Result else {
+                throw UnexpectedValuesRepresentation()
             }
-            .mapError { $0 as Error }
-            .eraseToAnyPublisher()
+            return value
+        }
     }
     
-    
-    public func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
-        let task = session.dataTask(with: url) { data, response, error in
-            completion(Result {
-                if let error = error {
-                    throw error
-                } else if let data = data, let response = response as? HTTPURLResponse {
-                    return (data, response)
-                } else {
-                    throw UnexpectedValuesRepresentation()
-                }
-            })
+    public func makeRequest(from url: URLRequest) async throws -> HTTPClientTask {
+        let fetchTask = Task { () -> HTTPClient.Result in
+            let (data, response) = try await session.data(for: url)
+            
+            guard !Task.isCancelled else {
+                throw URLError(.cancelled)
+            }
+            
+            guard let httpUrlResponse = response as? HTTPURLResponse else {
+                throw UnexpectedValuesRepresentation()
+            }
+            
+            return (data, httpUrlResponse)
         }
-        task.resume()
-        return URLSessionTaskWrapper(wrapped: task)
+        
+        return URLSessionTaskWrapper(wrapped: fetchTask)
     }
 }
