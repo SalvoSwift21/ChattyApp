@@ -31,7 +31,7 @@ public final class URLSessionHTTPClient: HTTPClient {
         }
     }
     
-    public func makeRequest(from url: URLRequest) async throws -> HTTPClientTask {
+    public func makeTaskRequest(from url: URLRequest) async throws -> HTTPClientTask {
         let fetchTask = Task { () -> HTTPClient.Result in
             let (data, response) = try await session.data(for: url)
             

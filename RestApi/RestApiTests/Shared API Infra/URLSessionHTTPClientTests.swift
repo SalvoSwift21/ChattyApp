@@ -30,7 +30,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
         
         do {
-            try await makeSUT().makeRequest(from: urlRequest).result()
+            try await makeSUT().makeTaskRequest(from: urlRequest).result()
         } catch {
             XCTFail("Error in getFromUrl: \(error.localizedDescription) expect success")
         }
@@ -50,7 +50,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
     
         do {
-            try await makeSUT().makeRequest(from: urlRequest).result()
+            try await makeSUT().makeTaskRequest(from: urlRequest).result()
         } catch {
             XCTFail("Error in postToURL: \(error.localizedDescription) expect success")
         }
@@ -156,7 +156,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
         let sut = makeSUT(file: file, line: line)
         
-        let clientTask = try await sut.makeRequest(from: anyURLRequest())
+        let clientTask = try await sut.makeTaskRequest(from: anyURLRequest())
         taskHandler(clientTask)
         let response = try await clientTask.result()
         
