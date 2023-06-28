@@ -4,6 +4,18 @@
 
 import Foundation
 
+func anyHost() -> String {
+    return "any-host.com"
+}
+
+func anyWrongHost() -> String {
+    return "test!!??5632gft\\\\"
+}
+
+func anyWrongBody() -> [String: Any] {
+    return ["age": [30: 20]]
+}
+
 func anyNSError() -> NSError {
 	return NSError(domain: "any error", code: 0)
 }

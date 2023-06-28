@@ -35,7 +35,7 @@ class URLSessionHTTPClientTests: XCTestCase {
             XCTFail("Error in getFromUrl: \(error.localizedDescription) expect success")
         }
         
-        wait(for: [exp], timeout: 1.0)
+        await fulfillment(of: [exp], timeout: 1.0)
 	}
     
     func test_postToURL_performsPOSTRequestWithURL() async {
@@ -55,7 +55,7 @@ class URLSessionHTTPClientTests: XCTestCase {
             XCTFail("Error in postToURL: \(error.localizedDescription) expect success")
         }
     
-        wait(for: [exp], timeout: 1.0)
+        await fulfillment(of: [exp], timeout: 1.0)
     }
 	
     func test_cancelGetFromURLTask_cancelsURLRequest() async {
@@ -68,7 +68,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         let receivedError = await resultErrorFor(taskHandler: {
             $0.cancel()
         }) as NSError?
-		wait(for: [exp], timeout: 1.0)
+        await fulfillment(of: [exp], timeout: 1.0)
 	
 		XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
 	}

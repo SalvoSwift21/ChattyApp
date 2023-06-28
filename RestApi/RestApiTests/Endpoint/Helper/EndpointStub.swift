@@ -14,13 +14,9 @@ class EndpointStub: Endpoint {
         .HTTP
     }
     
-    var host: String {
-        "any-url.com"
-    }
+    var host: String
     
-    var path: String {
-        "/v1/try"
-    }
+    var path: String
     
     var method: RestApi.RequestMethod {
         .GET
@@ -34,7 +30,11 @@ class EndpointStub: Endpoint {
         ["Auth": "Test token"]
     }
     
-    var body: [String : Any]? {
-        ["body": ["test1, test2"]]
+    var body: [String : Any]?
+    
+    init(host: String, path: String = "/v1/try", body: [String : Any]? = nil) {
+        self.host = host
+        self.path = path
+        self.body = body
     }
 }

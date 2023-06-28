@@ -17,7 +17,7 @@
 		62639E822A271D0D004F5E44 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E6C2A271C2D004F5E44 /* XCTestCase+MemoryLeakTracking.swift */; };
 		62639E842A271E5E004F5E44 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E592A271BBB004F5E44 /* URLSessionHTTPClient.swift */; };
 		62639E852A271E5E004F5E44 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E562A271B82004F5E44 /* HTTPClient.swift */; };
-		62AB11BD2A496C6700E06F53 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB11BC2A496C6700E06F53 /* EndpointTests.swift */; };
+		62AB11BD2A496C6700E06F53 /* EndpointURLRequestMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB11BC2A496C6700E06F53 /* EndpointURLRequestMapperTest.swift */; };
 		62AB11C02A496CDC00E06F53 /* EndpointStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AB11BF2A496CDC00E06F53 /* EndpointStub.swift */; };
 		62FF33042A45752C00EFAFF1 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FF33032A45752C00EFAFF1 /* Endpoint.swift */; };
 		62FF33062A457C5E00EFAFF1 /* EndpointURLRequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FF33052A457C5E00EFAFF1 /* EndpointURLRequestMapper.swift */; };
@@ -53,7 +53,7 @@
 		62639E702A271C3D004F5E44 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		62639E752A271CCE004F5E44 /* RestApiAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestApiAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62639E7F2A271CD5004F5E44 /* RestApiAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAPIEndToEndTests.swift; sourceTree = "<group>"; };
-		62AB11BC2A496C6700E06F53 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		62AB11BC2A496C6700E06F53 /* EndpointURLRequestMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointURLRequestMapperTest.swift; sourceTree = "<group>"; };
 		62AB11BF2A496CDC00E06F53 /* EndpointStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointStub.swift; sourceTree = "<group>"; };
 		62FF33032A45752C00EFAFF1 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62FF33052A457C5E00EFAFF1 /* EndpointURLRequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointURLRequestMapper.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				62AB11BE2A496CCD00E06F53 /* Helper */,
-				62AB11BC2A496C6700E06F53 /* EndpointTests.swift */,
+				62AB11BC2A496C6700E06F53 /* EndpointURLRequestMapperTest.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				62639E812A271CFE004F5E44 /* SharedTestHelpers.swift in Sources */,
 				62328BCA2A27CF03006A2C74 /* URLProtocolStub.swift in Sources */,
 				62639E822A271D0D004F5E44 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
-				62AB11BD2A496C6700E06F53 /* EndpointTests.swift in Sources */,
+				62AB11BD2A496C6700E06F53 /* EndpointURLRequestMapperTest.swift in Sources */,
 				62328BCB2A27CF49006A2C74 /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
