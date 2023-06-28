@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "5AF7DDAD-0CDB-426C-80C4-19DFDBD477B0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:RestApi.xcodeproj",
+          "identifier" : "62639E442A264837004F5E44",
+          "name" : "RestApi"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RestApi.xcodeproj",
+        "identifier" : "62639E5E2A271C0F004F5E44",
+        "name" : "RestApiTests"
+      }
+    }
+  ],
+  "version" : 1
+}
