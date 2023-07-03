@@ -19,9 +19,9 @@
 		62128CAE2A1F8F92005D732A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62128CB02A1F8F92005D732A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62128CB32A1F8F92005D732A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		62639E522A26491F004F5E44 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		62639E532A264941004F5E44 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62639E542A264F4E004F5E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62E510A02A5376EF00A40773 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 		62639E512A264903004F5E44 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				62639E522A26491F004F5E44 /* Debug.xcconfig */,
 				62639E532A264941004F5E44 /* Release.xcconfig */,
+				62E510A02A5376EF00A40773 /* Debug.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 		};
 		62128CB82A1F8F92005D732A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62639E522A26491F004F5E44 /* Debug.xcconfig */;
+			baseConfigurationReference = 62E510A02A5376EF00A40773 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
