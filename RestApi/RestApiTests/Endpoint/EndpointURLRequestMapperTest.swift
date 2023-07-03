@@ -35,7 +35,8 @@ class EndpointURLRequestMapperTest: XCTestCase {
     }
     
     func test_map_URLRequestFromEndpoint() {
-        let stubEndpoint = EndpointStub(host: anyHost())
+        let body: [String: Any] = ["some": "data"]
+        let stubEndpoint = EndpointStub(host: anyHost(), body: body)
         
         do {
             let received = try EndpointURLRequestMapper.map(from: stubEndpoint)
@@ -48,6 +49,7 @@ class EndpointURLRequestMapperTest: XCTestCase {
             //TEST REQUEST
             XCTAssertEqual(received.allHTTPHeaderFields, stubEndpoint.header, "check token")
             XCTAssertEqual(received.httpMethod, stubEndpoint.method.rawValue)
+            XCTAssertEqual(received.httpBody, makeDataFromItemsJSON(body))
         } catch {
             XCTFail("Expect no error in generate URLRequest, error \(error.localizedDescription)")
         }
