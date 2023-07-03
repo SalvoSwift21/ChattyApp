@@ -52,7 +52,6 @@
 		62639E6F2A271C3D004F5E44 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		62639E702A271C3D004F5E44 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		62639E752A271CCE004F5E44 /* RestApiAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestApiAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		62639E7F2A271CD5004F5E44 /* RestApiAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		62AB11BC2A496C6700E06F53 /* EndpointURLRequestMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointURLRequestMapperTest.swift; sourceTree = "<group>"; };
 		62AB11BF2A496CDC00E06F53 /* EndpointStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointStub.swift; sourceTree = "<group>"; };
 		62DE10F92A4C1E420010B66F /* RestApi.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RestApi.xctestplan; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 				62DE10F92A4C1E420010B66F /* RestApi.xctestplan */,
 				62639E472A264837004F5E44 /* RestApi */,
 				62639E602A271C0F004F5E44 /* RestApiTests */,
-				62639E762A271CCE004F5E44 /* RestApiAPIEndToEndTests */,
 				62639E462A264837004F5E44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -170,14 +168,6 @@
 				62639E6F2A271C3D004F5E44 /* URLProtocolStub.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		62639E762A271CCE004F5E44 /* RestApiAPIEndToEndTests */ = {
-			isa = PBXGroup;
-			children = (
-				62639E7F2A271CD5004F5E44 /* RestApiAPIEndToEndTests.swift */,
-			);
-			path = RestApiAPIEndToEndTests;
 			sourceTree = "<group>";
 		};
 		62AB11BB2A496C2500E06F53 /* Endpoint */ = {
