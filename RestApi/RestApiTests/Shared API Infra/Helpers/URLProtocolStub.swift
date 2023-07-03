@@ -5,6 +5,12 @@
 import Foundation
 
 class URLProtocolStub: URLProtocol {
+    
+    enum URLProtocolStubError: Swift.Error {
+        case badServerResponse
+        // Add other cases as needed
+    }
+    
 	private struct Stub {
 		let data: Data?
 		let response: URLResponse?
@@ -43,23 +49,21 @@ class URLProtocolStub: URLProtocol {
 	override func startLoading() {
 		guard let stub = URLProtocolStub.stub else { return }
         
-        //Give default response, if not with async/await we have a crash
-        client?.urlProtocol(self, didReceive: HTTPURLResponse(), cacheStoragePolicy: .notAllowed)
-        //client?.urlProtocol(self, didLoad: .init())
-        
 		if let data = stub.data {
 			client?.urlProtocol(self, didLoad: data)
 		}
 		
 		if let response = stub.response {
 			client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
-		}
+        } else {
+            client?.urlProtocol(self, didFailWithError: URLProtocolStubError.badServerResponse)
+        }
 		
 		if let error = stub.error {
 			client?.urlProtocol(self, didFailWithError: error)
-		}
-        
-        client?.urlProtocolDidFinishLoading(self)
+        } else {
+            client?.urlProtocolDidFinishLoading(self)
+        }
 		
 		stub.requestObserver?(request)
 	}

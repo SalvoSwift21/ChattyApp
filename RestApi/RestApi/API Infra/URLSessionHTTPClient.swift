@@ -15,29 +15,22 @@ public final class URLSessionHTTPClient: HTTPClient {
     
     private struct UnexpectedValuesRepresentation: Error {}
     
-    private struct URLSessionTaskWrapper<Seccuss: Sendable, Failure: Error>: HTTPClientTask {
+    private struct URLSessionTaskWrapper: HTTPClientTask {
         
-        let wrapped: Task<Seccuss, Failure>
+        let wrapped: Task<HTTPClient.Result, Error>
         
         func cancel() {
             wrapped.cancel()
         }
         
         func result() async throws -> HTTPClient.Result {
-            guard let value = try await wrapped.value as? HTTPClient.Result else {
-                throw UnexpectedValuesRepresentation()
-            }
-            return value
+            return try await wrapped.value
         }
     }
     
     public func makeTaskRequest(from url: URLRequest) async throws -> HTTPClientTask {
         let fetchTask = Task { () -> HTTPClient.Result in
             let (data, response) = try await session.data(for: url)
-            
-            guard !Task.isCancelled else {
-                throw URLError(.cancelled)
-            }
             
             guard let httpUrlResponse = response as? HTTPURLResponse else {
                 throw UnexpectedValuesRepresentation()
