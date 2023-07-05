@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LLMFeature/LLMFeature.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:RestApi/RestApi.xcodeproj">
    </FileRef>
    <FileRef
