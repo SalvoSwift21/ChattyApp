@@ -9,11 +9,11 @@ import Foundation
 
 public protocol LLMClient {
     
-    typealias Result = (String)
+    associatedtype LLMClientResult
     
     @discardableResult
-    func sendMessage(text: String) async throws -> LLMClient.Result
+    func sendMessage(text: String) async throws -> LLMClientResult
     
-    func saveInHistory()
-    func deleteFromHistory()
+    func saveInHistory(userText: String, responseText: LLMClientResult) async throws
+    func deleteFromHistory() async throws
 }
