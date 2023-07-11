@@ -21,30 +21,34 @@ class LLMClientSpy: LLMClient {
     
     private(set) var receivedMessages = [ReceivedMessage]()
 
-    private var sendMessageTask: Task<String, Error>?
     private var deletionResult: Result<Void, Error>?
-    private var insertionResult: Result<Void, Error>?
+    private var sendMessageResult: Result<Void, Error>?
     
-    private enum Error: Swift.Error {
-        case invalidBody
+    enum Error: Swift.Error {
+        case invalidResult
     }
     
-    func sendMessage(text: String) async throws -> String {
-        receivedMessages.append(.sendMessage)
+    public func sendMessage(text: String) async throws -> String {
         let userText = "user + \(text)"
-        //self.sendMessageTask = Task {
-        //    throw Error.invalidBody
-        //    return "assistance + \(text)"
-        //}
-        return try await self.sendMessageTask?.value ?? ""
+        let task = Task { () -> LLMClientResult in
+            guard let result = sendMessageResult else { throw Error.invalidResult }
+            switch result {
+            case .success(_):
+                receivedMessages.append(.sendMessage)
+                return "assistance + \(text)"
+            case .failure(let failure):
+                throw failure
+            }
+        }
+        return try await task.value
     }
     
-    private func completeSendMessage(with error: Error) {
-        
+    func completeSendMessage(with error: Error) {
+        sendMessageResult = .failure(error)
     }
     
-    func completeInsertionSuccessfully() {
-        insertionResult = .success(())
+    func completeSendMessageSuccessfully() {
+        sendMessageResult = .success(())
     }
     
     func saveInHistory(userText: String, responseText: String) async throws {
