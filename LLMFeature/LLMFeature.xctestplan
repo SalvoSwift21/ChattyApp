@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "95038F7B-42F9-4EB5-AD20-2A4D57908FFB",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:LLMFeature.xcodeproj",
+          "identifier" : "628A79DF2A53F05100ECEAF8",
+          "name" : "LLMFeature"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:LLMFeature.xcodeproj",
+        "identifier" : "628A79E72A53F05100ECEAF8",
+        "name" : "LLMFeatureTests"
+      }
+    }
+  ],
+  "version" : 1
+}

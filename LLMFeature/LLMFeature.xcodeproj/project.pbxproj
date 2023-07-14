@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		621C4D472A61243700E505CE /* LLMFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LLMFeature.xctestplan; sourceTree = "<group>"; };
 		6228BF172A55437200E27BA0 /* LLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClient.swift; sourceTree = "<group>"; };
 		6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfiguration.swift; sourceTree = "<group>"; };
 		6228BF1D2A5549D800E27BA0 /* LLMClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClientSpy.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		628A79D62A53F05100ECEAF8 = {
 			isa = PBXGroup;
 			children = (
+				621C4D472A61243700E505CE /* LLMFeature.xctestplan */,
 				628A79E22A53F05100ECEAF8 /* LLMFeature */,
 				628A79EC2A53F05100ECEAF8 /* LLMFeatureTests */,
 				628A79E12A53F05100ECEAF8 /* Products */,
