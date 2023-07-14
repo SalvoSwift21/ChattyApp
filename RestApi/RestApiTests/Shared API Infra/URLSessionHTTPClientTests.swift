@@ -61,7 +61,6 @@ class URLSessionHTTPClientTests: XCTestCase {
     func test_cancelGetFromURLTask_cancelsURLRequest() async {
 		let exp = expectation(description: "Wait for request")
 		URLProtocolStub.observeRequests { _ in
-            print("Grandi cipolle")
             exp.fulfill()
         }
 	
