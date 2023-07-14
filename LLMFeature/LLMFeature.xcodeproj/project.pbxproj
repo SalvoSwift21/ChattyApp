@@ -101,6 +101,7 @@
 		6239AEA52A55C5B200972588 /* LLM Model */ = {
 			isa = PBXGroup;
 			children = (
+				6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */,
 				6239AEA62A55C63C00972588 /* LLMMessage.swift */,
 				6239AEA82A55C7C200972588 /* LLMRequestBody.swift */,
 				6239AEAA2A55C87300972588 /* LLMResponse.swift */,
@@ -129,10 +130,9 @@
 		628A79E22A53F05100ECEAF8 /* LLMFeature */ = {
 			isa = PBXGroup;
 			children = (
+				628A79E32A53F05100ECEAF8 /* LLMFeature.h */,
 				6239AEA52A55C5B200972588 /* LLM Model */,
 				6228BF1A2A55453B00E27BA0 /* LLM Client */,
-				628A79E32A53F05100ECEAF8 /* LLMFeature.h */,
-				6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */,
 			);
 			path = LLMFeature;
 			sourceTree = "<group>";

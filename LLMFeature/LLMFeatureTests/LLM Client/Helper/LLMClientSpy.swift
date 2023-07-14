@@ -39,7 +39,6 @@ class LLMClientSpy: LLMClient {
 
     public func sendMessage(text: String) async throws -> String {
         receivedMessages.append(.sendMessage)
-        let userText = "user + \(text)"
         let task = Task { () -> LLMClientResult in
             guard let result = sendMessageResult else { throw SendError.failed }
             switch result {

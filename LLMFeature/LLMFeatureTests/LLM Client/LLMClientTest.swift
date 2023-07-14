@@ -16,6 +16,8 @@ class LLMClientTest: XCTestCase {
         XCTAssertEqual(sut.receivedMessages, [])
     }
     
+    //MARK: Send message
+    
     func test_send_requestSendMessagge() async {
         let sut = makeSUT()
                 
@@ -50,6 +52,7 @@ class LLMClientTest: XCTestCase {
         }
     }
     
+    //MARK: Save history
     
     func test_saveHistory_requestsSave() async {
         let sut = makeSUT()
@@ -92,6 +95,8 @@ class LLMClientTest: XCTestCase {
         }
     }
     
+    //MARK: Delete history
+    
     func test_deleteHistory_requestsDeleteHistory() async {
         let sut = makeSUT()
                 
@@ -133,23 +138,4 @@ class LLMClientTest: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-    
-    //private func expect(_ sut: LLMClientSpy, toCompleteWith expectedResult: Result<Void, Error>, when action: () -> Void, file: StaticString = //#filePath, line: UInt = #line) {
-    //    action()
-//
-    //    let receivedResult = Result { try sut.se }
-//
-    //    switch (receivedResult, expectedResult) {
-    //    case (.success, .success):
-    //        break
-    //
-    //    case (.failure(let receivedError as LocalFeedImageDataLoader.SaveError),
-    //          .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
-    //        XCTAssertEqual(receivedError, expectedError, file: file, line: line)
-    //
-    //    default:
-    //        XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-    //    }
-    //}
-    
 }
