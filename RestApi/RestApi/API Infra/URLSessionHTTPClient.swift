@@ -2,12 +2,15 @@
 //  Copyright © Essential Developer. All rights reserved.
 //
 
+import os
 import Foundation
 import Combine
 
 public final class URLSessionHTTPClient: HTTPClient {
     
     private let session: URLSession
+    
+    private lazy var logger = Logger(subsystem: "com.ariel.one.RestAPI", category: "httpclient")
     
     public init(session: URLSession) {
         self.session = session
@@ -33,7 +36,13 @@ public final class URLSessionHTTPClient: HTTPClient {
             let (data, response) = try await session.data(for: url)
             
             guard let httpUrlResponse = response as? HTTPURLResponse else {
+                logger.fault("Response is not a HTTPURLResponse")
                 throw UnexpectedValuesRepresentation()
+            }
+            
+            // Convert to a string and print
+            if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+                logger.debug("\(JSONString)")
             }
             
             return (data, httpUrlResponse)

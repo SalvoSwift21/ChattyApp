@@ -6,33 +6,54 @@
 //
 
 import Foundation
-import LLMFeature
 import RestApi
 
-class OpenAILLMClient: LLMClient {
+public class OpenAILLMClient: LLMClient {
     
-    typealias LLMClientResult = String
     
-    private var httpClient = URLSessionHTTPClient
-    private var configuration = LLMConfiguration
+    public typealias LLMClientResult = [LLMMessage]
     
-    init(httpClient: URLSessionHTTPClient, configuration: LLMConfiguration) {
+    private typealias LLMChatCompletion = LLMResponse<LLMMessage>
+    
+    private var httpClient: URLSessionHTTPClient
+    private var configuration: LLMConfiguration
+    
+    public init(httpClient: URLSessionHTTPClient, configuration: LLMConfiguration) {
         self.httpClient = httpClient
         self.configuration = configuration
     }
 
-    public func sendMessage(text: String) async throws -> String {
-        return ""
+    public func sendMessage(text: String) async throws -> [LLMMessage] {
+        let userNewMessage = LLMMessage(role: "user", content: text)
+        return try await createChatCompletetions(messagges: [userNewMessage])?.genericObject ?? []
     }
     
-    func saveInHistory(userText: String, responseText: String) async throws {
-     
+    public func saveInHistory(userText: String, responseText: [LLMMessage]) async throws {
     }
     
-    
-    func deleteFromHistory() async throws {
-      
-    }
+    public func deleteFromHistory() async throws { }
     
   
+}
+
+//MARK: Help func for get model
+extension OpenAILLMClient {
+    
+    public func getAiModels() async throws -> [String] {
+        let endpoint = GetModelEndpoint()
+        let request = try EndpointURLRequestMapper.map(from: endpoint)
+        let (data, response) = try await httpClient.makeTaskRequest(from: request).result()
+        
+        return [""]
+    }
+    
+    private func createChatCompletetions(messagges: [LLMMessage]) async throws -> LLMChatCompletion? {
+        let endpoint = ChatCompletionEndpoint(messages: messagges)
+        let request = try EndpointURLRequestMapper.map(from: endpoint)
+        let (data, _) = try await httpClient.makeTaskRequest(from: request).result()
+        
+        let llmResponse = try JSONDecoder().decode(LLMChatCompletion.self, from: data)
+        
+        return llmResponse
+    }
 }

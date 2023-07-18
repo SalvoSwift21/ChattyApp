@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LLMResponse<T> {
+public struct LLMResponse<T: Codable>: Codable {
     public let totalUsedTokens: Int
     public let genericObject: [T]
     

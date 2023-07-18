@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LLMRequestBody: Hashable {
+public struct LLMRequestBody {
     public let model: String
     public let messages: [LLMMessage]
     
