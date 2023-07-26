@@ -7,28 +7,42 @@
 
 import XCTest
 import LLMFeature
+import RestApi
 
 final class OpenAIEndToEndTests: XCTestCase {
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testExample() async throws {
+        
+        do {
+            let startMessage = LLMMessage(role: "user", content: "Ciao piacere di conoscerti.")
+            let firstResponse = try await makeSUT().sendMessage(object: startMessage)
+            
+            print("ARRIVATO 111")
+            
+            let newMessage = LLMMessage(role: "user", content: "Sto provando le tue api")
+            let secondResponse = try await makeSUT().sendMessage(object: newMessage)
+            
+            print("ARRIVATO 222")
+            
+            let newMessage1 = LLMMessage(role: "user", content: "incredibile")
+            let thirdResponse = try await makeSUT().sendMessage(object: newMessage1)
+            
+            print("ARRIVATO 333")
+        } catch {
+            print("error \(error.localizedDescription)")
+        }
+        
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
     // MARK: - Helpers
     
-   // private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> //OpenAILLMClient {
-   //
-   // }
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> OpenAILLMClient {
+        let session = URLSession(configuration: .ephemeral)
+        let client = URLSessionHTTPClient(session: session)
+        let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "testUserFirst")
+        let sut = OpenAILLMClient(httpClient: client, configuration: config)
+        return sut
+    }
 
 }

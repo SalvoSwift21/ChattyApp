@@ -12,6 +12,7 @@ import LLMFeature
 class LLMClientSpy: LLMClient {
     
     typealias LLMClientResult = String
+    typealias LLMClientObject = String
     
     enum ReceivedMessage: Equatable {
         case sendMessage
@@ -37,13 +38,13 @@ class LLMClientSpy: LLMClient {
     private var sendMessageResult: Result<Void, Error>?
     private var saveInHistoryMessageResult: Result<Void, Error>?
 
-    public func sendMessage(text: String) async throws -> String {
+    public func sendMessage(object: String) async throws -> String {
         receivedMessages.append(.sendMessage)
         let task = Task { () -> LLMClientResult in
             guard let result = sendMessageResult else { throw SendError.failed }
             switch result {
             case .success(_):
-                return "assistance + \(text)"
+                return "assistance + \(object)"
             case .failure(let failure):
                 throw failure
             }
@@ -51,8 +52,8 @@ class LLMClientSpy: LLMClient {
         return try await task.value
     }
     
-    func saveInHistory(userText: String, responseText: String) async throws {
-        receivedMessages.append(.insert([userText, responseText]))
+    func saveInHistory(newObject: String, responseText: String) async throws {
+        receivedMessages.append(.insert([newObject, responseText]))
         try saveInHistoryMessageResult?.get()
     }
     

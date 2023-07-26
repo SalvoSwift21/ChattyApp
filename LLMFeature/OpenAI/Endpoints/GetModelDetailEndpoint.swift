@@ -22,12 +22,13 @@ class GetModelDetailEndpoint: Endpoint {
     
     var query: [String : String]? = nil
     
-    var header: [String : String]? = OpenAiConfiguration.BASE_AUTH_HEADER
+    var header: [String : String]?
     
-    var body: [String : Any]? = nil
+    var body: Encodable? = nil
     
-    init(modelName: String) {
+    init(modelName: String, token: String = OpenAiConfiguration.TEST_API_KEY) {
         self.modelName = modelName
         self.path += modelName
+        self.header = ["Authorization": "Bearer \(token)"]
     }
 }

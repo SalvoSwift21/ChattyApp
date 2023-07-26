@@ -9,9 +9,9 @@ import Foundation
 
 public struct LLMResponse<T: Codable>: Codable {
     public let totalUsedTokens: Int
-    public let genericObject: [T]
+    public let genericObject: T
     
-    public init(totalUsedTokens: Int, genericObject: [T]) {
+    public init(totalUsedTokens: Int, genericObject: T) {
         self.totalUsedTokens = totalUsedTokens
         self.genericObject = genericObject
     }

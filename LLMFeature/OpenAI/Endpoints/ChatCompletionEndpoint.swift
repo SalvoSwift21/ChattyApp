@@ -20,17 +20,14 @@ class ChatCompletionEndpoint: Endpoint {
     
     var query: [String : String]? = nil
     
-    var header: [String : String]? = OpenAiConfiguration.BASE_AUTH_HEADER
+    var header: [String : String]?
     
-    var body: [String : Any]? = nil
+    var body: Encodable? = nil
     
-    init(messages: [LLMMessage], model: String = "gpt-3.5-turbo") {
-        self.body = [:]
-        self.body?["message"] = messages
-        self.body?["model"] = model
-        self.body?["temperature"] = 1.0
-        self.body?["stream"] = false
-        self.body?["max_tokens"] = 20.0
-        self.body?["user"] = "testUser"
+    init(messages: [LLMMessage], model: String = "gpt-3.5-turbo", token: String = OpenAiConfiguration.TEST_API_KEY) {
+        self.body = LLMRequestBody(model: model, messages: messages)
+        
+        self.header = ["Authorization": "Bearer \(token)",
+                       "Content-Type": "application/json"]
     }
 }
