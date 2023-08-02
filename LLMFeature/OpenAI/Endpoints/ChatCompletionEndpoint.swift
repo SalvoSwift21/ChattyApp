@@ -22,10 +22,14 @@ class ChatCompletionEndpoint: Endpoint {
     
     var header: [String : String]?
     
-    var body: Encodable? = nil
-    
-    init(messages: [LLMMessage], model: String = "gpt-3.5-turbo", token: String = OpenAiConfiguration.TEST_API_KEY) {
-        self.body = LLMRequestBody(model: model, messages: messages)
+    var body: [String : Any]?
+        
+    init(messages: [LLMMessage], model: String = "gpt-3.5-turbo", token: String = OpenAiConfiguration.TEST_API_KEY) throws {
+        let bodyModel = LLMRequestBody(model: model, messages: messages)
+        let jsonData = try JSONEncoder().encode(bodyModel)
+        let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]
+        
+        self.body = jsonObject
         
         self.header = ["Authorization": "Bearer \(token)",
                        "Content-Type": "application/json"]

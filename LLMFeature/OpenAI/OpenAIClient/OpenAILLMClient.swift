@@ -70,7 +70,7 @@ extension OpenAILLMClient {
     }
     
     private func chatCompletetions(for messagges: [LLMMessage]) async throws -> LLMChatCompletion? {
-        let endpoint = ChatCompletionEndpoint(messages: messagges, model: "gpt-3.5-turbo", token: configuration.API_KEY)
+        let endpoint = try ChatCompletionEndpoint(messages: messagges, model: "gpt-3.5-turbo", token: configuration.API_KEY)
         let request = try EndpointURLRequestMapper.map(from: endpoint)
         let (data, response) = try await httpClient.makeTaskRequest(from: request).result()
         

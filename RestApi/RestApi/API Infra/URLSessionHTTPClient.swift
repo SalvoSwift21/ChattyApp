@@ -35,12 +35,20 @@ public final class URLSessionHTTPClient: HTTPClient {
         let fetchTask = Task { () -> HTTPClient.Result in
             let (data, response) = try await session.data(for: url)
             
+            //Debug request
+            logger.debug("\(url)")
+        
+            if let JSONString = String(data: url.httpBody ?? Data(), encoding: String.Encoding.utf8) {
+                logger.debug("Body: \(JSONString)")
+            }
+
+            
             guard let httpUrlResponse = response as? HTTPURLResponse else {
                 logger.fault("Response is not a HTTPURLResponse")
                 throw UnexpectedValuesRepresentation()
             }
             
-            // Convert to a string and print
+           
             if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
                 logger.debug("\(JSONString)")
             }
