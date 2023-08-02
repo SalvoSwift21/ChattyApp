@@ -7,39 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		621C4D4D2A61257200E505CE /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621C4D4C2A61257200E505CE /* RestApi.framework */; };
-		621C4D4E2A61257200E505CE /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 621C4D4C2A61257200E505CE /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6228BF182A55437200E27BA0 /* LLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228BF172A55437200E27BA0 /* LLMClient.swift */; };
-		6228BF1C2A5545A600E27BA0 /* LLMConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */; };
-		6239AE9C2A55C0F000972588 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AE9B2A55C0F000972588 /* SharedTestHelpers.swift */; };
-		6239AE9D2A55C0F000972588 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AE9A2A55C0F000972588 /* XCTestCase+MemoryLeakTracking.swift */; };
-		6239AEA02A55C14F00972588 /* LLMClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AE9F2A55C14F00972588 /* LLMClientTest.swift */; };
-		6239AEA42A55C1E000972588 /* LLMClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228BF1D2A5549D800E27BA0 /* LLMClientSpy.swift */; };
-		6239AEA72A55C63C00972588 /* LLMMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AEA62A55C63C00972588 /* LLMMessage.swift */; };
-		6239AEA92A55C7C200972588 /* LLMRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AEA82A55C7C200972588 /* LLMRequestBody.swift */; };
-		6239AEAB2A55C87300972588 /* LLMResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AEAA2A55C87300972588 /* LLMResponse.swift */; };
-		628A79E92A53F05100ECEAF8 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A79E02A53F05100ECEAF8 /* LLMFeature.framework */; };
-		628A79EF2A53F05100ECEAF8 /* LLMFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 628A79E32A53F05100ECEAF8 /* LLMFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6224B95A2A7A354A009B2A23 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */; };
+		6224B95F2A7A354A009B2A23 /* OpenAIFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B95E2A7A354A009B2A23 /* OpenAIFeatureTests.swift */; };
+		6224B9602A7A354A009B2A23 /* OpenAIFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6224B9542A7A354A009B2A23 /* OpenAIFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6224B9772A7A35BB009B2A23 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9762A7A35BB009B2A23 /* LLMFeature.framework */; };
+		6224B9782A7A35BB009B2A23 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9762A7A35BB009B2A23 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6224B97B2A7A35C1009B2A23 /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B97A2A7A35C1009B2A23 /* RestApi.framework */; };
+		6224B97C2A7A35C1009B2A23 /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B97A2A7A35C1009B2A23 /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6224B97E2A7A3924009B2A23 /* ChatCompletionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9722A7A3558009B2A23 /* ChatCompletionEndpoint.swift */; };
+		6224B97F2A7A3924009B2A23 /* GetModelsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9702A7A3558009B2A23 /* GetModelsEndpoint.swift */; };
+		6224B9802A7A3924009B2A23 /* OpenAIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9692A7A3558009B2A23 /* OpenAIConfigurations.swift */; };
+		6224B9812A7A3924009B2A23 /* OpenAIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B96E2A7A3558009B2A23 /* OpenAIMapper.swift */; };
+		6224B9822A7A3924009B2A23 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B96B2A7A3558009B2A23 /* HTTPURLResponse+StatusCode.swift */; };
+		6224B9832A7A3924009B2A23 /* GetModelDetailEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9712A7A3558009B2A23 /* GetModelDetailEndpoint.swift */; };
+		6224B9842A7A3924009B2A23 /* OpenAILLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B96D2A7A3558009B2A23 /* OpenAILLMClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		628A79EA2A53F05100ECEAF8 /* PBXContainerItemProxy */ = {
+		6224B95B2A7A354A009B2A23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 628A79D72A53F05100ECEAF8 /* Project object */;
+			containerPortal = 6224B9482A7A354A009B2A23 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 628A79DF2A53F05100ECEAF8;
-			remoteInfo = LLVMFeature;
+			remoteGlobalIDString = 6224B9502A7A354A009B2A23;
+			remoteInfo = OpenAIFeature;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		621C4D4F2A61257200E505CE /* Embed Frameworks */ = {
+		6224B9792A7A35BB009B2A23 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				621C4D4E2A61257200E505CE /* RestApi.framework in Embed Frameworks */,
+				6224B9782A7A35BB009B2A23 /* LLMFeature.framework in Embed Frameworks */,
+				6224B97C2A7A35C1009B2A23 /* RestApi.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,205 +49,205 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		621C4D472A61243700E505CE /* LLMFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LLMFeature.xctestplan; sourceTree = "<group>"; };
-		621C4D4C2A61257200E505CE /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6228BF172A55437200E27BA0 /* LLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClient.swift; sourceTree = "<group>"; };
-		6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMConfiguration.swift; sourceTree = "<group>"; };
-		6228BF1D2A5549D800E27BA0 /* LLMClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClientSpy.swift; sourceTree = "<group>"; };
-		6239AE9A2A55C0F000972588 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
-		6239AE9B2A55C0F000972588 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
-		6239AE9F2A55C14F00972588 /* LLMClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMClientTest.swift; sourceTree = "<group>"; };
-		6239AEA62A55C63C00972588 /* LLMMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMMessage.swift; sourceTree = "<group>"; };
-		6239AEA82A55C7C200972588 /* LLMRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMRequestBody.swift; sourceTree = "<group>"; };
-		6239AEAA2A55C87300972588 /* LLMResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMResponse.swift; sourceTree = "<group>"; };
-		628A79E02A53F05100ECEAF8 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		628A79E32A53F05100ECEAF8 /* LLMFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLMFeature.h; sourceTree = "<group>"; };
-		628A79E82A53F05100ECEAF8 /* LLMFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LLMFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6224B9542A7A354A009B2A23 /* OpenAIFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenAIFeature.h; sourceTree = "<group>"; };
+		6224B9592A7A354A009B2A23 /* OpenAIFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenAIFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6224B95E2A7A354A009B2A23 /* OpenAIFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIFeatureTests.swift; sourceTree = "<group>"; };
+		6224B9692A7A3558009B2A23 /* OpenAIConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIConfigurations.swift; sourceTree = "<group>"; };
+		6224B96B2A7A3558009B2A23 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
+		6224B96D2A7A3558009B2A23 /* OpenAILLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAILLMClient.swift; sourceTree = "<group>"; };
+		6224B96E2A7A3558009B2A23 /* OpenAIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIMapper.swift; sourceTree = "<group>"; };
+		6224B9702A7A3558009B2A23 /* GetModelsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModelsEndpoint.swift; sourceTree = "<group>"; };
+		6224B9712A7A3558009B2A23 /* GetModelDetailEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModelDetailEndpoint.swift; sourceTree = "<group>"; };
+		6224B9722A7A3558009B2A23 /* ChatCompletionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCompletionEndpoint.swift; sourceTree = "<group>"; };
+		6224B9762A7A35BB009B2A23 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6224B97A2A7A35C1009B2A23 /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6224B97D2A7A3881009B2A23 /* OpenAIFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = OpenAIFeature.xctestplan; path = ../OpenAIFeature.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		628A79DD2A53F05100ECEAF8 /* Frameworks */ = {
+		6224B94E2A7A354A009B2A23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				621C4D4D2A61257200E505CE /* RestApi.framework in Frameworks */,
+				6224B9772A7A35BB009B2A23 /* LLMFeature.framework in Frameworks */,
+				6224B97B2A7A35C1009B2A23 /* RestApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		628A79E52A53F05100ECEAF8 /* Frameworks */ = {
+		6224B9562A7A354A009B2A23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				628A79E92A53F05100ECEAF8 /* LLMFeature.framework in Frameworks */,
+				6224B95A2A7A354A009B2A23 /* OpenAIFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		621C4D4B2A61257200E505CE /* Frameworks */ = {
+		6224B9472A7A354A009B2A23 = {
 			isa = PBXGroup;
 			children = (
-				621C4D4C2A61257200E505CE /* RestApi.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6228BF1A2A55453B00E27BA0 /* LLM Client */ = {
-			isa = PBXGroup;
-			children = (
-				6228BF172A55437200E27BA0 /* LLMClient.swift */,
-			);
-			path = "LLM Client";
-			sourceTree = "<group>";
-		};
-		6239AE992A55C0F000972588 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				6239AE9B2A55C0F000972588 /* SharedTestHelpers.swift */,
-				6239AE9A2A55C0F000972588 /* XCTestCase+MemoryLeakTracking.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		6239AE9E2A55C11700972588 /* LLM Client */ = {
-			isa = PBXGroup;
-			children = (
-				6239AEA12A55C15700972588 /* Helper */,
-				6239AE9F2A55C14F00972588 /* LLMClientTest.swift */,
-			);
-			path = "LLM Client";
-			sourceTree = "<group>";
-		};
-		6239AEA12A55C15700972588 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				6228BF1D2A5549D800E27BA0 /* LLMClientSpy.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		6239AEA52A55C5B200972588 /* LLM Model */ = {
-			isa = PBXGroup;
-			children = (
-				6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */,
-				6239AEA62A55C63C00972588 /* LLMMessage.swift */,
-				6239AEA82A55C7C200972588 /* LLMRequestBody.swift */,
-				6239AEAA2A55C87300972588 /* LLMResponse.swift */,
-			);
-			path = "LLM Model";
-			sourceTree = "<group>";
-		};
-		628A79D62A53F05100ECEAF8 = {
-			isa = PBXGroup;
-			children = (
-				621C4D472A61243700E505CE /* LLMFeature.xctestplan */,
-				628A79E22A53F05100ECEAF8 /* LLMFeature */,
-				628A79EC2A53F05100ECEAF8 /* LLMFeatureTests */,
-				628A79E12A53F05100ECEAF8 /* Products */,
-				621C4D4B2A61257200E505CE /* Frameworks */,
+				6224B97D2A7A3881009B2A23 /* OpenAIFeature.xctestplan */,
+				6224B9532A7A354A009B2A23 /* OpenAIFeature */,
+				6224B95D2A7A354A009B2A23 /* OpenAIFeatureTests */,
+				6224B9522A7A354A009B2A23 /* Products */,
+				6224B9752A7A35BB009B2A23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		628A79E12A53F05100ECEAF8 /* Products */ = {
+		6224B9522A7A354A009B2A23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				628A79E02A53F05100ECEAF8 /* LLMFeature.framework */,
-				628A79E82A53F05100ECEAF8 /* LLMFeatureTests.xctest */,
+				6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */,
+				6224B9592A7A354A009B2A23 /* OpenAIFeatureTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		628A79E22A53F05100ECEAF8 /* LLMFeature */ = {
+		6224B9532A7A354A009B2A23 /* OpenAIFeature */ = {
 			isa = PBXGroup;
 			children = (
-				628A79E32A53F05100ECEAF8 /* LLMFeature.h */,
-				6239AEA52A55C5B200972588 /* LLM Model */,
-				6228BF1A2A55453B00E27BA0 /* LLM Client */,
+				6224B9542A7A354A009B2A23 /* OpenAIFeature.h */,
+				6224B96A2A7A3558009B2A23 /* Configurations */,
+				6224B9732A7A3558009B2A23 /* Endpoints */,
+				6224B96F2A7A3558009B2A23 /* OpenAIClient */,
+				6224B9742A7A3559009B2A23 /* Model */,
 			);
-			path = LLMFeature;
+			path = OpenAIFeature;
 			sourceTree = "<group>";
 		};
-		628A79EC2A53F05100ECEAF8 /* LLMFeatureTests */ = {
+		6224B95D2A7A354A009B2A23 /* OpenAIFeatureTests */ = {
 			isa = PBXGroup;
 			children = (
-				6239AE992A55C0F000972588 /* Helpers */,
-				6239AE9E2A55C11700972588 /* LLM Client */,
+				6224B95E2A7A354A009B2A23 /* OpenAIFeatureTests.swift */,
 			);
-			path = LLMFeatureTests;
+			path = OpenAIFeatureTests;
+			sourceTree = "<group>";
+		};
+		6224B96A2A7A3558009B2A23 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				6224B9692A7A3558009B2A23 /* OpenAIConfigurations.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		6224B96C2A7A3558009B2A23 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6224B96B2A7A3558009B2A23 /* HTTPURLResponse+StatusCode.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		6224B96F2A7A3558009B2A23 /* OpenAIClient */ = {
+			isa = PBXGroup;
+			children = (
+				6224B96C2A7A3558009B2A23 /* Helper */,
+				6224B96D2A7A3558009B2A23 /* OpenAILLMClient.swift */,
+				6224B96E2A7A3558009B2A23 /* OpenAIMapper.swift */,
+			);
+			path = OpenAIClient;
+			sourceTree = "<group>";
+		};
+		6224B9732A7A3558009B2A23 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				6224B9702A7A3558009B2A23 /* GetModelsEndpoint.swift */,
+				6224B9712A7A3558009B2A23 /* GetModelDetailEndpoint.swift */,
+				6224B9722A7A3558009B2A23 /* ChatCompletionEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		6224B9742A7A3559009B2A23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6224B9752A7A35BB009B2A23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6224B97A2A7A35C1009B2A23 /* RestApi.framework */,
+				6224B9762A7A35BB009B2A23 /* LLMFeature.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		628A79DB2A53F05100ECEAF8 /* Headers */ = {
+		6224B94C2A7A354A009B2A23 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				628A79EF2A53F05100ECEAF8 /* LLMFeature.h in Headers */,
+				6224B9602A7A354A009B2A23 /* OpenAIFeature.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		628A79DF2A53F05100ECEAF8 /* LLMFeature */ = {
+		6224B9502A7A354A009B2A23 /* OpenAIFeature */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 628A79F22A53F05100ECEAF8 /* Build configuration list for PBXNativeTarget "LLMFeature" */;
+			buildConfigurationList = 6224B9632A7A354A009B2A23 /* Build configuration list for PBXNativeTarget "OpenAIFeature" */;
 			buildPhases = (
-				628A79DB2A53F05100ECEAF8 /* Headers */,
-				628A79DC2A53F05100ECEAF8 /* Sources */,
-				628A79DD2A53F05100ECEAF8 /* Frameworks */,
-				628A79DE2A53F05100ECEAF8 /* Resources */,
-				621C4D4F2A61257200E505CE /* Embed Frameworks */,
+				6224B94C2A7A354A009B2A23 /* Headers */,
+				6224B94D2A7A354A009B2A23 /* Sources */,
+				6224B94E2A7A354A009B2A23 /* Frameworks */,
+				6224B94F2A7A354A009B2A23 /* Resources */,
+				6224B9792A7A35BB009B2A23 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LLMFeature;
-			productName = LLVMFeature;
-			productReference = 628A79E02A53F05100ECEAF8 /* LLMFeature.framework */;
+			name = OpenAIFeature;
+			productName = OpenAIFeature;
+			productReference = 6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		628A79E72A53F05100ECEAF8 /* LLMFeatureTests */ = {
+		6224B9582A7A354A009B2A23 /* OpenAIFeatureTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 628A79F52A53F05100ECEAF8 /* Build configuration list for PBXNativeTarget "LLMFeatureTests" */;
+			buildConfigurationList = 6224B9662A7A354A009B2A23 /* Build configuration list for PBXNativeTarget "OpenAIFeatureTests" */;
 			buildPhases = (
-				628A79E42A53F05100ECEAF8 /* Sources */,
-				628A79E52A53F05100ECEAF8 /* Frameworks */,
-				628A79E62A53F05100ECEAF8 /* Resources */,
+				6224B9552A7A354A009B2A23 /* Sources */,
+				6224B9562A7A354A009B2A23 /* Frameworks */,
+				6224B9572A7A354A009B2A23 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				628A79EB2A53F05100ECEAF8 /* PBXTargetDependency */,
+				6224B95C2A7A354A009B2A23 /* PBXTargetDependency */,
 			);
-			name = LLMFeatureTests;
-			productName = LLVMFeatureTests;
-			productReference = 628A79E82A53F05100ECEAF8 /* LLMFeatureTests.xctest */;
+			name = OpenAIFeatureTests;
+			productName = OpenAIFeatureTests;
+			productReference = 6224B9592A7A354A009B2A23 /* OpenAIFeatureTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		628A79D72A53F05100ECEAF8 /* Project object */ = {
+		6224B9482A7A354A009B2A23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					628A79DF2A53F05100ECEAF8 = {
+					6224B9502A7A354A009B2A23 = {
 						CreatedOnToolsVersion = 14.3.1;
-						LastSwiftMigration = 1420;
 					};
-					628A79E72A53F05100ECEAF8 = {
+					6224B9582A7A354A009B2A23 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 628A79DA2A53F05100ECEAF8 /* Build configuration list for PBXProject "LLMFeature" */;
+			buildConfigurationList = 6224B94B2A7A354A009B2A23 /* Build configuration list for PBXProject "OpenAIFeature" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -253,26 +255,26 @@
 				en,
 				Base,
 			);
-			mainGroup = 628A79D62A53F05100ECEAF8;
-			productRefGroup = 628A79E12A53F05100ECEAF8 /* Products */;
+			mainGroup = 6224B9472A7A354A009B2A23;
+			productRefGroup = 6224B9522A7A354A009B2A23 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				628A79DF2A53F05100ECEAF8 /* LLMFeature */,
-				628A79E72A53F05100ECEAF8 /* LLMFeatureTests */,
+				6224B9502A7A354A009B2A23 /* OpenAIFeature */,
+				6224B9582A7A354A009B2A23 /* OpenAIFeatureTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		628A79DE2A53F05100ECEAF8 /* Resources */ = {
+		6224B94F2A7A354A009B2A23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		628A79E62A53F05100ECEAF8 /* Resources */ = {
+		6224B9572A7A354A009B2A23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,41 +284,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		628A79DC2A53F05100ECEAF8 /* Sources */ = {
+		6224B94D2A7A354A009B2A23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6239AEA72A55C63C00972588 /* LLMMessage.swift in Sources */,
-				6239AEA92A55C7C200972588 /* LLMRequestBody.swift in Sources */,
-				6228BF1C2A5545A600E27BA0 /* LLMConfiguration.swift in Sources */,
-				6239AEAB2A55C87300972588 /* LLMResponse.swift in Sources */,
-				6228BF182A55437200E27BA0 /* LLMClient.swift in Sources */,
+				6224B9832A7A3924009B2A23 /* GetModelDetailEndpoint.swift in Sources */,
+				6224B9842A7A3924009B2A23 /* OpenAILLMClient.swift in Sources */,
+				6224B9802A7A3924009B2A23 /* OpenAIConfigurations.swift in Sources */,
+				6224B97E2A7A3924009B2A23 /* ChatCompletionEndpoint.swift in Sources */,
+				6224B9822A7A3924009B2A23 /* HTTPURLResponse+StatusCode.swift in Sources */,
+				6224B9812A7A3924009B2A23 /* OpenAIMapper.swift in Sources */,
+				6224B97F2A7A3924009B2A23 /* GetModelsEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		628A79E42A53F05100ECEAF8 /* Sources */ = {
+		6224B9552A7A354A009B2A23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6239AE9C2A55C0F000972588 /* SharedTestHelpers.swift in Sources */,
-				6239AEA42A55C1E000972588 /* LLMClientSpy.swift in Sources */,
-				6239AE9D2A55C0F000972588 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
-				6239AEA02A55C14F00972588 /* LLMClientTest.swift in Sources */,
+				6224B95F2A7A354A009B2A23 /* OpenAIFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		628A79EB2A53F05100ECEAF8 /* PBXTargetDependency */ = {
+		6224B95C2A7A354A009B2A23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 628A79DF2A53F05100ECEAF8 /* LLMFeature */;
-			targetProxy = 628A79EA2A53F05100ECEAF8 /* PBXContainerItemProxy */;
+			target = 6224B9502A7A354A009B2A23 /* OpenAIFeature */;
+			targetProxy = 6224B95B2A7A354A009B2A23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		628A79F02A53F05100ECEAF8 /* Debug */ = {
+		6224B9612A7A354A009B2A23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -379,7 +380,7 @@
 			};
 			name = Debug;
 		};
-		628A79F12A53F05100ECEAF8 /* Release */ = {
+		6224B9622A7A354A009B2A23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -436,10 +437,9 @@
 			};
 			name = Release;
 		};
-		628A79F32A53F05100ECEAF8 /* Debug */ = {
+		6224B9642A7A354A009B2A23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -459,20 +459,18 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.LLVMFeature;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.OpenAIFeature;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		628A79F42A53F05100ECEAF8 /* Release */ = {
+		6224B9652A7A354A009B2A23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -492,7 +490,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.LLVMFeature;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.OpenAIFeature;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -501,7 +499,7 @@
 			};
 			name = Release;
 		};
-		628A79F62A53F05100ECEAF8 /* Debug */ = {
+		6224B9672A7A354A009B2A23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -510,7 +508,7 @@
 				DEVELOPMENT_TEAM = P8QQ67A73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.LLVMFeatureTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.OpenAIFeatureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -518,7 +516,7 @@
 			};
 			name = Debug;
 		};
-		628A79F72A53F05100ECEAF8 /* Release */ = {
+		6224B9682A7A354A009B2A23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -527,7 +525,7 @@
 				DEVELOPMENT_TEAM = P8QQ67A73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.LLVMFeatureTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.OpenAIFeatureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -538,34 +536,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		628A79DA2A53F05100ECEAF8 /* Build configuration list for PBXProject "LLMFeature" */ = {
+		6224B94B2A7A354A009B2A23 /* Build configuration list for PBXProject "OpenAIFeature" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				628A79F02A53F05100ECEAF8 /* Debug */,
-				628A79F12A53F05100ECEAF8 /* Release */,
+				6224B9612A7A354A009B2A23 /* Debug */,
+				6224B9622A7A354A009B2A23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		628A79F22A53F05100ECEAF8 /* Build configuration list for PBXNativeTarget "LLMFeature" */ = {
+		6224B9632A7A354A009B2A23 /* Build configuration list for PBXNativeTarget "OpenAIFeature" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				628A79F32A53F05100ECEAF8 /* Debug */,
-				628A79F42A53F05100ECEAF8 /* Release */,
+				6224B9642A7A354A009B2A23 /* Debug */,
+				6224B9652A7A354A009B2A23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		628A79F52A53F05100ECEAF8 /* Build configuration list for PBXNativeTarget "LLMFeatureTests" */ = {
+		6224B9662A7A354A009B2A23 /* Build configuration list for PBXNativeTarget "OpenAIFeatureTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				628A79F62A53F05100ECEAF8 /* Debug */,
-				628A79F72A53F05100ECEAF8 /* Release */,
+				6224B9672A7A354A009B2A23 /* Debug */,
+				6224B9682A7A354A009B2A23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 628A79D72A53F05100ECEAF8 /* Project object */;
+	rootObject = 6224B9482A7A354A009B2A23 /* Project object */;
 }

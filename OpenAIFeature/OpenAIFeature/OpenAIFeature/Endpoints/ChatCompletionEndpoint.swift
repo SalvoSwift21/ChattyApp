@@ -7,6 +7,7 @@
 
 import Foundation
 import RestApi
+import LLMFeature
 
 class ChatCompletionEndpoint: Endpoint {
     

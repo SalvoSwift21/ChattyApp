@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LLMFeature
 
 public final class OpenAIMapper {
     private struct Root: Decodable {

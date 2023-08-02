@@ -1,12 +1,13 @@
 //
-//  OpenAIEndToEndTests.swift
-//  OpenAIEndToEndTests
+//  OpenAIFeatureTests.swift
+//  OpenAIFeatureTests
 //
-//  Created by Salvatore Milazzo on 14/07/23.
+//  Created by Salvatore Milazzo on 02/08/23.
 //
 
 import XCTest
 import LLMFeature
+import OpenAIFeature
 import RestApi
 
 final class OpenAIEndToEndTests: XCTestCase {
@@ -21,16 +22,6 @@ final class OpenAIEndToEndTests: XCTestCase {
             
             print("ARRIVATO 111")
             
-            let newMessage = LLMMessage(role: "user", content: "Sto provando le tue api, mi puoi dire se ricordi il messaggio precedente ? Sto provando a salvare una history della nostra chat")
-            let secondResponse = try await sut.sendMessage(object: newMessage)
-            
-            print("ARRIVATO 222")
-            
-            
-            let newMessage2 = LLMMessage(role: "user", content: "Ok ma ad ogni api ti devo mandare lo storico della conversazione vero ?")
-            let secondResponse2 = try await sut.sendMessage(object: newMessage2)
-            
-            print("ARRIVATO 333")
         } catch {
             print("error \(error.localizedDescription)")
         }

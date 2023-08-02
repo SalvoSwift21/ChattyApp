@@ -7,6 +7,7 @@
 
 import Foundation
 import RestApi
+import LLMFeature
 
 public class OpenAILLMClient: LLMClient {
     
