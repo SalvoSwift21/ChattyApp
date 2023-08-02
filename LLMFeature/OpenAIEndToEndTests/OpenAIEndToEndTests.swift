@@ -11,21 +11,24 @@ import RestApi
 
 final class OpenAIEndToEndTests: XCTestCase {
 
+    
+    
     func testExample() async throws {
-        
+        let sut = makeSUT()
         do {
             let startMessage = LLMMessage(role: "user", content: "Ciao piacere di conoscerti.")
-            let firstResponse = try await makeSUT().sendMessage(object: startMessage)
+            let firstResponse = try await sut.sendMessage(object: startMessage)
             
             print("ARRIVATO 111")
             
-            let newMessage = LLMMessage(role: "user", content: "Sto provando le tue api")
-            let secondResponse = try await makeSUT().sendMessage(object: newMessage)
+            let newMessage = LLMMessage(role: "user", content: "Sto provando le tue api, mi puoi dire se ricordi il messaggio precedente ? Sto provando a salvare una history della nostra chat")
+            let secondResponse = try await sut.sendMessage(object: newMessage)
             
             print("ARRIVATO 222")
             
-            let newMessage1 = LLMMessage(role: "user", content: "incredibile")
-            let thirdResponse = try await makeSUT().sendMessage(object: newMessage1)
+            
+            let newMessage2 = LLMMessage(role: "user", content: "Ok ma ad ogni api ti devo mandare lo storico della conversazione vero ?")
+            let secondResponse2 = try await sut.sendMessage(object: newMessage2)
             
             print("ARRIVATO 333")
         } catch {

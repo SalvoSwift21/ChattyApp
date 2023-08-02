@@ -10,26 +10,25 @@ import Foundation
 public final class OpenAIMapper {
     private struct Root: Decodable {
         
-        private var completionResponse: CompletionResponse
-        
-        private struct CompletionResponse: Decodable {
-            let choices: [Choice]
-            let usage: Usage?
-        }
+        let choices: [Choice]
+        let usage: Usage?
         
         var llmChatCompletion: OpenAILLMClient.LLMChatCompletion {
-            OpenAILLMClient.LLMChatCompletion(totalUsedTokens: completionResponse.usage?.totalTokens ?? 0, genericObject: completionResponse.choices.first?.message)
+            OpenAILLMClient.LLMChatCompletion(totalUsedTokens: usage?.total_tokens ?? 0, genericObject: choices.first?.message)
         }
     }
     
-    public enum Error: Swift.Error {
-        case invalidData
+    public enum OpenAIMapperError: Error {
+        case invalidResponseCode(String)
     }
     
     public static func map(_ data: Data, from response: HTTPURLResponse) throws -> OpenAILLMClient.LLMChatCompletion {
-        guard response.isOK, let root = try? JSONDecoder().decode(Root.self, from: data) else {
-            throw Error.invalidData
+        guard response.isOK else {
+            let errorResponse = try JSONDecoder().decode(ErrorRootResponse.self, from: data)
+            throw OpenAIMapperError.invalidResponseCode("Bad Response: \(response.statusCode). \(errorResponse.error)")
         }
+        
+        let root = try JSONDecoder().decode(Root.self, from: data)
         
         return root.llmChatCompletion
     }
@@ -46,12 +45,12 @@ struct ErrorResponse: Decodable {
 }
 
 struct Usage: Decodable {
-    let promptTokens: Int?
-    let completionTokens: Int?
-    let totalTokens: Int?
+    let prompt_tokens: Int?
+    let completion_tokens: Int?
+    let total_tokens: Int?
 }
 
 struct Choice: Decodable {
-    let finishReason: String?
+    let finish_reason: String?
     let message: LLMMessage
 }
