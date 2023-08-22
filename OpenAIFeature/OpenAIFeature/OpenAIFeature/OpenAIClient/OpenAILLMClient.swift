@@ -14,6 +14,7 @@ public class OpenAILLMClient: LLMClient {
    
     public enum OpenAIError: Error {
         case generic(String)
+        case notValidChatCompletetionsResult
     }
     
     public typealias LLMClientResult = LLMMessage?
@@ -32,10 +33,15 @@ public class OpenAILLMClient: LLMClient {
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
-        let messages = createCorrectArrayFromHistory(with: object)
-        let result = try await chatCompletetions(for: messages)
-        try await saveInHistory(newObject: object, responseText: result?.genericObject)
-        return result?.genericObject
+        try await saveInHistory(newObject: object, responseText: nil)
+        
+        guard let result = try await chatCompletetions(for: self.history),
+                let message = result.genericObject else {
+            throw OpenAIError.notValidChatCompletetionsResult
+        }
+        
+        try await saveInHistory(newObject: message, responseText: nil)
+        return result.genericObject
     }
     
     public func saveInHistory(newObject: LLMMessage, responseText: LLMMessage?) async throws {
@@ -50,13 +56,6 @@ public class OpenAILLMClient: LLMClient {
         self.history.removeAll()
     }
     
-    
-    private func createCorrectArrayFromHistory(with newObject: LLMMessage) -> [LLMMessage] {
-        var historyCopy = history
-        historyCopy.append(newObject)
-        return history.count == 0 ? [newObject] : historyCopy
-    }
-  
 }
 
 //MARK: Help func for get model

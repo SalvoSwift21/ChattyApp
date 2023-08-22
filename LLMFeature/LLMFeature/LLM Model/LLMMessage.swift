@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LLMMessage: Codable {
+public struct LLMMessage: Codable, Equatable {
     public let role: String
     public let content: String
     

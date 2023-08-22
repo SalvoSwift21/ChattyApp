@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6224B95A2A7A354A009B2A23 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */; };
-		6224B95F2A7A354A009B2A23 /* OpenAIFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B95E2A7A354A009B2A23 /* OpenAIFeatureTests.swift */; };
+		6224B95F2A7A354A009B2A23 /* OpenAIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B95E2A7A354A009B2A23 /* OpenAIEndToEndTests.swift */; };
 		6224B9602A7A354A009B2A23 /* OpenAIFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6224B9542A7A354A009B2A23 /* OpenAIFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6224B9772A7A35BB009B2A23 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9762A7A35BB009B2A23 /* LLMFeature.framework */; };
 		6224B9782A7A35BB009B2A23 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9762A7A35BB009B2A23 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,7 +52,7 @@
 		6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6224B9542A7A354A009B2A23 /* OpenAIFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenAIFeature.h; sourceTree = "<group>"; };
 		6224B9592A7A354A009B2A23 /* OpenAIFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenAIFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6224B95E2A7A354A009B2A23 /* OpenAIFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIFeatureTests.swift; sourceTree = "<group>"; };
+		6224B95E2A7A354A009B2A23 /* OpenAIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIEndToEndTests.swift; sourceTree = "<group>"; };
 		6224B9692A7A3558009B2A23 /* OpenAIConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIConfigurations.swift; sourceTree = "<group>"; };
 		6224B96B2A7A3558009B2A23 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		6224B96D2A7A3558009B2A23 /* OpenAILLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAILLMClient.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		6224B95D2A7A354A009B2A23 /* OpenAIFeatureTests */ = {
 			isa = PBXGroup;
 			children = (
-				6224B95E2A7A354A009B2A23 /* OpenAIFeatureTests.swift */,
+				6224B95E2A7A354A009B2A23 /* OpenAIEndToEndTests.swift */,
 			);
 			path = OpenAIFeatureTests;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6224B95F2A7A354A009B2A23 /* OpenAIFeatureTests.swift in Sources */,
+				6224B95F2A7A354A009B2A23 /* OpenAIEndToEndTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
