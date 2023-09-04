@@ -29,7 +29,7 @@ struct Choice: Decodable {
 }
 
 
-public final class OpenAIMapper {
+public final class OpenAICompletionMapper {
     private struct Root: Decodable {
         
         let choices: [Choice]
