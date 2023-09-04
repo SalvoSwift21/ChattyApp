@@ -52,8 +52,8 @@ class LLMClientSpy: LLMClient {
         return try await task.value
     }
     
-    func saveInHistory(newObject: String, responseText: String) async throws {
-        receivedMessages.append(.insert([newObject, responseText]))
+    func saveInHistory(newObject: String) async throws {
+        receivedMessages.append(.insert([newObject]))
         try saveInHistoryMessageResult?.get()
     }
     

@@ -59,9 +59,10 @@ class LLMClientTest: XCTestCase {
         let userText = "user text"
         let responseText = "response text"
         
-        try? await sut.saveInHistory(newObject: userText, responseText: responseText)
-        
-        XCTAssertEqual(sut.receivedMessages, [.insert([userText, responseText])])
+        try? await sut.saveInHistory(newObject: userText)
+        try? await sut.saveInHistory(newObject: responseText)
+
+        XCTAssertEqual(sut.receivedMessages, [.insert([userText]), .insert([responseText])])
     }
     
     func test_saveHistory_failsOnInsertionError() async {
@@ -72,7 +73,8 @@ class LLMClientTest: XCTestCase {
         sut.completeSaveInHistory(with: LLMClientSpy.SaveHistoryError.failed)
         
         do {
-            try await sut.saveInHistory(newObject: userText, responseText: responseText)
+            try await sut.saveInHistory(newObject: userText)
+            try await sut.saveInHistory(newObject: responseText)
             XCTFail("Expect Error, got success")
         } catch {
             XCTAssert(error as? LLMClientSpy.SaveHistoryError == LLMClientSpy.SaveHistoryError.failed)
@@ -88,7 +90,8 @@ class LLMClientTest: XCTestCase {
         sut.completeSaveInHistorySuccessfully()
         
         do {
-            try await sut.saveInHistory(newObject: userText, responseText: responseText)
+            try await sut.saveInHistory(newObject: userText)
+            try await sut.saveInHistory(newObject: responseText)
             debugPrint("Success")
         } catch {
             XCTFail("Expect success, got error: \(error.localizedDescription)")

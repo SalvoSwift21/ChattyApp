@@ -44,8 +44,4 @@ final class OpenAIEndToEndTests: XCTestCase {
         await fulfillment(of: [exp])
         return result
     }
-    
-    private func fixedResponse() -> String {
-        "Ciao, piacere di conoscerti anche a te! Come posso aiutarti oggi?"
-    }
 }

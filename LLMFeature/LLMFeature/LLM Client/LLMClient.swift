@@ -15,6 +15,6 @@ public protocol LLMClient {
     @discardableResult
     func sendMessage(object: LLMClientObject) async throws -> LLMClientResult
     
-    func saveInHistory(newObject: LLMClientObject, responseText: LLMClientResult) async throws
+    func saveInHistory(newObject: LLMClientObject) async throws
     func deleteFromHistory() async throws
 }

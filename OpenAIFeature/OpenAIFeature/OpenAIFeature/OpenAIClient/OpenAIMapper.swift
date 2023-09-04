@@ -8,6 +8,27 @@
 import Foundation
 import LLMFeature
 
+struct ErrorRootResponse: Decodable {
+    let error: ErrorResponse
+}
+
+struct ErrorResponse: Decodable {
+    let message: String
+    let type: String?
+}
+
+struct Usage: Decodable {
+    let prompt_tokens: Int?
+    let completion_tokens: Int?
+    let total_tokens: Int?
+}
+
+struct Choice: Decodable {
+    let finish_reason: String?
+    let message: LLMMessage
+}
+
+
 public final class OpenAIMapper {
     private struct Root: Decodable {
         
@@ -33,25 +54,4 @@ public final class OpenAIMapper {
         
         return root.llmChatCompletion
     }
-}
-
-
-struct ErrorRootResponse: Decodable {
-    let error: ErrorResponse
-}
-
-struct ErrorResponse: Decodable {
-    let message: String
-    let type: String?
-}
-
-struct Usage: Decodable {
-    let prompt_tokens: Int?
-    let completion_tokens: Int?
-    let total_tokens: Int?
-}
-
-struct Choice: Decodable {
-    let finish_reason: String?
-    let message: LLMMessage
 }

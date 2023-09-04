@@ -33,23 +33,18 @@ public class OpenAILLMClient: LLMClient {
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
-        try await saveInHistory(newObject: object, responseText: nil)
         
         guard let result = try await chatCompletetions(for: self.history),
                 let message = result.genericObject else {
             throw OpenAIError.notValidChatCompletetionsResult
         }
-        
-        try await saveInHistory(newObject: message, responseText: nil)
+        try await saveInHistory(newObject: object)
+        try await saveInHistory(newObject: message)
         return result.genericObject
     }
     
-    public func saveInHistory(newObject: LLMMessage, responseText: LLMMessage?) async throws {
+    public func saveInHistory(newObject: LLMMessage) async throws {
         self.history.append(newObject)
-        guard let responseText = responseText else {
-            return
-        }
-        self.history.append(responseText)
     }
     
     public func deleteFromHistory() async throws {
