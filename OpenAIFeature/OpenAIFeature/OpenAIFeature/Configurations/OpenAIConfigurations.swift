@@ -24,7 +24,7 @@ ENDPOINT    MODEL NAME
 */
 
 public class OpenAiConfiguration {
-    static public let TEST_API_KEY = "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"
+    static public let TEST_API_KEY = "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"
     static let ORG_ID = "org-Vf9PkFk6RhkFsVJgasYIXl7j"
     static let BASE_HOST = "api.openai.com"
     static let BASE_PATH = "/v1"

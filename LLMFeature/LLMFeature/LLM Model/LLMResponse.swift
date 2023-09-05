@@ -7,12 +7,18 @@
 
 import Foundation
 
-public struct LLMResponse<T: Codable>: Codable {
+public struct LLMResponse<T: Codable>: Codable, Equatable {
+    
+    private var uuid = UUID()
     public let totalUsedTokens: Int
     public let genericObject: T
     
     public init(totalUsedTokens: Int, genericObject: T) {
         self.totalUsedTokens = totalUsedTokens
         self.genericObject = genericObject
+    }
+    
+    public static func == (lhs: LLMResponse<T>, rhs: LLMResponse<T>) -> Bool {
+        lhs.uuid == rhs.uuid
     }
 }

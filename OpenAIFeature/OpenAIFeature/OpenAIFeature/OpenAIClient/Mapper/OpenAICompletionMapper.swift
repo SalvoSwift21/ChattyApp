@@ -23,9 +23,14 @@ struct Usage: Decodable {
     let total_tokens: Int?
 }
 
-struct Choice: Decodable {
+public struct Choice: Codable {
     let finish_reason: String?
-    let message: LLMMessage
+    public let message: LLMMessage
+    
+    public init(finish_reason: String? = nil, message: LLMMessage) {
+        self.finish_reason = finish_reason
+        self.message = message
+    }
 }
 
 

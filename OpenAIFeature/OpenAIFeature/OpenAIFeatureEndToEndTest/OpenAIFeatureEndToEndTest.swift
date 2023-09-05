@@ -1,8 +1,8 @@
 //
-//  OpenAIFeatureTests.swift
-//  OpenAIFeatureTests
+//  OpenAIFeatureEndToEndTEst.swift
+//  OpenAIFeatureEndToEndTEst
 //
-//  Created by Salvatore Milazzo on 02/08/23.
+//  Created by Salvatore Milazzo on 05/09/23.
 //
 
 import XCTest
