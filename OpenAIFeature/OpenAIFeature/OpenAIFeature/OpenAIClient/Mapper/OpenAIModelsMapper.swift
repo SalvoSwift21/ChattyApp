@@ -7,11 +7,18 @@
 
 import Foundation
 
-public struct OpenAIModel: Decodable {
+public struct OpenAIModel: Codable, Equatable {
     let id: String
     let object: String?
     let created: Int64?
     let owned_by: String
+    
+    public init(id: String, object: String? = nil, created: Int64? = nil, owned_by: String) {
+        self.id = id
+        self.object = object
+        self.created = created
+        self.owned_by = owned_by
+    }
 }
 
 public final class OpenAIModelsMapper {

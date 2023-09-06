@@ -23,9 +23,9 @@ public class OpenAILLMClient: LLMClient {
     
     private var history: [LLMMessage] = []
 
-    private var httpClient: OpenAIHTTPClient
+    private var httpClient: OpenAIApiClient
     
-    public init(openAIHTTPClient: OpenAIHTTPClient) {
+    public init(openAIHTTPClient: OpenAIApiClient) {
         self.httpClient = openAIHTTPClient
     }
 

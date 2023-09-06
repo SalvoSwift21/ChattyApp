@@ -13,7 +13,7 @@ import RestApi
 class OpenAICompletionMapperTests: XCTestCase {
     
     func test_map_throwsErrorOnNon200HTTPResponse() throws {
-        let json = makeItemsJSON([])
+        let json = makeChoicesJSON([])
         let samples = [199, 201, 300, 400, 500]
         
         try samples.forEach { code in
@@ -32,7 +32,7 @@ class OpenAICompletionMapperTests: XCTestCase {
     }
     
     func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONChoicesList() throws {
-        let emptyListJSON = makeItemsJSON([])
+        let emptyListJSON = makeChoicesJSON([])
         
         let result = try OpenAICompletionMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
         
@@ -44,7 +44,7 @@ class OpenAICompletionMapperTests: XCTestCase {
         
         let item2 = try makeChoice(message: LLMMessage(role: "boot", content: "test boot"))
         
-        let json = makeItemsJSON([item1.json, item2.json])
+        let json = makeChoicesJSON([item1.json, item2.json])
         
         let result = try OpenAICompletionMapper.map(json, from: HTTPURLResponse(statusCode: 200))
         

@@ -19,10 +19,16 @@ func anyData() -> Data {
     return Data("any data".utf8)
 }
 
-func makeItemsJSON(_ choices: [[String: Any]]) -> Data {
+func makeChoicesJSON(_ choices: [[String: Any]]) -> Data {
     let json: [String : Any] = ["choices": choices]
     return try! JSONSerialization.data(withJSONObject: json)
 }
+
+func makeModelsJSON(_ models: [[String: Any]]) -> Data {
+    let json: [String : Any] = ["data": models]
+    return try! JSONSerialization.data(withJSONObject: json)
+}
+
 
 extension HTTPURLResponse {
     convenience init(statusCode: Int) {
