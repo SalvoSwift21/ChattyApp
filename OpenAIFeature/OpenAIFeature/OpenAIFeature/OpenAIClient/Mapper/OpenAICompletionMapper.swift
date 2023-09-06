@@ -40,8 +40,8 @@ public final class OpenAICompletionMapper {
         let choices: [Choice]
         let usage: Usage?
         
-        var llmChatCompletion: OpenAILLMClient.LLMChatCompletion {
-            OpenAILLMClient.LLMChatCompletion(totalUsedTokens: usage?.total_tokens ?? 0, genericObject: choices.first?.message)
+        var llmChatCompletion: OpenAIApiClient.LLMChatCompletion {
+            OpenAIApiClient.LLMChatCompletion(totalUsedTokens: usage?.total_tokens ?? 0, genericObject: choices.first?.message)
         }
     }
     
@@ -49,7 +49,7 @@ public final class OpenAICompletionMapper {
         case invalidResponseCode(String)
     }
     
-    public static func map(_ data: Data, from response: HTTPURLResponse) throws -> OpenAILLMClient.LLMChatCompletion {
+    public static func map(_ data: Data, from response: HTTPURLResponse) throws -> OpenAIApiClient.LLMChatCompletion {
         guard response.isOK else {
             let errorResponse = try JSONDecoder().decode(ErrorRootResponse.self, from: data)
             throw OpenAIMapperError.invalidResponseCode("Bad Response: \(response.statusCode). \(errorResponse.error)")

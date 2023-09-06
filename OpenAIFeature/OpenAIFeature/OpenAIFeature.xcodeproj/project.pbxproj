@@ -144,7 +144,6 @@
 				6224B96A2A7A3558009B2A23 /* Configurations */,
 				6224B9732A7A3558009B2A23 /* Endpoints */,
 				6224B96F2A7A3558009B2A23 /* OpenAIClient */,
-				6224B9742A7A3559009B2A23 /* Model */,
 			);
 			path = OpenAIFeature;
 			sourceTree = "<group>";
@@ -195,13 +194,6 @@
 				6224B9722A7A3558009B2A23 /* ChatCompletionEndpoint.swift */,
 			);
 			path = Endpoints;
-			sourceTree = "<group>";
-		};
-		6224B9742A7A3559009B2A23 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6224B9752A7A35BB009B2A23 /* Frameworks */ = {

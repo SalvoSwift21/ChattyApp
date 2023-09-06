@@ -18,9 +18,7 @@ public class OpenAILLMClient: LLMClient {
     
     public typealias LLMClientResult = LLMMessage?
     public typealias LLMClientObject = LLMMessage
-    
-    public typealias LLMChatCompletion = LLMResponse<LLMMessage?>
-    
+        
     private var history: [LLMMessage] = []
 
     private var httpClient: OpenAIApiClient
@@ -30,8 +28,9 @@ public class OpenAILLMClient: LLMClient {
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
+        let llmRequestBody: LLMRequestBody = createRequestBody(messages: history)
         
-        guard let result = try await httpClient.chatCompletetions(for: self.history),
+        guard let result = try await httpClient.chatCompletetions(for: llmRequestBody),
                 let message = result.genericObject else {
             throw OpenAIError.notValidChatCompletetionsResult
         }
@@ -47,5 +46,9 @@ public class OpenAILLMClient: LLMClient {
     
     public func deleteFromHistory() async throws {
         self.history.removeAll()
+    }
+    
+    private func createRequestBody(messages: [LLMMessage]) -> LLMRequestBody {
+        LLMRequestBody(model: "gpt-3.5-turbo", messages: messages, max_tokens: 35, stream: false, temperature: 1.0, user: nil)
     }
 }

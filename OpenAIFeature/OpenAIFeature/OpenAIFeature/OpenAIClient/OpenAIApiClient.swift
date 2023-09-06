@@ -11,6 +11,8 @@ import LLMFeature
 
 public class OpenAIApiClient {
     
+    public typealias LLMChatCompletion = LLMResponse<LLMMessage?>
+    
     private var httpClient: URLSessionHTTPClient
     private var configuration: LLMConfiguration
 
@@ -27,8 +29,8 @@ public class OpenAIApiClient {
         return modelResponse
     }
     
-    public func chatCompletetions(for messagges: [LLMMessage], model: String = "gpt-3.5-turbo") async throws -> OpenAILLMClient.LLMChatCompletion? {
-        let endpoint = try ChatCompletionEndpoint(messages: messagges, model: model, token: configuration.API_KEY)
+    public func chatCompletetions(for requestBody: LLMRequestBody) async throws -> LLMChatCompletion? {
+        let endpoint = try ChatCompletionEndpoint(llmRequestBody: requestBody, token: configuration.API_KEY)
         let request = try EndpointURLRequestMapper.map(from: endpoint)
         let (data, response) = try await httpClient.makeTaskRequest(from: request).result()
         

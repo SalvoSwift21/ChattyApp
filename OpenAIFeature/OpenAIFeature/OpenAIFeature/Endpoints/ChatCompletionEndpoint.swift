@@ -25,9 +25,9 @@ class ChatCompletionEndpoint: Endpoint {
     
     var body: [String : Any]?
         
-    init(messages: [LLMMessage], model: String = "gpt-3.5-turbo", token: String = OpenAiConfiguration.TEST_API_KEY) throws {
-        let bodyModel = LLMRequestBody(model: model, messages: messages)
-        let jsonData = try JSONEncoder().encode(bodyModel)
+    init(llmRequestBody: LLMRequestBody, token: String = OpenAiConfiguration.TEST_API_KEY) throws {
+                
+        let jsonData = try JSONEncoder().encode(llmRequestBody)
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]
         
         self.body = jsonObject
