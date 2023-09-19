@@ -118,6 +118,28 @@ class URLSessionHTTPClientTests: XCTestCase {
 		XCTAssertEqual(receivedValues?.response.url, response.url)
 		XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
 	}
+    
+    // MARK: - Stream Request
+    
+    func test_getFromURL_performsStreamGETRequestWithURL() async {
+        let urlRequest = anyURLRequest()
+        let exp = expectation(description: "Wait for request")
+        
+        URLProtocolStub.observeRequests { request in
+            XCTAssertEqual(request.url, urlRequest.url)
+            XCTAssertEqual(request.httpMethod, "GET")
+            exp.fulfill()
+        }
+        
+        do {
+            try await makeSUT().makeStreamTaskRequest(from: anyURLRequest()).result()
+        } catch {
+            print("Error in getFromUrl: \(error.localizedDescription) expect success")
+        }
+        
+        await fulfillment(of: [exp], timeout: 1.0)
+    }
+    
 	
 	// MARK: - Helpers
 	
@@ -141,7 +163,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
 	}
 	
-    private func resultErrorFor(_ values: (data: Data?, response: URLResponse?, error: Error?)? = nil, taskHandler: (HTTPClientTask) -> Void = { _ in }, file: StaticString = #filePath, line: UInt = #line) async -> Error? {
+    private func resultErrorFor(_ values: (data: Data?, response: URLResponse?, error: Error?)? = nil, taskHandler: (any HTTPClientTask) -> Void = { _ in }, file: StaticString = #filePath, line: UInt = #line) async -> Error? {
         do {
             let result = try await resultFor(values, taskHandler: taskHandler, file: file, line: line)
             XCTFail("Expected failure, got \(result) instead", file: file, line: line)
@@ -151,14 +173,29 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
 	}
     
-    private func resultFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?, taskHandler: (HTTPClientTask) -> Void = { _ in }, file: StaticString = #filePath, line: UInt = #line) async throws -> HTTPClient.Result {
+    private func resultFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?, taskHandler: (any HTTPClientTask) -> Void = { _ in }, file: StaticString = #filePath, line: UInt = #line) async throws -> HTTPClient.Result {
         
         values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
         let sut = makeSUT(file: file, line: line)
         
         let clientTask = try await sut.makeTaskRequest(from: anyURLRequest())
         taskHandler(clientTask)
-        let response = try await clientTask.result()
+        guard let response = try await clientTask.result() as? HTTPClient.Result else {
+            throw NSError(domain: "Not correct HTTPClient.Result", code: 0000)
+        }
+        
+        return response
+    }
+    
+    private func resultStreamFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?, file: StaticString = #filePath, line: UInt = #line) async throws -> HTTPClient.StreamResult {
+        
+        values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
+        let sut = makeSUT(file: file, line: line)
+        
+        let clientTask = try await sut.makeStreamTaskRequest(from: anyURLRequest())
+        guard let response = try await clientTask.result() as? HTTPClient.StreamResult else {
+            throw NSError(domain: "Not correct HTTPClient.Result", code: 0000)
+        }
         
         return response
     }
