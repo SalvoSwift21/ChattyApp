@@ -18,22 +18,7 @@ public final class URLSessionHTTPClient: HTTPClient {
     
     private struct UnexpectedValuesRepresentation: Error {}
     
-    private struct URLSessionTaskWrapper<T>: HTTPClientTask {
-        
-        typealias T = T
-        
-        let wrapped: Task<T, Error>
-        
-        func cancel() {
-            wrapped.cancel()
-        }
-        
-        func result() async throws -> (T) {
-            return try await wrapped.value
-        }
-    }
-    
-    public func makeTaskRequest(from url: URLRequest) async throws -> any HTTPClientTask {
+    public func makeTaskRequest(from url: URLRequest) async throws -> DataHTTPClientTask {
         let fetchTask = Task { () -> HTTPClient.Result in
             let (data, response) = try await session.data(for: url)
             
@@ -58,11 +43,11 @@ public final class URLSessionHTTPClient: HTTPClient {
             return (data, httpUrlResponse)
         }
         
-        return URLSessionTaskWrapper<HTTPClient.Result>(wrapped: fetchTask)
+        return DataHTTPClientTask(wrapped: fetchTask)
     }
     
     
-    public func makeStreamTaskRequest(from url: URLRequest) async throws -> any HTTPClientTask {
+    public func makeStreamTaskRequest(from url: URLRequest) async throws -> StreamHTTPClientTask {
         let fetchTask = Task { () -> HTTPClient.StreamResult in
             let (stream, response) = try await session.bytes(for: url)
             
@@ -82,6 +67,6 @@ public final class URLSessionHTTPClient: HTTPClient {
             return (stream, httpUrlResponse)
         }
         
-        return URLSessionTaskWrapper<HTTPClient.StreamResult>(wrapped: fetchTask)
+        return StreamHTTPClientTask(wrapped: fetchTask)
     }
 }

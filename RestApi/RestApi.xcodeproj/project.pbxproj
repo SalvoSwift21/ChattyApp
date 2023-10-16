@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6218B2BF2ABB5EE600DB8E0F /* DataHTTPClientResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6218B2BE2ABB5EE600DB8E0F /* DataHTTPClientResult.swift */; };
+		6218B2C12ABB5EF300DB8E0F /* StreamHTTPClientTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6218B2C02ABB5EF300DB8E0F /* StreamHTTPClientTask.swift */; };
 		62328BCA2A27CF03006A2C74 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E6F2A271C3D004F5E44 /* URLProtocolStub.swift */; };
 		62328BCB2A27CF49006A2C74 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62639E702A271C3D004F5E44 /* URLSessionHTTPClientTests.swift */; };
 		62639E4A2A264837004F5E44 /* RestApi.docc in Sources */ = {isa = PBXBuildFile; fileRef = 62639E492A264837004F5E44 /* RestApi.docc */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6218B2BE2ABB5EE600DB8E0F /* DataHTTPClientResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHTTPClientResult.swift; sourceTree = "<group>"; };
+		6218B2C02ABB5EF300DB8E0F /* StreamHTTPClientTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamHTTPClientTask.swift; sourceTree = "<group>"; };
 		62639E452A264837004F5E44 /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62639E482A264837004F5E44 /* RestApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestApi.h; sourceTree = "<group>"; };
 		62639E492A264837004F5E44 /* RestApi.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = RestApi.docc; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				62FF33012A45748300EFAFF1 /* API Request */,
-				62639E582A271BA3004F5E44 /* API Infra */,
+				62639E582A271BA3004F5E44 /* API Implementation */,
 				62639E552A271B64004F5E44 /* API */,
 				62639E482A264837004F5E44 /* RestApi.h */,
 				62639E492A264837004F5E44 /* RestApi.docc */,
@@ -108,12 +112,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		62639E582A271BA3004F5E44 /* API Infra */ = {
+		62639E582A271BA3004F5E44 /* API Implementation */ = {
 			isa = PBXGroup;
 			children = (
 				62639E592A271BBB004F5E44 /* URLSessionHTTPClient.swift */,
+				6218B2BE2ABB5EE600DB8E0F /* DataHTTPClientResult.swift */,
+				6218B2C02ABB5EF300DB8E0F /* StreamHTTPClientTask.swift */,
 			);
-			path = "API Infra";
+			path = "API Implementation";
 			sourceTree = "<group>";
 		};
 		62639E602A271C0F004F5E44 /* RestApiTests */ = {
@@ -288,8 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				62639E4A2A264837004F5E44 /* RestApi.docc in Sources */,
+				6218B2BF2ABB5EE600DB8E0F /* DataHTTPClientResult.swift in Sources */,
 				62FF33042A45752C00EFAFF1 /* Endpoint.swift in Sources */,
 				62FF33062A457C5E00EFAFF1 /* EndpointURLRequestMapper.swift in Sources */,
+				6218B2C12ABB5EF300DB8E0F /* StreamHTTPClientTask.swift in Sources */,
 				62639E842A271E5E004F5E44 /* URLSessionHTTPClient.swift in Sources */,
 				62639E852A271E5E004F5E44 /* HTTPClient.swift in Sources */,
 			);

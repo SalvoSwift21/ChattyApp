@@ -11,6 +11,14 @@ import LLMFeature
 
 public class OpenAIApiClient {
     
+    public enum Status {
+        case stream(String)
+        case finished(String)
+        case error(throwing: Error)
+    }
+    
+    private struct UnexpectedValuesRepresentation: Error {}
+    
     public typealias LLMChatCompletion = LLMResponse<LLMMessage?>
     
     private var httpClient: URLSessionHTTPClient
@@ -28,14 +36,23 @@ public class OpenAIApiClient {
         let modelResponse = try OpenAIModelsMapper.map(data, from: response)
         return modelResponse
     }
+}
+
+extension OpenAIApiClient {
     
     public func chatCompletetions(for requestBody: LLMRequestBody) async throws -> LLMChatCompletion? {
         let endpoint = try ChatCompletionEndpoint(llmRequestBody: requestBody, token: configuration.API_KEY)
         let request = try EndpointURLRequestMapper.map(from: endpoint)
         let (data, response) = try await httpClient.makeTaskRequest(from: request).result()
+        return try OpenAICompletionMapper.map(data, from: response)
+    }
+
+    
+    public func chatCompletetionsStream(for requestBody: LLMRequestBody) async throws -> AsyncThrowingStream<Status, Error> {
         
-        let llmResponse = try OpenAICompletionMapper.map(data, from: response)
-        
-        return llmResponse
+        let endpoint = try ChatCompletionEndpoint(llmRequestBody: requestBody, token: configuration.API_KEY)
+        let request = try EndpointURLRequestMapper.map(from: endpoint)
+        let (data, response) = try await httpClient.makeStreamTaskRequest(from: request).result()
+        return try await OpenAIStreamCompletionMapper.map(data, from: response)
     }
 }

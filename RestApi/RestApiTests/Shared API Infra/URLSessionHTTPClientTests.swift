@@ -4,12 +4,9 @@
 
 import XCTest
 import RestApi
-import Combine
 
 class URLSessionHTTPClientTests: XCTestCase {
-	
-    private var cancellables: Set<AnyCancellable> = []
-    
+	    
     override func setUp() {
         super.setUp()
     }
@@ -180,22 +177,19 @@ class URLSessionHTTPClientTests: XCTestCase {
         
         let clientTask = try await sut.makeTaskRequest(from: anyURLRequest())
         taskHandler(clientTask)
-        guard let response = try await clientTask.result() as? HTTPClient.Result else {
-            throw NSError(domain: "Not correct HTTPClient.Result", code: 0000)
-        }
+        let response = try await clientTask.result()
         
         return response
     }
     
-    private func resultStreamFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?, file: StaticString = #filePath, line: UInt = #line) async throws -> HTTPClient.StreamResult {
+    private func resultStreamFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?, taskHandler: (any HTTPClientTask) -> Void = { _ in }, file: StaticString = #filePath, line: UInt = #line) async throws -> HTTPClient.StreamResult {
         
         values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
         let sut = makeSUT(file: file, line: line)
         
         let clientTask = try await sut.makeStreamTaskRequest(from: anyURLRequest())
-        guard let response = try await clientTask.result() as? HTTPClient.StreamResult else {
-            throw NSError(domain: "Not correct HTTPClient.Result", code: 0000)
-        }
+        taskHandler(clientTask)
+        let response = try await clientTask.result()
         
         return response
     }

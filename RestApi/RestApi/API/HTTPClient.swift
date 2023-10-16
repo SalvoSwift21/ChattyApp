@@ -22,10 +22,10 @@ public protocol HTTPClient {
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
     @discardableResult
-    func makeTaskRequest(from url: URLRequest) async throws -> any HTTPClientTask
+    func makeTaskRequest(from url: URLRequest) async throws -> DataHTTPClientTask
     
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
     @discardableResult
-    func makeStreamTaskRequest(from url: URLRequest) async throws -> any HTTPClientTask
+    func makeStreamTaskRequest(from url: URLRequest) async throws -> StreamHTTPClientTask
 }

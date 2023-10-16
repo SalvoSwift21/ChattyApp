@@ -21,6 +21,33 @@ final class OpenAIEndToEndTests: XCTestCase {
         }
     }
     
+    func test_endToEndTestServerGETStreamChatCompletions_notNilResponse() async throws {
+        do {
+            
+            guard let chatStream = try await getStreamChatCompletionsResult() else {
+                XCTFail("Expected successful chat completions result, chatStream not work instead")
+                return
+            }
+            
+            for try await status in chatStream {
+                switch status {
+                case .stream(let data):
+                    // Gestisci il dato di chat in streaming.
+                    print("Dato di chat in streaming: \(data)")
+                    XCTAssertNotEqual(data, nil)
+                case .finished(let message):
+                    // Gestisci il messaggio di completamento.
+                    print("Messaggio di completamento: \(message)")
+                    XCTAssertNotEqual(message, nil)
+                case .error(let error):
+                    XCTFail("Expected successful chat completions result, got \(error) instead")
+                }
+            }
+        } catch {
+            XCTFail("Expected successful chat completions result, got \(error) instead")
+        }
+    }
+    
     func test_endToEndTestServerGETModels_notNilResponse() async throws {
         do {
             let response = try await getModelsResult()
@@ -51,6 +78,18 @@ final class OpenAIEndToEndTests: XCTestCase {
         exp.fulfill()
         await fulfillment(of: [exp])
         return result?.genericObject
+    }
+    
+    private func getStreamChatCompletionsResult(file: StaticString = #filePath, line: UInt = #line) async throws -> AsyncThrowingStream<OpenAIApiClient.Status, Error>? {
+        let client = makeOpenAIHTTPClient()
+        let exp = XCTestExpectation(description: "Wait for load completion")
+
+        let testMessage = LLMMessage(role: "user", content: "Ciao piacere di conoscerti. Spiegami in breve cos'è un linguaggio di programmazione")
+        let requesBody = LLMRequestBody(model: "gpt-3.5-turbo", messages: [testMessage], max_tokens: 10, stream: true)
+        let result = try await client.chatCompletetionsStream(for: requesBody)
+        exp.fulfill()
+        await fulfillment(of: [exp])
+        return result
     }
     
     private func getModelsResult(file: StaticString = #filePath, line: UInt = #line) async throws -> [OpenAIModel]? {
