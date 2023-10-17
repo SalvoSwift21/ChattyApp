@@ -8,12 +8,13 @@
 import Foundation
 import RestApi
 import LLMFeature
+import GoogleGenerativeAI
 
 public class GoogleAILLMClient: LLMClient {
    
-    public enum OpenAIError: Error {
+    public enum GoogleAIError: Error {
         case generic(String)
-        case notValidChatCompletetionsResult
+        case notValidChatResult
     }
     
     public typealias LLMClientResult = LLMMessage?
@@ -21,14 +22,23 @@ public class GoogleAILLMClient: LLMClient {
         
     private var history: [LLMMessage] = []
 
-    private var httpClient: String
+    private var generativeLanguageClient: GenerativeLanguage
     
-    public init(openAIHTTPClient: String) {
-        self.httpClient = openAIHTTPClient
+    public init(generativeLanguageClient: GenerativeLanguage) {
+        self.generativeLanguageClient = generativeLanguageClient
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
-        return nil
+        
+        let prompt = object.content
+        let response = try await generativeLanguageClient.generateText(with: prompt)
+        
+        guard let message = try GoogleAIMapper.map(response) else { throw GoogleAIError.notValidChatResult }
+        
+        try await saveInHistory(newObject: object)
+        try await saveInHistory(newObject: message)
+        
+        return message
     }
     
     public func saveInHistory(newObject: LLMMessage) async throws {
