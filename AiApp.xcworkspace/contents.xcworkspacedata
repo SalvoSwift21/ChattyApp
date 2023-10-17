@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GoogleAIFeature/GoogleAIFeature.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:OpenAIFeature/OpenAIFeature/OpenAIFeature.xcodeproj">
    </FileRef>
    <FileRef
