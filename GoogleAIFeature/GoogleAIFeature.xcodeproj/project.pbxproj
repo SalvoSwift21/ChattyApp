@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62095BB62ADFDEE800FBEBEF /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */; };
+		62095BB72ADFDEE800FBEBEF /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62095BB82ADFDEE800FBEBEF /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB52ADFDEE800FBEBEF /* RestApi.framework */; };
+		62095BB92ADFDEE800FBEBEF /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB52ADFDEE800FBEBEF /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6222D5692ADF1152005A73EC /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6222D5602ADF1151005A73EC /* GoogleAIFeature.framework */; };
-		6222D56E2ADF1152005A73EC /* GoogleAIFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D56D2ADF1152005A73EC /* GoogleAIFeatureTests.swift */; };
+		6222D56E2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D56D2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift */; };
 		6222D56F2ADF1152005A73EC /* GoogleAIFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6222D5632ADF1152005A73EC /* GoogleAIFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6222D58B2ADF1167005A73EC /* GoogleAIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D5872ADF1167005A73EC /* GoogleAIMapper.swift */; };
 		6222D58E2ADF1167005A73EC /* GoogleAILLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D57F2ADF1166005A73EC /* GoogleAILLMClient.swift */; };
-		6222D58F2ADF1167005A73EC /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D5822ADF1167005A73EC /* HTTPURLResponse+StatusCode.swift */; };
 		6222D5902ADF1167005A73EC /* GoogleAIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D57D2ADF1166005A73EC /* GoogleAIConfigurations.swift */; };
 		6222D5912ADF1167005A73EC /* Encorder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D5842ADF1167005A73EC /* Encorder+Extensions.swift */; };
 		6222D5942ADF1450005A73EC /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6222D5932ADF1450005A73EC /* GoogleGenerativeAI */; };
+		6222D59C2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D59B2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift */; };
+		6222D59D2ADF1CE6005A73EC /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6222D5602ADF1151005A73EC /* GoogleAIFeature.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,18 +31,44 @@
 			remoteGlobalIDString = 6222D55F2ADF1151005A73EC;
 			remoteInfo = GoogleAIFeature;
 		};
+		6222D59E2ADF1CE6005A73EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6222D5572ADF1151005A73EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6222D55F2ADF1151005A73EC;
+			remoteInfo = GoogleAIFeature;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		62095BBA2ADFDEE800FBEBEF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				62095BB72ADFDEE800FBEBEF /* LLMFeature.framework in Embed Frameworks */,
+				62095BB92ADFDEE800FBEBEF /* RestApi.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		62095BB22ADFDB1C00FBEBEF /* GoogleAIFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GoogleAIFeature.xctestplan; sourceTree = "<group>"; };
+		62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62095BB52ADFDEE800FBEBEF /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6222D5602ADF1151005A73EC /* GoogleAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6222D5632ADF1152005A73EC /* GoogleAIFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleAIFeature.h; sourceTree = "<group>"; };
 		6222D5682ADF1152005A73EC /* GoogleAIFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleAIFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6222D56D2ADF1152005A73EC /* GoogleAIFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIFeatureTests.swift; sourceTree = "<group>"; };
+		6222D56D2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAICompletionMapperTests.swift; sourceTree = "<group>"; };
 		6222D57D2ADF1166005A73EC /* GoogleAIConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIConfigurations.swift; sourceTree = "<group>"; };
 		6222D57F2ADF1166005A73EC /* GoogleAILLMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAILLMClient.swift; sourceTree = "<group>"; };
-		6222D5822ADF1167005A73EC /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		6222D5842ADF1167005A73EC /* Encorder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encorder+Extensions.swift"; sourceTree = "<group>"; };
 		6222D5872ADF1167005A73EC /* GoogleAIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIMapper.swift; sourceTree = "<group>"; };
+		6222D5992ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleAIFeatureEndToEndTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6222D59B2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIFeatureEndToEndTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +77,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6222D5942ADF1450005A73EC /* GoogleGenerativeAI in Frameworks */,
+				62095BB82ADFDEE800FBEBEF /* RestApi.framework in Frameworks */,
+				62095BB62ADFDEE800FBEBEF /* LLMFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,15 +90,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6222D5962ADF1CE6005A73EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6222D59D2ADF1CE6005A73EC /* GoogleAIFeature.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62095BB32ADFDEE800FBEBEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */,
+				62095BB52ADFDEE800FBEBEF /* RestApi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6222D5562ADF1151005A73EC = {
 			isa = PBXGroup;
 			children = (
+				62095BB22ADFDB1C00FBEBEF /* GoogleAIFeature.xctestplan */,
 				6222D5622ADF1152005A73EC /* GoogleAIFeature */,
 				6222D56C2ADF1152005A73EC /* GoogleAIFeatureTests */,
+				6222D59A2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest */,
 				6222D5612ADF1151005A73EC /* Products */,
+				62095BB32ADFDEE800FBEBEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +127,7 @@
 			children = (
 				6222D5602ADF1151005A73EC /* GoogleAIFeature.framework */,
 				6222D5682ADF1152005A73EC /* GoogleAIFeatureTests.xctest */,
+				6222D5992ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,7 +137,7 @@
 			children = (
 				6222D5632ADF1152005A73EC /* GoogleAIFeature.h */,
 				6222D57C2ADF1166005A73EC /* Configurations */,
-				6222D57E2ADF1166005A73EC /* OpenAIClient */,
+				6222D57E2ADF1166005A73EC /* GoogleAIClient */,
 			);
 			path = GoogleAIFeature;
 			sourceTree = "<group>";
@@ -91,7 +145,7 @@
 		6222D56C2ADF1152005A73EC /* GoogleAIFeatureTests */ = {
 			isa = PBXGroup;
 			children = (
-				6222D56D2ADF1152005A73EC /* GoogleAIFeatureTests.swift */,
+				6222D56D2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift */,
 			);
 			path = GoogleAIFeatureTests;
 			sourceTree = "<group>";
@@ -104,23 +158,14 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
-		6222D57E2ADF1166005A73EC /* OpenAIClient */ = {
+		6222D57E2ADF1166005A73EC /* GoogleAIClient */ = {
 			isa = PBXGroup;
 			children = (
 				6222D5832ADF1167005A73EC /* Extension */,
-				6222D5812ADF1166005A73EC /* Helper */,
 				6222D5852ADF1167005A73EC /* Mapper */,
 				6222D57F2ADF1166005A73EC /* GoogleAILLMClient.swift */,
 			);
-			path = OpenAIClient;
-			sourceTree = "<group>";
-		};
-		6222D5812ADF1166005A73EC /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				6222D5822ADF1167005A73EC /* HTTPURLResponse+StatusCode.swift */,
-			);
-			path = Helper;
+			path = GoogleAIClient;
 			sourceTree = "<group>";
 		};
 		6222D5832ADF1167005A73EC /* Extension */ = {
@@ -137,6 +182,14 @@
 				6222D5872ADF1167005A73EC /* GoogleAIMapper.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		6222D59A2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest */ = {
+			isa = PBXGroup;
+			children = (
+				6222D59B2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift */,
+			);
+			path = GoogleAIFeatureEndToEndTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +214,7 @@
 				6222D55C2ADF1151005A73EC /* Sources */,
 				6222D55D2ADF1151005A73EC /* Frameworks */,
 				6222D55E2ADF1151005A73EC /* Resources */,
+				62095BBA2ADFDEE800FBEBEF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,6 +246,24 @@
 			productReference = 6222D5682ADF1152005A73EC /* GoogleAIFeatureTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6222D5982ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6222D5A02ADF1CE6005A73EC /* Build configuration list for PBXNativeTarget "GoogleAIFeatureEndToEndTest" */;
+			buildPhases = (
+				6222D5952ADF1CE6005A73EC /* Sources */,
+				6222D5962ADF1CE6005A73EC /* Frameworks */,
+				6222D5972ADF1CE6005A73EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6222D59F2ADF1CE6005A73EC /* PBXTargetDependency */,
+			);
+			name = GoogleAIFeatureEndToEndTest;
+			productName = GoogleAIFeatureEndToEndTest;
+			productReference = 6222D5992ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,6 +278,9 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					6222D5672ADF1152005A73EC = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					6222D5982ADF1CE6005A73EC = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -228,6 +303,7 @@
 			targets = (
 				6222D55F2ADF1151005A73EC /* GoogleAIFeature */,
 				6222D5672ADF1152005A73EC /* GoogleAIFeatureTests */,
+				6222D5982ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +323,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6222D5972ADF1CE6005A73EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -258,7 +341,6 @@
 				6222D5902ADF1167005A73EC /* GoogleAIConfigurations.swift in Sources */,
 				6222D5912ADF1167005A73EC /* Encorder+Extensions.swift in Sources */,
 				6222D58B2ADF1167005A73EC /* GoogleAIMapper.swift in Sources */,
-				6222D58F2ADF1167005A73EC /* HTTPURLResponse+StatusCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +348,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6222D56E2ADF1152005A73EC /* GoogleAIFeatureTests.swift in Sources */,
+				6222D56E2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6222D5952ADF1CE6005A73EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6222D59C2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +367,11 @@
 			isa = PBXTargetDependency;
 			target = 6222D55F2ADF1151005A73EC /* GoogleAIFeature */;
 			targetProxy = 6222D56A2ADF1152005A73EC /* PBXContainerItemProxy */;
+		};
+		6222D59F2ADF1CE6005A73EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6222D55F2ADF1151005A73EC /* GoogleAIFeature */;
+			targetProxy = 6222D59E2ADF1CE6005A73EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -420,6 +515,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +547,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,6 +573,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P8QQ67A73Y;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.GoogleAIFeatureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,8 +591,43 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P8QQ67A73Y;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.GoogleAIFeatureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6222D5A12ADF1CE6005A73EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8QQ67A73Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.GoogleAIFeatureEndToEndTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6222D5A22ADF1CE6005A73EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8QQ67A73Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.GoogleAIFeatureEndToEndTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -528,6 +661,15 @@
 			buildConfigurations = (
 				6222D5762ADF1152005A73EC /* Debug */,
 				6222D5772ADF1152005A73EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6222D5A02ADF1CE6005A73EC /* Build configuration list for PBXNativeTarget "GoogleAIFeatureEndToEndTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6222D5A12ADF1CE6005A73EC /* Debug */,
+				6222D5A22ADF1CE6005A73EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

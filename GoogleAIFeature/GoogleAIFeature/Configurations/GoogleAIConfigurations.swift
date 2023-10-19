@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class OpenAiConfiguration {
-    //AIzaSyDwNZRun-KXsAQJDUx3aA-fEdlb7_Ywbnw
+public class GoogleAIConfigurations {
+
     static public let TEST_API_KEY: String = {
-        let base64Value = "QUl6YVN5RHdOWlJ1bi1LWHNBUUpEVXgzYUEtZkVkbGI3X1l3Ym53"
+        let base64Value = "QUl6YVN5REplVy1DRWtaSVRGaTFneV9PanNXamhzZ0t2V0ZNclJn"
         guard let data = Data(base64Encoded: base64Value) else {
             return "Error"
         }

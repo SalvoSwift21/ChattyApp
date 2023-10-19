@@ -19,7 +19,8 @@ public final class GoogleAIMapper {
 
     public static func map(_ response: GenerateTextResponse) throws -> GoogleAILLMClient.LLMClientResult {
         
-        guard let candidates = response.candidates, let first = candidates.first else {
+        guard let candidates = response.candidates, 
+              let first = candidates.first else {
             throw GoogleAIMapper.GoogleAIMapperError.notValidCandidates
         }
         
