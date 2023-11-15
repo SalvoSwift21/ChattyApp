@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		62CFB56D2B04A9F3006D70A5 /* ScanUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CFB56C2B04A9F3006D70A5 /* ScanUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */; };
+		62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62CFB5692B04A9F3006D70A5 /* ScanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CFB56C2B04A9F3006D70A5 /* ScanUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanUI.h; sourceTree = "<group>"; };
+		62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanColors.xcassets; sourceTree = "<group>"; };
+		62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CommonMedia.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +50,42 @@
 			isa = PBXGroup;
 			children = (
 				62CFB56C2B04A9F3006D70A5 /* ScanUI.h */,
+				62CFB5732B04AA96006D70A5 /* Shared UI */,
 			);
 			path = ScanUI;
+			sourceTree = "<group>";
+		};
+		62CFB5732B04AA96006D70A5 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				62CFB5762B04AB07006D70A5 /* Asset files */,
+				62CFB5752B04AAB6006D70A5 /* Components */,
+				62CFB5742B04AAA3006D70A5 /* Helper */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		62CFB5742B04AAA3006D70A5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		62CFB5752B04AAB6006D70A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		62CFB5762B04AB07006D70A5 /* Asset files */ = {
+			isa = PBXGroup;
+			children = (
+				62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */,
+				62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */,
+			);
+			path = "Asset files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +157,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
+				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
