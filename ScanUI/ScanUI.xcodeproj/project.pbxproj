@@ -7,12 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */; };
+		628B868E2B1553F7009C6895 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868D2B1553F7009C6895 /* OnboardingView.swift */; };
+		628B86902B155544009C6895 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868F2B155544009C6895 /* OnboardingPresenter.swift */; };
+		628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628B86932B155611009C6895 /* OnboardingAsset.xcassets */; };
+		628B86962B15569E009C6895 /* OnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 628B86952B15569E009C6895 /* OnboardingConfiguration.json */; };
+		628B86982B155743009C6895 /* OnboardingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B86972B155743009C6895 /* OnboardingStore.swift */; };
+		628B869A2B15575C009C6895 /* OnboardingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B86992B15575C009C6895 /* OnboardingProtocols.swift */; };
+		628B869C2B155789009C6895 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B869B2B155789009C6895 /* OnboardingService.swift */; };
 		62CFB56D2B04A9F3006D70A5 /* ScanUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CFB56C2B04A9F3006D70A5 /* ScanUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */; };
 		62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		628B868D2B1553F7009C6895 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		628B868F2B155544009C6895 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		628B86932B155611009C6895 /* OnboardingAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingAsset.xcassets; sourceTree = "<group>"; };
+		628B86952B15569E009C6895 /* OnboardingConfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OnboardingConfiguration.json; sourceTree = "<group>"; };
+		628B86972B155743009C6895 /* OnboardingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStore.swift; sourceTree = "<group>"; };
+		628B86992B15575C009C6895 /* OnboardingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProtocols.swift; sourceTree = "<group>"; };
+		628B869B2B155789009C6895 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		62CFB5692B04A9F3006D70A5 /* ScanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CFB56C2B04A9F3006D70A5 /* ScanUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanUI.h; sourceTree = "<group>"; };
 		62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanColors.xcassets; sourceTree = "<group>"; };
@@ -30,6 +46,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		628B86872B15517A009C6895 /* Onboarding Feature */ = {
+			isa = PBXGroup;
+			children = (
+				628B86922B1555FA009C6895 /* Asset */,
+				628B86912B1555ED009C6895 /* Service */,
+				628B86882B1551B9009C6895 /* Model */,
+				628B86892B1551C3009C6895 /* View */,
+				628B868A2B1551C9009C6895 /* Presenter */,
+			);
+			path = "Onboarding Feature";
+			sourceTree = "<group>";
+		};
+		628B86882B1551B9009C6895 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		628B86892B1551C3009C6895 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				628B868D2B1553F7009C6895 /* OnboardingView.swift */,
+				628B86972B155743009C6895 /* OnboardingStore.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		628B868A2B1551C9009C6895 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				628B868F2B155544009C6895 /* OnboardingPresenter.swift */,
+				628B86992B15575C009C6895 /* OnboardingProtocols.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		628B86912B1555ED009C6895 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				628B869B2B155789009C6895 /* OnboardingService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		628B86922B1555FA009C6895 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				628B86932B155611009C6895 /* OnboardingAsset.xcassets */,
+				628B86952B15569E009C6895 /* OnboardingConfiguration.json */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 		62CFB55F2B04A9F3006D70A5 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +122,7 @@
 			children = (
 				62CFB56C2B04A9F3006D70A5 /* ScanUI.h */,
 				62CFB5732B04AA96006D70A5 /* Shared UI */,
+				628B86872B15517A009C6895 /* Onboarding Feature */,
 			);
 			path = ScanUI;
 			sourceTree = "<group>";
@@ -131,6 +203,7 @@
 				TargetAttributes = {
 					62CFB5682B04A9F3006D70A5 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -157,8 +230,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */,
 				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
+				628B86962B15569E009C6895 /* OnboardingConfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +244,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628B869C2B155789009C6895 /* OnboardingService.swift in Sources */,
+				628B869A2B15575C009C6895 /* OnboardingProtocols.swift in Sources */,
+				628B86982B155743009C6895 /* OnboardingStore.swift in Sources */,
+				628B86902B155544009C6895 /* OnboardingPresenter.swift in Sources */,
+				628B868E2B1553F7009C6895 /* OnboardingView.swift in Sources */,
+				628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +384,7 @@
 		62CFB5712B04A9F3006D70A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -326,6 +408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,6 +417,7 @@
 		62CFB5722B04A9F3006D70A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
