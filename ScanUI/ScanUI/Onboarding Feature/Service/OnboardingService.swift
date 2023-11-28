@@ -12,7 +12,9 @@ protocol OnboardingServiceProtocol: AnyObject {
     func getOnboardingCards(from bundle: Bundle) async throws -> [OnboardingViewModel]
 }
 
-class OnboardingService: OnboardingServiceProtocol {
+public class OnboardingService: OnboardingServiceProtocol {
+    
+    public init() { }
     
     func getOnboardingCards(from bundle: Bundle) async throws -> [OnboardingViewModel] {
         

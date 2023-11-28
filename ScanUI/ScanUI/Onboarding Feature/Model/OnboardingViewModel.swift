@@ -11,7 +11,9 @@ struct OnboardingConfigurationModel: Codable {
     var cards: [OnboardingViewModel]
 }
 
-struct OnboardingViewModel: Codable {
+public struct OnboardingViewModel: Identifiable, Codable {
+    public var id: UUID = UUID()
+    
     var image: String
     var title: String
     var subtitle: String

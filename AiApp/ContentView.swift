@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import ScanUI
 
 struct ContentView: View {
+    let store = OnboardingStore()
+    let onboardingPresent: OnboardingPresenter
+    
+    init() {
+        onboardingPresent = OnboardingPresenter(service: OnboardingService(), delegate: self.store)
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding(5)
+        OnboardingContainerView(store: store, presenter: onboardingPresent)
     }
 }
 

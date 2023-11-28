@@ -7,18 +7,18 @@
 
 import Foundation
 
-class OnboardingPresenter: OnboardingPresenterProtocol {
+public class OnboardingPresenter: OnboardingPresenterProtocol {
     
     private var service: OnboardingService
     private weak var delegate: OnboardingPresenterDelegate?
     private var onboardingCards: [OnboardingViewModel] = []
     
-    init(service: OnboardingService, delegate: OnboardingPresenterDelegate) {
+    public init(service: OnboardingService, delegate: OnboardingPresenterDelegate) {
         self.service = service
         self.delegate = delegate
     }
     
-    @Sendable func fetchOnboardingsCard() async {
+    @Sendable public func fetchOnboardingsCard() async {
         do {
             self.delegate?.renderLoading()
             let result = try await self.service.getOnboardingCards(from: .main)
@@ -28,15 +28,15 @@ class OnboardingPresenter: OnboardingPresenterProtocol {
         }
     }
     
-    func goNext() {
+    public func goNext() {
         
     }
     
-    func goBack() {
+    public func goBack() {
         
     }
     
-    func completeOnboarding() {
+    public func completeOnboarding() {
         
     }
     

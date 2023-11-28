@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol OnboardingPresenterProtocol: AnyObject {
+public protocol OnboardingPresenterProtocol: AnyObject {
     @Sendable func fetchOnboardingsCard() async
     func goNext()
     func goBack()
     func completeOnboarding()
 }
 
-protocol OnboardingPresenterDelegate: AnyObject {
+public protocol OnboardingPresenterDelegate: AnyObject {
     func render(errorMessage: String)
     func renderLoading()
     func render(cards: [OnboardingViewModel])

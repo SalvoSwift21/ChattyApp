@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */; };
-		628B868E2B1553F7009C6895 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868D2B1553F7009C6895 /* OnboardingView.swift */; };
+		628B868E2B1553F7009C6895 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868D2B1553F7009C6895 /* OnboardingContainerView.swift */; };
 		628B86902B155544009C6895 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868F2B155544009C6895 /* OnboardingPresenter.swift */; };
 		628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 628B86932B155611009C6895 /* OnboardingAsset.xcassets */; };
 		628B86962B15569E009C6895 /* OnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 628B86952B15569E009C6895 /* OnboardingConfiguration.json */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		628B868D2B1553F7009C6895 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		628B868D2B1553F7009C6895 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		628B868F2B155544009C6895 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		628B86932B155611009C6895 /* OnboardingAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OnboardingAsset.xcassets; sourceTree = "<group>"; };
 		628B86952B15569E009C6895 /* OnboardingConfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OnboardingConfiguration.json; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		628B86892B1551C3009C6895 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				628B868D2B1553F7009C6895 /* OnboardingView.swift */,
+				628B868D2B1553F7009C6895 /* OnboardingContainerView.swift */,
 				628B86972B155743009C6895 /* OnboardingStore.swift */,
 			);
 			path = View;
@@ -248,7 +248,7 @@
 				628B869A2B15575C009C6895 /* OnboardingProtocols.swift in Sources */,
 				628B86982B155743009C6895 /* OnboardingStore.swift in Sources */,
 				628B86902B155544009C6895 /* OnboardingPresenter.swift in Sources */,
-				628B868E2B1553F7009C6895 /* OnboardingView.swift in Sources */,
+				628B868E2B1553F7009C6895 /* OnboardingContainerView.swift in Sources */,
 				628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
