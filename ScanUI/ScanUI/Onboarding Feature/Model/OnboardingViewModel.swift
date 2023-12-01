@@ -8,10 +8,16 @@
 import UIKit
 
 struct OnboardingConfigurationModel: Codable {
-    var cards: [OnboardingViewModel]
+    var onboardingCards: [OnboardingModel]
 }
 
-public struct OnboardingViewModel: Identifiable, Codable {
+struct OnboardingModel: Codable {
+    var image: String
+    var title: String
+    var subtitle: String
+}
+
+public struct OnboardingViewModel: Identifiable, Hashable {
     public var id: UUID = UUID()
     
     var image: String

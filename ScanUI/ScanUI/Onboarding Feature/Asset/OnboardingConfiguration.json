@@ -3,12 +3,22 @@
         {
             "title": "Simple way to scan",
             "subtitle": "Flash will turn your phone into portable amazing scanner!",
-            "image_name": "onboarding 1"
+            "image": "onboarding 1"
         },
         {
             "title": "Organize is easy",
             "subtitle": "Say no to mess, Add your folders, or just search with advanced search.",
-            "image_name": "onboarding 2"
+            "image": "onboarding 2"
+        },
+        {
+            "title": "Organize is easy 3",
+            "subtitle": "Say no to mess, Add your folders, or just search with advanced search.",
+            "image": "onboarding 2"
+        },
+        {
+            "title": "Organize is easy 4",
+            "subtitle": "Say no to mess, Add your folders, or just search with advanced search.",
+            "image": "onboarding 2"
         }
     ]
 }

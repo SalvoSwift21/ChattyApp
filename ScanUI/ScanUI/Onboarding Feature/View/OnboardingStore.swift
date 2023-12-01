@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import Combine
+import UIKit
+import SwiftUI
 
 public class OnboardingStore: ObservableObject {
     
@@ -16,9 +19,23 @@ public class OnboardingStore: ObservableObject {
     }
     
     @Published var state: State = .loading
-    
+    @Published var showCompleteOnboarding: Bool = false
+
+    var totalPages = 0
+    @Published var currentPage: Int {
+        didSet {
+            showCompleteOnboarding = totalPages-1 == currentPage
+        }
+    }
+
     public init(state: OnboardingStore.State = .loading) {
         self.state = state
+        self._currentPage = .init(wrappedValue: 0)
+    }
+    
+    func goNext() {
+        guard totalPages - 1 > currentPage else { return }
+        currentPage += 1
     }
 }
 
@@ -34,6 +51,7 @@ extension OnboardingStore: OnboardingPresenterDelegate {
     }
     
     public func render(cards: [OnboardingViewModel]) {
+        self.totalPages = cards.count
         self.state = .loaded(cards: cards)
     }
 }

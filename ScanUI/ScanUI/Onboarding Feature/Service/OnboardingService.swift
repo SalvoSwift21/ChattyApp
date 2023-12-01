@@ -18,7 +18,7 @@ public class OnboardingService: OnboardingServiceProtocol {
     
     func getOnboardingCards(from bundle: Bundle) async throws -> [OnboardingViewModel] {
         
-        guard let url = bundle.url(forResource: "OnboardingConfiguration", withExtension: nil) else {
+        guard let url = bundle.url(forResource: "OnboardingConfiguration", withExtension: ".json") else {
             throw NSError(domain: "Onboarding Feature, not load OnboardingConfiguration", code: 1)
         }
         
@@ -28,7 +28,13 @@ public class OnboardingService: OnboardingServiceProtocol {
         
         let root = try JSONDecoder().decode(OnboardingConfigurationModel.self, from: data)
         
-        return root.cards
+        return map(from: root.onboardingCards)
     }
     
+    
+    fileprivate func map(from models: [OnboardingModel]) -> [OnboardingViewModel] {
+        return models.map { model in
+            OnboardingViewModel(image: model.image, title: model.title, subtitle: model.subtitle)
+        }
+    }
 }

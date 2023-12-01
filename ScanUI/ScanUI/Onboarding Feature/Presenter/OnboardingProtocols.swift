@@ -9,8 +9,6 @@ import Foundation
 
 public protocol OnboardingPresenterProtocol: AnyObject {
     @Sendable func fetchOnboardingsCard() async
-    func goNext()
-    func goBack()
     func completeOnboarding()
 }
 

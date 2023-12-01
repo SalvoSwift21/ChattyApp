@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		625865AA2B1956E9000B5660 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625865A92B1956E9000B5660 /* PageControl.swift */; };
 		628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */; };
 		628B868E2B1553F7009C6895 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868D2B1553F7009C6895 /* OnboardingContainerView.swift */; };
 		628B86902B155544009C6895 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868F2B155544009C6895 /* OnboardingPresenter.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		625865A92B1956E9000B5660 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		628B868D2B1553F7009C6895 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		628B868F2B155544009C6895 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		625865A82B1956DB000B5660 /* Page Control */ = {
+			isa = PBXGroup;
+			children = (
+				625865A92B1956E9000B5660 /* PageControl.swift */,
+			);
+			path = "Page Control";
+			sourceTree = "<group>";
+		};
 		628B86872B15517A009C6895 /* Onboarding Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +157,7 @@
 		62CFB5752B04AAB6006D70A5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				625865A82B1956DB000B5660 /* Page Control */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				628B869C2B155789009C6895 /* OnboardingService.swift in Sources */,
+				625865AA2B1956E9000B5660 /* PageControl.swift in Sources */,
 				628B869A2B15575C009C6895 /* OnboardingProtocols.swift in Sources */,
 				628B86982B155743009C6895 /* OnboardingStore.swift in Sources */,
 				628B86902B155544009C6895 /* OnboardingPresenter.swift in Sources */,
