@@ -41,17 +41,12 @@ public struct OnboardingContainerView: View {
                 Spacer()
                 HStack {
                     PageControl(numberOfPages: store.totalPages, currentPage: $store.currentPage)
-                    
                     Button(action: store.showCompleteOnboarding ? presenter.completeOnboarding : store.goNext) {
                         Text(store.showCompleteOnboarding ? "Complete" : "Next")
                             .fontWeight(.bold)
-                            .foregroundStyle(.buttonTitle)
                     }
-                    .padding()
-                    .frame(minWidth: 50, idealWidth: 200, maxWidth: 204, minHeight: 50, idealHeight: 57, maxHeight: 57, alignment: .center)
-                    .background(Color.prime)
-                    .cornerRadius(30.0)
-                }
+                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 200, height: 57)))
+                }.padding()
             }
         }
         .padding()
