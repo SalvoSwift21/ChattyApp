@@ -11,43 +11,52 @@ public struct OnboardingContainerView: View {
     var presenter: OnboardingPresenterProtocol
     @ObservedObject var store: OnboardingStore
     
-    public init(store: OnboardingStore, presenter: OnboardingPresenterProtocol) {
+    var resourceBundle: Bundle
+    
+    public init(store: OnboardingStore, presenter: OnboardingPresenterProtocol, resourceBundle: Bundle = .main) {
         self.store = store
         self.presenter = presenter
+        self.resourceBundle = resourceBundle
     }
     
     public var body: some View {
         VStack(alignment: .center) {
-            Image("main_logo", bundle: .init(identifier: "com.ariel.ScanUI"))
+            Image("main_logo", bundle: resourceBundle)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 172, height: 44, alignment: .center)
             Spacer()
             switch store.state {
             case .loading:
-                AnyView(Text("sto caricando"))
+                LoadingView()
             case .error(let message):
-                AnyView(Text("Errore \(message)"))
+                ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload", primaryAction: {
+                    Task {
+                        await presenter.fetchOnboardingsCard()
+                    }
+                }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .loaded(let cards):
                 TabView(selection: $store.currentPage) {
                     ForEach(cards) { card in
-                        OnboardingView(onboardingViewModel: card)
+                        OnboardingView(onboardingViewModel: card, resourceBundle: resourceBundle)
                             .tag(cards.firstIndex(of: card) ?? 0)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.default, value : store.currentPage)
-
+                
                 Spacer()
                 HStack {
                     PageControl(numberOfPages: store.totalPages, currentPage: $store.currentPage)
+                    Spacer()
                     Button(action: store.showCompleteOnboarding ? presenter.completeOnboarding : store.goNext) {
                         Text(store.showCompleteOnboarding ? "Complete" : "Next")
                             .fontWeight(.bold)
                     }
                     .buttonStyle(DefaultButtonStyle(frame: .init(width: 200, height: 57)))
-                }.padding()
+                }
             }
+            Spacer()
         }
         .padding()
         .frame(
@@ -60,27 +69,9 @@ public struct OnboardingContainerView: View {
     }
 }
 
-struct OnboardingView: View {
-    var onboardingViewModel: OnboardingViewModel
-    
-    var body: some View {
-        VStack(alignment: .center, spacing: 20) {
-            Image(onboardingViewModel.image, bundle: .init(identifier: "com.ariel.ScanUI"))
-            VStack(alignment: .leading, spacing: 10) {
-                Text(onboardingViewModel.title)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.title)
-                Text(onboardingViewModel.subtitle)
-                    .fontWeight(.regular)
-                    .foregroundStyle(.subtitle)
-            }
-        }
-    }
-}
-
 #Preview {
     @State var onboardingStore = OnboardingStore()
     @State var presenter = OnboardingPresenter(service: OnboardingService(), delegate: onboardingStore)
     
-    return OnboardingContainerView(store: onboardingStore, presenter: presenter)
+    return OnboardingContainerView(store: onboardingStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
 }

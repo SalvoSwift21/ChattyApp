@@ -17,7 +17,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        OnboardingContainerView(store: store, presenter: onboardingPresent)
+        OnboardingContainerView(store: store, presenter: onboardingPresent, resourceBundle: .init(identifier: "com.ariel.ScanUI") ?? .main)
     }
 }
 
