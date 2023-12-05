@@ -8,6 +8,7 @@
 import Foundation
 
 public protocol OnboardingPresenterProtocol: AnyObject {
+    var resourceBundle: Bundle { get set }
     @Sendable func fetchOnboardingsCard() async
     func completeOnboarding()
 }

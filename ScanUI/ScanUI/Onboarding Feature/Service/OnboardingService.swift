@@ -8,22 +8,22 @@
 import Foundation
 import UIKit
 
-protocol OnboardingServiceProtocol: AnyObject {
-    func getOnboardingCards(from bundle: Bundle) async throws -> [OnboardingViewModel]
+public protocol OnboardingServiceProtocol: AnyObject {
+    func getLocalOnboardingCards(from url: URL) async throws -> [OnboardingViewModel]
 }
 
 public class OnboardingService: OnboardingServiceProtocol {
     
+    public enum OnboardingServiceError: Swift.Error {
+        case URLDataNotValid
+    }
+    
     public init() { }
     
-    func getOnboardingCards(from bundle: Bundle) async throws -> [OnboardingViewModel] {
-        
-        guard let url = bundle.url(forResource: "OnboardingConfiguration", withExtension: ".json") else {
-            throw NSError(domain: "Onboarding Feature, not load OnboardingConfiguration", code: 1)
-        }
+    public func getLocalOnboardingCards(from url: URL) async throws -> [OnboardingViewModel] {
         
         guard let data = try? Data(contentsOf: url) else {
-            throw NSError(domain: "Onboarding Feature, not load data from OnboardingConfiguration.json", code: 2)
+            throw OnboardingServiceError.URLDataNotValid
         }
         
         let root = try JSONDecoder().decode(OnboardingConfigurationModel.self, from: data)

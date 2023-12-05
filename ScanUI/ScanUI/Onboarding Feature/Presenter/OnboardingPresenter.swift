@@ -9,20 +9,27 @@ import Foundation
 import Combine
 
 public class OnboardingPresenter: OnboardingPresenterProtocol {
+    public var resourceBundle: Bundle
     
-    private var service: OnboardingService
+    private var service: OnboardingServiceProtocol
     private weak var delegate: OnboardingPresenterDelegate?
     private var onboardingCards: [OnboardingViewModel] = []
 
-    public init(service: OnboardingService, delegate: OnboardingPresenterDelegate) {
+    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
+        self.resourceBundle = bundle
     }
     
     @Sendable public func fetchOnboardingsCard() async {
         do {
             self.delegate?.renderLoading()
-            let result = try await self.service.getOnboardingCards(from: .init(identifier: "com.ariel.ScanUI") ?? .main)
+            
+            guard let resourceUrl = self.resourceBundle.url(forResource: "OnboardingConfiguration", withExtension: ".json") else {
+                throw NSError(domain: "Onboarding Feature, not load OnboardingConfiguration", code: 1)
+            }
+            
+            let result = try await self.service.getLocalOnboardingCards(from: resourceUrl)
             self.delegate?.render(cards: result)
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
