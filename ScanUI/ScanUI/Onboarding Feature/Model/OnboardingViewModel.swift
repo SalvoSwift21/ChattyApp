@@ -7,17 +7,13 @@
 
 import UIKit
 
-struct OnboardingConfigurationModel: Codable {
-    var onboardingCards: [OnboardingModel]
-}
-
-struct OnboardingModel: Codable {
+public struct OnboardingViewModel: Identifiable, Hashable {
+    
+    public var id: UUID = UUID()
+    
     var image: String
     var title: String
     var subtitle: String
-}
-
-public struct OnboardingViewModel: Identifiable, Hashable {
     
     public init(id: UUID = UUID(), image: String, title: String, subtitle: String) {
         self.id = id
@@ -25,10 +21,4 @@ public struct OnboardingViewModel: Identifiable, Hashable {
         self.title = title
         self.subtitle = subtitle
     }
-    
-    public var id: UUID = UUID()
-    
-    var image: String
-    var title: String
-    var subtitle: String
 }

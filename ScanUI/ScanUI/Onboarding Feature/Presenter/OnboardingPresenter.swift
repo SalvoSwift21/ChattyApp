@@ -13,7 +13,6 @@ public class OnboardingPresenter: OnboardingPresenterProtocol {
     
     private var service: OnboardingServiceProtocol
     private weak var delegate: OnboardingPresenterDelegate?
-    private var onboardingCards: [OnboardingViewModel] = []
 
     public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
