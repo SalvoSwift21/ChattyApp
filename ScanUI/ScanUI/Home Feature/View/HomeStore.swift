@@ -11,14 +11,14 @@ import SwiftUI
 public class HomeStore: ObservableObject {
     
     public enum State {
-        case loading
+        case loading(show: Bool)
         case error(message: String)
         case loaded(viewModel: HomeViewModel)
     }
     
-    @Published var state: State = .loading
+    @Published var state: State = .loading(show: true)
 
-    public init(state: HomeStore.State = .loading) {
+    public init(state: HomeStore.State = .loading(show: true)) {
         self.state = state
     }
 }
@@ -34,7 +34,7 @@ extension HomeStore: HomePresenterDelegate {
     }
     
     public func renderLoading(visible: Bool) {
-        self.state = .loading
+        self.state = .loading(show: visible)
     }
     
     public func render(viewModel: HomeViewModel) {

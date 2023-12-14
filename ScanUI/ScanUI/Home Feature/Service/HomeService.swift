@@ -25,10 +25,10 @@ public class HomeService: HomeServiceProtocol {
     }
     
     public func getMyFolder() async throws -> [Folder] {
-        return []
+        return createSomeFolders()
     }
     
     public func getRecentScans() async throws -> [Scan] {
-        return []
+        return createScans()
     }
 }

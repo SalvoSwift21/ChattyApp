@@ -34,14 +34,22 @@ public struct HomeView: View {
             }
             Spacer()
             switch store.state {
-            case .loading:
-                LoadingView()
+            case .loading(let showLoader):
+                if showLoader {
+                    LoadingView()
+                }
             case .error(let message):
                 ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload home", primaryAction: {
                     
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .loaded(let viewModel):
-                Text("mostra qualcosa!!! \(viewModel.myFolders.count)")
+                Spacer()
+                ScrollView(.vertical, showsIndicators: false, content: {
+                    VStack(alignment: .leading, spacing: 32, content: {
+                        HomeMyFoldesView(resourceBundle: resourceBundle, folders: viewModel.myFolders)
+                        HomeMyRecentScanView(resourceBundle: resourceBundle, scans: viewModel.recentScans ?? [])
+                    })
+                })
             }
             Spacer()
             HStack {

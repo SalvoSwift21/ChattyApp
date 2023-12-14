@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620AF0EF2B2A65F000042C23 /* HomeMyFoldesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AF0EE2B2A65F000042C23 /* HomeMyFoldesView.swift */; };
+		620AF0F22B2A66F300042C23 /* HomeAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620AF0F12B2A66F300042C23 /* HomeAsset.xcassets */; };
+		620AF0F42B2A78C200042C23 /* HomeMyRecentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AF0F32B2A78C200042C23 /* HomeMyRecentScanView.swift */; };
 		621974322B27CA1A005A7895 /* HomeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621974312B27CA1A005A7895 /* HomeServiceProtocol.swift */; };
 		621974342B27CAF6005A7895 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621974332B27CAF6005A7895 /* HomeService.swift */; };
 		621974362B27CBCF005A7895 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621974352B27CBCF005A7895 /* OnboardingModel.swift */; };
@@ -52,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		620AF0EE2B2A65F000042C23 /* HomeMyFoldesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyFoldesView.swift; sourceTree = "<group>"; };
+		620AF0F12B2A66F300042C23 /* HomeAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomeAsset.xcassets; sourceTree = "<group>"; };
+		620AF0F32B2A78C200042C23 /* HomeMyRecentScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyRecentScanView.swift; sourceTree = "<group>"; };
 		621974312B27CA1A005A7895 /* HomeServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServiceProtocol.swift; sourceTree = "<group>"; };
 		621974332B27CAF6005A7895 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		621974352B27CBCF005A7895 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
@@ -108,9 +114,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		620AF0F02B2A66E200042C23 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				620AF0F12B2A66F300042C23 /* HomeAsset.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 		6219742B2B27C97B005A7895 /* Home Feature */ = {
 			isa = PBXGroup;
 			children = (
+				620AF0F02B2A66E200042C23 /* Asset */,
 				6219742C2B27C999005A7895 /* Service */,
 				6219742D2B27C9A1005A7895 /* Model */,
 				6219742E2B27C9AC005A7895 /* View */,
@@ -141,6 +156,8 @@
 			children = (
 				621974392B27CD4B005A7895 /* HomeStore.swift */,
 				6219743B2B27CD67005A7895 /* HomeView.swift */,
+				620AF0EE2B2A65F000042C23 /* HomeMyFoldesView.swift */,
+				620AF0F32B2A78C200042C23 /* HomeMyRecentScanView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -459,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				620AF0F22B2A66F300042C23 /* HomeAsset.xcassets in Resources */,
 				628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */,
 				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
@@ -484,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				621974342B27CAF6005A7895 /* HomeService.swift in Sources */,
+				620AF0EF2B2A65F000042C23 /* HomeMyFoldesView.swift in Sources */,
 				628B869C2B155789009C6895 /* OnboardingService.swift in Sources */,
 				6219743F2B27CD93005A7895 /* HomeProtocols.swift in Sources */,
 				621974412B27CFD5005A7895 /* HomePresenter.swift in Sources */,
@@ -503,6 +522,7 @@
 				6219743A2B27CD4B005A7895 /* HomeStore.swift in Sources */,
 				621974322B27CA1A005A7895 /* HomeServiceProtocol.swift in Sources */,
 				6296C8D92B1E90C400E8C4AB /* LoadingView.swift in Sources */,
+				620AF0F42B2A78C200042C23 /* HomeMyRecentScanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

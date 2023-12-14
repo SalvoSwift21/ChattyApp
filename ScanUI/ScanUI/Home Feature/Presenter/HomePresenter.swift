@@ -47,7 +47,6 @@ public class HomePresenter: HomePresenterProtocol {
             self.homeViewModel.recentScans = myRecentScan
             
             self.delegate?.render(viewModel: homeViewModel)
-            self.showLoader(false)
         } catch {
             self.delegate?.renderSearch(errorMessage: error.localizedDescription)
             self.showLoader(false)

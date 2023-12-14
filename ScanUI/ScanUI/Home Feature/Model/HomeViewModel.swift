@@ -16,6 +16,8 @@ public struct Scan {
 }
 
 public struct Folder {
+    var id: UUID = UUID()
+
     var title: String
     var scans: [Scan]
 }
