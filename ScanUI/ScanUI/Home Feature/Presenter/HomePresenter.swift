@@ -24,18 +24,7 @@ public class HomePresenter: HomePresenterProtocol {
         self.homeViewModel = HomeViewModel()
     }
     
-    public func getSearchResult(for query: String) async {
-        do {
-            self.showLoader(true)
-            let result = try await service.searchFiles(from: query)
-            self.homeViewModel.searchResults = result
-            self.delegate?.render(viewModel: homeViewModel)
-            self.showLoader(false)
-        } catch {
-            self.delegate?.renderSearch(errorMessage: error.localizedDescription)
-            self.showLoader(false)
-        }
-    }
+    public func getSearchResult(for query: String) async { }
     
     @Sendable public func getHome() async {
         do {
@@ -48,7 +37,7 @@ public class HomePresenter: HomePresenterProtocol {
             
             self.delegate?.render(viewModel: homeViewModel)
         } catch {
-            self.delegate?.renderSearch(errorMessage: error.localizedDescription)
+            self.delegate?.render(errorMessage: error.localizedDescription)
             self.showLoader(false)
         }
     }

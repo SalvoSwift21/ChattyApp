@@ -17,7 +17,6 @@ public protocol HomePresenterProtocol: AnyObject {
 
 public protocol HomePresenterDelegate: AnyObject {
     func render(errorMessage: String)
-    func renderSearch(errorMessage: String)
     func renderLoading(visible: Bool)
     func render(viewModel: HomeViewModel)
 }

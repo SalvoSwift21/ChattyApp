@@ -29,10 +29,6 @@ extension HomeStore: HomePresenterDelegate {
         self.state = .error(message: errorMessage)
     }
     
-    public func renderSearch(errorMessage: String) {
-        print("nothing")
-    }
-    
     public func renderLoading(visible: Bool) {
         self.state = .loading(show: visible)
     }

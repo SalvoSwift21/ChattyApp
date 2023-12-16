@@ -20,10 +20,6 @@ public class HomeService: HomeServiceProtocol {
         self.client = client
     }
     
-    public func searchFiles(from queary: String) async throws -> [Scan] {
-        return []
-    }
-    
     public func getMyFolder() async throws -> [Folder] {
         return createSomeFolders()
     }
