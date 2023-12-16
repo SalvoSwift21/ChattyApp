@@ -11,7 +11,7 @@ import RestApi
 public struct HomeView: View {
     var presenter: HomePresenter
     @ObservedObject var store: HomeStore
-    
+
     var resourceBundle: Bundle
     
     public init(store: HomeStore, presenter: HomePresenter, resourceBundle: Bundle = .main) {
@@ -52,18 +52,18 @@ public struct HomeView: View {
                 })
             }
             Spacer()
-            HStack {
-                Button {
-                    presenter.uploadImage()
-                } label: {
-                    Text("upload image")
-                }
-                Button {
-                    presenter.newScan()
-                } label: {
-                    Text("Start new scan")
-                }
-                Spacer()
+            
+            HStack(spacing: 28) {
+                CircleAnimationView(centerImage: UIImage(named: "gallery_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 64, height: 64))
+                    .onTapGesture {
+                        presenter.uploadImage()
+                    }
+                
+                CircleAnimationView(centerImage: UIImage(named: "scan_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 110, height: 110))
+                    .onTapGesture {
+                        presenter.newScan()
+                    }.padding([.trailing], 100)
+                
             }
         }
         .padding()
