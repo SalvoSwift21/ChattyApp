@@ -40,6 +40,7 @@
 		62AD7DDE2B1FE9E90014BC91 /* MockMapErrorOnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 62AD7DDB2B1FE4940014BC91 /* MockMapErrorOnboardingConfiguration.json */; };
 		62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */; };
 		62C468EA2B2FB5EF002DD3A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E92B2FB5EF002DD3A3 /* Helper.swift */; };
+		62C469012B2FC3EF002DD3A3 /* ScanAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */; };
 		62C75B102B2278AF009D4383 /* OnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 628B86952B15569E009C6895 /* OnboardingConfiguration.json */; };
 		62CFB56D2B04A9F3006D70A5 /* ScanUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CFB56C2B04A9F3006D70A5 /* ScanUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */; };
@@ -92,6 +93,7 @@
 		62AD7DE42B1FEDA00014BC91 /* ScanUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ScanUI.xctestplan; path = ../ScanUI.xctestplan; sourceTree = "<group>"; };
 		62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		62C468E92B2FB5EF002DD3A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanAsset.xcassets; sourceTree = "<group>"; };
 		62CFB5692B04A9F3006D70A5 /* ScanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CFB56C2B04A9F3006D70A5 /* ScanUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanUI.h; sourceTree = "<group>"; };
 		62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanColors.xcassets; sourceTree = "<group>"; };
@@ -327,6 +329,54 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		62C468F72B2FC355002DD3A3 /* Scan Feature */ = {
+			isa = PBXGroup;
+			children = (
+				62C468F82B2FC3A2002DD3A3 /* Asset */,
+				62C468F92B2FC3A8002DD3A3 /* Service */,
+				62C468FA2B2FC3AE002DD3A3 /* Model */,
+				62C468FD2B2FC3C3002DD3A3 /* View */,
+				62C468FE2B2FC3C8002DD3A3 /* Presenter */,
+			);
+			path = "Scan Feature";
+			sourceTree = "<group>";
+		};
+		62C468F82B2FC3A2002DD3A3 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		62C468F92B2FC3A8002DD3A3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		62C468FA2B2FC3AE002DD3A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62C468FD2B2FC3C3002DD3A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62C468FE2B2FC3C8002DD3A3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		62CFB55F2B04A9F3006D70A5 = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +404,7 @@
 				62CFB5732B04AA96006D70A5 /* Shared UI */,
 				628B86872B15517A009C6895 /* Onboarding Feature */,
 				6219742B2B27C97B005A7895 /* Home Feature */,
+				62C468F72B2FC355002DD3A3 /* Scan Feature */,
 			);
 			path = ScanUI;
 			sourceTree = "<group>";
@@ -499,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				620AF0F22B2A66F300042C23 /* HomeAsset.xcassets in Resources */,
+				62C469012B2FC3EF002DD3A3 /* ScanAsset.xcassets in Resources */,
 				628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */,
 				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
