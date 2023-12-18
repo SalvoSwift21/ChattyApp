@@ -71,7 +71,7 @@ public struct OnboardingContainerView: View {
 
 #Preview {
     @State var onboardingStore = OnboardingStore()
-    @State var presenter = OnboardingPresenter(service: OnboardingService(), delegate: onboardingStore)
+    @State var presenter = OnboardingPresenter(service: OnboardingService(), delegate: onboardingStore, completeOnboarding: { })
     
     return OnboardingContainerView(store: onboardingStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
 }

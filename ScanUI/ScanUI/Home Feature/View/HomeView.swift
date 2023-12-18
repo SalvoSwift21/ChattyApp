@@ -80,7 +80,7 @@ public struct HomeView: View {
 #Preview {
     @State var homeStore = HomeStore()
     var homeService = HomeService(client: URLSessionHTTPClient(session: URLSession(configuration: URLSessionConfiguration.default)))
-    @State var presenter = HomePresenter(service: homeService, delegate: homeStore)
+    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { })
     
     return HomeView(store: homeStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
 }

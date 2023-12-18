@@ -11,16 +11,25 @@ import Foundation
 public class HomePresenter: HomePresenterProtocol {
     
     public var resourceBundle: Bundle
+    public var uploadImage: (() -> Void)
+    public var newScan: (() -> Void)
+    
     
     private var service: HomeService
     private weak var delegate: HomePresenterDelegate?
     
     private var homeViewModel: HomeViewModel
 
-    public init(service: HomeService, delegate: HomePresenterDelegate, bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
+    public init(service: HomeService, 
+                delegate: HomePresenterDelegate,
+                uploadImage: @escaping (() -> Void),
+                newScan: @escaping (() -> Void),
+                bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
         self.resourceBundle = bundle
+        self.uploadImage = uploadImage
+        self.newScan = newScan
         self.homeViewModel = HomeViewModel()
     }
     
@@ -40,14 +49,6 @@ public class HomePresenter: HomePresenterProtocol {
             self.delegate?.render(errorMessage: error.localizedDescription)
             self.showLoader(false)
         }
-    }
-    
-    public func uploadImage() {
-        print("upload img tap")
-    }
-    
-    public func newScan() {
-        print("start new scan")
     }
 }
 

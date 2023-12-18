@@ -9,14 +9,17 @@ import Foundation
 import Combine
 
 public class OnboardingPresenter: OnboardingPresenterProtocol {
+    
+    public var completeOnboarding: (() -> Void)
     public var resourceBundle: Bundle
     
     private var service: OnboardingServiceProtocol
     private weak var delegate: OnboardingPresenterDelegate?
 
-    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
+    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, completeOnboarding: @escaping (() -> Void), bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
+        self.completeOnboarding = completeOnboarding
         self.resourceBundle = bundle
     }
     
@@ -34,7 +37,4 @@ public class OnboardingPresenter: OnboardingPresenterProtocol {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
-    
-    public func completeOnboarding() { }
-    
 }

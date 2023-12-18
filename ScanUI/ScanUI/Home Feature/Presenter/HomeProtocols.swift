@@ -9,10 +9,11 @@ import Foundation
 
 public protocol HomePresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
+    var uploadImage: (() -> Void) { get set }
+    var newScan: (() -> Void) { get set }
+
     func getSearchResult(for query: String) async
     @Sendable func getHome() async
-    func uploadImage()
-    func newScan()
 }
 
 public protocol HomePresenterDelegate: AnyObject {

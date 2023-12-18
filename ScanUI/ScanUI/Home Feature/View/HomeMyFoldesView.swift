@@ -79,18 +79,3 @@ struct FolderItem: View {
     HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders())
         .padding()
 }
-
-func createSomeFolders() -> [Folder] {
-    let scans = createScans()
-    let folder = Folder(title: "Personal", scans: scans)
-    let folder1 = Folder(title: "Official", scans: scans)
-    let folder2 = Folder(title: "Other", scans: scans)
-    let folder3 = Folder(title: "Altre cose con nome lungo", scans: scans)
-    return [folder, folder1, folder2, folder3]
-}
-
-func createScans() -> [Scan] {
-    return [Scan(title: "Prima Scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)),
-            Scan(title: "Seconda Scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)),
-            Scan(title: "Terza scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil))]
-}
