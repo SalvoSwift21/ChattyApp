@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		62128CAD2A1F8F92005D732A /* AiAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62128CAC2A1F8F92005D732A /* AiAppApp.swift */; };
-		62128CAF2A1F8F92005D732A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62128CAE2A1F8F92005D732A /* ContentView.swift */; };
 		62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB02A1F8F92005D732A /* Assets.xcassets */; };
 		62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB32A1F8F92005D732A /* Preview Assets.xcassets */; };
 		628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; };
 		628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */; };
+		62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */; };
+		62C468F32B2FC0AB002DD3A3 /* RootUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F22B2FC0AB002DD3A3 /* RootUI.swift */; };
+		62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F52B2FC274002DD3A3 /* AnimationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,12 +35,15 @@
 /* Begin PBXFileReference section */
 		62128CA92A1F8F92005D732A /* AiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62128CAC2A1F8F92005D732A /* AiAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiAppApp.swift; sourceTree = "<group>"; };
-		62128CAE2A1F8F92005D732A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62128CB02A1F8F92005D732A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62128CB32A1F8F92005D732A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		62639E532A264941004F5E44 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62639E542A264F4E004F5E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		628B869E2B156DA0009C6895 /* ScanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUIComposer.swift; sourceTree = "<group>"; };
+		62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIComposer.swift; sourceTree = "<group>"; };
+		62C468F22B2FC0AB002DD3A3 /* RootUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootUI.swift; path = /Users/Salvo1/Library/Developer/AiApp/AiApp/AiApp/UIComposer/RootUI.swift; sourceTree = "<absolute>"; };
+		62C468F52B2FC274002DD3A3 /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		62E510A02A5376EF00A40773 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,8 +81,10 @@
 			children = (
 				62639E542A264F4E004F5E44 /* Info.plist */,
 				62639E512A264903004F5E44 /* Configurations */,
+				62C468F42B2FC25F002DD3A3 /* Helper */,
+				62C468EC2B2FB809002DD3A3 /* UIComposer */,
+				62C468F22B2FC0AB002DD3A3 /* RootUI.swift */,
 				62128CAC2A1F8F92005D732A /* AiAppApp.swift */,
-				62128CAE2A1F8F92005D732A /* ContentView.swift */,
 				62128CB02A1F8F92005D732A /* Assets.xcassets */,
 				62128CB22A1F8F92005D732A /* Preview Content */,
 			);
@@ -106,6 +114,23 @@
 				628B869E2B156DA0009C6895 /* ScanUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62C468EC2B2FB809002DD3A3 /* UIComposer */ = {
+			isa = PBXGroup;
+			children = (
+				62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */,
+				62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */,
+			);
+			path = UIComposer;
+			sourceTree = "<group>";
+		};
+		62C468F42B2FC25F002DD3A3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				62C468F52B2FC274002DD3A3 /* AnimationHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +204,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62128CAF2A1F8F92005D732A /* ContentView.swift in Sources */,
 				62128CAD2A1F8F92005D732A /* AiAppApp.swift in Sources */,
+				62C468F32B2FC0AB002DD3A3 /* RootUI.swift in Sources */,
+				62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */,
+				62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */,
+				62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

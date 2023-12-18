@@ -66,7 +66,7 @@ final class OnboardingPresenterTest: XCTestCase {
                  line: UInt = #line) -> (OnboardingPresenter, ViewSpy) {
         let service = OnboardingServiceSpy(data: value.data, error: value.error)
         let view = ViewSpy()
-        let sut = OnboardingPresenter(service: service, delegate: view)
+        let sut = OnboardingPresenter(service: service, delegate: view, completeOnboarding: { })
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
