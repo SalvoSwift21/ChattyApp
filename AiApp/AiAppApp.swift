@@ -11,6 +11,7 @@ import ScanUI
 
 @main
 struct AiAppApp: App {
+    @State private var presented = false
 
     @StateObject private var appRootManager = AppRootManager()
 
@@ -25,10 +26,15 @@ struct AiAppApp: App {
                         }
                     }
                 case .home:
-                    HomeUIComposer.homeComposedWith(client: .init(session: .init(configuration: .ephemeral)))
+                    HomeUIComposer.homeComposedWith(client: .init(session: .init(configuration: .ephemeral)), newScan: {
+                        presented = true
+                    })
                 }
             }
             .environmentObject(appRootManager)
+            .sheet(isPresented: $presented) {
+                MyDataScannerViewControllerView()
+            }
         }
     }
 }
