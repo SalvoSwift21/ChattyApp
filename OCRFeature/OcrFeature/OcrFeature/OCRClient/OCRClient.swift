@@ -11,7 +11,7 @@ public protocol OCRClient {
     
     associatedtype OCRClientRequest
     
-    func makeRequest(object: OCRClientRequest) throws
+    func makeRequest(object: OCRClientRequest) throws 
 }
 
 

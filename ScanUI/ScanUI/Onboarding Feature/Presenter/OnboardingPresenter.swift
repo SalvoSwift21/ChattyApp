@@ -23,6 +23,7 @@ public class OnboardingPresenter: OnboardingPresenterProtocol {
         self.resourceBundle = bundle
     }
     
+    @MainActor
     @Sendable public func fetchOnboardingsCard() async {
         do {
             self.delegate?.renderLoading()

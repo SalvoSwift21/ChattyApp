@@ -19,7 +19,7 @@ public final class DataScannerOCRClient<Result> {
         DataScannerViewController.isAvailable
     }
     
-    public var dataScannerViewController: DataScannerViewController?
+    public var dataScannerViewController: DataScannerViewController
     
     private var allItems: [RecognizedItem] = []
     private var completion: ((String) -> Void)?
@@ -27,6 +27,31 @@ public final class DataScannerOCRClient<Result> {
     
     public init(delegate: any OCRClientDelegate) {
         self.delegate = delegate
+        self.dataScannerViewController =
+        DataScannerViewController(recognizedDataTypes: [.text()], 
+                                  qualityLevel: .balanced,
+                                  isGuidanceEnabled: true,
+                                  isHighlightingEnabled: true)
+        self.dataScannerViewController.delegate = self
+    }
+    
+    func updateViaAsyncStream() async {
+        let scanner = dataScannerViewController
+        let stream = scanner.recognizedItems
+        for await newItems: [RecognizedItem] in stream {
+            let diff = newItems.difference(from: allItems) { a, b in
+                return a.id == b.id
+            }
+            if !diff.isEmpty {
+                allItems = newItems
+            }
+        }
+    }
+    
+    func makePhoto() async {
+        if let image = try? await dataScannerViewController.capturePhoto() {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
     }
 }
 
@@ -35,17 +60,23 @@ extension DataScannerOCRClient: DataScannerViewControllerDelegate {
     //MARK: Customizing highlighting
     
     public func dataScanner(_ dataScanner: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-        print("addedItems")
         self.allItems = allItems
+        let realtimeText = allItems.map({
+            switch $0 {
+            case .text(let recoTime):
+                return recoTime.transcript
+            default: 
+                return ""
+            }
+        })
+        self.delegate.recognizedItem(response: realtimeText.joined(separator: " "))
     }
     
     public func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-        print("removedItems")
         self.allItems = allItems
     }
     
     public func dataScanner(_ dataScanner: DataScannerViewController, didUpdate updatedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-        print("Updateeee")
         self.allItems = allItems
     }
     
@@ -63,7 +94,6 @@ extension DataScannerOCRClient: DataScannerViewControllerDelegate {
         case .text(let text):
             // Copy the text to the pasteboard.
             self.delegate.recognizedItem(response: text.transcript)
-            dataScanner.stopScanning()
         case .barcode(let code):
             // Open the URL in the browser.
             break
@@ -85,20 +115,7 @@ extension DataScannerOCRClient: OCRClient {
     public typealias OCRClientResponse = Swift.Result<String, Error>
     
     public func makeRequest(object: Set<DataScannerViewController.RecognizedDataType>) throws {
-        self.makeDataScannerViewController(recognizedDataTypes: object)
-        try self.dataScannerViewController?.startScanning()
-    }
-    
-    
-    private func makeDataScannerViewController(recognizedDataTypes: Set<DataScannerViewController.RecognizedDataType>) {
-        self.dataScannerViewController = DataScannerViewController(recognizedDataTypes: [.text()],
-                                                                   qualityLevel: .balanced,
-                                                                   recognizesMultipleItems: true,
-                                                                   isHighFrameRateTrackingEnabled: true,
-                                                                   isPinchToZoomEnabled: false,
-                                                                   isGuidanceEnabled: true,
-                                                                   isHighlightingEnabled: true)
-        self.dataScannerViewController?.delegate = self
+        try self.dataScannerViewController.startScanning()
     }
 }
 

@@ -8,10 +8,13 @@
 import SwiftUI
 import RestApi
 import ScanUI
+import VisionKit
 
 @main
 struct AiAppApp: App {
     @State private var presented = false
+    @State private var startScanning = true
+    @State private var scanText = ""
 
     @StateObject private var appRootManager = AppRootManager()
 
@@ -33,7 +36,21 @@ struct AiAppApp: App {
             }
             .environmentObject(appRootManager)
             .sheet(isPresented: $presented) {
-                MyDataScannerViewControllerView()
+                VStack(spacing: 0) {
+                    DataScannerView(startScanning: $startScanning, scanText: $scanText)
+                        .frame(height: 400)
+                 
+                    Text(scanText)
+                        .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+                        .background(in: Rectangle())
+                        .backgroundStyle(Color(uiColor: .systemGray6))
+                 
+                }
+                .task {
+                    if DataScannerViewController.isSupported && DataScannerViewController.isAvailable {
+                        startScanning.toggle()
+                    }
+                }
             }
         }
     }
