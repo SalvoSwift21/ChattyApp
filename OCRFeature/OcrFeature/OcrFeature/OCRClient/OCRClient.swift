@@ -16,5 +16,9 @@ public protocol OCRClient {
 
 
 public protocol OCRClientDelegate {
-    func recognizedItem<OCRClientResponse>(response: OCRClientResponse)
+    
+    associatedtype OCRClientResponse
+    
+    var recognizedItemCompletion: ((OCRClientResponse) -> Void)? { get set }
+    var errorOnScanning: ((Error) -> Void)? { get set }
 }

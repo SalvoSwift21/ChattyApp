@@ -11,6 +11,16 @@ import ScanUI
 import VisionKit
 import SwiftUI
 
+public final class DataScannerUIComposer {
+    private init() {}
+        
+    @MainActor 
+    public static func dataScannerComposeWith() -> (dataScannerOCRClient: DataScannerOCRClient, delegate: ConcrateOCRClientDelegate) {
+        let delegate = ConcrateOCRClientDelegate()
+        return (DataScannerOCRClient(delegate: delegate, recognizedDataType: [.text()]), delegate)
+    }
+}
+
 struct DataScannerView: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = DataScannerViewController
@@ -19,31 +29,37 @@ struct DataScannerView: UIViewControllerRepresentable {
     @Binding var scanText: String
     
     func makeUIViewController(context: Context) -> DataScannerViewController {
-        let dataScannerClient = DataScannerOCRClient<String>(delegate: context.coordinator)
+        let dataScannerClient = DataScannerUIComposer.dataScannerComposeWith()
         context.coordinator.dataScannerClient = dataScannerClient
-        return dataScannerClient.dataScannerViewController
+        context.coordinator.setCompletion()
+        return dataScannerClient.dataScannerOCRClient.getCurrentDataScannerController()
     }
     
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
         if startScanning {
-            try? context.coordinator.dataScannerClient?.makeRequest(object: [.text()])
+            try? context.coordinator.dataScannerClient?.dataScannerOCRClient.makeRequest(object: true)
         } else {
-            //context.coordinator.dataScannerClient?.dataScannerViewController.stopScanning()
+           // try? context.coordinator.dataScannerClient?.dataScannerOCRClient.makeRequest(object: false)
         }
     }
     
-    class Coordinator: NSObject, OCRClientDelegate {
+    class Coordinator: NSObject {
         
         var parent: DataScannerView
-        var dataScannerClient: DataScannerOCRClient<String>?
+        var dataScannerClient: (dataScannerOCRClient: DataScannerOCRClient, delegate: ConcrateOCRClientDelegate)?
         
         init(_ parent: DataScannerView) {
             self.parent = parent
         }
         
-        func recognizedItem<OCRClientResponse>(response: OCRClientResponse) {
-            print("Response \(response)")
-            parent.scanText = response as? String ?? "Not a correct string"
+        func setCompletion() {
+            dataScannerClient?.delegate.errorOnScanning = { error in
+                print("Error")
+            }
+            
+            dataScannerClient?.delegate.recognizedItemCompletion = { [weak self] text in
+                self?.parent.scanText = text
+            }
         }
     }
      

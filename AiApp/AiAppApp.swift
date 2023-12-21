@@ -30,28 +30,27 @@ struct AiAppApp: App {
                     }
                 case .home:
                     HomeUIComposer.homeComposedWith(client: .init(session: .init(configuration: .ephemeral)), newScan: {
-                        presented = true
+                        appRootManager.currentRoot = .scan
                     })
-                }
-            }
-            .environmentObject(appRootManager)
-            .sheet(isPresented: $presented) {
-                VStack(spacing: 0) {
-                    DataScannerView(startScanning: $startScanning, scanText: $scanText)
-                        .frame(height: 400)
-                 
-                    Text(scanText)
-                        .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
-                        .background(in: Rectangle())
-                        .backgroundStyle(Color(uiColor: .systemGray6))
-                 
-                }
-                .task {
-                    if DataScannerViewController.isSupported && DataScannerViewController.isAvailable {
-                        startScanning.toggle()
+                case .scan:
+                    VStack(spacing: 0) {
+                        DataScannerView(startScanning: $startScanning, scanText: $scanText)
+                            .frame(height: 400)
+                     
+                        Text(scanText)
+                            .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+                            .background(in: Rectangle())
+                            .backgroundStyle(Color(uiColor: .systemGray6))
+                     
+                    }
+                    .task {
+                        if DataScannerViewController.isSupported && DataScannerViewController.isAvailable {
+                            startScanning.toggle()
+                        }
                     }
                 }
             }
+            .environmentObject(appRootManager)
         }
     }
 }
