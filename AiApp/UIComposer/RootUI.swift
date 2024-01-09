@@ -9,11 +9,12 @@ import Foundation
 
 final class AppRootManager: ObservableObject {
     
-    @Published var currentRoot: aiAppRoots = .scan
+    @Published var currentRoot: aiAppRoots = .home
     
     enum aiAppRoots {
         case onboarding
         case home
         case scan
+        case upload
     }
 }

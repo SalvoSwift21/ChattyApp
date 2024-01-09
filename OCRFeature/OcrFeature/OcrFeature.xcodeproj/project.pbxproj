@@ -13,6 +13,7 @@
 		6281B2932B30FB8E002BD527 /* OCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B2922B30FB8E002BD527 /* OCRClient.swift */; };
 		6281B2962B30FC24002BD527 /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B2952B30FC24002BD527 /* ImageClient.swift */; };
 		6281B2992B310149002BD527 /* DataScannerOCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B2982B310149002BD527 /* DataScannerOCRClient.swift */; };
+		628EE84B2B4CAF26005DFA76 /* ImageScannerOCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84A2B4CAF26005DFA76 /* ImageScannerOCRClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		6281B2922B30FB8E002BD527 /* OCRClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRClient.swift; sourceTree = "<group>"; };
 		6281B2952B30FC24002BD527 /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		6281B2982B310149002BD527 /* DataScannerOCRClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerOCRClient.swift; sourceTree = "<group>"; };
+		628EE84A2B4CAF26005DFA76 /* ImageScannerOCRClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerOCRClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				6281B2942B30FC0E002BD527 /* ImageClient */,
 				6281B2912B30FB72002BD527 /* OCRClient */,
 				6281B2972B310122002BD527 /* DataScannerFeature */,
+				628EE8492B4CAF0B005DFA76 /* ImageScannerFeature */,
 				6281B28A2B30FB4C002BD527 /* OCRFeature.h */,
 			);
 			path = OCRFeature;
@@ -87,6 +90,14 @@
 				626AA56F2B34FD1000AA65E9 /* DataScannerFactor.swift */,
 			);
 			path = DataScannerFeature;
+			sourceTree = "<group>";
+		};
+		628EE8492B4CAF0B005DFA76 /* ImageScannerFeature */ = {
+			isa = PBXGroup;
+			children = (
+				628EE84A2B4CAF26005DFA76 /* ImageScannerOCRClient.swift */,
+			);
+			path = ImageScannerFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 			files = (
 				6281B2962B30FC24002BD527 /* ImageClient.swift in Sources */,
 				626AA5702B34FD1000AA65E9 /* DataScannerFactor.swift in Sources */,
+				628EE84B2B4CAF26005DFA76 /* ImageScannerOCRClient.swift in Sources */,
 				6281B2932B30FB8E002BD527 /* OCRClient.swift in Sources */,
 				6281B2992B310149002BD527 /* DataScannerOCRClient.swift in Sources */,
 				626AA56E2B34FCF600AA65E9 /* ConcrateOCRClientDelegate.swift in Sources */,

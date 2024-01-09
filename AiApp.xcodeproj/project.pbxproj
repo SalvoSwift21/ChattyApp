@@ -15,6 +15,7 @@
 		6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; };
 		628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
 		62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */; };
 		62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */; };
 		62C468F32B2FC0AB002DD3A3 /* RootUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F22B2FC0AB002DD3A3 /* RootUI.swift */; };
@@ -49,6 +50,7 @@
 		6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewUIComposer.swift; sourceTree = "<group>"; };
 		6281B29C2B311158002BD527 /* OCRFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OCRFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		628B869E2B156DA0009C6895 /* ScanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileComposer.swift; sourceTree = "<group>"; };
 		62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUIComposer.swift; sourceTree = "<group>"; };
 		62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIComposer.swift; sourceTree = "<group>"; };
 		62C468F22B2FC0AB002DD3A3 /* RootUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootUI.swift; path = /Users/Salvo1/Library/Developer/AiApp/AiApp/AiApp/UIComposer/RootUI.swift; sourceTree = "<absolute>"; };
@@ -136,6 +138,7 @@
 				62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */,
 				62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */,
 				6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */,
+				628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */,
 			);
 			path = UIComposer;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				62C468F32B2FC0AB002DD3A3 /* RootUI.swift in Sources */,
 				62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */,
 				6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */,
+				628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */,
 				62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */,
 				62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */,
 			);

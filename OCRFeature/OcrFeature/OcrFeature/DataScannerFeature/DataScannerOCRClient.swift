@@ -81,7 +81,7 @@ extension DataScannerOCRClient: DataScannerViewControllerDelegate {
         switch item {
         case .text(let text):
             // Copy the text to the pasteboard.
-            logger.debug("User tap item:\(item.id) and Data Sanner recive understand: \(text.transcript)")
+            logger.debug("User tap item:\(item.id) and Data Sanner recive and undestand: \(text.transcript)")
             self.delegate.recognizedItemCompletion?(text.transcript)
         case .barcode( _):
             // Open the URL in the browser.
