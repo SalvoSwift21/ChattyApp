@@ -12,8 +12,7 @@ import VisionKit
 
 @main
 struct AiAppApp: App {
-    @State private var presented = false
-    @State private var startScanning = true
+    
     @State private var scanText = ""
     @State private var showingAlert = false
 
@@ -46,19 +45,13 @@ struct AiAppApp: App {
                         }
                     }
                 case .scan:
-                    VStack(spacing: 0) {
-                        DataScannerView(startScanning: $startScanning, scanText: $scanText)
-                            .frame(height: 400)
-                     
-                        Text(scanText)
-                            .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
-                            .background(in: Rectangle())
-                            .backgroundStyle(Color(uiColor: .systemGray6))
-                     
-                    }
-                    .task {
-                        if DataScannerViewController.isSupported && DataScannerViewController.isAvailable {
-                            startScanning.toggle()
+                    DataScannerComposer.uploadFileComposedWith { resultOfScan in
+                        scanText = resultOfScan
+                        showingAlert = true
+                    }.alert("Risultato della scansione \(scanText)", isPresented: $showingAlert) {
+                        Button("OK", role: .cancel) {
+                            scanText = ""
+                            appRootManager.currentRoot = .home
                         }
                     }
                 }

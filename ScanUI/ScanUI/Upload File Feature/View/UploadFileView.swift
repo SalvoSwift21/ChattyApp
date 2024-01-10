@@ -62,3 +62,10 @@ public struct UploadFileView: View {
     }
 }
 
+#Preview {
+    @State var uploadFileStore = UploadFileStore(state: .loading(show: false))
+    
+    @State var presenter = UploadFilePresenter(delegate: uploadFileStore, resultOfScan: { _ in })
+    
+    return UploadFileView(store: uploadFileStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+}
