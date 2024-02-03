@@ -22,16 +22,16 @@ public class GoogleAILLMClient: LLMClient {
         
     private var history: [LLMMessage] = []
 
-    private var generativeLanguageClient: GenerativeLanguage
+    private var generativeLanguageClient: GenerativeModel
     
-    public init(generativeLanguageClient: GenerativeLanguage) {
+    public init(generativeLanguageClient: GenerativeModel) {
         self.generativeLanguageClient = generativeLanguageClient
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
         
         let prompt = object.content
-        let response = try await generativeLanguageClient.generateText(with: prompt)
+        let response = try await generativeLanguageClient.generateContent(prompt)
         
         guard let message = try GoogleAIMapper.map(response) else { throw GoogleAIError.notValidChatResult }
         

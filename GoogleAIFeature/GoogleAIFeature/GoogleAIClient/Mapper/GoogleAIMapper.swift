@@ -17,18 +17,13 @@ public final class GoogleAIMapper {
         case notValidOutput
     }
 
-    public static func map(_ response: GenerateTextResponse) throws -> GoogleAILLMClient.LLMClientResult {
+    public static func map(_ response: GenerateContentResponse) throws -> GoogleAILLMClient.LLMClientResult {
         
-        guard let candidates = response.candidates, 
-              let first = candidates.first else {
-            throw GoogleAIMapper.GoogleAIMapperError.notValidCandidates
-        }
-        
-        guard let output = first.output else {
+        guard let text = response.text else {
             throw GoogleAIMapper.GoogleAIMapperError.notValidOutput
         }
         
-        let message = LLMMessage(role: "", content: output)
+        let message = LLMMessage(role: "", content: text)
         
         return message
     }
