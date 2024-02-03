@@ -36,8 +36,9 @@ public struct ScanView: View {
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .loaded(let viewModel):
                 VStack(alignment: .center, spacing: 30.0) {
-                    Text("Position photo within frame")
+                    Text("Position text within frame, and tap for choose text.")
                     DataScannerView(dataScannerViewController: viewModel.dataScannerController)
+                        .cornerRadius(10.0)
                         .padding()
                 }
             }
