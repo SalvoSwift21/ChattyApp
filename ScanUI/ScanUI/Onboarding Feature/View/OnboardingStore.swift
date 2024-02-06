@@ -10,7 +10,7 @@ import Combine
 import UIKit
 import SwiftUI
 
-@MainActor
+
 public class OnboardingStore: ObservableObject {
     
     public enum State {
@@ -29,7 +29,7 @@ public class OnboardingStore: ObservableObject {
         }
     }
 
-    @MainActor
+    
     public init(state: OnboardingStore.State = .loading) {
         self.state = state
         self._currentPage = .init(wrappedValue: 0)
@@ -44,17 +44,17 @@ public class OnboardingStore: ObservableObject {
 
 extension OnboardingStore: OnboardingPresenterDelegate {
     
-    @MainActor
+    
     public func renderLoading() {
         self.state = .loading
     }
     
-    @MainActor
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }
     
-    @MainActor
+    
     public func render(cards: [OnboardingViewModel]) {
         self.totalPages = cards.count
         self.state = .loaded(cards: cards)

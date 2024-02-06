@@ -48,6 +48,7 @@ public class UploadFilePresenter: UploadFileProtocols {
         try await self.service.startScan(atURL: url)
     }
     
+    @MainActor
     @Sendable public func loadFilesType() async {
         let uttTypes = await self.service.getFileUTTypes()
         let viewModel = UploadFileViewModel(fileTypes: uttTypes)

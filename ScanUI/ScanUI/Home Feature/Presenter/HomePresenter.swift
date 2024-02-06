@@ -35,6 +35,7 @@ public class HomePresenter: HomePresenterProtocol {
     
     public func getSearchResult(for query: String) async { }
     
+    @MainActor
     @Sendable public func getHome() async {
         do {
             self.showLoader(true)
