@@ -49,3 +49,9 @@ public class GoogleAILLMClient: LLMClient {
         self.history.removeAll()
     }
 }
+
+public func makeGoogleGeminiProAIClient() -> GoogleAILLMClient {
+    let gl = GenerativeModel(name: "gemini-pro", apiKey: GoogleAIConfigurations.TEST_API_KEY)
+    let sut = GoogleAILLMClient(generativeLanguageClient: gl)
+    return sut
+}

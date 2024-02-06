@@ -28,6 +28,11 @@ extension ImageScannerOCRClient: OCRClient {
     
     public func makeRequest(object: URL) throws {
         
+        defer {
+            object.stopAccessingSecurityScopedResource()
+        }
+        
+        guard object.startAccessingSecurityScopedResource() else { return }
         let file = try Data(contentsOf: object)
         guard let image = UIImage(data: file as Data) else { return }
         

@@ -16,6 +16,14 @@
 		628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; };
 		628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
+		62BB197E2B719E48004A0748 /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; };
+		62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62BB19802B719E48004A0748 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; };
+		62BB19812B719E48004A0748 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62BB19832B719E9C004A0748 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; };
+		62BB19842B719E9D004A0748 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62C09EA02B711F7800490915 /* SummariseTranslateFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; };
+		62C09EA12B711F7800490915 /* SummariseTranslateFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */; };
 		62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */; };
 		62C468F32B2FC0AB002DD3A3 /* RootUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F22B2FC0AB002DD3A3 /* RootUI.swift */; };
@@ -34,6 +42,10 @@
 				6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */,
 				62D242012B31159700B0EF1A /* RestApi.framework in Embed Frameworks */,
 				628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */,
+				62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */,
+				62C09EA12B711F7800490915 /* SummariseTranslateFeature.framework in Embed Frameworks */,
+				62BB19842B719E9D004A0748 /* LLMFeature.framework in Embed Frameworks */,
+				62BB19812B719E48004A0748 /* OpenAIFeature.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +63,10 @@
 		6281B29C2B311158002BD527 /* OCRFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OCRFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		628B869E2B156DA0009C6895 /* ScanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileComposer.swift; sourceTree = "<group>"; };
+		62BB19822B719E9C004A0748 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SummariseTranslateFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C09EA22B71203200490915 /* GoogleAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C09EA32B71203200490915 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUIComposer.swift; sourceTree = "<group>"; };
 		62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIComposer.swift; sourceTree = "<group>"; };
 		62C468F22B2FC0AB002DD3A3 /* RootUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootUI.swift; path = /Users/Salvo1/Library/Developer/AiApp/AiApp/AiApp/UIComposer/RootUI.swift; sourceTree = "<absolute>"; };
@@ -67,6 +83,10 @@
 				6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */,
 				62D242002B31159700B0EF1A /* RestApi.framework in Frameworks */,
 				628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */,
+				62BB197E2B719E48004A0748 /* GoogleAIFeature.framework in Frameworks */,
+				62C09EA02B711F7800490915 /* SummariseTranslateFeature.framework in Frameworks */,
+				62BB19832B719E9C004A0748 /* LLMFeature.framework in Frameworks */,
+				62BB19802B719E48004A0748 /* OpenAIFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +145,10 @@
 		628B869D2B156DA0009C6895 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62BB19822B719E9C004A0748 /* LLMFeature.framework */,
+				62C09EA22B71203200490915 /* GoogleAIFeature.framework */,
+				62C09EA32B71203200490915 /* OpenAIFeature.framework */,
+				62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */,
 				62D241FF2B31159700B0EF1A /* RestApi.framework */,
 				6281B29C2B311158002BD527 /* OCRFeature.framework */,
 				628B869E2B156DA0009C6895 /* ScanUI.framework */,

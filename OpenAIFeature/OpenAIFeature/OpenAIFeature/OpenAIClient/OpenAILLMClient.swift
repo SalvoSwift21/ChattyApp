@@ -52,3 +52,11 @@ public class OpenAILLMClient: LLMClient {
         LLMRequestBody(model: "gpt-3.5-turbo", messages: messages, max_tokens: 35, stream: false, temperature: 1.0, user: nil)
     }
 }
+
+public func makeOpenAIHTTPClient() -> OpenAILLMClient {
+    let session = URLSession(configuration: .default)
+    let client = URLSessionHTTPClient(session: session)
+    let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
+    let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
+    return OpenAILLMClient(openAIHTTPClient: clientOpenAi)
+}
