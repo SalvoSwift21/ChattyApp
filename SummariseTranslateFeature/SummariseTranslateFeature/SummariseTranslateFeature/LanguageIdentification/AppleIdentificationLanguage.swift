@@ -24,7 +24,7 @@ public final class AppleIdentificationLanguage: IdentificationLanguageProtocol {
         guard let result = recognizer.dominantLanguage else {
             throw AppleIdentificationLanguage.Error.invalidLanguage
         }
-        return Locale(identifier: result.rawValue).identifier
+        return result.rawValue
     }
     
 }
