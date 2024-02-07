@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62292E6A2B73030D00A0AEBD /* IdentificationLanguageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62292E692B73030D00A0AEBD /* IdentificationLanguageProtocol.swift */; };
+		62292E6C2B73042800A0AEBD /* AppleIdentificationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62292E6B2B73042800A0AEBD /* AppleIdentificationLanguage.swift */; };
+		62292E6E2B73069300A0AEBD /* AppleIdentificationLanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62292E6D2B73069300A0AEBD /* AppleIdentificationLanguageTest.swift */; };
+		62292E712B73073A00A0AEBD /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62292E702B73073A00A0AEBD /* XCTestCase+MemoryLeakTracking.swift */; };
 		622C3D872B70505500E6B9C5 /* SummariseTranslateFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D7E2B70505400E6B9C5 /* SummariseTranslateFeature.framework */; };
 		622C3D8C2B70505500E6B9C5 /* SummariseTranslateFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3D8B2B70505500E6B9C5 /* SummariseTranslateFeatureTests.swift */; };
 		622C3D8D2B70505500E6B9C5 /* SummariseTranslateFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 622C3D812B70505400E6B9C5 /* SummariseTranslateFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +51,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		62292E692B73030D00A0AEBD /* IdentificationLanguageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationLanguageProtocol.swift; sourceTree = "<group>"; };
+		62292E6B2B73042800A0AEBD /* AppleIdentificationLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIdentificationLanguage.swift; sourceTree = "<group>"; };
+		62292E6D2B73069300A0AEBD /* AppleIdentificationLanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIdentificationLanguageTest.swift; sourceTree = "<group>"; };
+		62292E702B73073A00A0AEBD /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		622C3D7E2B70505400E6B9C5 /* SummariseTranslateFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SummariseTranslateFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622C3D812B70505400E6B9C5 /* SummariseTranslateFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SummariseTranslateFeature.h; sourceTree = "<group>"; };
 		622C3D862B70505500E6B9C5 /* SummariseTranslateFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummariseTranslateFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62292E682B73026500A0AEBD /* LanguageIdentification */ = {
+			isa = PBXGroup;
+			children = (
+				62292E692B73030D00A0AEBD /* IdentificationLanguageProtocol.swift */,
+				62292E6B2B73042800A0AEBD /* AppleIdentificationLanguage.swift */,
+			);
+			path = LanguageIdentification;
+			sourceTree = "<group>";
+		};
+		62292E6F2B73072F00A0AEBD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				62292E702B73073A00A0AEBD /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		622C3D742B70505400E6B9C5 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +127,7 @@
 		622C3D802B70505400E6B9C5 /* SummariseTranslateFeature */ = {
 			isa = PBXGroup;
 			children = (
+				62292E682B73026500A0AEBD /* LanguageIdentification */,
 				622C3D962B70506300E6B9C5 /* SummariseFeature */,
 				622C3D812B70505400E6B9C5 /* SummariseTranslateFeature.h */,
 			);
@@ -111,7 +137,9 @@
 		622C3D8A2B70505500E6B9C5 /* SummariseTranslateFeatureTests */ = {
 			isa = PBXGroup;
 			children = (
+				62292E6F2B73072F00A0AEBD /* Helpers */,
 				622C3D8B2B70505500E6B9C5 /* SummariseTranslateFeatureTests.swift */,
+				62292E6D2B73069300A0AEBD /* AppleIdentificationLanguageTest.swift */,
 			);
 			path = SummariseTranslateFeatureTests;
 			sourceTree = "<group>";
@@ -246,7 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62292E6C2B73042800A0AEBD /* AppleIdentificationLanguage.swift in Sources */,
 				622C3DA52B70526100E6B9C5 /* Summarise.swift in Sources */,
+				62292E6A2B73030D00A0AEBD /* IdentificationLanguageProtocol.swift in Sources */,
 				622C3DA32B7050A300E6B9C5 /* SummariseProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62292E6E2B73069300A0AEBD /* AppleIdentificationLanguageTest.swift in Sources */,
+				62292E712B73073A00A0AEBD /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				622C3D8C2B70505500E6B9C5 /* SummariseTranslateFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
