@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import LLMFeature
 
-public protocol SummariseProtocol {
-    func summurize(fromText text: String) async throws -> String
+public protocol SummaryServiceProtocol {
+    func makeSummary(fromText text: String) async throws -> String
 }

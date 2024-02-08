@@ -20,8 +20,9 @@
 		622C3D9E2B70508C00E6B9C5 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D992B70508C00E6B9C5 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		622C3D9F2B70508C00E6B9C5 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */; };
 		622C3DA02B70508C00E6B9C5 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		622C3DA32B7050A300E6B9C5 /* SummariseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA22B7050A300E6B9C5 /* SummariseProtocol.swift */; };
-		622C3DA52B70526100E6B9C5 /* Summarise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA42B70526100E6B9C5 /* Summarise.swift */; };
+		622C3DA32B7050A300E6B9C5 /* SummaryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA22B7050A300E6B9C5 /* SummaryServiceProtocol.swift */; };
+		622C3DA52B70526100E6B9C5 /* SummaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA42B70526100E6B9C5 /* SummaryClient.swift */; };
+		629906202B7453CA005B43A7 /* SummaryClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299061F2B7453CA005B43A7 /* SummaryClientProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +63,10 @@
 		622C3D982B70508C00E6B9C5 /* GoogleAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622C3D992B70508C00E6B9C5 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		622C3DA22B7050A300E6B9C5 /* SummariseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummariseProtocol.swift; sourceTree = "<group>"; };
-		622C3DA42B70526100E6B9C5 /* Summarise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summarise.swift; sourceTree = "<group>"; };
+		622C3DA22B7050A300E6B9C5 /* SummaryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryServiceProtocol.swift; sourceTree = "<group>"; };
+		622C3DA42B70526100E6B9C5 /* SummaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryClient.swift; sourceTree = "<group>"; };
 		629906132B744803005B43A7 /* SummariseTranslateFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SummariseTranslateFeature.xctestplan; sourceTree = "<group>"; };
+		6299061F2B7453CA005B43A7 /* SummaryClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryClientProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				62292E682B73026500A0AEBD /* LanguageIdentification */,
-				622C3D962B70506300E6B9C5 /* SummariseFeature */,
+				622C3D962B70506300E6B9C5 /* SummaryFeature */,
 				622C3D812B70505400E6B9C5 /* SummariseTranslateFeature.h */,
 			);
 			path = SummariseTranslateFeature;
@@ -146,13 +148,14 @@
 			path = SummariseTranslateFeatureTests;
 			sourceTree = "<group>";
 		};
-		622C3D962B70506300E6B9C5 /* SummariseFeature */ = {
+		622C3D962B70506300E6B9C5 /* SummaryFeature */ = {
 			isa = PBXGroup;
 			children = (
-				622C3DA22B7050A300E6B9C5 /* SummariseProtocol.swift */,
-				622C3DA42B70526100E6B9C5 /* Summarise.swift */,
+				622C3DA22B7050A300E6B9C5 /* SummaryServiceProtocol.swift */,
+				6299061F2B7453CA005B43A7 /* SummaryClientProtocol.swift */,
+				622C3DA42B70526100E6B9C5 /* SummaryClient.swift */,
 			);
-			path = SummariseFeature;
+			path = SummaryFeature;
 			sourceTree = "<group>";
 		};
 		622C3D972B70508C00E6B9C5 /* Frameworks */ = {
@@ -276,10 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				629906202B7453CA005B43A7 /* SummaryClientProtocol.swift in Sources */,
 				62292E6C2B73042800A0AEBD /* AppleIdentificationLanguage.swift in Sources */,
-				622C3DA52B70526100E6B9C5 /* Summarise.swift in Sources */,
+				622C3DA52B70526100E6B9C5 /* SummaryClient.swift in Sources */,
 				62292E6A2B73030D00A0AEBD /* IdentificationLanguageProtocol.swift in Sources */,
-				622C3DA32B7050A300E6B9C5 /* SummariseProtocol.swift in Sources */,
+				622C3DA32B7050A300E6B9C5 /* SummaryServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

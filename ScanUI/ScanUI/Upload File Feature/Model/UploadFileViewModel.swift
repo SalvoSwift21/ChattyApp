@@ -8,7 +8,7 @@
 import Foundation
 import UniformTypeIdentifiers
 
-public class UploadFileViewModel {
+public struct UploadFileViewModel {
     
     var fileTypes: [UTType] = []
     
