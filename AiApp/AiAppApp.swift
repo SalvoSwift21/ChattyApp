@@ -15,12 +15,19 @@ struct AiAppApp: App {
     
     @State private var scanText = ""
     @State private var showingAlert = false
+    @State private var showTextAnalyzer = false
 
     @StateObject private var appRootManager = AppRootManager()
 
     var body: some Scene {
         WindowGroup {
             Group {
+                NavigationView {
+                    NavigationLink(destination: TextAnalyzerComposer.textAnalyzerComposedWith(text: scanText),
+                                   isActive: $showTextAnalyzer) {
+                        EmptyView()
+                    }
+                }
                 switch appRootManager.currentRoot {
                 case .onboarding:
                     OnboardingUIComposer.onboardingComposedWith {
@@ -40,8 +47,7 @@ struct AiAppApp: App {
                         showingAlert = true
                     }.alert("Risultato della scansione \(scanText)", isPresented: $showingAlert) {
                         Button("OK", role: .cancel) {
-                            scanText = ""
-                            appRootManager.currentRoot = .home
+                            showTextAnalyzer = true
                         }
                     }
                 case .scan:
@@ -50,8 +56,7 @@ struct AiAppApp: App {
                         showingAlert = true
                     }.alert("Risultato della scansione \(scanText)", isPresented: $showingAlert) {
                         Button("OK", role: .cancel) {
-                            scanText = ""
-                            appRootManager.currentRoot = .home
+                            showTextAnalyzer = true
                         }
                     }
                 }

@@ -32,6 +32,9 @@ public class TextAnalyzerPresenter {
         self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "")
     }
     
+    public func getData() {
+        makeSummary()
+    }
     
     fileprivate func makeSummary() {
        

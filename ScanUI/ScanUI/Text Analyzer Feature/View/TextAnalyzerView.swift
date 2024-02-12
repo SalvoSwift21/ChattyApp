@@ -76,7 +76,7 @@ public struct TextAnalyzerView: View {
         )
         .background(Color.scanBackground)
         .onAppear(perform: {
-            
+            presenter.getData()
         })
     }
 }
