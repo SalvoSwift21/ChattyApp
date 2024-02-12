@@ -28,7 +28,7 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
         try self.identificationLanguageClient.identifyLanguageProtocol(fromText: text)
     }
     
-    public func makeTranslateion(forText text: String, from: Locale, to: Locale) async throws -> String {
+    public func makeTranslation(forText text: String, from: Locale, to: Locale) async throws -> String {
         print("not used for now")
         return ""
     }

@@ -9,9 +9,9 @@ import Foundation
 
 public struct TextAnalyzerViewModel {
     
-    var text: String?
+    var text: String
     
-    public init(text: String? = nil) {
+    public init(text: String) {
         self.text = text
     }
 }

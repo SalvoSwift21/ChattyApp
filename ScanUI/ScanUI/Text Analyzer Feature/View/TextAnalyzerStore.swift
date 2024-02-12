@@ -12,10 +12,11 @@ public class TextAnalyzerStore: ObservableObject {
     public enum State {
         case loading(show: Bool)
         case error(message: String)
-        case loaded(viewModel: TextAnalyzerViewModel)
+        case showViewModel
     }
     
     @Published var state: State = .loading(show: false)
+    @Published var viewModel = TextAnalyzerViewModel(text: "")
 
     public init(state: TextAnalyzerStore.State = .loading(show: true)) {
         self.state = state
@@ -33,6 +34,6 @@ extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
     }
     
     public func render(viewModel: TextAnalyzerViewModel) {
-        self.state = .loaded(viewModel: viewModel)
+        self.viewModel = viewModel
     }
 }

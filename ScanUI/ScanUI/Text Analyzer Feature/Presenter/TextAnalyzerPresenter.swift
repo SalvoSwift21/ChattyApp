@@ -29,7 +29,7 @@ public class TextAnalyzerPresenter {
         self.delegate = delegate
         self.scannedText = scannedText
         self.resourceBundle = bundle
-        self.textAnalyzerViewModel = TextAnalyzerViewModel()
+        self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "")
     }
     
     
@@ -56,17 +56,33 @@ public class TextAnalyzerPresenter {
     fileprivate func getScannedTextLanguage() throws -> String {
         try self.service.identificationLanguageClient.identifyLanguageProtocol(fromText: scannedText)
     }
+    
+    fileprivate func makeTranslationFromText(text: String) async throws -> String {
+        try await self.service.makeTranslation(forText: text, from: Locale.current, to: Locale.current)
+    }
+    
+    fileprivate func renderViewModel() {
+        self.delegate?.render(viewModel: textAnalyzerViewModel)
+    }
 }
 
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
-    public func makeTranslation() {
-        print("nothing to do ")
+    public func makeTranslation() async {
+        do {
+            showLoader(true)
+            let result = try await makeTranslationFromText(text: textAnalyzerViewModel.text)
+            textAnalyzerViewModel.text = result
+            renderViewModel()
+            showLoader(false)
+        } catch {
+            self.delegate?.render(errorMessage: error.localizedDescription)
+        }
     }
     
     public func showOriginalSummary() {
-        self.textAnalyzerViewModel.text = self.originalSummaryText
-        self.delegate?.render(viewModel: self.textAnalyzerViewModel)
+        self.textAnalyzerViewModel.text = self.originalSummaryText ?? ""
+        self.renderViewModel()
     }
     
     public func copySummary() {
@@ -82,8 +98,14 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     }
     
     public func updateScannedText(text: String) {
-        self.modifySummaryText = text
-        self.textAnalyzerViewModel.text = text
+        if text != self.originalSummaryText {
+            self.modifySummaryText = text
+        }
+    }
+    
+    public func showModifyText() {
+        self.textAnalyzerViewModel.text = self.modifySummaryText ?? ""
+        self.renderViewModel()
     }
 }
 

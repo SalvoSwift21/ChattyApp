@@ -10,8 +10,9 @@ import Foundation
 public protocol TextAnalyzerProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
     
-    func makeTranslation()
+    func makeTranslation() async
     func showOriginalSummary()
+    func showModifyText()
     
     func copySummary()
     

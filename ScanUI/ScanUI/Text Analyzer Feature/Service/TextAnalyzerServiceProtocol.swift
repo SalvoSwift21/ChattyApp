@@ -10,5 +10,5 @@ import Foundation
 public protocol TextAnalyzerServiceProtocol: AnyObject {
     func makeSummary(forText text: String) async throws -> String
     func getCurrentLanguage(forText text: String) async throws -> String
-    func makeTranslateion(forText text: String, from: Locale, to: Locale) async throws -> String
+    func makeTranslation(forText text: String, from: Locale, to: Locale) async throws -> String
 }
