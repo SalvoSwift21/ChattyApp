@@ -43,6 +43,7 @@ public class UploadFilePresenter: UploadFileProtocols {
         }
     }
     
+    @MainActor
     public func startScan(atURL url: URL) async throws {
         self.showLoader(true)
         try await self.service.startScan(atURL: url)

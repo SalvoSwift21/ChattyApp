@@ -32,22 +32,25 @@ public class TextAnalyzerPresenter {
         self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "")
     }
     
+    @MainActor 
     public func getData() {
         makeSummary()
     }
     
+    @MainActor
     fileprivate func makeSummary() {
        
         self.showLoader(true)
         
         Task {
             do {
-                let result = try await self.service.makeSummary(forText: scannedText)
+                //let result = try await self.service.makeSummary(forText: scannedText)
+                let result = "questa è la stringa che devo mostrare"
                 self.showLoader(false)
                 self.originalSummaryText = result
                 self.textAnalyzerViewModel.text = result
-                self.delegate?.render(viewModel: textAnalyzerViewModel)
                 self.showLoader(false)
+                self.delegate?.render(viewModel: textAnalyzerViewModel)
             } catch {
                 self.showLoader(false)
                 self.delegate?.render(errorMessage: error.localizedDescription)
@@ -60,10 +63,12 @@ public class TextAnalyzerPresenter {
         try self.service.identificationLanguageClient.identifyLanguageProtocol(fromText: scannedText)
     }
     
+    @MainActor
     fileprivate func makeTranslationFromText(text: String) async throws -> String {
         try await self.service.makeTranslation(forText: text, from: Locale.current, to: Locale.current)
     }
     
+    @MainActor
     fileprivate func renderViewModel() {
         self.delegate?.render(viewModel: textAnalyzerViewModel)
     }
@@ -76,13 +81,14 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
             showLoader(true)
             let result = try await makeTranslationFromText(text: textAnalyzerViewModel.text)
             textAnalyzerViewModel.text = result
-            renderViewModel()
+            await renderViewModel()
             showLoader(false)
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
+    @MainActor 
     public func showOriginalSummary() {
         self.textAnalyzerViewModel.text = self.originalSummaryText ?? ""
         self.renderViewModel()
@@ -106,6 +112,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
         }
     }
     
+    @MainActor 
     public func showModifyText() {
         self.textAnalyzerViewModel.text = self.modifySummaryText ?? ""
         self.renderViewModel()

@@ -24,6 +24,7 @@ public class UploadFileStore: ObservableObject {
 
 
 extension UploadFileStore: UploadFileProtocolsDelegate {
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }

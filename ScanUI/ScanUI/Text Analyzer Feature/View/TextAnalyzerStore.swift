@@ -35,5 +35,6 @@ extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
     
     public func render(viewModel: TextAnalyzerViewModel) {
         self.viewModel = viewModel
+        self.state = .showViewModel
     }
 }

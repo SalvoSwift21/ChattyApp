@@ -9,6 +9,7 @@ import Foundation
 import ScanUI
 import GoogleAIFeature
 import SummariseTranslateFeature
+import OpenAIFeature
 
 public final class TextAnalyzerComposer {
     private init() {}
@@ -22,9 +23,9 @@ public final class TextAnalyzerComposer {
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
         let textAnalyzerStore = TextAnalyzerStore()
         
-        let googleClient = makeGoogleGeminiProAIClient()
+        let openAiClient = makeOpenAIHTTPClient()
         
-        let summaryClient = SummaryClient(summariseService: googleClient)
+        let summaryClient = SummaryClient(summariseService: openAiClient)
         let idLanguage = AppleIdentificationLanguage()
         
         let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage)

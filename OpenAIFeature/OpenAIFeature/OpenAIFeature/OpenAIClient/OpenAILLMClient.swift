@@ -30,7 +30,7 @@ public class OpenAILLMClient: LLMClient {
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
         
         #warning("Refactor for support first object !!!!!!!!!!!")
-        let llmRequestBody: LLMRequestBody = createRequestBody(messages: history)
+        let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object])
         
         guard let result = try await httpClient.chatCompletetions(for: llmRequestBody),
                 let message = result.genericObject else {

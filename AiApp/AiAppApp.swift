@@ -22,12 +22,6 @@ struct AiAppApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                NavigationView {
-                    NavigationLink(destination: TextAnalyzerComposer.textAnalyzerComposedWith(text: scanText),
-                                   isActive: $showTextAnalyzer) {
-                        EmptyView()
-                    }
-                }
                 switch appRootManager.currentRoot {
                 case .onboarding:
                     OnboardingUIComposer.onboardingComposedWith {
@@ -36,29 +30,9 @@ struct AiAppApp: App {
                         }
                     }
                 case .home:
-                    HomeUIComposer.homeComposedWith(client: .init(session: .init(configuration: .ephemeral)), upload: {
-                        appRootManager.currentRoot = .upload
-                    }, newScan: {
-                        appRootManager.currentRoot = .scan
-                    })
-                case .upload:
-                    UploadFileComposer.uploadFileComposedWith { resultOfScan in
-                        scanText = resultOfScan
-                        showingAlert = true
-                    }.alert("Risultato della scansione \(scanText)", isPresented: $showingAlert) {
-                        Button("OK", role: .cancel) {
-                            showTextAnalyzer = true
-                        }
-                    }
-                case .scan:
-                    DataScannerComposer.uploadFileComposedWith { resultOfScan in
-                        scanText = resultOfScan
-                        showingAlert = true
-                    }.alert("Risultato della scansione \(scanText)", isPresented: $showingAlert) {
-                        Button("OK", role: .cancel) {
-                            showTextAnalyzer = true
-                        }
-                    }
+                    ContainerHomeView()
+                default:
+                    Text("Empty state")
                 }
             }
             .environmentObject(appRootManager)
