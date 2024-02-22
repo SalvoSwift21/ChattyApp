@@ -18,7 +18,7 @@ class GoogleAIMapperMapperTests: XCTestCase {
         
         let fakeJSONData = """
         {
-            "name": "John Doe",
+            "candidates": [],
             "age": 30
         }
         """.data(using: .utf8) ?? Data()
@@ -38,18 +38,6 @@ class GoogleAIMapperMapperTests: XCTestCase {
         )
     }
     
-    func test_map_deliversErrorOn200HTTPResponseWithWrgonJSONFirstTextCompletion() throws {
-        
-        let item1 = try makeTextCompletion(output: nil)
-        
-        let jsonData = makeCandidatesJSON([item1.json])
-        let response = try makeGenerateTextResponse(fromJSONData: jsonData)
-        
-        XCTAssertThrowsError(
-            try GoogleAIMapper.map(response)
-        )
-    }
-    
     func test_map_deliversItemsOn200HTTPResponseWithJSONCandidates() throws {
         let item1 = try makeTextCompletion(output: "Test mess 1")
         let item2 = try makeTextCompletion(output: "Test mess 2")
@@ -59,26 +47,26 @@ class GoogleAIMapperMapperTests: XCTestCase {
         
         let result = try GoogleAIMapper.map(response)
         
-        XCTAssertEqual(result?.content, item1.model.output)
+        XCTAssertEqual(result?.content, item1.model.parts.first?.text)
     }
     
     // MARK: - Helpers
     
-    private func makeGenerateTextResponse(message: LLMMessage) throws -> GenerateTextResponse {
-        let candides = TextCompletion(output: message.content)
-        let item = GenerateTextResponse(candidates: [candides])
+    private func makeGenerateTextResponse(message: LLMMessage) throws -> GenerateContentResponse {
+        let modelContent = ModelContent(parts: message.content)
+        let candides = CandidateResponse(content: modelContent, safetyRatings: [], finishReason: nil, citationMetadata: nil)
+        let item = GenerateContentResponse(candidates: [candides], promptFeedback: nil)
         return item
     }
     
-    private func makeGenerateTextResponse(fromJSONData data: Data) throws -> GenerateTextResponse {
-        
-        let item = try JSONDecoder().decode(GenerateTextResponse.self, from: data)
+    private func makeGenerateTextResponse(fromJSONData data: Data) throws -> GenerateContentResponse {
+        let item = try JSONDecoder().decode(GenerateContentResponse.self, from: data)
         return item
     }
     
-    private func makeTextCompletion(output: String?) throws -> (model: TextCompletion, json: [String: Any]) {
-        let item = TextCompletion(output: output)
-        let json = try item.asDictionary().compactMapValues { $0 }
+    private func makeTextCompletion(output: String) throws -> (model: ModelContent, json: [String: Any]) {
+        let item = ModelContent(parts: output)
+        let json: [String : Any] = ["content": try item.asDictionary().compactMapValues { $0 }, "safetyRatings": []]
         return (item, json)
     }
     
@@ -87,4 +75,3 @@ class GoogleAIMapperMapperTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
 }
-

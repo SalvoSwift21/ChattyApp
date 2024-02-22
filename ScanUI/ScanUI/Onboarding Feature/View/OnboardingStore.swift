@@ -10,6 +10,7 @@ import Combine
 import UIKit
 import SwiftUI
 
+
 public class OnboardingStore: ObservableObject {
     
     public enum State {
@@ -18,7 +19,7 @@ public class OnboardingStore: ObservableObject {
         case loaded(cards: [OnboardingViewModel])
     }
     
-    @Published var state: State = .loading
+    @Published var state: State
     @Published var showCompleteOnboarding: Bool = false
 
     var totalPages = 0
@@ -28,6 +29,7 @@ public class OnboardingStore: ObservableObject {
         }
     }
 
+    
     public init(state: OnboardingStore.State = .loading) {
         self.state = state
         self._currentPage = .init(wrappedValue: 0)
@@ -42,13 +44,16 @@ public class OnboardingStore: ObservableObject {
 
 extension OnboardingStore: OnboardingPresenterDelegate {
     
+    
     public func renderLoading() {
         self.state = .loading
     }
     
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }
+    
     
     public func render(cards: [OnboardingViewModel]) {
         self.totalPages = cards.count

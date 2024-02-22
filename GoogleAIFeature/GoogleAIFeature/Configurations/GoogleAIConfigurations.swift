@@ -8,9 +8,9 @@
 import Foundation
 
 public class GoogleAIConfigurations {
-
+    //AIzaSyCi9N2rcBGzvt4BAgLIlH2R0qktjUxiGEY
     static public let TEST_API_KEY: String = {
-        let base64Value = "QUl6YVN5REplVy1DRWtaSVRGaTFneV9PanNXamhzZ0t2V0ZNclJn"
+        let base64Value = "QUl6YVN5Q2k5TjJyY0JHenZ0NEJBZ0xJbEgyUjBxa3RqVXhpR0VZ"
         guard let data = Data(base64Encoded: base64Value) else {
             return "Error"
         }

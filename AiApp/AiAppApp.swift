@@ -8,9 +8,14 @@
 import SwiftUI
 import RestApi
 import ScanUI
+import VisionKit
 
 @main
 struct AiAppApp: App {
+    
+    @State private var scanText = ""
+    @State private var showingAlert = false
+    @State private var showTextAnalyzer = false
 
     @StateObject private var appRootManager = AppRootManager()
 
@@ -25,7 +30,9 @@ struct AiAppApp: App {
                         }
                     }
                 case .home:
-                    HomeUIComposer.homeComposedWith(client: .init(session: .init(configuration: .ephemeral)))
+                    ContainerHomeView()
+                default:
+                    Text("Empty state")
                 }
             }
             .environmentObject(appRootManager)

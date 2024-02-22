@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "3D6768E9-41DD-4BAA-BDE4-C298EE4F34EF",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:SummariseTranslateFeature.xcodeproj",
+        "identifier" : "622C3D852B70505500E6B9C5",
+        "name" : "SummariseTranslateFeatureTests"
+      }
+    }
+  ],
+  "version" : 1
+}

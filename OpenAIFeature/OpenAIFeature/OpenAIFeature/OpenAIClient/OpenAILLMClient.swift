@@ -28,7 +28,9 @@ public class OpenAILLMClient: LLMClient {
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
-        let llmRequestBody: LLMRequestBody = createRequestBody(messages: history)
+        
+        #warning("Refactor for support first object !!!!!!!!!!!")
+        let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object])
         
         guard let result = try await httpClient.chatCompletetions(for: llmRequestBody),
                 let message = result.genericObject else {
@@ -51,4 +53,12 @@ public class OpenAILLMClient: LLMClient {
     private func createRequestBody(messages: [LLMMessage]) -> LLMRequestBody {
         LLMRequestBody(model: "gpt-3.5-turbo", messages: messages, max_tokens: 35, stream: false, temperature: 1.0, user: nil)
     }
+}
+
+public func makeOpenAIHTTPClient() -> OpenAILLMClient {
+    let session = URLSession(configuration: .default)
+    let client = URLSessionHTTPClient(session: session)
+    let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
+    let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
+    return OpenAILLMClient(openAIHTTPClient: clientOpenAi)
 }

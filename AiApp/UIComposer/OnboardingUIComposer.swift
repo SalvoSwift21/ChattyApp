@@ -11,6 +11,7 @@ import ScanUI
 public final class OnboardingUIComposer {
     private init() {}
         
+     
     public static func onboardingComposedWith(
         completeOnboarding: @escaping () -> Void = {  }
     ) -> OnboardingContainerView {
