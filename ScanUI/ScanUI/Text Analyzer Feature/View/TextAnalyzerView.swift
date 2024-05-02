@@ -11,6 +11,8 @@ import Combine
 
 public struct TextAnalyzerView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var presenter: TextAnalyzerPresenter
     @ObservedObject var store: TextAnalyzerStore
 
@@ -53,6 +55,11 @@ public struct TextAnalyzerView: View {
         .onAppear(perform: {
             presenter.getData()
         })
+        .onChange(of: store.back) {
+            if store.back {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
     
     var CompleteTextView: some View {

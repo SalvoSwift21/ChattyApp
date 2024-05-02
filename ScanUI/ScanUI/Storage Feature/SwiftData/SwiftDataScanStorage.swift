@@ -33,10 +33,21 @@ public final class SwiftDataStore {
                                                         allowsSave: true,
                                                         cloudKitDatabase: .automatic)
             modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            try createDefaultFolderIfNeeded()
         } catch {
             throw SwiftDataStore.failedToLoadPersistentContainer(error)
         }
     } 
+    
+    private func createDefaultFolderIfNeeded() throws {
+        guard let folders = try self.retrieveFolders(), folders.isEmpty else {
+            return
+        }
+        
+        //Create folder
+        let folder = Folder(title: "Default Folder", scans: [])
+        try self.create(folder)
+    }
     
     deinit { }
 }

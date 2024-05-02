@@ -19,4 +19,5 @@ public protocol ScanStorege {
     func retrieveFolders() throws -> [Folder]?
     func retrieveScan(id: UUID) throws -> RetriveStoredScan
     func retrieveFolder(id: UUID) throws -> Folder?
+    func retrieveFolder(title: String) throws -> Folder?
 }

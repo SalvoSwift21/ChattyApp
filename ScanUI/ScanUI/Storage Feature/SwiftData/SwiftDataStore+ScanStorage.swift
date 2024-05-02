@@ -66,6 +66,13 @@ extension SwiftDataStore: ScanStorege {
         return folderStorage.local
     }
     
+    public func retrieveFolder(title: String) throws -> Folder? {
+        guard let folderStorage = try findFoldersByTitle(title: title).first else {
+            throw SwiftDataStore.modelNotFound
+        }
+        return folderStorage.local
+    }
+    
     //MARK: Helper
     
     private func getAllFolders() throws -> [FolderStorageModel] {
@@ -76,6 +83,14 @@ extension SwiftDataStore: ScanStorege {
     private func findFoldersByID(id: UUID) throws -> [FolderStorageModel] {
         let findFolder = #Predicate<FolderStorageModel> {
             $0.id == id
+        }
+        let descriptor = FetchDescriptor<FolderStorageModel>(predicate: findFolder)
+        return try modelContainer.mainContext.fetch(descriptor)
+    }
+    
+    private func findFoldersByTitle(title: String) throws -> [FolderStorageModel] {
+        let findFolder = #Predicate<FolderStorageModel> {
+            $0.title == title
         }
         let descriptor = FetchDescriptor<FolderStorageModel>(predicate: findFolder)
         return try modelContainer.mainContext.fetch(descriptor)

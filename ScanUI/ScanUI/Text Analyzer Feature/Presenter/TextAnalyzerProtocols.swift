@@ -26,4 +26,5 @@ public protocol TextAnalyzerProtocolDelegate: AnyObject {
     func render(errorMessage: String)
     func renderLoading(visible: Bool)
     func render(viewModel: TextAnalyzerViewModel)
+    func goBack()
 }

@@ -59,8 +59,8 @@ public class TextAnalyzerPresenter {
     }
     
 
-    fileprivate func getScannedTextLanguage() throws -> String {
-        try self.service.identificationLanguageClient.identifyLanguageProtocol(fromText: scannedText)
+    fileprivate func getScannedTextLanguage() async throws -> String {
+        try await self.service.getCurrentLanguage(forText: scannedText)
     }
     
     @MainActor
@@ -99,7 +99,15 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     }
     
     public func done() {
-        print("Save")
+        let scan = Scan(title: textAnalyzerViewModel.text, scanDate: Date())
+        Task {
+            do {
+                try await service.saveCurrentScan(scan: scan)
+                self.delegate?.goBack()
+            } catch {
+                print("Error \(error.localizedDescription)")
+            }
+        }
     }
     
     public func back() {

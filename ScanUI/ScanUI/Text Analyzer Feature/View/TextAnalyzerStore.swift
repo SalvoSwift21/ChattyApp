@@ -16,6 +16,7 @@ public class TextAnalyzerStore: ObservableObject {
     }
     
     @Published var state: State = .loading(show: false)
+    @Published var back: Bool = false
     @Published var viewModel = TextAnalyzerViewModel(text: "")
 
     public init(state: TextAnalyzerStore.State = .loading(show: true)) {
@@ -25,6 +26,10 @@ public class TextAnalyzerStore: ObservableObject {
 
 
 extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
+    public func goBack() {
+        self.back = true
+    }
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }

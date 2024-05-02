@@ -39,7 +39,7 @@ struct ContainerHomeView: View {
                 }
             })
             .navigationDestination(for: String.self) { resultOfScan in
-                TextAnalyzerComposer.textAnalyzerComposedWith(text: resultOfScan)
+                TextAnalyzerComposer.textAnalyzerComposedWith(text: resultOfScan, scanStorage: scanStorage)
             }
         }
     }

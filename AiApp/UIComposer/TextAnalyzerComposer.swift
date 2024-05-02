@@ -16,6 +16,7 @@ public final class TextAnalyzerComposer {
         
     public static func textAnalyzerComposedWith(
         text: String,
+        scanStorage: ScanStorege,
         back: @escaping () -> Void = {  },
         done: @escaping () -> Void = {  }
     ) -> TextAnalyzerView {
@@ -28,7 +29,7 @@ public final class TextAnalyzerComposer {
         let summaryClient = SummaryClient(summariseService: openAiClient)
         let idLanguage = AppleIdentificationLanguage()
         
-        let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage)
+        let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, storageClient: scanStorage)
         
         let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedText: text, bundle: bundle)
         
