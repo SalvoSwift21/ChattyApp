@@ -83,7 +83,7 @@ public struct TextAnalyzerView: View {
                 CircleAnimationView(centerImage: UIImage(named: "checkmark_white", in: self.resourceBundle, with: nil) ?? UIImage(), frame: .init(width: 90, height: 90))
                     .padding(.top, 10)
                     .onTapGesture {
-                        print("Done")
+                        presenter.done()
                     }
             }
             

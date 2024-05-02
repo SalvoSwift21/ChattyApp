@@ -11,18 +11,18 @@ import SwiftData
 @Model
 final class FolderStorageModel {
     var id: UUID = UUID()
-    var title: String
+    var title: String = ""
     
-    @Relationship(deleteRule: .cascade, inverse: \ScanStorageModel.id)
-    var scans: [ScanStorageModel]
+    @Relationship(inverse: \ScanStorageModel.folder)
+    var scans: [ScanStorageModel]?
     
-    init(id: UUID, title: String, scans: [ScanStorageModel]) {
+    init(id: UUID = UUID(), title: String, scans: [ScanStorageModel] = []) {
         self.id = id
         self.title = title
         self.scans = scans
     }
     
     var local: Folder {
-        return Folder(id: self.id, title: title, scans: scans.map({ $0.local }))
+        return Folder(id: self.id, title: title, scans: (scans ?? []).map({ $0.local }))
     }
 }

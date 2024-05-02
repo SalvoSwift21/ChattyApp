@@ -10,6 +10,23 @@ import RestApi
 import ScanUI
 import VisionKit
 
+public class AppConfiguration {
+    
+    static public var shared = AppConfiguration()
+    
+    static let appGroupName = "group.com.ariel.ai.scan.app"
+    
+    var storeURL: URL = {
+        guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
+            return URL(string: "Test")!
+        }
+        let storeURLResult = storeURL.appendingPathComponent("AI.SCAN.sqlite")
+        return storeURLResult
+    }()
+    
+    private init() { }
+}
+
 @main
 struct AiAppApp: App {
     
@@ -18,6 +35,16 @@ struct AiAppApp: App {
     @State private var showTextAnalyzer = false
 
     @StateObject private var appRootManager = AppRootManager()
+    
+    @MainActor
+    private func getStorage() -> ScanStorege {
+        let url = AppConfiguration.shared.storeURL
+        do {
+            return try SwiftDataStore(storeURL: url)
+        } catch {
+            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!)
+        }
+    }
 
     var body: some Scene {
         WindowGroup {
@@ -30,7 +57,7 @@ struct AiAppApp: App {
                         }
                     }
                 case .home:
-                    ContainerHomeView()
+                    ContainerHomeView(storage: getStorage())
                 default:
                     Text("Empty state")
                 }

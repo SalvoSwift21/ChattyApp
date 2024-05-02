@@ -6,17 +6,24 @@
 //
 
 import SwiftUI
+import ScanUI
 
 struct ContainerHomeView: View {
+    
+    @State private var scanStorage: ScanStorege
     
     @State private var presentedTextAnalyzer: [String] = []
     
     @State private var showUpload = false
     @State private var showScan = false
     
+    init(storage: ScanStorege) {
+        self.scanStorage = storage
+    }
+    
     var body: some View {
         NavigationStack(path: $presentedTextAnalyzer) {
-            HomeUIComposer.homeComposedWith(client: .init(session: .init(configuration: .ephemeral)), upload: {
+            HomeUIComposer.homeComposedWith(client: scanStorage, upload: {
                 showUpload.toggle()
             }, newScan: {
                 showScan.toggle()
@@ -38,6 +45,10 @@ struct ContainerHomeView: View {
     }
 }
 
-#Preview {
-    ContainerHomeView()
-}
+//#Preview {
+//    let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+//    let swiftDataStore = try! SwiftDataStore(storeURL: url)
+//    HStack {
+//        ContainerHomeView(storage: swiftDataStore)
+//    }
+//}

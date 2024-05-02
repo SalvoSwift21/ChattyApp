@@ -12,15 +12,17 @@ import UIKit
 
 @Model 
 final class ScanStorageModel {
-    var id: UUID
+    var id: UUID = UUID()
     
-    var title: String
-    var scanDate: Date
+    var title: String = ""
+    var scanDate: Date = Date()
 
     @Attribute(.externalStorage)
     var mainImage: Data?
     
-    init(id: UUID, title: String, scanDate: Date, mainImage: Data? = nil) {
+    var folder: FolderStorageModel?
+    
+    init(id: UUID = UUID(), title: String, scanDate: Date, mainImage: Data? = nil) {
         self.id = id
         self.title = title
         self.scanDate = scanDate

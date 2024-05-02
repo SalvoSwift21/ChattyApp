@@ -13,7 +13,7 @@ public final class HomeUIComposer {
     private init() {}
         
     public static func homeComposedWith(
-        client: URLSessionHTTPClient,
+        client: ScanStorege,
         upload: @escaping () -> Void = {  },
         newScan: @escaping () -> Void = {  }
     ) -> HomeView {

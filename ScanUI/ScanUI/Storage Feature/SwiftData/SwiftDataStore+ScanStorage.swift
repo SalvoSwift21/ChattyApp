@@ -29,9 +29,8 @@ extension SwiftDataStore: ScanStorege {
             throw SwiftDataStore.folderNotExist
         }
         let storedScan = ScanStorageModel(id: scan.id, title: scan.title, scanDate: scan.scanDate, mainImage: scan.mainImage?.pngData())
-        folder.scans.insert(storedScan, at: 0)
+        folder.scans?.insert(storedScan, at: 0)
         try modelContainer.mainContext.save()
-        
     }
     
     public func create(_ folder: Folder) throws {
@@ -84,8 +83,8 @@ extension SwiftDataStore: ScanStorege {
     
     private func findScanByID(id: UUID) throws -> (ScanStorageModel?, FolderStorageModel?) {
         let findFolder = #Predicate<FolderStorageModel> {
-            $0.scans.contains(where: { model in 
-                return model.id == id })
+            $0.scans?.contains(where: { model in
+                return model.id == id }) ?? false
         }
         var descriptor = FetchDescriptor<FolderStorageModel>(predicate: findFolder)
         descriptor.fetchLimit = 1
@@ -95,7 +94,7 @@ extension SwiftDataStore: ScanStorege {
             throw SwiftDataStore.folderNotExist
         }
         
-        let scan = folder.scans.first(where: { model in model.id == id })
+        let scan = folder.scans?.first(where: { model in model.id == id })
         return (scan, folder)
     }
 }
