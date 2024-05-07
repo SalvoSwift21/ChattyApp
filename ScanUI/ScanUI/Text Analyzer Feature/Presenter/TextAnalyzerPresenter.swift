@@ -15,7 +15,7 @@ public class TextAnalyzerPresenter {
     private var service: TextAnalyzerService
     private weak var delegate: TextAnalyzerProtocolDelegate?
     
-    private var scannedText: String
+    private var scannedResult: ScanProtocolResult
     private var originalSummaryText: String?
     private var modifySummaryText: String?
     
@@ -23,11 +23,11 @@ public class TextAnalyzerPresenter {
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
-                scannedText: String,
+                scannedResult: ScanProtocolResult,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
-        self.scannedText = scannedText
+        self.scannedResult = scannedResult
         self.resourceBundle = bundle
         self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "")
     }
@@ -60,7 +60,7 @@ public class TextAnalyzerPresenter {
     
 
     fileprivate func getScannedTextLanguage() async throws -> String {
-        try await self.service.getCurrentLanguage(forText: scannedText)
+        try await self.service.getCurrentLanguage(forText: scannedResult.stringResult)
     }
     
     @MainActor
@@ -99,10 +99,10 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     }
     
     public func done() {
-        let scan = Scan(title: textAnalyzerViewModel.text, scanDate: Date())
+        let scanToSave = Scan(id: UUID(), title: textAnalyzerViewModel.text, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
         Task {
             do {
-                try await service.saveCurrentScan(scan: scan)
+                try await service.saveCurrentScan(scan: scanToSave)
                 self.delegate?.goBack()
             } catch {
                 print("Error \(error.localizedDescription)")

@@ -32,6 +32,13 @@ public final class DataScannerOCRClient {
         logger.debug("Data scanner is created: \(self.dataScannerViewController)")
         logger.debug("Data scanner delegate is: \(self.dataScannerViewController.delegate == nil)")
     }
+    
+    fileprivate func handleTappingItem(text: String) {
+        Task {
+            let currentImage = await self.makePhoto()
+            self.delegate.recognizedItemCompletion?((text, currentImage))
+        }
+    }
 }
 
 extension DataScannerOCRClient: OCRClient {
@@ -82,7 +89,7 @@ extension DataScannerOCRClient: DataScannerViewControllerDelegate {
         case .text(let text):
             // Copy the text to the pasteboard.
             logger.debug("User tap item:\(item.id) and Data Sanner recive and undestand: \(text.transcript)")
-            self.delegate.recognizedItemCompletion?(text.transcript)
+            handleTappingItem(text: text.transcript)
         case .barcode( _):
             // Open the URL in the browser.
             break
@@ -126,9 +133,7 @@ extension DataScannerOCRClient {
         }
     }
     
-    fileprivate func makePhoto() async {
-        if let image = try? await dataScannerViewController.capturePhoto() {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
+    fileprivate func makePhoto() async -> UIImage? {
+        return try? await dataScannerViewController.capturePhoto()
     }
 }

@@ -12,7 +12,7 @@ struct ContainerHomeView: View {
     
     @State private var scanStorage: ScanStorege
     
-    @State private var presentedTextAnalyzer: [String] = []
+    @State private var presentedTextAnalyzer: [ScanProtocolResult] = []
     
     @State private var showUpload = false
     @State private var showScan = false
@@ -38,8 +38,8 @@ struct ContainerHomeView: View {
                     presentedTextAnalyzer.append(resultOfScan)
                 }
             })
-            .navigationDestination(for: String.self) { resultOfScan in
-                TextAnalyzerComposer.textAnalyzerComposedWith(text: resultOfScan, scanStorage: scanStorage)
+            .navigationDestination(for: ScanProtocolResult.self) { scanResult in
+                TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)
             }
         }
     }
