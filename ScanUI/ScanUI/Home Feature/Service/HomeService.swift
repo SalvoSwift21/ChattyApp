@@ -37,4 +37,9 @@ public class HomeService: HomeServiceProtocol {
         
         return Array(allScan)
     }
+    
+    public func createFolder(name: String) async throws {
+        let newFolder = Folder(title: name, scans: [])
+        try self.client.create(newFolder)
+    }
 }

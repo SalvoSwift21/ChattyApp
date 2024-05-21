@@ -21,6 +21,7 @@
 		6219743F2B27CD93005A7895 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219743E2B27CD93005A7895 /* HomeProtocols.swift */; };
 		621974412B27CFD5005A7895 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621974402B27CFD5005A7895 /* HomePresenter.swift */; };
 		621974442B27DB63005A7895 /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621974432B27DB63005A7895 /* RestApi.framework */; };
+		6229955E2BF3CC5F009DE649 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229955D2BF3CC5F009DE649 /* TextFieldAlert.swift */; };
 		623351372BBCC6F100D13CD2 /* SwiftDataStore+ScanStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620A746E2BB23FDE007CC315 /* SwiftDataStore+ScanStorage.swift */; };
 		625865AA2B1956E9000B5660 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625865A92B1956E9000B5660 /* PageControl.swift */; };
 		6274FAD72B4F51B700010C7B /* ScanServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FAD62B4F51B700010C7B /* ScanServiceProtocol.swift */; };
@@ -116,6 +117,7 @@
 		6219743E2B27CD93005A7895 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		621974402B27CFD5005A7895 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		621974432B27DB63005A7895 /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6229955D2BF3CC5F009DE649 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		625865A92B1956E9000B5660 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		6274FAD62B4F51B700010C7B /* ScanServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServiceProtocol.swift; sourceTree = "<group>"; };
 		6274FAD82B4F522300010C7B /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
@@ -264,6 +266,14 @@
 				621974432B27DB63005A7895 /* RestApi.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6229955C2BF3CC46009DE649 /* TextFieldAlert */ = {
+			isa = PBXGroup;
+			children = (
+				6229955D2BF3CC5F009DE649 /* TextFieldAlert.swift */,
+			);
+			path = TextFieldAlert;
 			sourceTree = "<group>";
 		};
 		625865A82B1956DB000B5660 /* PageControl */ = {
@@ -664,6 +674,7 @@
 		62CFB5752B04AAB6006D70A5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6229955C2BF3CC46009DE649 /* TextFieldAlert */,
 				6296C8DC2B1E951300E8C4AB /* ErrorView */,
 				6296C8D72B1E90AB00E8C4AB /* LoadingView */,
 				6292DC252B1D413700E02FA3 /* ButtonStyle */,
@@ -826,6 +837,7 @@
 				625865AA2B1956E9000B5660 /* PageControl.swift in Sources */,
 				629947C72B4DFC2F00B66917 /* UploadFileServiceProtocol.swift in Sources */,
 				629A8F512BA9042F004C5221 /* ScanStorageModel.swift in Sources */,
+				6229955E2BF3CC5F009DE649 /* TextFieldAlert.swift in Sources */,
 				629947D32B4E091000B66917 /* UploadFileView.swift in Sources */,
 				628674D32B77DCC400843709 /* TextAnalyzerView.swift in Sources */,
 				621974382B27CBEE005A7895 /* HomeViewModel.swift in Sources */,

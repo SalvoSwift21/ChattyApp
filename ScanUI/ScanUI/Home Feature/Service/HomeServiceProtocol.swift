@@ -10,4 +10,6 @@ import Foundation
 public protocol HomeServiceProtocol: AnyObject {
     func getMyFolder() async throws -> [Folder]
     func getRecentScans() async throws -> [Scan]
+    
+    func createFolder(name: String) async throws
 }

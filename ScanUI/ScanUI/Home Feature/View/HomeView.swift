@@ -13,7 +13,9 @@ public struct HomeView: View {
     @ObservedObject var store: HomeStore
 
     var resourceBundle: Bundle
-    
+    @State var isShowingAlert: Bool = false
+    @State var newFolderName: String = ""
+
     public init(store: HomeStore, presenter: HomePresenter, resourceBundle: Bundle = .main) {
         self.store = store
         self.presenter = presenter
@@ -31,6 +33,25 @@ public struct HomeView: View {
                     .scaledToFit()
                     .frame(width: 100, height: 20, alignment: .leading)
                 Spacer()
+                
+                Button {
+                    isShowingAlert.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(Color.prime)
+                }
+                .textFieldAlert(text: $newFolderName,
+                                title: "Create new Folder",
+                                okButtonTitle: "Ok",
+                                placeholder: "Folder Name",
+                                isShowingAlert: $isShowingAlert) {
+                    Task {
+                        await presenter.createNewFolderAndReload(name: newFolderName)
+                        newFolderName = ""
+                    }
+                }
             }
             Spacer()
             switch store.state {
@@ -73,7 +94,9 @@ public struct HomeView: View {
             alignment: .top
         )
         .background(.mainBackground)
-        .task(presenter.getHome)
+        .task {
+            await presenter.loadData()
+        }
     }
 }
 

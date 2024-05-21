@@ -7,13 +7,16 @@
 
 import Foundation
 
-public protocol HomePresenterProtocol: AnyObject {
+protocol HomePresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
     var uploadImage: (() -> Void) { get set }
     var newScan: (() -> Void) { get set }
 
+    func loadData() async
+    
     func getSearchResult(for query: String) async
-    @Sendable func getHome() async
+    func getHome() async throws -> HomeViewModel
+    func createNewFolder(name: String) async
 }
 
 public protocol HomePresenterDelegate: AnyObject {
