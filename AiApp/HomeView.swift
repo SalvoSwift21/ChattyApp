@@ -16,7 +16,8 @@ struct ContainerHomeView: View {
     
     @State private var showUpload = false
     @State private var showScan = false
-    
+    @State private var showAllFolders = false
+
     init(storage: ScanStorege) {
         self.scanStorage = storage
     }
@@ -27,6 +28,8 @@ struct ContainerHomeView: View {
                 showUpload.toggle()
             }, newScan: {
                 showScan.toggle()
+            }, sellAllButton: {
+                showAllFolders.toggle()
             })
             .navigationDestination(isPresented: $showScan, destination: {
                 DataScannerComposer.uploadFileComposedWith { resultOfScan in
@@ -36,6 +39,11 @@ struct ContainerHomeView: View {
             .navigationDestination(isPresented: $showUpload, destination: {
                 UploadFileComposer.uploadFileComposedWith { resultOfScan in
                     presentedTextAnalyzer.append(resultOfScan)
+                }
+            })
+            .navigationDestination(isPresented: $showAllFolders, destination: {
+                FoldersViewComposer.foldersComposedWith(client: scanStorage) { folderTapped in
+                    print("Print \(folderTapped)")
                 }
             })
             .navigationDestination(for: ScanProtocolResult.self) { scanResult in

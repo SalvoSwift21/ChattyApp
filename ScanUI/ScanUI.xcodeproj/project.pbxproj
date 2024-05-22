@@ -70,6 +70,13 @@
 		62AD7DD82B1FE3FA0014BC91 /* OnboardingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD7DD62B1FE0D10014BC91 /* OnboardingServiceTest.swift */; };
 		62AD7DDD2B1FE9E90014BC91 /* MockCorrectOnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 62AD7DDA2B1FE4790014BC91 /* MockCorrectOnboardingConfiguration.json */; };
 		62AD7DDE2B1FE9E90014BC91 /* MockMapErrorOnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 62AD7DDB2B1FE4940014BC91 /* MockMapErrorOnboardingConfiguration.json */; };
+		62B137A52BFD011100951B46 /* FoldersLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B137A32BFD00A200951B46 /* FoldersLocalService.swift */; };
+		62B137A62BFD011100951B46 /* FoldersServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B137A42BFD00A200951B46 /* FoldersServiceProtocol.swift */; };
+		62B137A72BFD02BA00951B46 /* FoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379E2BFD00A100951B46 /* FoldersViewModel.swift */; };
+		62B137A82BFD02EB00951B46 /* FoldersProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B137A12BFD00A200951B46 /* FoldersProtocolDelegate.swift */; };
+		62B137A92BFD035F00951B46 /* FoldersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379B2BFD00A100951B46 /* FoldersStore.swift */; };
+		62B137AA2BFD046900951B46 /* FoldersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B137A02BFD00A100951B46 /* FoldersPresenter.swift */; };
+		62B137AB2BFD054400951B46 /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379C2BFD00A100951B46 /* FoldersView.swift */; };
 		62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */; };
 		62C468EA2B2FB5EF002DD3A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E92B2FB5EF002DD3A3 /* Helper.swift */; };
 		62C469012B2FC3EF002DD3A3 /* ScanAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */; };
@@ -168,6 +175,13 @@
 		62AD7DDA2B1FE4790014BC91 /* MockCorrectOnboardingConfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockCorrectOnboardingConfiguration.json; sourceTree = "<group>"; };
 		62AD7DDB2B1FE4940014BC91 /* MockMapErrorOnboardingConfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockMapErrorOnboardingConfiguration.json; sourceTree = "<group>"; };
 		62AD7DE42B1FEDA00014BC91 /* ScanUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ScanUI.xctestplan; path = ../ScanUI.xctestplan; sourceTree = "<group>"; };
+		62B1379B2BFD00A100951B46 /* FoldersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersStore.swift; sourceTree = "<group>"; };
+		62B1379C2BFD00A100951B46 /* FoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersView.swift; sourceTree = "<group>"; };
+		62B1379E2BFD00A100951B46 /* FoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewModel.swift; sourceTree = "<group>"; };
+		62B137A02BFD00A100951B46 /* FoldersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersPresenter.swift; sourceTree = "<group>"; };
+		62B137A12BFD00A200951B46 /* FoldersProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersProtocolDelegate.swift; sourceTree = "<group>"; };
+		62B137A32BFD00A200951B46 /* FoldersLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersLocalService.swift; sourceTree = "<group>"; };
+		62B137A42BFD00A200951B46 /* FoldersServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersServiceProtocol.swift; sourceTree = "<group>"; };
 		62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		62C468E92B2FB5EF002DD3A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanAsset.xcassets; sourceTree = "<group>"; };
@@ -546,6 +560,60 @@
 			path = "Mock Json Onboarding Service";
 			sourceTree = "<group>";
 		};
+		62B137982BFD004400951B46 /* Folders Feature */ = {
+			isa = PBXGroup;
+			children = (
+				62B137992BFD00A100951B46 /* Asset */,
+				62B137A22BFD00A200951B46 /* Service */,
+				62B1379D2BFD00A100951B46 /* Model */,
+				62B1379A2BFD00A100951B46 /* View */,
+				62B1379F2BFD00A100951B46 /* Presenter */,
+			);
+			path = "Folders Feature";
+			sourceTree = "<group>";
+		};
+		62B137992BFD00A100951B46 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		62B1379A2BFD00A100951B46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62B1379B2BFD00A100951B46 /* FoldersStore.swift */,
+				62B1379C2BFD00A100951B46 /* FoldersView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62B1379D2BFD00A100951B46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62B1379E2BFD00A100951B46 /* FoldersViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62B1379F2BFD00A100951B46 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				62B137A12BFD00A200951B46 /* FoldersProtocolDelegate.swift */,
+				62B137A02BFD00A100951B46 /* FoldersPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		62B137A22BFD00A200951B46 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				62B137A42BFD00A200951B46 /* FoldersServiceProtocol.swift */,
+				62B137A32BFD00A200951B46 /* FoldersLocalService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		62C468E52B2D1E2B002DD3A3 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +716,7 @@
 				62C468F72B2FC355002DD3A3 /* Scan Feature */,
 				629947C02B4DFBA400B66917 /* Upload File Feature */,
 				629906152B744F2F005B43A7 /* Text Analyzer Feature */,
+				62B137982BFD004400951B46 /* Folders Feature */,
 				629A8F4B2BA8FFF1004C5221 /* Storage Feature */,
 			);
 			path = ScanUI;
@@ -824,6 +893,7 @@
 			files = (
 				621974342B27CAF6005A7895 /* HomeService.swift in Sources */,
 				6274FAE32B4F58D500010C7B /* ScanView.swift in Sources */,
+				62B137AB2BFD054400951B46 /* FoldersView.swift in Sources */,
 				629947C92B4DFC8100B66917 /* UploadFileService.swift in Sources */,
 				620AF0EF2B2A65F000042C23 /* HomeMyFoldesView.swift in Sources */,
 				628B869C2B155789009C6895 /* OnboardingService.swift in Sources */,
@@ -831,6 +901,7 @@
 				623351372BBCC6F100D13CD2 /* SwiftDataStore+ScanStorage.swift in Sources */,
 				621974412B27CFD5005A7895 /* HomePresenter.swift in Sources */,
 				62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */,
+				62B137AA2BFD046900951B46 /* FoldersPresenter.swift in Sources */,
 				620A746D2BB23D95007CC315 /* FolderStorageModel.swift in Sources */,
 				6299061C2B74507F005B43A7 /* TextAnalyzerServiceProtocol.swift in Sources */,
 				629947CB2B4DFD7500B66917 /* UploadFileViewModel.swift in Sources */,
@@ -840,6 +911,9 @@
 				6229955E2BF3CC5F009DE649 /* TextFieldAlert.swift in Sources */,
 				629947D32B4E091000B66917 /* UploadFileView.swift in Sources */,
 				628674D32B77DCC400843709 /* TextAnalyzerView.swift in Sources */,
+				62B137A52BFD011100951B46 /* FoldersLocalService.swift in Sources */,
+				62B137A62BFD011100951B46 /* FoldersServiceProtocol.swift in Sources */,
+				62B137A72BFD02BA00951B46 /* FoldersViewModel.swift in Sources */,
 				621974382B27CBEE005A7895 /* HomeViewModel.swift in Sources */,
 				6296C8DE2B1E956700E8C4AB /* ErrorView.swift in Sources */,
 				629947D12B4E08A300B66917 /* UploadFileStore.swift in Sources */,
@@ -849,6 +923,7 @@
 				6296C8DB2B1E945600E8C4AB /* LoadingViewDefaultStyle.swift in Sources */,
 				6274FAE12B4F579000010C7B /* ScanStore.swift in Sources */,
 				629906282B7457AD005B43A7 /* TextAnalyzerStore.swift in Sources */,
+				62B137A92BFD035F00951B46 /* FoldersStore.swift in Sources */,
 				6274FAD92B4F522300010C7B /* ScanService.swift in Sources */,
 				6274FADB2B4F55D500010C7B /* ScanViewModel.swift in Sources */,
 				6299061E2B745107005B43A7 /* TextAnalyzerService.swift in Sources */,
@@ -863,6 +938,7 @@
 				628B868E2B1553F7009C6895 /* OnboardingContainerView.swift in Sources */,
 				6296C8E02B1EA06700E8C4AB /* OnboardingView.swift in Sources */,
 				6274FADF2B4F563C00010C7B /* ScanPresenter.swift in Sources */,
+				62B137A82BFD02EB00951B46 /* FoldersProtocolDelegate.swift in Sources */,
 				629906262B74569D005B43A7 /* TextAnalyzerViewModel.swift in Sources */,
 				621974362B27CBCF005A7895 /* OnboardingModel.swift in Sources */,
 				628273102BEA7FA70036C93F /* ScanProtocol.swift in Sources */,

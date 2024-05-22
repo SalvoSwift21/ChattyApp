@@ -11,6 +11,7 @@ protocol HomePresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
     var uploadImage: (() -> Void) { get set }
     var newScan: (() -> Void) { get set }
+    var sellAllButton: (() -> Void) { get set }
 
     func loadData() async
     

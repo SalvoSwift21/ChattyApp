@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeMyFoldesView: View {
     var resourceBundle: Bundle
     var folders: [Folder]
+    var viewAllButtonTapped: (() -> Void)
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
@@ -20,7 +21,7 @@ struct HomeMyFoldesView: View {
                     .foregroundStyle(.title)
                 Spacer()
                 Button(action: {
-                    print("Nothing to do for now")
+                    viewAllButtonTapped()
                 }, label: {
                     Text("See All >")
                         .font(.system(size: 14))
@@ -76,6 +77,6 @@ struct FolderItem: View {
 }
 
 #Preview {
-    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders())
+    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { })
         .padding()
 }

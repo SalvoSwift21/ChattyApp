@@ -67,7 +67,9 @@ public struct HomeView: View {
                 Spacer()
                 ScrollView(.vertical, showsIndicators: false, content: {
                     VStack(alignment: .leading, spacing: 32, content: {
-                        HomeMyFoldesView(resourceBundle: resourceBundle, folders: viewModel.myFolders)
+                        HomeMyFoldesView(resourceBundle: resourceBundle, folders: viewModel.myFolders, viewAllButtonTapped: {
+                            presenter.sellAllButton()
+                        })
                         HomeMyRecentScanView(resourceBundle: resourceBundle, scans: viewModel.recentScans ?? [])
                     })
                 })
@@ -105,7 +107,7 @@ public struct HomeView: View {
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     let swiftDataStore = try! SwiftDataStore(storeURL: url)
     var homeService = HomeService(client: swiftDataStore)
-    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { })
+    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { })
     
     return HomeView(store: homeStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
 }

@@ -14,7 +14,8 @@ public class HomePresenter: HomePresenterProtocol {
     public var resourceBundle: Bundle
     public var uploadImage: (() -> Void)
     public var newScan: (() -> Void)
-    
+    public var sellAllButton: (() -> Void)
+
     
     private var service: HomeService
     private weak var delegate: HomePresenterDelegate?
@@ -25,12 +26,14 @@ public class HomePresenter: HomePresenterProtocol {
                 delegate: HomePresenterDelegate,
                 uploadImage: @escaping (() -> Void),
                 newScan: @escaping (() -> Void),
+                sellAllButton: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
         self.resourceBundle = bundle
         self.uploadImage = uploadImage
         self.newScan = newScan
+        self.sellAllButton = sellAllButton
         self.homeViewModel = HomeViewModel()
     }
     
