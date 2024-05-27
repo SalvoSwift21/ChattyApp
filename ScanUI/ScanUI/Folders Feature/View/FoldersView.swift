@@ -59,7 +59,6 @@ public struct AllFoldersView: View {
         .task {
             await presenter.loadData()
         }
-        .navigationTitle("All folders")
     }
 }
 

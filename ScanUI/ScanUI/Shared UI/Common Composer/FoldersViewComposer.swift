@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ScanUI
 
 public final class FoldersViewComposer {
     private init() {}

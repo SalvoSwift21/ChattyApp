@@ -16,7 +16,7 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
     
     private let summaryClient: SummaryClientProtocol
     private let identificationLanguageClient: IdentificationLanguageProtocol
-    private let storageClient: ScanStorege
+    let storageClient: ScanStorege
    
     public init(summaryClient: SummaryClientProtocol, identificationLanguageClient: IdentificationLanguageProtocol, storageClient: ScanStorege) {
         self.summaryClient = summaryClient

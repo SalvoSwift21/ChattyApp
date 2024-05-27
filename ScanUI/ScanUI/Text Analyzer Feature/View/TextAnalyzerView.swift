@@ -21,6 +21,7 @@ public struct TextAnalyzerView: View {
     @State private var toggleIsOn = false
     @State private var showMenu = false
     @State private var opacity: Double = 0.0
+    @State private var showFoldersView = false
 
     public init(store: TextAnalyzerStore, presenter: TextAnalyzerPresenter, resourceBundle: Bundle = .main) {
         self.store = store
@@ -60,6 +61,9 @@ public struct TextAnalyzerView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
+        .sheet(isPresented: $showFoldersView) {
+            FoldersView
+        }
     }
     
     var CompleteTextView: some View {
@@ -90,7 +94,7 @@ public struct TextAnalyzerView: View {
                 CircleAnimationView(centerImage: UIImage(named: "checkmark_white", in: self.resourceBundle, with: nil) ?? UIImage(), frame: .init(width: 90, height: 90))
                     .padding(.top, 10)
                     .onTapGesture {
-                        presenter.done()
+                        self.showFoldersView.toggle()
                     }
             }
             
@@ -159,6 +163,22 @@ public struct TextAnalyzerView: View {
                         presenter.showOriginalSummary()
                     } else {
                         presenter.showModifyText()
+                    }
+                }
+            }
+        }
+    }
+    
+    var FoldersView: some View {
+        NavigationView {
+            FoldersViewComposer.foldersComposedWith(client: presenter.getStoredService()) { selectedFolder in
+                presenter.doneButtonTapped(withFolder: selectedFolder)
+            }
+            .navigationTitle("Choose folder")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
+                        self.showFoldersView.toggle()
                     }
                 }
             }

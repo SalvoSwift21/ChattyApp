@@ -44,7 +44,7 @@ struct ContainerHomeView: View {
             .navigationDestination(isPresented: $showAllFolders, destination: {
                 FoldersViewComposer.foldersComposedWith(client: scanStorage) { folderTapped in
                     print("Print \(folderTapped)")
-                }
+                }.navigationTitle("All folders")
             })
             .navigationDestination(for: ScanProtocolResult.self) { scanResult in
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)

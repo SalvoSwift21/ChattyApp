@@ -98,16 +98,21 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
         UIPasteboard.general.string = self.textAnalyzerViewModel.text
     }
     
-    public func done() {
+    public func doneButtonTapped(withFolder folder: Folder) {
         let scanToSave = Scan(id: UUID(), title: textAnalyzerViewModel.text, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
+        
         Task {
             do {
-                try await service.saveCurrentScan(scan: scanToSave)
-                self.delegate?.goBack()
+                try await service.saveCurrentScan(scan: scanToSave, folder: folder)
+                self.done()
             } catch {
                 print("Error \(error.localizedDescription)")
             }
         }
+    }
+    
+    public func done() {
+        self.delegate?.goBack()
     }
     
     public func back() {
@@ -124,6 +129,10 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     public func showModifyText() {
         self.textAnalyzerViewModel.text = self.modifySummaryText ?? ""
         self.renderViewModel()
+    }
+    
+    public func getStoredService() -> ScanStorege {
+        return self.service.storageClient
     }
 }
 
