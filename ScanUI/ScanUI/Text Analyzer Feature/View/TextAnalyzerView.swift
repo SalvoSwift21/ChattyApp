@@ -67,59 +67,52 @@ public struct TextAnalyzerView: View {
     }
     
     var CompleteTextView: some View {
-        ZStack(alignment: .bottomLeading) {
-            TextEditor(text: $store.viewModel.text)
-                .foregroundStyle(.subtitle)
-                .cornerRadius(10)
-                .shadow(radius: 12)
-                .padding(.bottom, 100)
-            
-            HStack(alignment: .center, spacing: 10) {
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.3), {
-                        opacity = opacity == 0.0 ? 1.0 : 0.0
-                        showMenu.toggle()
-                    })
-                }) {
-                    if showMenu {
-                        Image(systemName: "arrow.down")
-                    } else {
-                        Image(systemName: "arrow.up")
-                    }
-                }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 50, height: 50)))
+        VStack(spacing: 20.0) {
+            ScrollView(.vertical, showsIndicators: false) {
                 
-                Spacer()
-                                
-                CircleAnimationView(centerImage: UIImage(named: "checkmark_white", in: self.resourceBundle, with: nil) ?? UIImage(), frame: .init(width: 90, height: 90))
-                    .padding(.top, 10)
-                    .onTapGesture {
-                        self.showFoldersView.toggle()
+                if let topImage = store.viewModel.topImage {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 8.0) {
+                            Text("Summury this image:")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.title)
+                                .multilineTextAlignment(.leading)
+                            
+                            Image(uiImage: topImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxWidth: 120.0)
+                                .padding(5.0)
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .shadow(radius: 5.0)
+                        
+                        Spacer(minLength: 35.0)
+                    }.padding()
+                }
+                
+                HStack {
+                    Spacer(minLength: 35.0)
+                    VStack(alignment: .leading) {
+                        Text(store.viewModel.text)
+                            .font(.body)
+                            .fontWeight(.regular)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                            .padding(.all, 5.0)
                     }
+                    .background(Color.prime.opacity(0.7))
+                    .cornerRadius(5)
+                    .shadow(radius: 5.0)
+                }.padding()
+                
             }
+            .background(.clear)
             
-            
-            // Menu a tendina
-            if showMenu {
-                OptionsMenu
-                    .padding(0)
-                    .background(Color.clear)
-                    .transition(.move(edge: .bottom))
-                    .offset(x: 2.5, y: showMenu ? -80 : 0)
-                    .opacity(opacity)
-            }
-        }
-        .navigationTitle("Summary result")
-        .onChange(of: $store.viewModel.text.wrappedValue) {
-            presenter.updateScannedText(text: store.viewModel.text)
-        }
-    }
-    
-    
-    var OptionsMenu: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            
-            HStack {
+            HStack(alignment: .center, spacing: 15) {
                 Button(action: {
                     Task(priority: .background) {
                         await presenter.makeTranslation()
@@ -128,45 +121,27 @@ public struct TextAnalyzerView: View {
                     Image(systemName: "bubble.left.and.text.bubble.right")
                 }
                 .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                Text("Translate")
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.prime)
-            }
-            
-            HStack(spacing: 8) {
+                
                 Button(action: {
                     presenter.copySummary()
                 }) {
                     Image(systemName: "doc.on.doc")
                 }
                 .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                Text("Copy")
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.prime)
             }
             
-            HStack {
-                Button(action: {
-                    toggleIsOn.toggle()
-                }) {
-                    Image(systemName: "text.justify")
+            
+            HStack(alignment: .center, spacing: 10) {
+                Button(action: { self.showFoldersView.toggle() }) {
+                    Text("Save")
+                        .fontWeight(.bold)
                 }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                Text("Show Origianl")
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.prime)
-                .onChange(of: toggleIsOn) {
-                    if toggleIsOn {
-                        presenter.showOriginalSummary()
-                    } else {
-                        presenter.showModifyText()
-                    }
-                }
+                .buttonStyle(DefaultButtonStyle(frame: .init(width: 200, height: 57)))
             }
+            
         }
+        .navigationTitle("Summary result")
+        .background(.mainBackground)
     }
     
     var FoldersView: some View {

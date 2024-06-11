@@ -29,7 +29,7 @@ public class TextAnalyzerPresenter {
         self.delegate = delegate
         self.scannedResult = scannedResult
         self.resourceBundle = bundle
-        self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "")
+        self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "", topImage: nil)
     }
     
     @MainActor 
@@ -44,11 +44,12 @@ public class TextAnalyzerPresenter {
         
         Task {
             do {
-                //let result = try await self.service.makeSummary(forText: scannedText)
+//                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
                 let result = "questa è la stringa che devo mostrare"
                 self.showLoader(false)
                 self.originalSummaryText = result
-                self.textAnalyzerViewModel.text = result
+                self.textAnalyzerViewModel.text = scannedResult.stringResult
+                self.textAnalyzerViewModel.topImage = scannedResult.image
                 self.showLoader(false)
                 self.delegate?.render(viewModel: textAnalyzerViewModel)
             } catch {
