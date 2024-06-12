@@ -78,26 +78,27 @@ public struct TextAnalyzerView: View {
             
             
             HStack(alignment: .center, spacing: 10) {
-                HStack(alignment: .center, spacing: 15) {
+                
+                Menu {
                     Button(action: {
                         Task(priority: .background) {
                             await presenter.makeTranslation()
                         }
                     }) {
-                        Image(systemName: "bubble.left.and.text.bubble.right")
-                            .frame(width: 15, height: 15)
+                        Label("Translate", systemImage: "bubble.left.and.text.bubble.right")
                     }
-                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
                     
                     Button(action: {
                         presenter.copySummary()
                     }) {
-                        Image(systemName: "doc.on.doc")
-                            .frame(width: 15, height: 15)
+                        Label("Copy to clipboard", systemImage: "doc.on.doc")
                     }
-                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .foregroundColor(.prime)
+                        .frame(width: 20, height: 20)
                 }
-                
+
                 Spacer()
                 
                 Button(action: { self.showFoldersView.toggle() }) {
