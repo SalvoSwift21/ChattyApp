@@ -67,76 +67,42 @@ public struct TextAnalyzerView: View {
     }
     
     var CompleteTextView: some View {
-        VStack(spacing: 20.0) {
+        VStack(spacing: 10.0) {
             ScrollView(.vertical, showsIndicators: false) {
-                
-                if let topImage = store.viewModel.topImage {
-                    HStack {
-                        VStack(alignment: .leading, spacing: 8.0) {
-                            Text("Summury this image:")
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.title)
-                                .multilineTextAlignment(.leading)
-                            
-                            Image(uiImage: topImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: 120.0)
-                                .padding(5.0)
-                        }
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(5)
-                        .shadow(radius: 5.0)
-                        
-                        Spacer(minLength: 35.0)
-                    }.padding()
-                }
-                
-                HStack {
-                    Spacer(minLength: 35.0)
-                    VStack(alignment: .leading) {
-                        Text(store.viewModel.text)
-                            .font(.body)
-                            .fontWeight(.regular)
-                            .foregroundStyle(.white)
-                            .multilineTextAlignment(.leading)
-                            .padding(.all, 5.0)
-                    }
-                    .background(Color.prime.opacity(0.7))
-                    .cornerRadius(5)
-                    .shadow(radius: 5.0)
-                }.padding()
-                
+                ForEach(store.viewModel.chatHistory, id: \.uuid) { vModel in
+                    ChatTextView(viewModel: vModel)
+                }.padding(.all, 16.0)
             }
+            .padding(0)
             .background(.clear)
-            
-            HStack(alignment: .center, spacing: 15) {
-                Button(action: {
-                    Task(priority: .background) {
-                        await presenter.makeTranslation()
-                    }
-                }) {
-                    Image(systemName: "bubble.left.and.text.bubble.right")
-                }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                
-                Button(action: {
-                    presenter.copySummary()
-                }) {
-                    Image(systemName: "doc.on.doc")
-                }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-            }
             
             
             HStack(alignment: .center, spacing: 10) {
+                HStack(alignment: .center, spacing: 15) {
+                    Button(action: {
+                        Task(priority: .background) {
+                            await presenter.makeTranslation()
+                        }
+                    }) {
+                        Image(systemName: "bubble.left.and.text.bubble.right")
+                    }
+                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
+                    
+                    Button(action: {
+                        presenter.copySummary()
+                    }) {
+                        Image(systemName: "doc.on.doc")
+                    }
+                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
+                }
+                
+                Spacer()
+                
                 Button(action: { self.showFoldersView.toggle() }) {
                     Text("Save")
                         .fontWeight(.bold)
                 }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 200, height: 57)))
+                .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
             }
             
         }

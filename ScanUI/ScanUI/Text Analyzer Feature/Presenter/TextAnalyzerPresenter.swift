@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 public class TextAnalyzerPresenter {
         
@@ -16,10 +17,10 @@ public class TextAnalyzerPresenter {
     private weak var delegate: TextAnalyzerProtocolDelegate?
     
     private var scannedResult: ScanProtocolResult
-    private var originalSummaryText: String?
-    private var modifySummaryText: String?
     
     private var textAnalyzerViewModel: TextAnalyzerViewModel
+    
+    private var currentSaveText: String?
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
@@ -29,7 +30,7 @@ public class TextAnalyzerPresenter {
         self.delegate = delegate
         self.scannedResult = scannedResult
         self.resourceBundle = bundle
-        self.textAnalyzerViewModel = TextAnalyzerViewModel(text: "", topImage: nil)
+        self.textAnalyzerViewModel = TextAnalyzerViewModel(chatHistory: [])
     }
     
     @MainActor 
@@ -44,19 +45,44 @@ public class TextAnalyzerPresenter {
         
         Task {
             do {
+                let summerCell = createChatViewModel(title: "Summurize text:",
+                                                     description: nil,
+                                                     image: scannedResult.image,
+                                                     backgroundColor: .white,
+                                                     position: .left)
+                
+                self.textAnalyzerViewModel.chatHistory.append(summerCell)
 //                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
-                let result = "questa è la stringa che devo mostrare"
+                let result = self.scannedResult.stringResult
                 self.showLoader(false)
-                self.originalSummaryText = result
-                self.textAnalyzerViewModel.text = scannedResult.stringResult
-                self.textAnalyzerViewModel.topImage = scannedResult.image
+                self.currentSaveText = result
+                let summerResultCell = createChatViewModel(title: nil,
+                                                           description: result,
+                                                           image: nil,
+                                                           backgroundColor: .prime.opacity(0.7),
+                                                           position: .right)
+                
+                self.textAnalyzerViewModel.chatHistory.append(summerResultCell)
+
                 self.showLoader(false)
-                self.delegate?.render(viewModel: textAnalyzerViewModel)
+                self.renderViewModel()
             } catch {
                 self.showLoader(false)
                 self.delegate?.render(errorMessage: error.localizedDescription)
             }
         }
+    }
+    
+    fileprivate func createChatViewModel(title: String?,
+                                         description: String?,
+                                         image: UIImage?,
+                                         backgroundColor: Color,
+                                         position: ChatPosition) -> ChatCellViewModel {
+        return ChatCellViewModel(title: title,
+                                 description: description,
+                                 image: image,
+                                 backgroundColor: backgroundColor,
+                                 position: position)
     }
     
 
@@ -78,29 +104,42 @@ public class TextAnalyzerPresenter {
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func makeTranslation() async {
+        guard let currentSaveText = currentSaveText else { return }
         do {
             showLoader(true)
-            let result = try await makeTranslationFromText(text: textAnalyzerViewModel.text)
-            textAnalyzerViewModel.text = result
-            await renderViewModel()
+            let trCell = createChatViewModel(title: "Translate Text",
+                                             description: nil,
+                                             image: nil,
+                                             backgroundColor: .white,
+                                             position: .left)
+            
+            self.textAnalyzerViewModel.chatHistory.append(trCell)
+            
+            let result = try await makeTranslationFromText(text: currentSaveText)
+            self.currentSaveText = result
+            
+            let trResultCell = createChatViewModel(title: nil,
+                                                   description: result,
+                                                   image: nil,
+                                                   backgroundColor: .prime.opacity(0.7),
+                                                   position: .right)
+            
+            self.textAnalyzerViewModel.chatHistory.append(trResultCell)
             showLoader(false)
+
+            await renderViewModel()
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
-    @MainActor 
-    public func showOriginalSummary() {
-        self.textAnalyzerViewModel.text = self.originalSummaryText ?? ""
-        self.renderViewModel()
-    }
-    
     public func copySummary() {
-        UIPasteboard.general.string = self.textAnalyzerViewModel.text
+        UIPasteboard.general.string = currentSaveText
     }
     
     public func doneButtonTapped(withFolder folder: Folder) {
-        let scanToSave = Scan(id: UUID(), title: textAnalyzerViewModel.text, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
+        guard let currentSaveText = currentSaveText else { return }
+        let scanToSave = Scan(id: UUID(), title: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
         
         Task {
             do {
@@ -118,18 +157,6 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func back() {
         print("Back home or scan")
-    }
-    
-    public func updateScannedText(text: String) {
-        if text != self.originalSummaryText {
-            self.modifySummaryText = text
-        }
-    }
-    
-    @MainActor 
-    public func showModifyText() {
-        self.textAnalyzerViewModel.text = self.modifySummaryText ?? ""
-        self.renderViewModel()
     }
     
     public func getStoredService() -> ScanStorege {

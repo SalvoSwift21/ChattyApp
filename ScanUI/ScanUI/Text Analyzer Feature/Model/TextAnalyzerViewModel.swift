@@ -7,15 +7,37 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 
 public struct TextAnalyzerViewModel {
     
-    var topImage: UIImage?
-    var text: String
+    var chatHistory: [ChatCellViewModel] = []
     
-    public init(text: String, topImage: UIImage?) {
-        self.text = text
-        self.topImage = topImage
+    public init(chatHistory: [ChatCellViewModel] = []) {
+        self.chatHistory = chatHistory
+    }
+}
+
+public enum ChatPosition {
+    case left, right
+}
+
+public struct ChatCellViewModel {
+    var uuid: UUID = UUID()
+    
+    var title: String?
+    var description: String?
+    var image: UIImage?
+    
+    var backgroundColor: Color
+    var position: ChatPosition = .left
+    
+    public init(title: String? = nil, description: String? = nil, image: UIImage? = nil, backgroundColor: Color, position: ChatPosition = .left) {
+        self.title = title
+        self.description = description
+        self.image = image
+        self.backgroundColor = backgroundColor
+        self.position = position
     }
 }

@@ -78,6 +78,7 @@
 		62B137A92BFD035F00951B46 /* FoldersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379B2BFD00A100951B46 /* FoldersStore.swift */; };
 		62B137AA2BFD046900951B46 /* FoldersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B137A02BFD00A100951B46 /* FoldersPresenter.swift */; };
 		62B137AB2BFD054400951B46 /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379C2BFD00A100951B46 /* FoldersView.swift */; };
+		62C303712C16450000E7605A /* ChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C303702C16450000E7605A /* ChatTextView.swift */; };
 		62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */; };
 		62C468EA2B2FB5EF002DD3A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E92B2FB5EF002DD3A3 /* Helper.swift */; };
 		62C469012B2FC3EF002DD3A3 /* ScanAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */; };
@@ -184,6 +185,7 @@
 		62B137A12BFD00A200951B46 /* FoldersProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersProtocolDelegate.swift; sourceTree = "<group>"; };
 		62B137A32BFD00A200951B46 /* FoldersLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersLocalService.swift; sourceTree = "<group>"; };
 		62B137A42BFD00A200951B46 /* FoldersServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersServiceProtocol.swift; sourceTree = "<group>"; };
+		62C303702C16450000E7605A /* ChatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextView.swift; sourceTree = "<group>"; };
 		62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		62C468E92B2FB5EF002DD3A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanAsset.xcassets; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				629906272B7457AD005B43A7 /* TextAnalyzerStore.swift */,
 				628674D22B77DCC400843709 /* TextAnalyzerView.swift */,
+				62C303702C16450000E7605A /* ChatTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */,
 				6219743A2B27CD4B005A7895 /* HomeStore.swift in Sources */,
 				6299062C2B745992005B43A7 /* TextAnalyzerPresenter.swift in Sources */,
+				62C303712C16450000E7605A /* ChatTextView.swift in Sources */,
 				629A8F4D2BA9001C004C5221 /* ScanStorege.swift in Sources */,
 				621974322B27CA1A005A7895 /* HomeServiceProtocol.swift in Sources */,
 				6274FAD72B4F51B700010C7B /* ScanServiceProtocol.swift in Sources */,

@@ -17,7 +17,7 @@ public class TextAnalyzerStore: ObservableObject {
     
     @Published var state: State = .loading(show: false)
     @Published var back: Bool = false
-    @Published var viewModel = TextAnalyzerViewModel(text: "", topImage: nil)
+    @Published var viewModel = TextAnalyzerViewModel(chatHistory: [])
 
     public init(state: TextAnalyzerStore.State = .loading(show: true)) {
         self.state = state

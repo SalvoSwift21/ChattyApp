@@ -35,7 +35,7 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
     
     public func makeTranslation(forText text: String, from: Locale, to: Locale) async throws -> String {
         print("not used for now")
-        return ""
+        return text
     }
     
     public func saveCurrentScan(scan: Scan, folder: Folder? = nil) async throws {
