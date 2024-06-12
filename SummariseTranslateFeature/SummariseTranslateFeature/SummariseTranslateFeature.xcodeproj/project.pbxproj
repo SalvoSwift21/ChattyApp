@@ -22,6 +22,9 @@
 		622C3DA02B70508C00E6B9C5 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		622C3DA32B7050A300E6B9C5 /* SummaryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA22B7050A300E6B9C5 /* SummaryServiceProtocol.swift */; };
 		622C3DA52B70526100E6B9C5 /* SummaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA42B70526100E6B9C5 /* SummaryClient.swift */; };
+		628D185D2C19E3AE00CF868C /* TranslateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628D185C2C19E3AE00CF868C /* TranslateServiceProtocol.swift */; };
+		628D185F2C19E3F000CF868C /* TranslateClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628D185E2C19E3F000CF868C /* TranslateClientProtocol.swift */; };
+		628D18632C19E4E600CF868C /* TranslateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628D18622C19E4E600CF868C /* TranslateClient.swift */; };
 		629906202B7453CA005B43A7 /* SummaryClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299061F2B7453CA005B43A7 /* SummaryClientProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622C3DA22B7050A300E6B9C5 /* SummaryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryServiceProtocol.swift; sourceTree = "<group>"; };
 		622C3DA42B70526100E6B9C5 /* SummaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryClient.swift; sourceTree = "<group>"; };
+		628D185C2C19E3AE00CF868C /* TranslateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateServiceProtocol.swift; sourceTree = "<group>"; };
+		628D185E2C19E3F000CF868C /* TranslateClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateClientProtocol.swift; sourceTree = "<group>"; };
+		628D18622C19E4E600CF868C /* TranslateClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateClient.swift; sourceTree = "<group>"; };
 		629906132B744803005B43A7 /* SummariseTranslateFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SummariseTranslateFeature.xctestplan; sourceTree = "<group>"; };
 		6299061F2B7453CA005B43A7 /* SummaryClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryClientProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +137,7 @@
 		622C3D802B70505400E6B9C5 /* SummariseTranslateFeature */ = {
 			isa = PBXGroup;
 			children = (
+				628D18602C19E3FB00CF868C /* TranslateFeature */,
 				62292E682B73026500A0AEBD /* LanguageIdentification */,
 				622C3D962B70506300E6B9C5 /* SummaryFeature */,
 				622C3D812B70505400E6B9C5 /* SummariseTranslateFeature.h */,
@@ -166,6 +173,16 @@
 				622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		628D18602C19E3FB00CF868C /* TranslateFeature */ = {
+			isa = PBXGroup;
+			children = (
+				628D185C2C19E3AE00CF868C /* TranslateServiceProtocol.swift */,
+				628D185E2C19E3F000CF868C /* TranslateClientProtocol.swift */,
+				628D18622C19E4E600CF868C /* TranslateClient.swift */,
+			);
+			path = TranslateFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +298,10 @@
 			files = (
 				629906202B7453CA005B43A7 /* SummaryClientProtocol.swift in Sources */,
 				62292E6C2B73042800A0AEBD /* AppleIdentificationLanguage.swift in Sources */,
+				628D185D2C19E3AE00CF868C /* TranslateServiceProtocol.swift in Sources */,
 				622C3DA52B70526100E6B9C5 /* SummaryClient.swift in Sources */,
+				628D185F2C19E3F000CF868C /* TranslateClientProtocol.swift in Sources */,
+				628D18632C19E4E600CF868C /* TranslateClient.swift in Sources */,
 				62292E6A2B73030D00A0AEBD /* IdentificationLanguageProtocol.swift in Sources */,
 				622C3DA32B7050A300E6B9C5 /* SummaryServiceProtocol.swift in Sources */,
 			);

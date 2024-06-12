@@ -52,8 +52,8 @@ public class TextAnalyzerPresenter {
                                                      position: .left)
                 
                 self.textAnalyzerViewModel.chatHistory.append(summerCell)
-//                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
-                let result = self.scannedResult.stringResult
+                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
+//                let result = self.scannedResult.stringResult
                 self.showLoader(false)
                 self.currentSaveText = result
                 let summerResultCell = createChatViewModel(title: nil,
@@ -85,14 +85,10 @@ public class TextAnalyzerPresenter {
                                  position: position)
     }
     
-
-    fileprivate func getScannedTextLanguage() async throws -> String {
-        try await self.service.getCurrentLanguage(forText: scannedResult.stringResult)
-    }
     
     @MainActor
     fileprivate func makeTranslationFromText(text: String) async throws -> String {
-        try await self.service.makeTranslation(forText: text, from: Locale.current, to: Locale.current)
+        try await self.service.makeTranslation(forText: text, to: .current)
     }
     
     @MainActor

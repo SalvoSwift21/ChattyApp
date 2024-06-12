@@ -85,6 +85,7 @@ public struct TextAnalyzerView: View {
                         }
                     }) {
                         Image(systemName: "bubble.left.and.text.bubble.right")
+                            .frame(width: 15, height: 15)
                     }
                     .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
                     
@@ -92,6 +93,7 @@ public struct TextAnalyzerView: View {
                         presenter.copySummary()
                     }) {
                         Image(systemName: "doc.on.doc")
+                            .frame(width: 15, height: 15)
                     }
                     .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
                 }
@@ -100,7 +102,8 @@ public struct TextAnalyzerView: View {
                 
                 Button(action: { self.showFoldersView.toggle() }) {
                     Text("Save")
-                        .fontWeight(.bold)
+                        .font(.body)
+                        .fontWeight(.semibold)
                 }
                 .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
             }
