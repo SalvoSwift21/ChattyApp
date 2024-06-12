@@ -43,11 +43,11 @@ extension ImageScannerOCRClient: OCRClient {
         // Create a new image-request handler.
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
 
-
         // Create a new request to recognize text.
-        let request = VNRecognizeTextRequest(completionHandler: recognizeTextHandler)
-
-
+        let request = VNRecognizeTextRequest { [weak self] request, error in 
+            self?.recognizeTextHandler(request: request, error: error, image: image)
+        }
+        
         do {
             try requestHandler.perform([request])
         } catch {
@@ -55,7 +55,7 @@ extension ImageScannerOCRClient: OCRClient {
         }
     }
     
-    fileprivate func recognizeTextHandler(request: VNRequest, error: Error?) {
+    fileprivate func recognizeTextHandler(request: VNRequest, error: Error?, image: UIImage) {
         guard let observations =
                 request.results as? [VNRecognizedTextObservation] else {
             return
@@ -69,6 +69,6 @@ extension ImageScannerOCRClient: OCRClient {
         .joined(separator: " \n")
         
         // Process the recognized strings.
-        self.delegate.recognizedItemCompletion?(recognizedStrings)
+        self.delegate.recognizedItemCompletion?((recognizedStrings, image))
     }
 }

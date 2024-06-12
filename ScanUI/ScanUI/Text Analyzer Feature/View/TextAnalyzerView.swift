@@ -11,6 +11,8 @@ import Combine
 
 public struct TextAnalyzerView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var presenter: TextAnalyzerPresenter
     @ObservedObject var store: TextAnalyzerStore
 
@@ -19,6 +21,7 @@ public struct TextAnalyzerView: View {
     @State private var toggleIsOn = false
     @State private var showMenu = false
     @State private var opacity: Double = 0.0
+    @State private var showFoldersView = false
 
     public init(store: TextAnalyzerStore, presenter: TextAnalyzerPresenter, resourceBundle: Bundle = .main) {
         self.store = store
@@ -53,105 +56,73 @@ public struct TextAnalyzerView: View {
         .onAppear(perform: {
             presenter.getData()
         })
+        .onChange(of: store.back) {
+            if store.back {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
+        .sheet(isPresented: $showFoldersView) {
+            FoldersView
+        }
     }
     
     var CompleteTextView: some View {
-        ZStack(alignment: .bottomLeading) {
-            TextEditor(text: $store.viewModel.text)
-                .foregroundStyle(.subtitle)
-                .cornerRadius(10)
-                .shadow(radius: 12)
-                .padding(.bottom, 100)
+        VStack(spacing: 10.0) {
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(store.viewModel.chatHistory, id: \.uuid) { vModel in
+                    ChatTextView(viewModel: vModel)
+                }.padding(.all, 16.0)
+            }
+            .padding(0)
+            .background(.clear)
+            
             
             HStack(alignment: .center, spacing: 10) {
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.3), {
-                        opacity = opacity == 0.0 ? 1.0 : 0.0
-                        showMenu.toggle()
-                    })
-                }) {
-                    if showMenu {
-                        Image(systemName: "arrow.down")
-                    } else {
-                        Image(systemName: "arrow.up")
+                HStack(alignment: .center, spacing: 15) {
+                    Button(action: {
+                        Task(priority: .background) {
+                            await presenter.makeTranslation()
+                        }
+                    }) {
+                        Image(systemName: "bubble.left.and.text.bubble.right")
+                            .frame(width: 15, height: 15)
                     }
+                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
+                    
+                    Button(action: {
+                        presenter.copySummary()
+                    }) {
+                        Image(systemName: "doc.on.doc")
+                            .frame(width: 15, height: 15)
+                    }
+                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 35, height: 35)))
                 }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 50, height: 50)))
                 
                 Spacer()
-                                
-                CircleAnimationView(centerImage: UIImage(named: "checkmark_white", in: self.resourceBundle, with: nil) ?? UIImage(), frame: .init(width: 90, height: 90))
-                    .padding(.top, 10)
-                    .onTapGesture {
-                        print("Done")
-                    }
+                
+                Button(action: { self.showFoldersView.toggle() }) {
+                    Text("Save")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                }
+                .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
             }
             
-            
-            // Menu a tendina
-            if showMenu {
-                OptionsMenu
-                    .padding(0)
-                    .background(Color.clear)
-                    .transition(.move(edge: .bottom))
-                    .offset(x: 2.5, y: showMenu ? -80 : 0)
-                    .opacity(opacity)
-            }
         }
         .navigationTitle("Summary result")
-        .onChange(of: $store.viewModel.text.wrappedValue) {
-            presenter.updateScannedText(text: store.viewModel.text)
-        }
+        .background(.mainBackground)
     }
     
-    
-    var OptionsMenu: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            
-            HStack {
-                Button(action: {
-                    Task(priority: .background) {
-                        await presenter.makeTranslation()
-                    }
-                }) {
-                    Image(systemName: "bubble.left.and.text.bubble.right")
-                }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                Text("Translate")
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.prime)
+    var FoldersView: some View {
+        NavigationView {
+            FoldersViewComposer.foldersComposedWith(client: presenter.getStoredService()) { selectedFolder in
+                presenter.doneButtonTapped(withFolder: selectedFolder)
             }
-            
-            HStack(spacing: 8) {
-                Button(action: {
-                    presenter.copySummary()
-                }) {
-                    Image(systemName: "doc.on.doc")
-                }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                Text("Copy")
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.prime)
-            }
-            
-            HStack {
-                Button(action: {
-                    toggleIsOn.toggle()
-                }) {
-                    Image(systemName: "text.justify")
-                }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 45, height: 45)))
-                Text("Show Origianl")
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.prime)
-                .onChange(of: toggleIsOn) {
-                    if toggleIsOn {
-                        presenter.showOriginalSummary()
-                    } else {
-                        presenter.showModifyText()
+            .navigationTitle("Choose folder")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
+                        self.showFoldersView.toggle()
                     }
                 }
             }

@@ -13,9 +13,10 @@ public final class HomeUIComposer {
     private init() {}
         
     public static func homeComposedWith(
-        client: URLSessionHTTPClient,
+        client: ScanStorege,
         upload: @escaping () -> Void = {  },
-        newScan: @escaping () -> Void = {  }
+        newScan: @escaping () -> Void = {  },
+        sellAllButton: @escaping () -> Void = {  }
     ) -> HomeView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
@@ -26,6 +27,7 @@ public final class HomeUIComposer {
                                           delegate: homeStore,
                                           uploadImage: upload,
                                           newScan: newScan,
+                                          sellAllButton: sellAllButton,
                                           bundle: bundle)
         
         return HomeView(store: homeStore, presenter: homePresenter, resourceBundle: bundle)

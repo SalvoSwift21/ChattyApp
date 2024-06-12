@@ -7,10 +7,7 @@
 
 import Foundation
 
-public protocol ScanProtocols: AnyObject {
-    var resourceBundle: Bundle { get set }
-    var resultOfScan: ((String) -> Void) { get set }
-    
+public protocol ScanProtocols: ScanProtocol {
     func startScan()
     func stopScan()
 }

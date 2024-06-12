@@ -36,6 +36,8 @@ struct ScanItem: View {
         HStack(alignment: .center, spacing: 10, content: {
             if let img = scan.mainImage {
                 Image(uiImage: img)
+                    .resizable()
+                    .renderingMode(.original)
                     .frame(width: 50, height: 50)
             }
             VStack(alignment: .leading, spacing: 5, content: {

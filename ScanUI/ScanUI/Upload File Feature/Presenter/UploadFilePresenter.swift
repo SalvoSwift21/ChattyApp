@@ -12,7 +12,7 @@ public class UploadFilePresenter: UploadFileProtocols {
     
     
     public var resourceBundle: Bundle
-    public var resultOfScan: ((String) -> Void)
+    public var resultOfScan: ((ScanProtocolResult) -> Void)
 
     private var service: UploadFileService
     private var ocrConcreteDelegate = ConcrateOCRClientDelegate()
@@ -20,7 +20,7 @@ public class UploadFilePresenter: UploadFileProtocols {
     
 
     public init(delegate: UploadFileProtocolsDelegate,
-                resultOfScan: @escaping ((String) -> Void),
+                resultOfScan: @escaping ((ScanProtocolResult) -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         let imgScanner = ImageScannerOCRClient(delegate: self.ocrConcreteDelegate)
         self.service = UploadFileService(imageScannerOCRClient: imgScanner)
@@ -32,9 +32,9 @@ public class UploadFilePresenter: UploadFileProtocols {
     }
     
     private func setConcreteDelegateCompletion() {
-        self.ocrConcreteDelegate.recognizedItemCompletion = { text in
+        self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
             self.showLoader(false)
-            self.resultOfScan(text)
+            self.resultOfScan(ScanProtocolResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
         }
         
         self.ocrConcreteDelegate.errorOnScanning = { error in

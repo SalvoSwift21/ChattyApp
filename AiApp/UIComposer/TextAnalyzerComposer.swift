@@ -15,7 +15,8 @@ public final class TextAnalyzerComposer {
     private init() {}
         
     public static func textAnalyzerComposedWith(
-        text: String,
+        scanResult: ScanProtocolResult,
+        scanStorage: ScanStorege,
         back: @escaping () -> Void = {  },
         done: @escaping () -> Void = {  }
     ) -> TextAnalyzerView {
@@ -26,11 +27,12 @@ public final class TextAnalyzerComposer {
         let openAiClient = makeOpenAIHTTPClient()
         
         let summaryClient = SummaryClient(summariseService: openAiClient)
+        let trClient = TranslateClient(translateService: openAiClient)
         let idLanguage = AppleIdentificationLanguage()
         
-        let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage)
+        let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: scanStorage)
         
-        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedText: text, bundle: bundle)
+        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, bundle: bundle)
         
         return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
     }

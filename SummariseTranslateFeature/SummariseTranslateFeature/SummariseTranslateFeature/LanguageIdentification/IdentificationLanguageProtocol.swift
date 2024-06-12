@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol IdentificationLanguageProtocol {
-    func identifyLanguageProtocol(fromText text: String) throws -> String
+    func identifyLanguage(fromText text: String) throws -> String
 }

@@ -13,7 +13,9 @@ public struct HomeView: View {
     @ObservedObject var store: HomeStore
 
     var resourceBundle: Bundle
-    
+    @State var isShowingAlert: Bool = false
+    @State var newFolderName: String = ""
+
     public init(store: HomeStore, presenter: HomePresenter, resourceBundle: Bundle = .main) {
         self.store = store
         self.presenter = presenter
@@ -31,6 +33,25 @@ public struct HomeView: View {
                     .scaledToFit()
                     .frame(width: 100, height: 20, alignment: .leading)
                 Spacer()
+                
+                Button {
+                    isShowingAlert.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(Color.prime)
+                }
+                .textFieldAlert(text: $newFolderName,
+                                title: "Create new Folder",
+                                okButtonTitle: "Ok",
+                                placeholder: "Folder Name",
+                                isShowingAlert: $isShowingAlert) {
+                    Task {
+                        await presenter.createNewFolderAndReload(name: newFolderName)
+                        newFolderName = ""
+                    }
+                }
             }
             Spacer()
             switch store.state {
@@ -46,7 +67,9 @@ public struct HomeView: View {
                 Spacer()
                 ScrollView(.vertical, showsIndicators: false, content: {
                     VStack(alignment: .leading, spacing: 32, content: {
-                        HomeMyFoldesView(resourceBundle: resourceBundle, folders: viewModel.myFolders)
+                        HomeMyFoldesView(resourceBundle: resourceBundle, folders: viewModel.myFolders, viewAllButtonTapped: {
+                            presenter.sellAllButton()
+                        })
                         HomeMyRecentScanView(resourceBundle: resourceBundle, scans: viewModel.recentScans ?? [])
                     })
                 })
@@ -73,14 +96,18 @@ public struct HomeView: View {
             alignment: .top
         )
         .background(.mainBackground)
-        .task(presenter.getHome)
+        .task {
+            await presenter.loadData()
+        }
     }
 }
 
 #Preview {
     @State var homeStore = HomeStore()
-    var homeService = HomeService(client: URLSessionHTTPClient(session: URLSession(configuration: URLSessionConfiguration.default)))
-    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { })
+    let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+    let swiftDataStore = try! SwiftDataStore(storeURL: url)
+    var homeService = HomeService(client: swiftDataStore)
+    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { })
     
     return HomeView(store: homeStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
 }

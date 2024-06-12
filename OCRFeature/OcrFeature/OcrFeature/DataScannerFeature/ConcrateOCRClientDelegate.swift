@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 public final class ConcrateOCRClientDelegate: OCRClientDelegate {
     
-    public typealias OCRClientResponse = String
+    public typealias OCRClientResponse = (String, UIImage?)
 
-    public var recognizedItemCompletion: ((String) -> Void)?
+    public var recognizedItemCompletion: ((OCRClientResponse) -> Void)?
     public var errorOnScanning: ((Error) -> Void)?
     
     public init() { }

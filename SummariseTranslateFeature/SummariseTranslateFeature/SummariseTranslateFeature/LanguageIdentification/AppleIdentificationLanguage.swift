@@ -10,6 +10,7 @@ import NaturalLanguage
 
 public final class AppleIdentificationLanguage: IdentificationLanguageProtocol {
     
+    
     public enum Error: Swift.Error {
         case invalidLanguage
     }
@@ -18,13 +19,11 @@ public final class AppleIdentificationLanguage: IdentificationLanguageProtocol {
 
     public init() { }
     
-    
-    public func identifyLanguageProtocol(fromText text: String) throws -> String {
+    public func identifyLanguage(fromText text: String) throws -> String {
         recognizer.processString(text)
         guard let result = recognizer.dominantLanguage else {
             throw AppleIdentificationLanguage.Error.invalidLanguage
         }
         return result.rawValue
     }
-    
 }

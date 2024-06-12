@@ -7,10 +7,7 @@
 
 import Foundation
 
-public protocol UploadFileProtocols: AnyObject {
-    var resourceBundle: Bundle { get set }
-    var resultOfScan: ((String) -> Void) { get set }
-    
+public protocol UploadFileProtocols: ScanProtocol {
     func startScan(atURL url: URL) async throws
     @Sendable func loadFilesType() async
 }
