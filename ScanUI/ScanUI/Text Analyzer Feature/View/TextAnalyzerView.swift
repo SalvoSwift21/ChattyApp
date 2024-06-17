@@ -8,12 +8,14 @@
 import SwiftUI
 import SummariseTranslateFeature
 import OCRFeature
-import OpenAIFeature
+import GoogleAIFeature
 
 public struct TextAnalyzerView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var showingCopyConfirmView = false
+
     var presenter: TextAnalyzerPresenter
     @ObservedObject var store: TextAnalyzerStore
 
@@ -39,7 +41,12 @@ public struct TextAnalyzerView: View {
                     print("Generic error ok")
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .showViewModel:
-                CompleteTextView
+                ZStack {
+                    CompleteTextView
+                    if showingCopyConfirmView {
+                        FlashAlert(title: "Copy on clipoboard", image: Image(systemName: "checkmark.circle.fill"))
+                    }
+                }
             }
             Spacer()
         }
@@ -86,9 +93,19 @@ public struct TextAnalyzerView: View {
                     
                     Button(action: {
                         presenter.copySummary()
+                        withAnimation(.easeInOut(duration: 0.4)) {
+                            self.showingCopyConfirmView.toggle()
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                self.showingCopyConfirmView.toggle()
+                            }
+                        })
                     }) {
                         Label("Copy to clipboard", systemImage: "doc.on.doc")
                     }
+                    
                 } label: {
                     Image(systemName: "ellipsis.circle")
                         .resizable()
@@ -137,7 +154,7 @@ public struct TextAnalyzerView: View {
                                                in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main,
                                                with: nil))
     
-    let openAiClient = makeOpenAIHTTPClient()
+    let openAiClient = makeGoogleGeminiProAIClient()
     
     let summaryClient = SummaryClient(summariseService: openAiClient)
     let trClient = TranslateClient(translateService: openAiClient)
