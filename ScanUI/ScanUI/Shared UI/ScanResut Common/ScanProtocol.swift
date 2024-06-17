@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public struct ScanProtocolResult: Hashable {
+public struct ScanResult: Hashable {
     public var stringResult: String
     public var scanDate: Date
     public var image: UIImage?
@@ -16,5 +16,5 @@ public struct ScanProtocolResult: Hashable {
 
 public protocol ScanProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
-    var resultOfScan: ((ScanProtocolResult) -> Void) { get set }
+    var resultOfScan: ((ScanResult) -> Void) { get set }
 }

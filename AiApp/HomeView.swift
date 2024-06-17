@@ -12,7 +12,7 @@ struct ContainerHomeView: View {
     
     @State private var scanStorage: ScanStorege
     
-    @State private var presentedTextAnalyzer: [ScanProtocolResult] = []
+    @State private var presentedTextAnalyzer: [ScanResult] = []
     
     @State private var showUpload = false
     @State private var showScan = false
@@ -46,7 +46,7 @@ struct ContainerHomeView: View {
                     print("Print \(folderTapped)")
                 }.navigationTitle("All folders")
             })
-            .navigationDestination(for: ScanProtocolResult.self) { scanResult in
+            .navigationDestination(for: ScanResult.self) { scanResult in
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)
             }
         }

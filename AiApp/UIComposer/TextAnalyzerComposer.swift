@@ -15,7 +15,7 @@ public final class TextAnalyzerComposer {
     private init() {}
         
     public static func textAnalyzerComposedWith(
-        scanResult: ScanProtocolResult,
+        scanResult: ScanResult,
         scanStorage: ScanStorege,
         back: @escaping () -> Void = {  },
         done: @escaping () -> Void = {  }
@@ -24,7 +24,7 @@ public final class TextAnalyzerComposer {
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
         let textAnalyzerStore = TextAnalyzerStore()
         
-        let openAiClient = makeOpenAIHTTPClient()
+        let openAiClient = makeGoogleGeminiFlashAIClient()
         
         let summaryClient = SummaryClient(summariseService: openAiClient)
         let trClient = TranslateClient(translateService: openAiClient)

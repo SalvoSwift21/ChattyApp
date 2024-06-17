@@ -12,7 +12,7 @@ public final class UploadFileComposer {
     private init() {}
         
     public static func uploadFileComposedWith(
-        scanResult: @escaping (ScanProtocolResult) -> Void = { _ in }
+        scanResult: @escaping (ScanResult) -> Void = { _ in }
     ) -> UploadFileView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main

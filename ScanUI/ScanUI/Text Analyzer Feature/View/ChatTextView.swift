@@ -9,8 +9,8 @@ import SwiftUI
 
 
 struct ChatTextView: View {
-    
-    var viewModel: ChatCellViewModel
+  
+    @ObservedObject var viewModel: ChatCellViewModel
     
     var body: some View {
         switch viewModel.position {
@@ -26,31 +26,35 @@ struct ChatTextView: View {
             })
         }
     }
-    
+
     var ChatView: some View {
         VStack(alignment: .leading) {
-            if let title = viewModel.title {
-                Text(title)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.title)
-                    .multilineTextAlignment(.leading)
-            }
-            
-            
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: 120.0)
-            }
-            
-            if let description = viewModel.description {
-                Text(description)
-                    .font(.footnote)
-                    .fontWeight(.regular)
-                    .foregroundStyle(.white)
-                    .multilineTextAlignment(.leading)
+            if viewModel.isInLoading {
+                ProgressView()
+            } else {
+                VStack(alignment: .leading) {
+                    if let title = viewModel.title {
+                        Text(title)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.title)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
+                    if let image = viewModel.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    
+                    if let description = viewModel.description {
+                        Text(LocalizedStringKey(description))
+                            .font(.body)
+                            .fontWeight(.regular)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                    }
+                }.animation(.easeIn(duration: 0.4), value: 3)
             }
         }
         .padding()
@@ -67,14 +71,17 @@ struct ChatTextView: View {
                                                   description: nil,
                                                   image: UIImage(named: "FakeImage", in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, with: nil),
                                                   backgroundColor: .white,
-                                                  position: .left))
+                                                  position: .left,
+                                                  isInLoading: true))
         
         
         ChatTextView(viewModel: ChatCellViewModel(title: nil,
-                                                  description: "But I must explain to you how all this mistaken idea of denouncing pleasure and praisingmely painful. Nor again is there toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",
+                                                  description: "But I must explain to you how all tehis mistaken idea of denouncing pleasure and praisingmely painful. Nor again is there toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",
                                                   image: nil,
                                                   backgroundColor: .prime.opacity(0.7),
-                                                  position: .right))
+                                                  position: .right,
+                                                  isInLoading: false))
+                     
     }
     .padding()
     .background(.white)

@@ -6,9 +6,6 @@
 //
 
 import Foundation
-import UIKit
-import SwiftUI
-
 
 public struct TextAnalyzerViewModel {
     
@@ -16,28 +13,5 @@ public struct TextAnalyzerViewModel {
     
     public init(chatHistory: [ChatCellViewModel] = []) {
         self.chatHistory = chatHistory
-    }
-}
-
-public enum ChatPosition {
-    case left, right
-}
-
-public struct ChatCellViewModel {
-    var uuid: UUID = UUID()
-    
-    var title: String?
-    var description: String?
-    var image: UIImage?
-    
-    var backgroundColor: Color
-    var position: ChatPosition = .left
-    
-    public init(title: String? = nil, description: String? = nil, image: UIImage? = nil, backgroundColor: Color, position: ChatPosition = .left) {
-        self.title = title
-        self.description = description
-        self.image = image
-        self.backgroundColor = backgroundColor
-        self.position = position
     }
 }

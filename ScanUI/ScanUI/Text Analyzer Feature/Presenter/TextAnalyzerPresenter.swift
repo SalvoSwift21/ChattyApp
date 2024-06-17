@@ -16,7 +16,7 @@ public class TextAnalyzerPresenter {
     private var service: TextAnalyzerService
     private weak var delegate: TextAnalyzerProtocolDelegate?
     
-    private var scannedResult: ScanProtocolResult
+    private var scannedResult: ScanResult
     
     private var textAnalyzerViewModel: TextAnalyzerViewModel
     
@@ -24,7 +24,7 @@ public class TextAnalyzerPresenter {
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
-                scannedResult: ScanProtocolResult,
+                scannedResult: ScanResult,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
@@ -40,34 +40,37 @@ public class TextAnalyzerPresenter {
     
     @MainActor
     fileprivate func makeSummary() {
-       
-        self.showLoader(true)
-        
         Task {
             do {
-                let summerCell = createChatViewModel(title: "Summurize text:",
+                let summerCell = createChatViewModel(title: "Summurize my content",
                                                      description: nil,
                                                      image: scannedResult.image,
                                                      backgroundColor: .white,
-                                                     position: .left)
+                                                     position: .left,
+                                                     isInLoading: false)
+                
                 
                 self.textAnalyzerViewModel.chatHistory.append(summerCell)
-                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
-//                let result = self.scannedResult.stringResult
-                self.showLoader(false)
-                self.currentSaveText = result
+                
                 let summerResultCell = createChatViewModel(title: nil,
-                                                           description: result,
+                                                           description: "",
                                                            image: nil,
                                                            backgroundColor: .prime.opacity(0.7),
-                                                           position: .right)
+                                                           position: .right,
+                                                           isInLoading: true)
                 
                 self.textAnalyzerViewModel.chatHistory.append(summerResultCell)
 
-                self.showLoader(false)
+                self.renderViewModel()
+                
+                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
+                self.currentSaveText = result
+                
+                summerResultCell.description = result
+                summerResultCell.isInLoading = false
+                
                 self.renderViewModel()
             } catch {
-                self.showLoader(false)
                 self.delegate?.render(errorMessage: error.localizedDescription)
             }
         }
@@ -77,12 +80,14 @@ public class TextAnalyzerPresenter {
                                          description: String?,
                                          image: UIImage?,
                                          backgroundColor: Color,
-                                         position: ChatPosition) -> ChatCellViewModel {
+                                         position: ChatPosition,
+                                         isInLoading: Bool) -> ChatCellViewModel {
         return ChatCellViewModel(title: title,
                                  description: description,
                                  image: image,
                                  backgroundColor: backgroundColor,
-                                 position: position)
+                                 position: position,
+                                 isInLoading: isInLoading)
     }
     
     
@@ -99,31 +104,35 @@ public class TextAnalyzerPresenter {
 
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
+    @MainActor
     public func makeTranslation() async {
         guard let currentSaveText = currentSaveText else { return }
         do {
-            showLoader(true)
-            let trCell = createChatViewModel(title: "Translate Text",
+            let trCell = createChatViewModel(title: "Translate",
                                              description: nil,
                                              image: nil,
                                              backgroundColor: .white,
-                                             position: .left)
+                                             position: .left, isInLoading: false)
             
             self.textAnalyzerViewModel.chatHistory.append(trCell)
             
+            let trResultCell = createChatViewModel(title: nil,
+                                                   description: "",
+                                                   image: nil,
+                                                   backgroundColor: .prime.opacity(0.7),
+                                                   position: .right, isInLoading: true)
+            
+            self.textAnalyzerViewModel.chatHistory.append(trResultCell)
+            
+            self.renderViewModel()
+
             let result = try await makeTranslationFromText(text: currentSaveText)
             self.currentSaveText = result
             
-            let trResultCell = createChatViewModel(title: nil,
-                                                   description: result,
-                                                   image: nil,
-                                                   backgroundColor: .prime.opacity(0.7),
-                                                   position: .right)
+            trResultCell.description = result
+            trResultCell.isInLoading = false
             
-            self.textAnalyzerViewModel.chatHistory.append(trResultCell)
-            showLoader(false)
-
-            await renderViewModel()
+            self.renderViewModel()
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
@@ -157,13 +166,5 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func getStoredService() -> ScanStorege {
         return self.service.storageClient
-    }
-}
-
-//MARK: Help for Home
-extension TextAnalyzerPresenter {
-    
-    fileprivate func showLoader(_ show: Bool) {
-        self.delegate?.renderLoading(visible: show)
     }
 }

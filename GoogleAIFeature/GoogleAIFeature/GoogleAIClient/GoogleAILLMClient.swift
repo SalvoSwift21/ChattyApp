@@ -55,3 +55,9 @@ public func makeGoogleGeminiProAIClient() -> GoogleAILLMClient {
     let sut = GoogleAILLMClient(generativeLanguageClient: gl)
     return sut
 }
+
+public func makeGoogleGeminiFlashAIClient() -> GoogleAILLMClient {
+    let gl = GenerativeModel(name: "gemini-1.5-flash", apiKey: GoogleAIConfigurations.TEST_API_KEY)
+    let sut = GoogleAILLMClient(generativeLanguageClient: gl)
+    return sut
+}

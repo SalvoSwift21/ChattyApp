@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-import Combine
-
+import SummariseTranslateFeature
+import OCRFeature
+import OpenAIFeature
 
 public struct TextAnalyzerView: View {
     
@@ -33,10 +34,6 @@ public struct TextAnalyzerView: View {
         VStack(alignment: .center) {
             Spacer()
             switch store.state {
-            case .loading(let showLoader):
-                if showLoader {
-                    LoadingView()
-                }
             case .error(let message):
                 ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
                     print("Generic error ok")
@@ -78,7 +75,6 @@ public struct TextAnalyzerView: View {
             
             
             HStack(alignment: .center, spacing: 10) {
-                
                 Menu {
                     Button(action: {
                         Task(priority: .background) {
@@ -95,8 +91,9 @@ public struct TextAnalyzerView: View {
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle")
+                        .resizable()
+                        .frame(width: 25, height: 25)
                         .foregroundColor(.prime)
-                        .frame(width: 20, height: 20)
                 }
 
                 Spacer()
@@ -132,9 +129,36 @@ public struct TextAnalyzerView: View {
 }
 
 #Preview {
-    @State var scanStore = ScanStore(state: .loading(show: false))
+    let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
+    let textAnalyzerStore = TextAnalyzerStore()
+    let scanResult = ScanResult(stringResult: "Test result Test result Test result Test result",
+                                scanDate: .now,
+                                image: UIImage(named: "FakeImage",
+                                               in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main,
+                                               with: nil))
     
-    @State var presenter = ScanPresenter(delegate: scanStore, resultOfScan: { _ in })
+    let openAiClient = makeOpenAIHTTPClient()
     
-    return ScanView(store: scanStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+    let summaryClient = SummaryClient(summariseService: openAiClient)
+    let trClient = TranslateClient(translateService: openAiClient)
+    let idLanguage = AppleIdentificationLanguage()
+    
+    let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: getFakeStorage())
+    
+    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, bundle: bundle)
+    
+    return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
 }
+
+
+@MainActor
+private func getFakeStorage() -> ScanStorege {
+    let storeDirectory = FileManager.default.urls(for: .applicationDirectory, in: .userDomainMask).first!
+
+    do {
+        return try SwiftDataStore(storeURL: storeDirectory)
+    } catch {
+        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!)
+    }
+}
+

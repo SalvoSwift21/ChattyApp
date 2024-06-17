@@ -12,7 +12,7 @@ import OCRFeature
 public class ScanPresenter: ScanProtocols {
     
     public var resourceBundle: Bundle
-    public var resultOfScan: ((ScanProtocolResult) -> Void)
+    public var resultOfScan: ((ScanResult) -> Void)
 
     private var service: ScanService
     private var ocrConcreteDelegate = ConcrateOCRClientDelegate()
@@ -21,7 +21,7 @@ public class ScanPresenter: ScanProtocols {
 
     @MainActor
     public init(delegate: ScanProtocolsDelegate,
-                resultOfScan: @escaping ((ScanProtocolResult) -> Void),
+                resultOfScan: @escaping ((ScanResult) -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         let dataScannerOCR = DataScannerOCRClient(delegate: self.ocrConcreteDelegate, recognizedDataType: [.text()])
         self.service = ScanService(dataScannerOCRClient: dataScannerOCR)
@@ -35,7 +35,7 @@ public class ScanPresenter: ScanProtocols {
     private func setConcreteDelegateCompletion() {
         self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
             self.showLoader(false)
-            self.resultOfScan(ScanProtocolResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
+            self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
         }
         
         self.ocrConcreteDelegate.errorOnScanning = { error in

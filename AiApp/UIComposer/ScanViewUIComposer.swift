@@ -17,7 +17,7 @@ public final class DataScannerComposer {
     private init() {}
         
     public static func uploadFileComposedWith(
-        scanResult: @escaping (ScanProtocolResult) -> Void = { _ in }
+        scanResult: @escaping (ScanResult) -> Void = { _ in }
     ) -> ScanView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main

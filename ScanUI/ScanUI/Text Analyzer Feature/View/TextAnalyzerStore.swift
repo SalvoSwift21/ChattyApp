@@ -10,16 +10,15 @@ import Foundation
 public class TextAnalyzerStore: ObservableObject {
     
     public enum State {
-        case loading(show: Bool)
         case error(message: String)
         case showViewModel
     }
     
-    @Published var state: State = .loading(show: false)
+    @Published var state: State = .showViewModel
     @Published var back: Bool = false
     @Published var viewModel = TextAnalyzerViewModel(chatHistory: [])
 
-    public init(state: TextAnalyzerStore.State = .loading(show: true)) {
+    public init(state: TextAnalyzerStore.State = .showViewModel) {
         self.state = state
     }
 }
@@ -32,10 +31,6 @@ extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
     
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
-    }
-    
-    public func renderLoading(visible: Bool) {
-        self.state = .loading(show: visible)
     }
     
     public func render(viewModel: TextAnalyzerViewModel) {
