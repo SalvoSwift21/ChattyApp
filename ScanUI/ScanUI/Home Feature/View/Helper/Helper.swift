@@ -18,6 +18,6 @@ func createSomeFolders() -> [Folder] {
 
 func createScans() -> [Scan] {
     return [Scan(title: "Prima Scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)),
-            Scan(title: "Seconda Scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)),
+            Scan(title: "Seconda Scansione Scansione Scansione Scansione Scansione Scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)),
             Scan(title: "Terza scansione", scanDate: .now, mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil))]
 }

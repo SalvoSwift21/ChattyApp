@@ -12,7 +12,7 @@ struct HomeMyRecentScanView: View {
     var scans: [Scan]
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10, content: {
+        VStack(alignment: .leading, spacing: 20, content: {
             Text("Recent Scans")
                 .font(.system(size: 18))
                 .fontWeight(.semibold)
@@ -33,26 +33,33 @@ struct ScanItem: View {
     var scan: Scan
     
     var body: some View {
-        HStack(alignment: .center, spacing: 10, content: {
-            if let img = scan.mainImage {
-                Image(uiImage: img)
-                    .resizable()
-                    .renderingMode(.original)
-                    .frame(width: 50, height: 50)
-            }
-            VStack(alignment: .leading, spacing: 5, content: {
-                Text(scan.title)
-                    .font(.system(size: 14))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.title)
-                    .lineLimit(1)
-                Text("\(scan.scanDate.ISO8601Format())")
-                    .font(.system(size: 12))
-                    .fontWeight(.regular)
-                    .foregroundStyle(.subtitle)
-                    .lineLimit(1)
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .center, spacing: 10, content: {
+                if let img = scan.mainImage {
+                    Image(uiImage: img)
+                        .resizable()
+                        .renderingMode(.original)
+                        .frame(width: 60, height: 60)
+                        .clipShape(.rect(cornerRadius: 5.0))
+                }
+                
+                VStack(alignment: .leading, spacing: 5, content: {
+                    Text(scan.title)
+                        .font(.system(size: 14))
+                        .fontWeight(.medium)
+                        .foregroundStyle(.title)
+                        .lineLimit(2)
+                    
+                    Text("\(scan.scanDate.recentScanMode())")
+                        .font(.system(size: 12))
+                        .fontWeight(.regular)
+                        .foregroundStyle(.subtitle)
+                        .lineLimit(1)
+                }).padding()
             })
-        })
+            
+            Divider()
+        }
     }
 }
 

@@ -105,9 +105,20 @@ public struct HomeView: View {
 #Preview {
     @State var homeStore = HomeStore()
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-    let swiftDataStore = try! SwiftDataStore(storeURL: url)
+    let swiftDataStore = getFakeStorageHome()
     var homeService = HomeService(client: swiftDataStore)
     @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { })
     
     return HomeView(store: homeStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+}
+
+@MainActor
+private func getFakeStorageHome() -> ScanStorege {
+    let storeDirectory = FileManager.default.urls(for: .applicationDirectory, in: .userDomainMask).first!
+
+    do {
+        return try SwiftDataStore(storeURL: storeDirectory)
+    } catch {
+        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!)
+    }
 }
