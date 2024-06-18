@@ -12,7 +12,7 @@ public final class FoldersViewComposer {
         
     public static func foldersComposedWith(
         client: ScanStorege,
-        didSelectFolder: @escaping (Folder) -> Void = { _ in }
+        didSelectFolder: ((Folder) -> Void)? = nil
     ) -> AllFoldersView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main

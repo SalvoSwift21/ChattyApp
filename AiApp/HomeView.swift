@@ -18,8 +18,10 @@ struct ContainerHomeView: View {
     @State private var showScan = false
     @State private var showAllFolders = false
     @State private var showScanDetail = false
-    
+    @State private var showFolderDetail = false
+
     @State private var currentSelectedScan: Scan?
+    @State private var currentSelectedFolder: Folder?
 
     init(storage: ScanStorege) {
         self.scanStorage = storage
@@ -34,6 +36,9 @@ struct ContainerHomeView: View {
             }, scanTapped: { scan in
                 self.currentSelectedScan = scan
                 showScanDetail.toggle()
+            }, folderTapped: { folder in
+                self.currentSelectedFolder = folder
+                showFolderDetail.toggle()
             }, sellAllButton: {
                 showAllFolders.toggle()
             })
@@ -48,9 +53,8 @@ struct ContainerHomeView: View {
                 }
             })
             .navigationDestination(isPresented: $showAllFolders, destination: {
-                FoldersViewComposer.foldersComposedWith(client: scanStorage) { folderTapped in
-                    print("Print \(folderTapped)")
-                }.navigationTitle("All folders")
+                FoldersViewComposer.foldersComposedWith(client: scanStorage)
+                    .navigationTitle("All folders")
             })
             .navigationDestination(isPresented: $showScanDetail, destination: {
                 if let scan = self.currentSelectedScan {
@@ -58,6 +62,15 @@ struct ContainerHomeView: View {
                 } else {
                     EmptyView().task {
                         showScanDetail.toggle()
+                    }
+                }
+            })
+            .navigationDestination(isPresented: $showFolderDetail, destination: {
+                if let folder = self.currentSelectedFolder {
+                    FolderDetailComposer.folderDetailComposedWith(folder: folder)
+                } else {
+                    EmptyView().task {
+                        showFolderDetail.toggle()
                     }
                 }
             })

@@ -11,7 +11,8 @@ struct HomeMyFoldesView: View {
     var resourceBundle: Bundle
     var folders: [Folder]
     var viewAllButtonTapped: (() -> Void)
-    
+    var folderTapped: ((Folder) -> Void)
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack(content: {
@@ -35,7 +36,7 @@ struct HomeMyFoldesView: View {
                     ForEach(folders, id: \.id) { folder in
                         FolderItemView(resourceBundle: resourceBundle, folder: folder)
                             .onTapGesture {
-                                print("Click on \(folder.id)")
+                                folderTapped(folder)
                             }
                     }
                 })
@@ -45,6 +46,6 @@ struct HomeMyFoldesView: View {
 }
 
 #Preview {
-    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { })
+    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { }, folderTapped: { _ in })
         .padding()
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OCRFeature
 import UIKit
 
 public class ScanDetailPresenter: ScanDetailPresenterProtocol {

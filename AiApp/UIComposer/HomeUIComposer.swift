@@ -17,6 +17,7 @@ public final class HomeUIComposer {
         upload: @escaping () -> Void = {  },
         newScan: @escaping () -> Void = {  },
         scanTapped: @escaping (Scan) -> Void = { _ in },
+        folderTapped: @escaping (Folder) -> Void = { _ in },
         sellAllButton: @escaping () -> Void = {  }
     ) -> HomeView {
         
@@ -30,6 +31,7 @@ public final class HomeUIComposer {
                                           newScan: newScan,
                                           sellAllButton: sellAllButton, 
                                           scanTapped: scanTapped,
+                                          folderTapped: folderTapped,
                                           bundle: bundle)
         
         return HomeView(store: homeStore, presenter: homePresenter, resourceBundle: bundle)

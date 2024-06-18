@@ -7,16 +7,13 @@
 
 import Foundation
 
-protocol FoldersPresenterProtocol: AnyObject {
+protocol FolderDetailPresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
-    var didSelectFolder: ((Folder) -> Void)? { get set }
-
     func loadData() async
-    func createNewFolder(name: String) async
 }
 
-public protocol FoldersProtocolDelegate: AnyObject {
+public protocol FolderDetailProtocolDelegate: AnyObject {
     func render(errorMessage: String)
     func renderLoading(visible: Bool)
-    func render(viewModel: FoldersViewModel)
+    func render(viewModel: FolderDetailViewModel)
 }

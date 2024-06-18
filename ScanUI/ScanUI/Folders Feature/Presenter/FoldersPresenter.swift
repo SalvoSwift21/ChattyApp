@@ -10,7 +10,7 @@ import OCRFeature
 
 public class FoldersPresenter: FoldersPresenterProtocol {
     
-    internal var didSelectFolder: ((Folder) -> Void)
+    internal var didSelectFolder: ((Folder) -> Void)?
     internal var resourceBundle: Bundle
 
     private var service: FoldersServiceProtocol
@@ -19,7 +19,7 @@ public class FoldersPresenter: FoldersPresenterProtocol {
 
     public init(delegate: FoldersProtocolDelegate,
                 service: FoldersServiceProtocol,
-                didSelectFolder: @escaping ((Folder) -> Void),
+                didSelectFolder: ((Folder) -> Void)?,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
