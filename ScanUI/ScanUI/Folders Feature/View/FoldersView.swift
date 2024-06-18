@@ -39,7 +39,7 @@ public struct AllFoldersView: View {
                         .init(spacing: 8.0)
                     ]) {
                         ForEach(viewModel.folders, id: \.id) { folder in
-                            FolderItem(resourceBundle: resourceBundle, folder: folder)
+                            FolderItemView(resourceBundle: resourceBundle, folder: folder)
                                 .onTapGesture {
                                     presenter.didSelectFolder(folder)
                                 }
