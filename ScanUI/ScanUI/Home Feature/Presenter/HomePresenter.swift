@@ -10,11 +10,11 @@ import Foundation
 
 public class HomePresenter: HomePresenterProtocol {
     
-    
     public var resourceBundle: Bundle
     public var uploadImage: (() -> Void)
     public var newScan: (() -> Void)
     public var sellAllButton: (() -> Void)
+    public var scanTapped: ((Scan) -> Void)
 
     
     private var service: HomeService
@@ -27,6 +27,7 @@ public class HomePresenter: HomePresenterProtocol {
                 uploadImage: @escaping (() -> Void),
                 newScan: @escaping (() -> Void),
                 sellAllButton: @escaping (() -> Void),
+                scanTapped: @escaping ((Scan) -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
@@ -34,6 +35,7 @@ public class HomePresenter: HomePresenterProtocol {
         self.uploadImage = uploadImage
         self.newScan = newScan
         self.sellAllButton = sellAllButton
+        self.scanTapped = scanTapped
         self.homeViewModel = HomeViewModel()
     }
     

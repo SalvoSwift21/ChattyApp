@@ -13,7 +13,7 @@ struct ScanItemView: View {
     var scan: Scan
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 5) {
             HStack(alignment: .center, spacing: 10, content: {
                 if let img = scan.mainImage {
                     Image(uiImage: img)
@@ -47,7 +47,7 @@ struct ScanItemView: View {
     VStack {
         ScanItemView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main,
                      scan: Scan(title: "Test scan title",
-                                scanDate: .now,
+                                contentText: "Test conten", scanDate: .now,
                                 mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)))
     }.padding()
 }

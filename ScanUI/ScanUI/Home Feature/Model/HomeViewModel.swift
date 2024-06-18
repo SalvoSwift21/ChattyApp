@@ -12,6 +12,7 @@ public struct Scan {
     var id: UUID = UUID()
     
     var title: String
+    var contentText: String
     var scanDate: Date
     var mainImage: UIImage?
 }

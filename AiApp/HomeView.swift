@@ -17,6 +17,9 @@ struct ContainerHomeView: View {
     @State private var showUpload = false
     @State private var showScan = false
     @State private var showAllFolders = false
+    @State private var showScanDetail = false
+    
+    @State private var currentSelectedScan: Scan?
 
     init(storage: ScanStorege) {
         self.scanStorage = storage
@@ -28,6 +31,9 @@ struct ContainerHomeView: View {
                 showUpload.toggle()
             }, newScan: {
                 showScan.toggle()
+            }, scanTapped: { scan in
+                self.currentSelectedScan = scan
+                showScanDetail.toggle()
             }, sellAllButton: {
                 showAllFolders.toggle()
             })
@@ -45,6 +51,15 @@ struct ContainerHomeView: View {
                 FoldersViewComposer.foldersComposedWith(client: scanStorage) { folderTapped in
                     print("Print \(folderTapped)")
                 }.navigationTitle("All folders")
+            })
+            .navigationDestination(isPresented: $showScanDetail, destination: {
+                if let scan = self.currentSelectedScan {
+                    ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
+                } else {
+                    EmptyView().task {
+                        showScanDetail.toggle()
+                    }
+                }
             })
             .navigationDestination(for: ScanResult.self) { scanResult in
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)

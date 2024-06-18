@@ -22,7 +22,6 @@ public struct AllFoldersView: View {
     
     public var body: some View {
         VStack(alignment: .center) {
-            Spacer()
             switch store.state {
             case .loading(let showLoader):
                 if showLoader {
@@ -44,12 +43,11 @@ public struct AllFoldersView: View {
                                     presenter.didSelectFolder(folder)
                                 }
                         }
-                    }
+                    }.padding()
                 }
+                .navigationBarTitleDisplayMode(.large)
             }
-            Spacer()
         }
-        .padding()
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
@@ -65,12 +63,14 @@ public struct AllFoldersView: View {
 #Preview {
     @State var foldersStore = FoldersStore(state: .loading(show: false))
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-    let swiftDataStore = try! SwiftDataStore(storeURL: url)
-    var service = FoldersLocalService(client: swiftDataStore)
+    var service = FoldersLocalService(client: getFakeStorage())
 
     @State var presenter = FoldersPresenter(delegate: foldersStore, service: service, didSelectFolder: { folder in
         print("Folders \(folder.title)")
     })
     
-    return AllFoldersView(store: foldersStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+    return NavigationView {
+        AllFoldersView(store: foldersStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+            .navigationTitle("Test folders")
+    }
 }

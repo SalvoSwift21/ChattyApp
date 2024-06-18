@@ -7,6 +7,7 @@
 
 import Foundation
 import OCRFeature
+import UIKit
 
 public class ScanDetailPresenter: ScanDetailPresenterProtocol {
     
@@ -14,6 +15,8 @@ public class ScanDetailPresenter: ScanDetailPresenterProtocol {
 
     private var service: ScanDetailService
     private weak var delegate: ScanDetailProtocolDelegate?
+    
+    private var currentScan: Scan?
     
 
     public init(delegate: ScanDetailProtocolDelegate,
@@ -24,7 +27,16 @@ public class ScanDetailPresenter: ScanDetailPresenterProtocol {
         self.resourceBundle = bundle
     }
     
-    func loadData() async { }
+    func loadData() async {
+        let currentScan = await service.getScan()
+        self.currentScan = currentScan
+        self.delegate?.render(viewModel: ScanDetailViewModel(scan: currentScan))
+    }
+    
+    func copyContent() {
+        guard let text = currentScan?.contentText else { return }
+        UIPasteboard.general.string = text
+    }
 }
 
 //MARK: Help for Home

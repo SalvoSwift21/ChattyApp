@@ -28,7 +28,7 @@ extension SwiftDataStore: ScanStorege {
         guard let folder = try findFoldersByID(id: folder.id).first else {
             throw SwiftDataStore.folderNotExist
         }
-        let storedScan = ScanStorageModel(id: scan.id, title: scan.title, scanDate: scan.scanDate, mainImage: scan.mainImage?.pngData())
+        let storedScan = ScanStorageModel(id: scan.id, title: scan.title, contentText: scan.contentText, scanDate: scan.scanDate, mainImage: scan.mainImage?.pngData())
         folder.scans?.insert(storedScan, at: 0)
         try modelContainer.mainContext.save()
     }
@@ -38,7 +38,7 @@ extension SwiftDataStore: ScanStorege {
             throw SwiftDataStore.folderAlreadyExist
         }
         
-        let storeFolder = FolderStorageModel(id: folder.id, title: folder.title, scans: folder.scans.map({ ScanStorageModel(id: $0.id, title: $0.title, scanDate: $0.scanDate, mainImage: $0.mainImage?.pngData())}))
+        let storeFolder = FolderStorageModel(id: folder.id, title: folder.title, scans: folder.scans.map({ ScanStorageModel(id: $0.id, title: $0.title, contentText: $0.contentText, scanDate: $0.scanDate, mainImage: $0.mainImage?.pngData())}))
         
         modelContainer.mainContext.insert(storeFolder)
         

@@ -10,9 +10,10 @@ import SwiftUI
 struct HomeMyRecentScanView: View {
     var resourceBundle: Bundle
     var scans: [Scan]
-    
+    var scanTapped: ((Scan) -> Void)
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 20, content: {
+        VStack(alignment: .leading, spacing: 5, content: {
             Text("Recent Scans")
                 .font(.system(size: 18))
                 .fontWeight(.semibold)
@@ -21,7 +22,7 @@ struct HomeMyRecentScanView: View {
             ForEach(scans, id: \.id) { scan in
                 ScanItemView(resourceBundle: resourceBundle, scan: scan)
                     .onTapGesture {
-                        print("Click on \(scan.id)")
+                        scanTapped(scan)
                     }
             }
         })
@@ -30,6 +31,6 @@ struct HomeMyRecentScanView: View {
 
 
 #Preview {
-    HomeMyRecentScanView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, scans: createScans()).padding()
+    HomeMyRecentScanView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, scans: createScans(), scanTapped: { _ in }).padding()
 }
 

@@ -70,7 +70,9 @@ public struct HomeView: View {
                         HomeMyFoldesView(resourceBundle: resourceBundle, folders: viewModel.myFolders, viewAllButtonTapped: {
                             presenter.sellAllButton()
                         })
-                        HomeMyRecentScanView(resourceBundle: resourceBundle, scans: viewModel.recentScans ?? [])
+                        HomeMyRecentScanView(resourceBundle: resourceBundle, scans: viewModel.recentScans ?? [], scanTapped: { scan in
+                            presenter.scanTapped(scan)
+                        })
                     })
                 })
             }
@@ -105,20 +107,9 @@ public struct HomeView: View {
 #Preview {
     @State var homeStore = HomeStore()
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-    let swiftDataStore = getFakeStorageHome()
+    let swiftDataStore = getFakeStorage()
     var homeService = HomeService(client: swiftDataStore)
-    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { })
+    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { }, scanTapped: { _ in })
     
     return HomeView(store: homeStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
-}
-
-@MainActor
-private func getFakeStorageHome() -> ScanStorege {
-    let storeDirectory = FileManager.default.urls(for: .applicationDirectory, in: .userDomainMask).first!
-
-    do {
-        return try SwiftDataStore(storeURL: storeDirectory)
-    } catch {
-        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!)
-    }
 }

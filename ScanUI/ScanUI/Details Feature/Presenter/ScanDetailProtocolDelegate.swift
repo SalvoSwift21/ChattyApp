@@ -10,6 +10,8 @@ import Foundation
 protocol ScanDetailPresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
     func loadData() async
+    
+    func copyContent()
 }
 
 public protocol ScanDetailProtocolDelegate: AnyObject {

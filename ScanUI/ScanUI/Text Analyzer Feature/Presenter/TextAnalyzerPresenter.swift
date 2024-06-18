@@ -144,7 +144,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func doneButtonTapped(withFolder folder: Folder) {
         guard let currentSaveText = currentSaveText else { return }
-        let scanToSave = Scan(id: UUID(), title: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
+        let scanToSave = Scan(id: UUID(), title: currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
         
         Task {
             do {

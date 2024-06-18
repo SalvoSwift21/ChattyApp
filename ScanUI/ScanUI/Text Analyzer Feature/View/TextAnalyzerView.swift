@@ -166,16 +166,3 @@ public struct TextAnalyzerView: View {
     
     return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
 }
-
-
-@MainActor
-private func getFakeStorage() -> ScanStorege {
-    let storeDirectory = FileManager.default.urls(for: .applicationDirectory, in: .userDomainMask).first!
-
-    do {
-        return try SwiftDataStore(storeURL: storeDirectory)
-    } catch {
-        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!)
-    }
-}
-
