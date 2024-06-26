@@ -8,7 +8,12 @@
 import SwiftUI
 import ScanUI
 
+
 struct ContainerHomeView: View {
+    
+    enum HomeNavigationDestination: Hashable {
+        case newScan, seeAll
+    }
     
     @State private var scanStorage: ScanStorege
     
@@ -25,25 +30,23 @@ struct ContainerHomeView: View {
             HomeUIComposer.homeComposedWith(client: scanStorage, upload: {
                 showUpload.toggle()
             }, newScan: {
-                path.append("NewScan")
+                path.append(HomeNavigationDestination.newScan)
             }, scanTapped: { scan in
                 path.append(scan)
             }, folderTapped: { folder in
                 path.append(folder)
             }, sellAllButton: {
-                path.append("SeeAll")
+                path.append(HomeNavigationDestination.seeAll)
             })
-            .navigationDestination(for: String.self) { destination in
+            .navigationDestination(for: HomeNavigationDestination.self) { destination in
                 switch destination {
-                case "NewScan":
+                case .newScan:
                     DataScannerComposer.uploadFileComposedWith { resultOfScan in
                         path.append(resultOfScan)
                     }
-                case "SeeAll":
+                case .seeAll:
                     FoldersViewComposer.foldersComposedWith(client: scanStorage)
                         .navigationTitle("All folders")
-                default:
-                    EmptyView()
                 }
             }
             .navigationDestination(for: ScanResult.self) { scanResult in
