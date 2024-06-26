@@ -9,6 +9,8 @@ import SwiftUI
 
 public struct FolderDetailView: View {
     
+    @Environment(\.presentationMode) var presentation
+    
     var presenter: FolderDetailPresenter
     @ObservedObject var store: FolderDetailStore
     @State private var showingCopyConfirmView = false
@@ -31,11 +33,16 @@ public struct FolderDetailView: View {
                     LoadingView()
                 }
             case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload view", primaryAction: {
+                ErrorView(title: "Error", description: message,
+                          primaryButtonTitle: "Reload view folder detail",
+                          primaryAction: {
                     Task {
                         await presenter.loadData()
                     }
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
+                }, secondaryButtonTitle: "Back", 
+                          secondaryAction: {
+                    presentation.wrappedValue.dismiss()
+                })
             case .loaded(let viewModel):
                 makeDetailView(viewModel: viewModel)
                     .navigationTitle(viewModel.folder.title)

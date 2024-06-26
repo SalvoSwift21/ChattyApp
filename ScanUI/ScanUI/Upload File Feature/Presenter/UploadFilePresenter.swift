@@ -33,19 +33,16 @@ public class UploadFilePresenter: UploadFileProtocols {
     
     private func setConcreteDelegateCompletion() {
         self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
-            self.showLoader(false)
             self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
         }
         
         self.ocrConcreteDelegate.errorOnScanning = { error in
-            self.showLoader(false)
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
     @MainActor
     public func startScan(atURL url: URL) async throws {
-        self.showLoader(true)
         try await self.service.startScan(atURL: url)
     }
     
@@ -54,13 +51,5 @@ public class UploadFilePresenter: UploadFileProtocols {
         let uttTypes = await self.service.getFileUTTypes()
         let viewModel = UploadFileViewModel(fileTypes: uttTypes)
         self.delegate?.render(viewModel: viewModel)
-    }
-}
-
-//MARK: Help for Home
-extension UploadFilePresenter {
-    
-    fileprivate func showLoader(_ show: Bool) {
-        self.delegate?.renderLoading(visible: show)
     }
 }

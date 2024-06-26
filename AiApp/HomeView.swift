@@ -12,70 +12,51 @@ struct ContainerHomeView: View {
     
     @State private var scanStorage: ScanStorege
     
-    @State private var presentedTextAnalyzer: [ScanResult] = []
+    @State private var showUpload: Bool = false
+    @State private var path: NavigationPath = .init()
     
-    @State private var showUpload = false
-    @State private var showScan = false
-    @State private var showAllFolders = false
-    @State private var showScanDetail = false
-    @State private var showFolderDetail = false
-
-    @State private var currentSelectedScan: Scan?
-    @State private var currentSelectedFolder: Folder?
 
     init(storage: ScanStorege) {
         self.scanStorage = storage
     }
     
     var body: some View {
-        NavigationStack(path: $presentedTextAnalyzer) {
+        NavigationStack(path: $path.animation(.easeOut)) {
             HomeUIComposer.homeComposedWith(client: scanStorage, upload: {
                 showUpload.toggle()
             }, newScan: {
-                showScan.toggle()
+                path.append("NewScan")
             }, scanTapped: { scan in
-                self.currentSelectedScan = scan
-                showScanDetail.toggle()
+                path.append(scan)
             }, folderTapped: { folder in
-                self.currentSelectedFolder = folder
-                showFolderDetail.toggle()
+                path.append(folder)
             }, sellAllButton: {
-                showAllFolders.toggle()
+                path.append("SeeAll")
             })
-            .navigationDestination(isPresented: $showScan, destination: {
-                DataScannerComposer.uploadFileComposedWith { resultOfScan in
-                    presentedTextAnalyzer.append(resultOfScan)
-                }
-            })
-            .navigationDestination(isPresented: $showUpload, destination: {
-                UploadFileComposer.uploadFileComposedWith { resultOfScan in
-                    presentedTextAnalyzer.append(resultOfScan)
-                }
-            })
-            .navigationDestination(isPresented: $showAllFolders, destination: {
-                FoldersViewComposer.foldersComposedWith(client: scanStorage)
-                    .navigationTitle("All folders")
-            })
-            .navigationDestination(isPresented: $showScanDetail, destination: {
-                if let scan = self.currentSelectedScan {
-                    ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
-                } else {
-                    EmptyView().task {
-                        showScanDetail.toggle()
+            .navigationDestination(for: String.self) { destination in
+                switch destination {
+                case "NewScan":
+                    DataScannerComposer.uploadFileComposedWith { resultOfScan in
+                        path.append(resultOfScan)
                     }
+                case "SeeAll":
+                    FoldersViewComposer.foldersComposedWith(client: scanStorage)
+                        .navigationTitle("All folders")
+                default:
+                    EmptyView()
                 }
-            })
-            .navigationDestination(isPresented: $showFolderDetail, destination: {
-                if let folder = self.currentSelectedFolder {
-                    FolderDetailComposer.folderDetailComposedWith(folder: folder)
-                } else {
-                    EmptyView().task {
-                        showFolderDetail.toggle()
-                    }
-                }
-            })
+            }
             .navigationDestination(for: ScanResult.self) { scanResult in
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)
+            }
+            .navigationDestination(for: Folder.self, destination: { folder in
+                FolderDetailComposer.folderDetailComposedWith(folder: folder)
+            })
+            .navigationDestination(for: Scan.self, destination: { scan in
+                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
+            })
+            .fileImporter(isPresented: $showUpload) { resultOfScan in
+                path.append(resultOfScan)
             }
         }
     }

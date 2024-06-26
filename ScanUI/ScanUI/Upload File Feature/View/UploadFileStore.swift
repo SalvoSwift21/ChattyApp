@@ -10,14 +10,12 @@ import Foundation
 public class UploadFileStore: ObservableObject {
     
     public enum State {
-        case loading(show: Bool)
         case error(message: String)
         case loaded(viewModel: UploadFileViewModel)
     }
     
-    @Published var state: State = .loading(show: false)
-
-    public init(state: UploadFileStore.State = .loading(show: true)) {
+    @Published var state: State
+    public init(state: UploadFileStore.State) {
         self.state = state
     }
 }
@@ -27,10 +25,6 @@ extension UploadFileStore: UploadFileProtocolsDelegate {
     
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
-    }
-    
-    public func renderLoading(visible: Bool) {
-        self.state = .loading(show: visible)
     }
     
     public func render(viewModel: UploadFileViewModel) {

@@ -8,7 +8,9 @@
 import SwiftUI
 
 public struct ScanDetailView: View {
-    
+
+    @Environment(\.presentationMode) var presentation
+
     var presenter: ScanDetailPresenter
     @ObservedObject var store: ScanDetailStore
     @State private var showingCopyConfirmView = false
@@ -29,11 +31,16 @@ public struct ScanDetailView: View {
                     LoadingView()
                 }
             case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload view", primaryAction: {
+                ErrorView(title: "Error", description: message,
+                          primaryButtonTitle: "Reload view Scan detail",
+                          primaryAction: {
                     Task {
                         await presenter.loadData()
                     }
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
+                }, secondaryButtonTitle: "Back",
+                          secondaryAction: {
+                    presentation.wrappedValue.dismiss()
+                })
             case .loaded(let viewModel):
                 ZStack(content: {
                     VStack {

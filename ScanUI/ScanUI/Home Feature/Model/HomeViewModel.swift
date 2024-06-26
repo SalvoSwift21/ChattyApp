@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public struct Scan {
+public struct Scan: Hashable {
     var id: UUID = UUID()
     
     var title: String
@@ -17,7 +17,7 @@ public struct Scan {
     var mainImage: UIImage?
 }
 
-public struct Folder {
+public struct Folder: Hashable {
     var id: UUID = UUID()
 
     var title: String
