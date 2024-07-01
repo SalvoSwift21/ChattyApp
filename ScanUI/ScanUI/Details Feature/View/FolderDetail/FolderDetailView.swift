@@ -63,9 +63,7 @@ public struct FolderDetailView: View {
             if let scan = self.currentSelectedScan {
                 ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
             } else {
-                EmptyView().task {
-                    showScanDetail.toggle()
-                }
+                EmptyView()
             }
         })
     }

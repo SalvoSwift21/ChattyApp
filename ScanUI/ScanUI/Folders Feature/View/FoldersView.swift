@@ -42,7 +42,7 @@ public struct AllFoldersView: View {
                         ForEach(viewModel.folders, id: \.id) { folder in
                             FolderItemView(resourceBundle: resourceBundle, folder: folder)
                                 .onTapGesture {
-                                    if let completion = presenter.didSelectFolder {
+                                    if let _ = presenter.didSelectFolder {
                                         presenter.didSelectFolder?(folder)
                                     } else {
                                         self.currentFolderSelected = folder
