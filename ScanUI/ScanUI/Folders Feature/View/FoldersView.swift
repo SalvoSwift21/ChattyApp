@@ -13,6 +13,8 @@ public struct AllFoldersView: View {
     @ObservedObject var store: FoldersStore
 
     var resourceBundle: Bundle
+    @State var showFolderDetail = false
+    @State private var currentFolderSelected: Folder?
     
     public init(store: FoldersStore, presenter: FoldersPresenter, resourceBundle: Bundle = .main) {
         self.store = store
@@ -20,9 +22,10 @@ public struct AllFoldersView: View {
         self.resourceBundle = resourceBundle
     }
     
+    @State private var searchText: String = ""
+
     public var body: some View {
         VStack(alignment: .center) {
-            Spacer()
             switch store.state {
             case .loading(let showLoader):
                 if showLoader {
@@ -39,17 +42,22 @@ public struct AllFoldersView: View {
                         .init(spacing: 8.0)
                     ]) {
                         ForEach(viewModel.folders, id: \.id) { folder in
-                            FolderItem(resourceBundle: resourceBundle, folder: folder)
+                            FolderItemView(resourceBundle: resourceBundle, folder: folder)
                                 .onTapGesture {
-                                    presenter.didSelectFolder(folder)
+                                    if let _ = presenter.didSelectFolder {
+                                        presenter.didSelectFolder?(folder)
+                                    } else {
+                                        self.currentFolderSelected = folder
+                                        self.showFolderDetail.toggle()
+                                    }
                                 }
                         }
-                    }
+                    }.padding()
                 }
+                .navigationBarTitleDisplayMode(.large)
+                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
             }
-            Spacer()
         }
-        .padding()
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
@@ -59,18 +67,29 @@ public struct AllFoldersView: View {
         .task {
             await presenter.loadData()
         }
+        .navigationDestination(isPresented: $showFolderDetail, destination: {
+            if let folder = self.currentFolderSelected {
+                FolderDetailComposer.folderDetailComposedWith(folder: folder)
+            } else {
+                EmptyView().task {
+                    showFolderDetail.toggle()
+                }
+            }
+        })
     }
 }
 
 #Preview {
     @State var foldersStore = FoldersStore(state: .loading(show: false))
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-    let swiftDataStore = try! SwiftDataStore(storeURL: url)
-    var service = FoldersLocalService(client: swiftDataStore)
+    var service = FoldersLocalService(client: getFakeStorage())
 
     @State var presenter = FoldersPresenter(delegate: foldersStore, service: service, didSelectFolder: { folder in
         print("Folders \(folder.title)")
     })
     
-    return AllFoldersView(store: foldersStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+    return NavigationView {
+        AllFoldersView(store: foldersStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+            .navigationTitle("Test folders")
+    }
 }

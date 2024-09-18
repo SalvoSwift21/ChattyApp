@@ -11,11 +11,12 @@ struct HomeMyFoldesView: View {
     var resourceBundle: Bundle
     var folders: [Folder]
     var viewAllButtonTapped: (() -> Void)
-    
+    var folderTapped: ((Folder) -> Void)
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack(content: {
-                Text("My scans")
+                Text("My Folders")
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
                     .foregroundStyle(.title)
@@ -33,9 +34,9 @@ struct HomeMyFoldesView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .center, spacing: 15, content: {
                     ForEach(folders, id: \.id) { folder in
-                        FolderItem(resourceBundle: resourceBundle, folder: folder)
+                        FolderItemView(resourceBundle: resourceBundle, folder: folder)
                             .onTapGesture {
-                                print("Click on \(folder.id)")
+                                folderTapped(folder)
                             }
                     }
                 })
@@ -44,39 +45,7 @@ struct HomeMyFoldesView: View {
     }
 }
 
-struct FolderItem: View {
-    var resourceBundle: Bundle = .main
-    var folder: Folder
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10, content: {
-            ZStack(alignment: .center, content: {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 115, height: 115)
-                    .background(.backgroundFolder)
-                    .cornerRadius(18)
-                Image("folder_icon", bundle: resourceBundle)
-                    .frame(width: 45, height: 45)
-                    .shadow(color: Color(red: 0.78, green: 0.86, blue: 0.91).opacity(0.1), radius: 2, x: 0, y: 4)
-            })
-            VStack(alignment: .leading, spacing: 5, content: {
-                Text(folder.title)
-                    .font(.system(size: 14))
-                    .fontWeight(.medium)
-                    .foregroundStyle(.title)
-                    .lineLimit(1)
-                Text("\(folder.scans.count) Items")
-                    .font(.system(size: 12))
-                    .fontWeight(.regular)
-                    .foregroundStyle(.subtitle)
-                    .lineLimit(1)
-            })
-        }).frame(width: 115)
-    }
-}
-
 #Preview {
-    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { })
+    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { }, folderTapped: { _ in })
         .padding()
 }

@@ -24,6 +24,10 @@ struct ChatTextView: View {
                 Spacer(minLength: 35.0)
                 ChatView
             })
+        case .full:
+            HStack(spacing: nil, content: {
+                ChatView
+            })
         }
     }
 

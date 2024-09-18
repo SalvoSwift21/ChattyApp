@@ -42,4 +42,16 @@ public class HomeService: HomeServiceProtocol {
         let newFolder = Folder(title: name, scans: [])
         try self.client.create(newFolder)
     }
+    
+    public func getSearchResults(for query: String) async throws -> ([Folder], [Scan]) {
+        let folders = (try client.retrieveFolders() ?? [])
+            .compactMap({ $0 })
+            .filter({ folder in
+                return folder.title.contains(query)
+            })
+        
+        let scans = try client.retrieveScans(title: query) ?? []
+        
+        return (folders, scans)
+    }
 }

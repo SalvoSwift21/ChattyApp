@@ -14,6 +14,5 @@ public protocol UploadFileProtocols: ScanProtocol {
 
 public protocol UploadFileProtocolsDelegate: AnyObject {
     func render(errorMessage: String)
-    func renderLoading(visible: Bool)
     func render(viewModel: UploadFileViewModel)
 }

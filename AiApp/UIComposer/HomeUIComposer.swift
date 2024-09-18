@@ -16,6 +16,8 @@ public final class HomeUIComposer {
         client: ScanStorege,
         upload: @escaping () -> Void = {  },
         newScan: @escaping () -> Void = {  },
+        scanTapped: @escaping (Scan) -> Void = { _ in },
+        folderTapped: @escaping (Folder) -> Void = { _ in },
         sellAllButton: @escaping () -> Void = {  }
     ) -> HomeView {
         
@@ -27,7 +29,9 @@ public final class HomeUIComposer {
                                           delegate: homeStore,
                                           uploadImage: upload,
                                           newScan: newScan,
-                                          sellAllButton: sellAllButton,
+                                          sellAllButton: sellAllButton, 
+                                          scanTapped: scanTapped,
+                                          folderTapped: folderTapped,
                                           bundle: bundle)
         
         return HomeView(store: homeStore, presenter: homePresenter, resourceBundle: bundle)

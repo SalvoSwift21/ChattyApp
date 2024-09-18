@@ -25,6 +25,7 @@ public class HomeStore: ObservableObject {
 
 
 extension HomeStore: HomePresenterDelegate {
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }

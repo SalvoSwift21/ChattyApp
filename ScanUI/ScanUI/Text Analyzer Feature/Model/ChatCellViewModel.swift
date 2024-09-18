@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public enum ChatPosition {
-    case left, right
+    case left, right, full
 }
 
 public class ChatCellViewModel: ObservableObject {

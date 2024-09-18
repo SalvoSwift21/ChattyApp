@@ -10,11 +10,12 @@ import Foundation
 
 public class HomePresenter: HomePresenterProtocol {
     
-    
     public var resourceBundle: Bundle
     public var uploadImage: (() -> Void)
     public var newScan: (() -> Void)
     public var sellAllButton: (() -> Void)
+    public var scanTapped: ((Scan) -> Void)
+    public var folderTapped: ((Folder) -> Void)
 
     
     private var service: HomeService
@@ -27,6 +28,8 @@ public class HomePresenter: HomePresenterProtocol {
                 uploadImage: @escaping (() -> Void),
                 newScan: @escaping (() -> Void),
                 sellAllButton: @escaping (() -> Void),
+                scanTapped: @escaping ((Scan) -> Void),
+                folderTapped: @escaping ((Folder) -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
@@ -34,6 +37,8 @@ public class HomePresenter: HomePresenterProtocol {
         self.uploadImage = uploadImage
         self.newScan = newScan
         self.sellAllButton = sellAllButton
+        self.scanTapped = scanTapped
+        self.folderTapped = folderTapped
         self.homeViewModel = HomeViewModel()
     }
     
@@ -50,7 +55,21 @@ public class HomePresenter: HomePresenterProtocol {
         }
     }
     
-    internal func getSearchResult(for query: String) async { }
+    @MainActor
+    internal func getSearchResult(for query: String) async {
+        if query.isEmpty {
+            self.resetSearchMode()
+            return
+        }
+        
+        do {
+            let result = try await service.getSearchResults(for: query)
+            self.homeViewModel.searchResult = HomeSearchResultViewModel(scans: result.1, folders: result.0)
+            self.delegate?.render(viewModel: homeViewModel)
+        } catch {
+            self.resetSearchMode()
+        }
+    }
     
     internal func getHome() async throws -> HomeViewModel {
         let myFolders = try await service.getMyFolder()
@@ -82,5 +101,10 @@ extension HomePresenter {
     
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
+    }
+    
+    fileprivate func resetSearchMode() {
+        self.homeViewModel.searchResult = nil
+        self.delegate?.render(viewModel: homeViewModel)
     }
 }
