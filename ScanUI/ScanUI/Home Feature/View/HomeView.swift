@@ -81,7 +81,6 @@ public struct HomeView: View {
                     
                 }
             }
-            .padding(.horizontal)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {

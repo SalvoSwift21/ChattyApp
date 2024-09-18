@@ -36,6 +36,8 @@ struct ScanItemView: View {
                         .foregroundStyle(.subtitle)
                         .lineLimit(1)
                 })
+                
+                Spacer()
             })
             
             Divider()

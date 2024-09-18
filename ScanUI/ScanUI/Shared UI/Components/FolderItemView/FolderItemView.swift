@@ -33,12 +33,12 @@ struct FolderItemView: View {
         ZStack(alignment: .center, content: {
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: isHorizontal ? 65 : 115, height: isHorizontal ? 65 : 115)
+                .frame(width: isHorizontal ? 60 : 115, height: isHorizontal ? 60 : 115)
                 .background(.backgroundFolder)
                 .cornerRadius(18)
             Image("folder_icon", bundle: resourceBundle)
                 .resizable()
-                .frame(width: isHorizontal ? 35 : 65, height: isHorizontal ? 35 : 65)
+                .frame(width: isHorizontal ? 30 : 65, height: isHorizontal ? 30 : 65)
                 .shadow(color: Color(red: 0.78, green: 0.86, blue: 0.91).opacity(0.1), radius: 2, x: 0, y: 4)
         })
     }
