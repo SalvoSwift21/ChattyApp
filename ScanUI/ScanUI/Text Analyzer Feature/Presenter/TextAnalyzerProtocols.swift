@@ -11,7 +11,8 @@ public protocol TextAnalyzerProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
     
     func makeTranslation() async
-    
+    func addTitle(_ title: String)
+
     func copySummary()
     
     func done()

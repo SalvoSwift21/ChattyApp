@@ -14,10 +14,10 @@ struct HomeMyFoldesView: View {
     var folderTapped: ((Folder) -> Void)
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10, content: {
+        VStack(alignment: .leading, spacing: 15, content: {
             HStack(content: {
                 Text("My Folders")
-                    .font(.system(size: 18))
+                    .font(.system(size: 22))
                     .fontWeight(.semibold)
                     .foregroundStyle(.title)
                 Spacer()

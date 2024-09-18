@@ -21,6 +21,7 @@ public class TextAnalyzerPresenter {
     private var textAnalyzerViewModel: TextAnalyzerViewModel
     
     private var currentSaveText: String?
+    private var currentSaveTitle: String?
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
@@ -104,6 +105,11 @@ public class TextAnalyzerPresenter {
 
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
+    public func addTitle(_ title: String) {
+        self.currentSaveTitle = title
+    }
+    
+    
     @MainActor
     public func makeTranslation() async {
         guard let currentSaveText = currentSaveText else { return }
@@ -144,7 +150,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func doneButtonTapped(withFolder folder: Folder) {
         guard let currentSaveText = currentSaveText else { return }
-        let scanToSave = Scan(id: UUID(), title: currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
+        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
         
         Task {
             do {
