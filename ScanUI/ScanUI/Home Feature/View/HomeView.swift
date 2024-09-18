@@ -85,9 +85,12 @@ public struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
-                        Button("menu") {
+                        Button {
                             
+                        } label: {
+                            Image("menu_icon", bundle: resourceBundle)
                         }
+                        
                         Image("main_logo", bundle: resourceBundle)
                             .resizable()
                             .scaledToFit()
@@ -100,9 +103,7 @@ public struct HomeView: View {
                     Button {
                         isShowingAlert.toggle()
                     } label: {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .frame(width: 15, height: 15)
+                        Image("add_folder_icon", bundle: resourceBundle)
                             .foregroundColor(Color.prime)
                     }
                     .textFieldAlert(text: $newFolderName,
@@ -117,6 +118,7 @@ public struct HomeView: View {
                     }
                 }
             }
+            .toolbarBackground(.hidden, for: .navigationBar)
             .task {
                 await presenter.loadData()
             }
