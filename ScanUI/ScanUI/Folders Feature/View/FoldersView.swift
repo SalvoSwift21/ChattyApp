@@ -22,6 +22,8 @@ public struct AllFoldersView: View {
         self.resourceBundle = resourceBundle
     }
     
+    @State private var searchText: String = ""
+
     public var body: some View {
         VStack(alignment: .center) {
             switch store.state {
@@ -53,6 +55,7 @@ public struct AllFoldersView: View {
                     }.padding()
                 }
                 .navigationBarTitleDisplayMode(.large)
+                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
             }
         }
         .frame(

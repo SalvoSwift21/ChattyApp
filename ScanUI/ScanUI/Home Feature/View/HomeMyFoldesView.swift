@@ -16,7 +16,7 @@ struct HomeMyFoldesView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10, content: {
             HStack(content: {
-                Text("My scans")
+                Text("My Folders")
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
                     .foregroundStyle(.title)

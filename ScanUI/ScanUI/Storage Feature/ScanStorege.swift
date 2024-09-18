@@ -16,8 +16,10 @@ public protocol ScanStorege {
     func insert(_ scan: Scan, inFolder folder: Folder) throws
     func create(_ folder: Folder) throws
     
-    func retrieveFolders() throws -> [Folder]?
     func retrieveScan(id: UUID) throws -> RetriveStoredScan
+    func retrieveScans(title: String) throws -> [Scan]?
+
+    func retrieveFolders() throws -> [Folder]?
     func retrieveFolder(id: UUID) throws -> Folder?
-    func retrieveFolder(title: String) throws -> Folder?
+    func retrieveFolders(title: String) throws -> [Folder]?
 }

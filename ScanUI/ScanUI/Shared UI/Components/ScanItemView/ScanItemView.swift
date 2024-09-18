@@ -14,7 +14,7 @@ struct ScanItemView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            HStack(alignment: .center, spacing: 10, content: {
+            HStack(alignment: .center, spacing: 15, content: {
                 if let img = scan.mainImage {
                     Image(uiImage: img)
                         .resizable()
@@ -35,7 +35,7 @@ struct ScanItemView: View {
                         .fontWeight(.regular)
                         .foregroundStyle(.subtitle)
                         .lineLimit(1)
-                }).padding()
+                })
             })
             
             Divider()

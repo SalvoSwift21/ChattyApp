@@ -55,7 +55,21 @@ public class HomePresenter: HomePresenterProtocol {
         }
     }
     
-    internal func getSearchResult(for query: String) async { }
+    @MainActor
+    internal func getSearchResult(for query: String) async {
+        if query.isEmpty {
+            self.resetSearchMode()
+            return
+        }
+        
+        do {
+            let result = try await service.getSearchResults(for: query)
+            self.homeViewModel.searchResult = HomeSearchResultViewModel(scans: result.1, folders: result.0)
+            self.delegate?.render(viewModel: homeViewModel)
+        } catch {
+            self.resetSearchMode()
+        }
+    }
     
     internal func getHome() async throws -> HomeViewModel {
         let myFolders = try await service.getMyFolder()
@@ -87,5 +101,10 @@ extension HomePresenter {
     
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
+    }
+    
+    fileprivate func resetSearchMode() {
+        self.homeViewModel.searchResult = nil
+        self.delegate?.render(viewModel: homeViewModel)
     }
 }

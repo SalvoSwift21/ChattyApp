@@ -87,6 +87,7 @@
 		629947D32B4E091000B66917 /* UploadFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629947D22B4E091000B66917 /* UploadFileView.swift */; };
 		629A8F4D2BA9001C004C5221 /* ScanStorege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A8F4C2BA9001C004C5221 /* ScanStorege.swift */; };
 		629A8F512BA9042F004C5221 /* ScanStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A8F502BA9042F004C5221 /* ScanStorageModel.swift */; };
+		62A026602C9AA71A00E8EEC3 /* HomeSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0265F2C9AA71A00E8EEC3 /* HomeSearchResultView.swift */; };
 		62AD7DC92B1FD63A0014BC91 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CFB5692B04A9F3006D70A5 /* ScanUI.framework */; };
 		62AD7DD22B1FD69E0014BC91 /* OnboardingPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD7DD12B1FD69E0014BC91 /* OnboardingPresenterTest.swift */; };
 		62AD7DD52B1FD81F0014BC91 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AD7DD42B1FD81F0014BC91 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -215,6 +216,7 @@
 		629A8F502BA9042F004C5221 /* ScanStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanStorageModel.swift; sourceTree = "<group>"; };
 		629A8F522BA9043D004C5221 /* FolderStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderStorageModel.swift; sourceTree = "<group>"; };
 		629A8F542BA90572004C5221 /* SwiftDataScanStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataScanStorage.swift; sourceTree = "<group>"; };
+		62A0265F2C9AA71A00E8EEC3 /* HomeSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchResultView.swift; sourceTree = "<group>"; };
 		62AD7DC52B1FD6390014BC91 /* ScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AD7DD12B1FD69E0014BC91 /* OnboardingPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterTest.swift; sourceTree = "<group>"; };
 		62AD7DD42B1FD81F0014BC91 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				6219743B2B27CD67005A7895 /* HomeView.swift */,
 				620AF0EE2B2A65F000042C23 /* HomeMyFoldesView.swift */,
 				620AF0F32B2A78C200042C23 /* HomeMyRecentScanView.swift */,
+				62A0265F2C9AA71A00E8EEC3 /* HomeSearchResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 			files = (
 				621974342B27CAF6005A7895 /* HomeService.swift in Sources */,
 				6274FAE32B4F58D500010C7B /* ScanView.swift in Sources */,
+				62A026602C9AA71A00E8EEC3 /* HomeSearchResultView.swift in Sources */,
 				62B137AB2BFD054400951B46 /* FoldersView.swift in Sources */,
 				629947C92B4DFC8100B66917 /* UploadFileService.swift in Sources */,
 				620AF0EF2B2A65F000042C23 /* HomeMyFoldesView.swift in Sources */,

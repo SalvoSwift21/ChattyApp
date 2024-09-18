@@ -20,7 +20,6 @@ struct ContainerHomeView: View {
     @State private var showUpload: Bool = false
     @State private var path: NavigationPath = .init()
     
-
     init(storage: ScanStorege) {
         self.scanStorage = storage
     }
