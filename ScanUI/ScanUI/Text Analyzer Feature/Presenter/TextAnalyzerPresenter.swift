@@ -16,6 +16,8 @@ public class TextAnalyzerPresenter {
     private var service: TextAnalyzerService
     private weak var delegate: TextAnalyzerProtocolDelegate?
     
+    private var doneCompletion: () -> Void = {  }
+    
     private var scannedResult: ScanResult
     
     private var textAnalyzerViewModel: TextAnalyzerViewModel
@@ -26,54 +28,54 @@ public class TextAnalyzerPresenter {
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
                 scannedResult: ScanResult,
+                done: @escaping () -> Void = {  },
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
         self.scannedResult = scannedResult
         self.resourceBundle = bundle
+        self.doneCompletion = done
         self.textAnalyzerViewModel = TextAnalyzerViewModel(chatHistory: [])
     }
     
     @MainActor 
-    public func getData() {
-        makeSummary()
+    public func getData() async {
+        await makeSummary()
     }
     
     @MainActor
-    fileprivate func makeSummary() {
-        Task {
-            do {
-                let summerCell = createChatViewModel(title: "Summurize my content",
-                                                     description: nil,
-                                                     image: scannedResult.image,
-                                                     backgroundColor: .white,
-                                                     position: .left,
-                                                     isInLoading: false)
-                
-                
-                self.textAnalyzerViewModel.chatHistory.append(summerCell)
-                
-                let summerResultCell = createChatViewModel(title: nil,
-                                                           description: "",
-                                                           image: nil,
-                                                           backgroundColor: .prime.opacity(0.7),
-                                                           position: .right,
-                                                           isInLoading: true)
-                
-                self.textAnalyzerViewModel.chatHistory.append(summerResultCell)
+    fileprivate func makeSummary() async {
+        do {
+            let summerCell = createChatViewModel(title: "Summurize my content",
+                                                 description: nil,
+                                                 image: scannedResult.image,
+                                                 backgroundColor: .white,
+                                                 position: .left,
+                                                 isInLoading: false)
+            
+            
+            self.textAnalyzerViewModel.chatHistory.append(summerCell)
+            
+            let summerResultCell = createChatViewModel(title: nil,
+                                                       description: "",
+                                                       image: nil,
+                                                       backgroundColor: .prime.opacity(0.7),
+                                                       position: .right,
+                                                       isInLoading: true)
+            
+            self.textAnalyzerViewModel.chatHistory.append(summerResultCell)
 
-                self.renderViewModel()
-                
-                let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
-                self.currentSaveText = result
-                
-                summerResultCell.description = result
-                summerResultCell.isInLoading = false
-                
-                self.renderViewModel()
-            } catch {
-                self.delegate?.render(errorMessage: error.localizedDescription)
-            }
+            self.renderViewModel()
+            
+            let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
+            self.currentSaveText = result
+            
+            summerResultCell.description = result
+            summerResultCell.isInLoading = false
+            
+            self.renderViewModel()
+        } catch {
+            self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
@@ -148,6 +150,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
         UIPasteboard.general.string = currentSaveText
     }
     
+    @MainActor
     public func doneButtonTapped(withFolder folder: Folder) {
         guard let currentSaveText = currentSaveText else { return }
         let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
@@ -164,6 +167,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func done() {
         self.delegate?.goBack()
+        self.doneCompletion()
     }
     
     public func back() {

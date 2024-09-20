@@ -60,9 +60,9 @@ public struct TextAnalyzerView: View {
             alignment: .top
         )
         .background(Color.mainBackground)
-        .onAppear(perform: {
-            presenter.getData()
-        })
+        .task {
+            await presenter.getData()
+        }
         .onChange(of: store.back) {
             if store.back {
                 self.presentationMode.wrappedValue.dismiss()

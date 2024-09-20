@@ -17,7 +17,6 @@ public final class TextAnalyzerComposer {
     public static func textAnalyzerComposedWith(
         scanResult: ScanResult,
         scanStorage: ScanStorege,
-        back: @escaping () -> Void = {  },
         done: @escaping () -> Void = {  }
     ) -> TextAnalyzerView {
         
@@ -32,7 +31,7 @@ public final class TextAnalyzerComposer {
         
         let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: scanStorage)
         
-        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, bundle: bundle)
+        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, done: done, bundle: bundle)
         
         return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
     }

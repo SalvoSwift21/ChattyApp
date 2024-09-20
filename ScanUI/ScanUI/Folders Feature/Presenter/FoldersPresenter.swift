@@ -27,6 +27,7 @@ public class FoldersPresenter: FoldersPresenterProtocol {
         self.didSelectFolder = didSelectFolder
     }
     
+    @MainActor
     func loadData() async {
         let folders = await service.getFolders()
         let vModel = FoldersViewModel(folders: folders)
@@ -38,6 +39,7 @@ public class FoldersPresenter: FoldersPresenterProtocol {
 
 //MARK: Help for Home
 extension FoldersPresenter {
+    @MainActor
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
     }

@@ -27,6 +27,7 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
         self.resourceBundle = bundle
     }
     
+    @MainActor
     func loadData() async {
         let currentFolder = await service.getFolder()
         self.currentFolder = currentFolder
@@ -37,6 +38,8 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
 
 //MARK: Help for Home
 extension FolderDetailPresenter {
+    
+    @MainActor
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
     }

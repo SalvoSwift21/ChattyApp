@@ -32,6 +32,7 @@ public class ScanPresenter: ScanProtocols {
         self.setConcreteDelegateCompletion()
     }
     
+    @MainActor
     private func setConcreteDelegateCompletion() {
         self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
             self.showLoader(false)
@@ -76,6 +77,7 @@ public class ScanPresenter: ScanProtocols {
 //MARK: Help for Home
 extension ScanPresenter {
     
+    @MainActor
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
     }
