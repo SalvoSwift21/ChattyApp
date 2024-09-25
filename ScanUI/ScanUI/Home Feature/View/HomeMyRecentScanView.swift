@@ -20,10 +20,11 @@ struct HomeMyRecentScanView: View {
                 .foregroundStyle(.title)
             
             ForEach(scans, id: \.id) { scan in
-                ScanItemView(resourceBundle: resourceBundle, scan: scan)
-                    .onTapGesture {
-                        scanTapped(scan)
-                    }
+                Button {
+                    scanTapped(scan)
+                } label: {
+                    ScanItemView(resourceBundle: resourceBundle, scan: scan)
+                }
             }
         })
     }

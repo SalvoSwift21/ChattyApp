@@ -34,6 +34,11 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
         self.delegate?.render(viewModel: FolderDetailViewModel(folder: currentFolder))
     }
     
+    @MainActor
+    func select(scan: Scan) {
+        self.delegate?.select(scan: scan)
+    }
+    
 }
 
 //MARK: Help for Home

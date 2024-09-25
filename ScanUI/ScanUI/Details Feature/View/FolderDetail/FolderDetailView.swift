@@ -15,7 +15,6 @@ public struct FolderDetailView: View {
     @ObservedObject var store: FolderDetailStore
     @State private var showingCopyConfirmView = false
     @State private var showScanDetail = false
-    @State private var currentSelectedScan: Scan?
 
     var resourceBundle: Bundle
     
@@ -59,26 +58,42 @@ public struct FolderDetailView: View {
         .task {
             await presenter.loadData()
         }
-        .navigationDestination(isPresented: $showScanDetail, destination: {
-            if let scan = self.currentSelectedScan {
-                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
-            } else {
-                EmptyView()
-            }
-        })
+        .sheet(isPresented: $showScanDetail) {
+            correctDestination()
+        }
     }
     
     func makeDetailView(viewModel: FolderDetailViewModel) -> some View {
         return ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 5, content: {
                 ForEach(viewModel.folder.scans, id: \.id) { scan in
-                    ScanItemView(resourceBundle: resourceBundle, scan: scan)
-                        .onTapGesture {
-                            self.currentSelectedScan = scan
-                            self.showScanDetail.toggle()
-                        }
+                    Button(action: {
+                        self.presenter.select(scan: scan)
+                        self.showScanDetail.toggle()
+                    }, label: {
+                        ScanItemView(resourceBundle: resourceBundle, scan: scan)
+                    })
                 }
             }).padding()
+        }
+    }
+    
+    @ViewBuilder
+    func correctDestination() -> some View {
+        if let scan = self.store.currentSelectedScan {
+            NavigationStack {
+                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
+                    .navigationTitle(scan.title)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button("Close") {
+                                self.showScanDetail.toggle()
+                            }
+                        }
+                    }
+            }
+        } else {
+            EmptyView()
         }
     }
 }

@@ -27,17 +27,20 @@ struct ScanItemView: View {
                     Text(scan.title)
                         .font(.system(size: 14))
                         .fontWeight(.medium)
+                        .multilineTextAlignment(.leading)
                         .foregroundStyle(.title)
                         .lineLimit(2)
                     
                     Text("\(scan.scanDate.recentScanMode())")
                         .font(.system(size: 12))
                         .fontWeight(.regular)
+                        .multilineTextAlignment(.leading)
                         .foregroundStyle(.subtitle)
                         .lineLimit(1)
                 })
                 
                 Spacer()
+                  
             })
             
             Divider()
