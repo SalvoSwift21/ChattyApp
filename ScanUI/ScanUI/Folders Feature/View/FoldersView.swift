@@ -40,15 +40,16 @@ public struct AllFoldersView: View {
                         .init(spacing: 8.0)
                     ]) {
                         ForEach(viewModel.folders, id: \.id) { folder in
-                            FolderItemView(resourceBundle: resourceBundle, folder: folder)
-                                .onTapGesture {
-                                    if let _ = presenter.didSelectFolder {
-                                        presenter.didSelectFolder?(folder)
-                                    } else {
-                                        self.currentFolderSelected = folder
-                                        self.showFolderDetail.toggle()
-                                    }
+                            Button {
+                                if let _ = presenter.didSelectFolder {
+                                    presenter.didSelectFolder?(folder)
+                                } else {
+                                    self.currentFolderSelected = folder
+                                    self.showFolderDetail.toggle()
                                 }
+                            } label: {
+                                FolderItemView(resourceBundle: resourceBundle, folder: folder)
+                            }
                         }
                     }.padding()
                 }
@@ -66,7 +67,7 @@ public struct AllFoldersView: View {
         }
         .navigationDestination(isPresented: $showFolderDetail, destination: {
             if let folder = self.currentFolderSelected {
-                FolderDetailComposer.folderDetailComposedWith(folder: folder)
+                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: presenter.getStorage())
             } else {
                 EmptyView().task {
                     showFolderDetail.toggle()

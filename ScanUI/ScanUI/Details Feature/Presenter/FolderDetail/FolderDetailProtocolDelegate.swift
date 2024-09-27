@@ -12,6 +12,7 @@ protocol FolderDetailPresenterProtocol: AnyObject {
     func loadData() async
     
     func select(scan: Scan)
+    func delete(scan: Scan) async throws
 }
 
 public protocol FolderDetailProtocolDelegate: AnyObject {

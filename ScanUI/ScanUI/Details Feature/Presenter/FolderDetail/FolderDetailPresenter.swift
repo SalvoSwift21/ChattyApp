@@ -29,7 +29,10 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
     
     @MainActor
     func loadData() async {
-        let currentFolder = await service.getFolder()
+        guard let currentFolder = try? await service.getFolder() else {
+            self.delegate?.render(errorMessage: "Error can't load folder")
+            return
+        }
         self.currentFolder = currentFolder
         self.delegate?.render(viewModel: FolderDetailViewModel(folder: currentFolder))
     }
@@ -39,6 +42,21 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
         self.delegate?.select(scan: scan)
     }
     
+    internal func delete(scan: Scan) async throws {
+        try await self.service.deleteScan(scan: scan)
+        await self.loadData()
+    }
+    
+    func removeScanRows(at offsets: IndexSet) {
+        let scans = offsets.map { self.currentFolder?.scans[$0] }.compactMap({ $0 })
+        scans.forEach { scan in
+            Task {
+                do {
+                    try await self.delete(scan: scan)
+                }
+            }
+        }
+    }
 }
 
 //MARK: Help for Home

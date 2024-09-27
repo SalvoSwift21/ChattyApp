@@ -35,6 +35,10 @@ public class FoldersPresenter: FoldersPresenterProtocol {
     }
     
     func createNewFolder(name: String) async { }
+    
+    func getStorage() -> ScanStorege {
+        service.getStorage()
+    }
 }
 
 //MARK: Help for Home

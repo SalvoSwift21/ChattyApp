@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol FolderDetailServiceProtocol: AnyObject {
-    func getFolder() async -> Folder
+    func getFolder() async throws -> Folder
+    func deleteScan(scan: Scan) async throws
 }

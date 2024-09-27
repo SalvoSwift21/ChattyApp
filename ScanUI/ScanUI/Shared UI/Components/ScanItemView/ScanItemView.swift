@@ -12,6 +12,8 @@ struct ScanItemView: View {
     var resourceBundle: Bundle = .main
     var scan: Scan
     
+    var showDivider: Bool = true
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack(alignment: .center, spacing: 15, content: {
@@ -43,7 +45,9 @@ struct ScanItemView: View {
                   
             })
             
-            Divider()
+            if showDivider {
+                Divider()
+            }
         }
     }
 }

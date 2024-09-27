@@ -17,6 +17,7 @@ public final class SwiftDataStore {
     
     enum SwiftDataStore: Error {
         case modelNotFound
+        case scanNotFound
         case folderNotExist
         case folderAlreadyExist
         case failedToLoadPersistentContainer(Error)

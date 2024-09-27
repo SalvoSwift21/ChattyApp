@@ -52,7 +52,7 @@ struct ContainerHomeView: View {
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)
             }
             .navigationDestination(for: Folder.self, destination: { folder in
-                FolderDetailComposer.folderDetailComposedWith(folder: folder)
+                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: self.scanStorage)
             })
             .navigationDestination(for: Scan.self, destination: { scan in
                 ScanDetailViewComposer.scanDetailComposedWith(scan: scan)

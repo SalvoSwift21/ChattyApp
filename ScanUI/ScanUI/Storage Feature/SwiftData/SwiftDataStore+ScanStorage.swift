@@ -33,6 +33,15 @@ extension SwiftDataStore: ScanStorege {
         try modelContainer.mainContext.save()
     }
     
+    public func deleteScan(id: UUID) throws {
+        guard let scan = try findScanByID(id: id) else {
+            throw SwiftDataStore.scanNotFound
+        }
+
+        modelContainer.mainContext.delete(scan)
+        try modelContainer.mainContext.save()
+    }
+    
     public func create(_ folder: Folder) throws {
         guard try findFoldersByID(id: folder.id).isEmpty else {
             throw SwiftDataStore.folderAlreadyExist
@@ -47,14 +56,12 @@ extension SwiftDataStore: ScanStorege {
     
     //MARK: Search scan service
     
-    public func retrieveScan(id: UUID) throws -> RetriveStoredScan {
-        let result = try findScanByID(id: id)
-        
-        guard result.0 != nil else {
-            throw SwiftDataStore.modelNotFound
+    public func retrieveScan(id: UUID) throws -> Scan {
+        guard let result = try findScanByID(id: id) else {
+            throw SwiftDataStore.scanNotFound
         }
         
-        return (result.0?.local, result.1?.local)
+        return result.local
     }
     
     public func retrieveScans(title: String) throws -> [Scan]? {
@@ -109,20 +116,18 @@ extension SwiftDataStore: ScanStorege {
         return try modelContainer.mainContext.fetch(descriptor)
     }
     
-    private func findScanByID(id: UUID) throws -> (ScanStorageModel?, FolderStorageModel?) {
-        let findFolder = #Predicate<FolderStorageModel> {
-            $0.scans?.contains(where: { model in
-                return model.id == id }) ?? false
+    private func findScanByID(id: UUID) throws -> ScanStorageModel? {
+        let findScan = #Predicate<ScanStorageModel> {
+            $0.id == id
         }
-        var descriptor = FetchDescriptor<FolderStorageModel>(predicate: findFolder)
+        
+        var descriptor = FetchDescriptor<ScanStorageModel>(predicate: findScan)
         descriptor.fetchLimit = 1
-        descriptor.propertiesToFetch = [\.scans]
         
-        guard let folder = try modelContainer.mainContext.fetch(descriptor).first else {
-            throw SwiftDataStore.folderNotExist
+        guard let scan = try modelContainer.mainContext.fetch(descriptor).first else {
+            throw SwiftDataStore.modelNotFound
         }
         
-        let scan = folder.scans?.first(where: { model in model.id == id })
-        return (scan, folder)
+        return scan
     }
 }

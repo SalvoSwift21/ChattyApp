@@ -10,4 +10,6 @@ import Foundation
 public protocol FoldersServiceProtocol: AnyObject {
     func getFolders() async -> [Folder]
     func createFolder(name: String) async throws
+    
+    func getStorage() -> ScanStorege
 }

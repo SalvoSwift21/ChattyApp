@@ -130,7 +130,6 @@ public struct HomeView: View {
 
 #Preview {
     @State var homeStore = HomeStore()
-    let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     let swiftDataStore = getFakeStorage()
     var homeService = HomeService(client: swiftDataStore)
     @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { }, scanTapped: { _ in }, folderTapped: { _ in })

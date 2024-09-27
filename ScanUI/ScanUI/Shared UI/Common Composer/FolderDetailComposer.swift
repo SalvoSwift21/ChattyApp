@@ -11,13 +11,14 @@ public final class FolderDetailComposer {
     private init() {}
         
     public static func folderDetailComposedWith(
-        folder: Folder
+        folder: Folder,
+        client: ScanStorege
     ) -> FolderDetailView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
         let folderDetailStore = FolderDetailStore()
                 
-        let folderService = FolderDetailService(folder: folder)
+        let folderService = FolderDetailService(folder: folder, client: client)
                 
         let folderPresenter = FolderDetailPresenter(delegate: folderDetailStore, service: folderService, bundle: bundle)
         

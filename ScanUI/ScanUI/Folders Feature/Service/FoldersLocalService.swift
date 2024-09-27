@@ -9,7 +9,7 @@ import Foundation
 import OCRFeature
 
 public class FoldersLocalService: FoldersServiceProtocol {
-    
+        
     private var client: ScanStorege
     
     public init(client: ScanStorege) {
@@ -29,5 +29,9 @@ public class FoldersLocalService: FoldersServiceProtocol {
     public func createFolder(name: String) async throws {
         let newFolder = Folder(title: name, scans: [])
         try self.client.create(newFolder)
+    }
+    
+    public func getStorage() -> any ScanStorege {
+        self.client
     }
 }
