@@ -10,6 +10,7 @@ import SwiftData
 
 extension SwiftDataStore: ScanStorege {
     
+    
     public func deleteAllFolders() throws {
         self.modelContainer.deleteAllData()
     }
@@ -51,6 +52,12 @@ extension SwiftDataStore: ScanStorege {
         
         modelContainer.mainContext.insert(storeFolder)
         
+        try modelContainer.mainContext.save()
+    }
+    
+    public func renameFolder(_ folder: Folder) throws {
+        guard var model = try findFoldersByID(id: folder.id).first else { return }
+        model.title = folder.title
         try modelContainer.mainContext.save()
     }
     

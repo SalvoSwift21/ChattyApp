@@ -16,6 +16,12 @@ public struct HomeView: View {
     @State var isShowingAlert: Bool = false
     @State var newFolderName: String = ""
     
+    @State var isShowingAlertToDeleteFolder: Bool = false
+    @State var isShowingAlertToRenameFolder: Bool = false
+    
+    @State var selectedFolderToEdit: Folder?
+
+    
     @State private var searchText: String = ""
 
     public init(store: HomeStore, presenter: HomePresenter, resourceBundle: Bundle = .main) {
@@ -52,10 +58,15 @@ public struct HomeView: View {
                                 HomeMyFoldesView(resourceBundle: resourceBundle,
                                                  folders: viewModel.myFolders,
                                                  viewAllButtonTapped: {
-                                                    presenter.sellAllButton()
-                                                 },
-                                                 folderTapped: { folder in
-                                                    presenter.folderTapped(folder)
+                                                     presenter.sellAllButton()
+                                                 }, folderTapped: { folder in
+                                                     presenter.folderTapped(folder)
+                                                 }, renameFolder: { folder in
+                                                     self.selectedFolderToEdit = folder
+                                                     self.isShowingAlertToRenameFolder.toggle()
+                                                 }, deleteFolder: { folder in
+                                                     self.selectedFolderToEdit = folder
+                                                     self.isShowingAlertToDeleteFolder.toggle()
                                                  })
                                 HomeMyRecentScanView(resourceBundle: resourceBundle, scans: viewModel.recentScans ?? [], scanTapped: { scan in
                                     presenter.scanTapped(scan)
@@ -64,6 +75,40 @@ public struct HomeView: View {
                         })
                     }
                     .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
+                    .textFieldAlert(text: $newFolderName,
+                                    title: "Rename folder",
+                                    okButtonTitle: "Ok",
+                                    placeholder: "Folder Name",
+                                    isShowingAlert: $isShowingAlertToRenameFolder) {
+                        Task {
+                            guard var folder = self.selectedFolderToEdit else {
+                                self.selectedFolderToEdit = nil
+                                self.newFolderName = ""
+                                return
+                            }
+                            folder.title = newFolderName
+                            await presenter.renameFolder(folder: folder)
+                            self.selectedFolderToEdit = nil
+                            self.newFolderName = ""
+                        }
+                    }
+                    .alert("Are you shure to delete this folder ?", isPresented: $isShowingAlertToDeleteFolder, actions: {
+                        Button("Ok", action: {
+                            guard let folder = self.selectedFolderToEdit else {
+                                selectedFolderToEdit = nil
+                                return
+                            }
+                            Task {
+                                await presenter.deleteFolder(folder: folder)
+                                selectedFolderToEdit = nil
+                            }
+                        })
+                        Button("Cancel", action: { 
+                            selectedFolderToEdit = nil
+                            self.isShowingAlertToDeleteFolder.toggle()
+                        })
+                    })
+                    
                 }
                 
                 Spacer()

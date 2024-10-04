@@ -25,7 +25,10 @@ struct FolderItemView: View {
             VStack(alignment: .leading, spacing: 10, content: {
                 iconView
                 infoView
-            }).frame(width: 115)
+            })
+            .background(.clear)
+            .padding()
+            .frame(width: 130)
         }
     }
     
@@ -40,7 +43,7 @@ struct FolderItemView: View {
                 .resizable()
                 .frame(width: isHorizontal ? 30 : 65, height: isHorizontal ? 30 : 65)
                 .shadow(color: Color(red: 0.78, green: 0.86, blue: 0.91).opacity(0.1), radius: 2, x: 0, y: 4)
-        })
+        }).background(.clear)
     }
     
     private var infoView: some View {
@@ -62,9 +65,13 @@ struct FolderItemView: View {
 #Preview {
     VStack {
         @State var folder = Folder(title: "Test folder view", scans: [])
+        
         FolderItemView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folder: folder)
         
         @State var folders = Folder(title: "Test folder view", scans: [])
-        FolderItemView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folder: folder, isHorizontal: true)
+        VStack {
+            FolderItemView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folder: folder, isHorizontal: true)
+        }
+        
     }
 }

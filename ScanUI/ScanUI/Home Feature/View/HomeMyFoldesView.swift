@@ -10,8 +10,12 @@ import SwiftUI
 struct HomeMyFoldesView: View {
     var resourceBundle: Bundle
     var folders: [Folder]
+    
     var viewAllButtonTapped: (() -> Void)
+    
     var folderTapped: ((Folder) -> Void)
+    var renameFolder: ((Folder) -> Void)
+    var deleteFolder: ((Folder) -> Void)
 
     var body: some View {
         VStack(alignment: .leading, spacing: 15, content: {
@@ -38,6 +42,22 @@ struct HomeMyFoldesView: View {
                             .onTapGesture {
                                 folderTapped(folder)
                             }
+                        .contextMenu {
+                            Button {
+                                self.renameFolder(folder)
+                            } label: {
+                                Label("Rename", systemImage: "pencil")
+                            }
+                            
+                            
+                            Button(role: .destructive) {
+                                self.deleteFolder(folder)
+                            } label: {
+                                Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                            }
+
+                        }
+                        .cornerRadius(10)
                     }
                 })
             }
@@ -46,6 +66,6 @@ struct HomeMyFoldesView: View {
 }
 
 #Preview {
-    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { }, folderTapped: { _ in })
-        .padding()
+    HomeMyFoldesView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main, folders: createSomeFolders(), viewAllButtonTapped: { }, folderTapped: { _ in }, renameFolder: { _ in }, deleteFolder: { _ in
+        var folderTapped: ((Folder) -> Void)    }).padding()
 }

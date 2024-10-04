@@ -10,6 +10,7 @@ import Foundation
 
 public class HomePresenter: HomePresenterProtocol {
     
+    
     public var resourceBundle: Bundle
     public var uploadImage: (() -> Void)
     public var newScan: (() -> Void)
@@ -81,6 +82,24 @@ public class HomePresenter: HomePresenterProtocol {
     internal func createNewFolder(name: String) async {
         do {
             try await self.service.createFolder(name: name)
+        } catch {
+            print("Error new folder not created, error \(error)")
+        }
+    }
+    
+    func renameFolder(folder: Folder) async {
+        do {
+            try await self.service.renameFolder(folder: folder)
+            await self.loadData()
+        } catch {
+            print("Error new folder not created, error \(error)")
+        }
+    }
+    
+    func deleteFolder(folder: Folder) async {
+        do {
+            try await self.service.deleteFolder(folder: folder)
+            await self.loadData()
         } catch {
             print("Error new folder not created, error \(error)")
         }

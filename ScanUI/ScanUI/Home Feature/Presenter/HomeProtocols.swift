@@ -20,6 +20,9 @@ protocol HomePresenterProtocol: AnyObject {
     func getSearchResult(for query: String) async
     func getHome() async throws -> HomeViewModel
     func createNewFolder(name: String) async
+    
+    func renameFolder(folder: Folder) async
+    func deleteFolder(folder: Folder) async
 }
 
 public protocol HomePresenterDelegate: AnyObject {
