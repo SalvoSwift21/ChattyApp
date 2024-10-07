@@ -9,7 +9,7 @@ import Foundation
 
 final class AppRootManager: ObservableObject {
     
-    @Published var currentRoot: aiAppRoots = .home
+    @Published var currentRoot: aiAppRoots = .onboarding
     
     enum aiAppRoots {
         case onboarding

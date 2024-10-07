@@ -10,6 +10,8 @@ import UIKit
 
 public protocol OnboardingServiceProtocol: AnyObject {
     func getLocalOnboardingCards(from url: URL) async throws -> [OnboardingViewModel]
+    func needToShowOnboarding() async -> Bool
+    func saveCompleteOnboardin()
 }
 
 public class OnboardingService: OnboardingServiceProtocol {
@@ -17,6 +19,8 @@ public class OnboardingService: OnboardingServiceProtocol {
     public enum OnboardingServiceError: Swift.Error {
         case URLDataNotValid
     }
+    
+    private let KEY_ONBOARDING_COMPLETE = "KEY_ONBOARDING_COMPLETE"
     
     public init() { }
     
@@ -29,6 +33,14 @@ public class OnboardingService: OnboardingServiceProtocol {
         let root = try JSONDecoder().decode(OnboardingConfigurationModel.self, from: data)
         
         return map(from: root.onboardingCards)
+    }
+    
+    public func needToShowOnboarding() async -> Bool {
+        return !UserDefaults.standard.bool(forKey: KEY_ONBOARDING_COMPLETE)
+    }
+    
+    public func saveCompleteOnboardin() {
+        UserDefaults.standard.set(true, forKey: KEY_ONBOARDING_COMPLETE)
     }
     
     

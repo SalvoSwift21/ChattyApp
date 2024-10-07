@@ -9,7 +9,7 @@ import Foundation
 
 public protocol OnboardingPresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
-    var completeOnboarding: (() -> Void) { get set }
+    func completeOnboarding()
     
     @Sendable func fetchOnboardingsCard() async
 }
