@@ -31,6 +31,14 @@ public class FoldersLocalService: FoldersServiceProtocol {
         try self.client.create(newFolder)
     }
     
+    public func deleteFolder(folder: Folder) async throws {
+        return try client.deleteFolder(folder)
+    }
+    
+    public func renameFolder(folder: Folder) async throws {
+        return try client.renameFolder(folder)
+    }
+    
     public func getStorage() -> any ScanStorege {
         self.client
     }

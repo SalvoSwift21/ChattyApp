@@ -34,10 +34,35 @@ public class FoldersPresenter: FoldersPresenterProtocol {
         self.delegate?.render(viewModel: vModel)
     }
     
-    func createNewFolder(name: String) async { }
+    func createNewFolder(name: String) async {
+        do {
+            try await self.service.createFolder(name: name)
+            await self.loadData()
+        } catch {
+            print("Error new folder not created, error \(error)")
+        }
+    }
     
     func getStorage() -> ScanStorege {
         service.getStorage()
+    }
+    
+    func renameFolder(folder: Folder) async {
+        do {
+            try await self.service.renameFolder(folder: folder)
+            await self.loadData()
+        } catch {
+            print("Error new folder not created, error \(error)")
+        }
+    }
+    
+    func deleteFolder(folder: Folder) async {
+        do {
+            try await self.service.deleteFolder(folder: folder)
+            await self.loadData()
+        } catch {
+            print("Error new folder not created, error \(error)")
+        }
     }
 }
 

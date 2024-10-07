@@ -55,7 +55,6 @@ struct HomeMyFoldesView: View {
                             } label: {
                                 Label("Delete folder", systemImage: "folder.fill.badge.minus")
                             }
-
                         }
                         .cornerRadius(10)
                     }

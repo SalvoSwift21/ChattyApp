@@ -82,6 +82,7 @@ public class HomePresenter: HomePresenterProtocol {
     internal func createNewFolder(name: String) async {
         do {
             try await self.service.createFolder(name: name)
+            await self.loadData()
         } catch {
             print("Error new folder not created, error \(error)")
         }
