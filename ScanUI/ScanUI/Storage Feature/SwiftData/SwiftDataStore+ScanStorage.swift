@@ -79,13 +79,17 @@ extension SwiftDataStore: ScanStorege {
             .filter({ scan in
                 return scan.title.contains(title)
             })
+            .sorted(by: { $0.scanDate < $1.scanDate })
         
         return result
     }
     
     //MARK: Search folders service
     public func retrieveFolders() throws -> [Folder]? {
-        try getAllFolders().map({ $0.local })
+        try getAllFolders()
+            .map({ $0.local })
+            .sorted(by: { $0.creationDate < $1.creationDate })
+
     }
     
     public func retrieveFolder(id: UUID) throws -> Folder? {

@@ -19,7 +19,8 @@ public struct Scan: Hashable {
 
 public struct Folder: Hashable {
     var id: UUID = UUID()
-
+    var creationDate: Date = Date()
+    
     var title: String
     var scans: [Scan]
 }
