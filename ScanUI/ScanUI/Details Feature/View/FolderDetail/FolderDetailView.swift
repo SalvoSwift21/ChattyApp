@@ -15,7 +15,6 @@ public struct FolderDetailView: View {
     @ObservedObject var store: FolderDetailStore
     @State private var showingCopyConfirmView = false
     @State private var showScanDetail = false
-    @State private var currentSelectedScan: Scan?
 
     var resourceBundle: Bundle
     
@@ -59,40 +58,59 @@ public struct FolderDetailView: View {
         .task {
             await presenter.loadData()
         }
-        .navigationDestination(isPresented: $showScanDetail, destination: {
-            if let scan = self.currentSelectedScan {
-                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
-            } else {
-                EmptyView()
-            }
-        })
+        .sheet(isPresented: $showScanDetail) {
+            correctDestination()
+        }
     }
     
     func makeDetailView(viewModel: FolderDetailViewModel) -> some View {
-        return ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 5, content: {
-                ForEach(viewModel.folder.scans, id: \.id) { scan in
-                    ScanItemView(resourceBundle: resourceBundle, scan: scan)
-                        .onTapGesture {
-                            self.currentSelectedScan = scan
-                            self.showScanDetail.toggle()
+        return List {
+            ForEach(viewModel.folder.scans, id: \.id) { scan in
+                Button(action: {
+                    self.presenter.select(scan: scan)
+                    self.showScanDetail.toggle()
+                }, label: {
+                    ScanItemView(resourceBundle: resourceBundle, scan: scan, showDivider: false)
+                })
+            }
+            .onDelete(perform: presenter.removeScanRows)
+            .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 5, trailing: 0))
+            .listRowSeparator(.automatic)
+        }
+        .scrollContentBackground(.hidden)
+        .background(.clear)
+    }
+    
+    @ViewBuilder
+    func correctDestination() -> some View {
+        if let scan = self.store.currentSelectedScan {
+            NavigationStack {
+                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
+                    .navigationTitle(scan.title)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button("Close") {
+                                self.showScanDetail.toggle()
+                            }
                         }
-                }
-            }).padding()
+                    }
+            }
+        } else {
+            EmptyView()
         }
     }
 }
 
 #Preview {
-    
-    let folder = createSomeFolders().first!
-    @State var scanDetailStore = FolderDetailStore(state: .loaded(viewModel: FolderDetailViewModel(folder: folder)))
-                                                   
-    var service = FolderDetailService(folder: folder)
+    @State var folderDetailStore = FolderDetailStore()
 
-    @State var presenter = FolderDetailPresenter(delegate: scanDetailStore, service: service)
+    let folder = createSomeFolders().first!
+                                                   
+    var service = FolderDetailService(folder: folder, client: getFakeStorage())
+
+    @State var presenter = FolderDetailPresenter(delegate: folderDetailStore, service: service)
    
     return NavigationView {
-        FolderDetailView(store: scanDetailStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
+        FolderDetailView(store: folderDetailStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
     }
 }

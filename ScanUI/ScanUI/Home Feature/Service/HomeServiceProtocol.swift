@@ -13,4 +13,6 @@ public protocol HomeServiceProtocol: AnyObject {
     func getSearchResults(for query: String) async throws -> ([Folder], [Scan])
 
     func createFolder(name: String) async throws
+    func deleteFolder(folder: Folder) async throws
+    func renameFolder(folder: Folder) async throws
 }

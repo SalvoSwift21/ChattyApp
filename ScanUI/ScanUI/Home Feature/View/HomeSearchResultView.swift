@@ -39,7 +39,7 @@ struct HomeSearchResultView: View {
             }
             
             if scans.count > 0 {
-                VStack(alignment: .leading, spacing: 10, content: {
+                VStack(alignment: .leading, spacing: 15, content: {
                     Text("Scans")
                         .font(.system(size: 22))
                         .fontWeight(.semibold)

@@ -40,8 +40,8 @@ public struct UploadFileView: ViewModifier {
                                   allowedContentTypes: viewModel.fileTypes) {
                         let resultUrl = try? $0.get()
                         guard let url = resultUrl else { return }
+                        self.isLoading.toggle()
                         Task {
-                            self.isLoading.toggle()
                             try? await presenter.startScan(atURL: url)
                             self.isLoading.toggle()
                         }

@@ -10,12 +10,22 @@ import Foundation
 public class FolderDetailService: FolderDetailServiceProtocol {
     
     private var folder: Folder
-    
-    public init(folder: Folder) {
+    private var client: ScanStorege
+   
+    public init(folder: Folder, client: ScanStorege) {
         self.folder = folder
+        self.client = client
     }
     
-    public func getFolder() async -> Folder {
+    public func getFolder() async throws -> Folder {
+        guard let folder = try self.client.retrieveFolder(id: self.folder.id) else {
+            return self.folder
+        }
+        
         return folder
+    }
+    
+    public func deleteScan(scan: Scan) async throws {
+        try self.client.deleteScan(id: scan.id)
     }
 }

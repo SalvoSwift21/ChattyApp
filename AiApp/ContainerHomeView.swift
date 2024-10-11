@@ -18,6 +18,8 @@ struct ContainerHomeView: View {
     @State private var scanStorage: ScanStorege
     
     @State private var showUpload: Bool = false
+    @State private var showDataScan: Bool = false
+    
     @State private var path: NavigationPath = .init()
     
     init(storage: ScanStorege) {
@@ -29,7 +31,7 @@ struct ContainerHomeView: View {
             HomeUIComposer.homeComposedWith(client: scanStorage, upload: {
                 showUpload.toggle()
             }, newScan: {
-                path.append(HomeNavigationDestination.newScan)
+                showDataScan.toggle()
             }, scanTapped: { scan in
                 path.append(scan)
             }, folderTapped: { folder in
@@ -40,9 +42,7 @@ struct ContainerHomeView: View {
             .navigationDestination(for: HomeNavigationDestination.self) { destination in
                 switch destination {
                 case .newScan:
-                    DataScannerComposer.uploadFileComposedWith { resultOfScan in
-                        path.append(resultOfScan)
-                    }
+                    EmptyView()
                 case .seeAll:
                     FoldersViewComposer.foldersComposedWith(client: scanStorage)
                         .navigationTitle("All folders")
@@ -52,7 +52,7 @@ struct ContainerHomeView: View {
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)
             }
             .navigationDestination(for: Folder.self, destination: { folder in
-                FolderDetailComposer.folderDetailComposedWith(folder: folder)
+                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: self.scanStorage)
             })
             .navigationDestination(for: Scan.self, destination: { scan in
                 ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
@@ -60,9 +60,38 @@ struct ContainerHomeView: View {
             .fileImporter(isPresented: $showUpload) { resultOfScan in
                 path.append(resultOfScan)
             }
+            .sheet(isPresented: $showDataScan) {
+                DataScannerSection(storage: scanStorage)
+            }
         }
     }
 }
+
+
+struct DataScannerSection: View {
+    
+    @State private var pathOfScanSection: NavigationPath = .init()
+    @State private var scanStorage: ScanStorege
+    @Environment(\.presentationMode) var isPresented
+
+    init(storage: ScanStorege) {
+        self.scanStorage = storage
+    }
+    
+    var body: some View {
+        NavigationStack(path: $pathOfScanSection.animation(.easeOut)) {
+            DataScannerComposer.uploadFileComposedWith { resultOfScan in
+                pathOfScanSection.append(resultOfScan)
+            }
+            .navigationDestination(for: ScanResult.self) { scanResult in
+                TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage, done: {
+                    isPresented.wrappedValue.dismiss()
+                })
+            }
+        }
+    }
+}
+
 
 //#Preview {
 //    let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!

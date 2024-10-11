@@ -25,6 +25,9 @@ public struct TextAnalyzerView: View {
     @State private var showMenu = false
     @State private var opacity: Double = 0.0
     @State private var showFoldersView = false
+    
+    @State private var isShowingAlert: Bool = false
+    @State private var scanName: String = ""
 
     public init(store: TextAnalyzerStore, presenter: TextAnalyzerPresenter, resourceBundle: Bundle = .main) {
         self.store = store
@@ -57,9 +60,9 @@ public struct TextAnalyzerView: View {
             alignment: .top
         )
         .background(Color.mainBackground)
-        .onAppear(perform: {
-            presenter.getData()
-        })
+        .task {
+            await presenter.getData()
+        }
         .onChange(of: store.back) {
             if store.back {
                 self.presentationMode.wrappedValue.dismiss()
@@ -115,16 +118,25 @@ public struct TextAnalyzerView: View {
 
                 Spacer()
                 
-                Button(action: { self.showFoldersView.toggle() }) {
+                Button(action: { self.isShowingAlert.toggle() }) {
                     Text("Save")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
                 .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
+                .textFieldAlert(text: $scanName,
+                                title: "Add title to this new scan",
+                                okButtonTitle: "Ok",
+                                placeholder: "Scan name",
+                                isShowingAlert: $isShowingAlert) {
+                    presenter.addTitle(scanName)
+                    self.showFoldersView.toggle()
+                }
             }
             
         }
         .navigationTitle("Summary result")
+        .navigationBarTitleDisplayMode(.inline)
         .background(.mainBackground)
     }
     

@@ -21,9 +21,9 @@ public final class FoldersViewComposer {
         let foldersService = FoldersLocalService(client: client)
                 
         let foldersPresenter = FoldersPresenter(delegate: foldersStore,
-                                             service: foldersService,
-                                             didSelectFolder: didSelectFolder,
-                                             bundle: bundle)
+                                                service: foldersService,
+                                                didSelectFolder: didSelectFolder,
+                                                bundle: bundle)
         
         return AllFoldersView(store: foldersStore, presenter: foldersPresenter, resourceBundle: bundle)
     }

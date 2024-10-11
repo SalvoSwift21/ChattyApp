@@ -26,6 +26,7 @@ public class ScanDetailPresenter: ScanDetailPresenterProtocol {
         self.resourceBundle = bundle
     }
     
+    @MainActor
     func loadData() async {
         let currentScan = await service.getScan()
         self.currentScan = currentScan
@@ -40,6 +41,8 @@ public class ScanDetailPresenter: ScanDetailPresenterProtocol {
 
 //MARK: Help for Home
 extension ScanDetailPresenter {
+    
+    @MainActor
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
     }

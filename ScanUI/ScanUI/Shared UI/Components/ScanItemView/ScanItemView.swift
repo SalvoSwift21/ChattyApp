@@ -12,6 +12,8 @@ struct ScanItemView: View {
     var resourceBundle: Bundle = .main
     var scan: Scan
     
+    var showDivider: Bool = true
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack(alignment: .center, spacing: 15, content: {
@@ -27,20 +29,25 @@ struct ScanItemView: View {
                     Text(scan.title)
                         .font(.system(size: 14))
                         .fontWeight(.medium)
+                        .multilineTextAlignment(.leading)
                         .foregroundStyle(.title)
                         .lineLimit(2)
                     
                     Text("\(scan.scanDate.recentScanMode())")
                         .font(.system(size: 12))
                         .fontWeight(.regular)
+                        .multilineTextAlignment(.leading)
                         .foregroundStyle(.subtitle)
                         .lineLimit(1)
                 })
                 
                 Spacer()
+                  
             })
             
-            Divider()
+            if showDivider {
+                Divider()
+            }
         }
     }
 }

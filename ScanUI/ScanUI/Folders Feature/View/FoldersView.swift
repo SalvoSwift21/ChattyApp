@@ -15,6 +15,15 @@ public struct AllFoldersView: View {
     var resourceBundle: Bundle
     @State var showFolderDetail = false
     @State private var currentFolderSelected: Folder?
+   
+    @State var isShowingAlert: Bool = false
+    @State var newFolderName: String = ""
+
+    @State var isShowingAlertToDeleteFolder: Bool = false
+    @State var isShowingAlertToRenameFolder: Bool = false
+    
+    @State var selectedFolderToEdit: Folder?
+
     
     public init(store: FoldersStore, presenter: FoldersPresenter, resourceBundle: Bundle = .main) {
         self.store = store
@@ -22,8 +31,6 @@ public struct AllFoldersView: View {
         self.resourceBundle = resourceBundle
     }
     
-    @State private var searchText: String = ""
-
     public var body: some View {
         VStack(alignment: .center) {
             switch store.state {
@@ -42,20 +49,90 @@ public struct AllFoldersView: View {
                         .init(spacing: 8.0)
                     ]) {
                         ForEach(viewModel.folders, id: \.id) { folder in
-                            FolderItemView(resourceBundle: resourceBundle, folder: folder)
-                                .onTapGesture {
-                                    if let _ = presenter.didSelectFolder {
-                                        presenter.didSelectFolder?(folder)
-                                    } else {
-                                        self.currentFolderSelected = folder
-                                        self.showFolderDetail.toggle()
-                                    }
+                            Button {
+                                if let _ = presenter.didSelectFolder {
+                                    presenter.didSelectFolder?(folder)
+                                } else {
+                                    self.currentFolderSelected = folder
+                                    self.showFolderDetail.toggle()
                                 }
+                            } label: {
+                                FolderItemView(resourceBundle: resourceBundle, folder: folder)
+                                    .contextMenu {
+                                        Button {
+                                            self.selectedFolderToEdit = folder
+                                            isShowingAlertToRenameFolder.toggle()
+                                        } label: {
+                                            Label("Rename", systemImage: "pencil")
+                                        }
+                                        
+                                        
+                                        Button(role: .destructive) {
+                                            self.selectedFolderToEdit = folder
+                                            isShowingAlertToDeleteFolder.toggle()
+                                        } label: {
+                                            Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                        }
+                                    }
+                                    .cornerRadius(10)
+                            }
                         }
                     }.padding()
                 }
+                .textFieldAlert(text: $newFolderName,
+                                title: "Rename folder",
+                                okButtonTitle: "Ok",
+                                placeholder: "Folder Name",
+                                isShowingAlert: $isShowingAlertToRenameFolder) {
+                    Task {
+                        guard var folder = self.selectedFolderToEdit else {
+                            self.selectedFolderToEdit = nil
+                            self.newFolderName = ""
+                            return
+                        }
+                        folder.title = newFolderName
+                        await presenter.renameFolder(folder: folder)
+                        self.selectedFolderToEdit = nil
+                        self.newFolderName = ""
+                    }
+                }
+                .alert("Are you shure to delete this folder ?", isPresented: $isShowingAlertToDeleteFolder, actions: {
+                    Button("Ok", action: {
+                        guard let folder = self.selectedFolderToEdit else {
+                            selectedFolderToEdit = nil
+                            return
+                        }
+                        Task {
+                            await presenter.deleteFolder(folder: folder)
+                            selectedFolderToEdit = nil
+                        }
+                    })
+                    Button("Cancel", action: {
+                        selectedFolderToEdit = nil
+                        self.isShowingAlertToDeleteFolder.toggle()
+                    })
+                })
                 .navigationBarTitleDisplayMode(.large)
-                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            isShowingAlert.toggle()
+                        } label: {
+                            Image("add_folder_icon", bundle: resourceBundle)
+                                .foregroundColor(Color.prime)
+                        }
+                        .textFieldAlert(text: $newFolderName,
+                                        title: "Create new Folder",
+                                        okButtonTitle: "Ok",
+                                        placeholder: "Folder Name",
+                                        isShowingAlert: $isShowingAlert) {
+                            Task {
+                                await presenter.createNewFolder(name: newFolderName)
+                                newFolderName = ""
+                            }
+                        }
+                    }
+                }
             }
         }
         .frame(
@@ -69,7 +146,7 @@ public struct AllFoldersView: View {
         }
         .navigationDestination(isPresented: $showFolderDetail, destination: {
             if let folder = self.currentFolderSelected {
-                FolderDetailComposer.folderDetailComposedWith(folder: folder)
+                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: presenter.getStorage())
             } else {
                 EmptyView().task {
                     showFolderDetail.toggle()

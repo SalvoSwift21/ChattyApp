@@ -13,17 +13,18 @@ struct HomeMyRecentScanView: View {
     var scanTapped: ((Scan) -> Void)
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 5, content: {
+        VStack(alignment: .leading, spacing: 15, content: {
             Text("Recent Scans")
-                .font(.system(size: 18))
+                .font(.system(size: 22))
                 .fontWeight(.semibold)
                 .foregroundStyle(.title)
             
             ForEach(scans, id: \.id) { scan in
-                ScanItemView(resourceBundle: resourceBundle, scan: scan)
-                    .onTapGesture {
-                        scanTapped(scan)
-                    }
+                Button {
+                    scanTapped(scan)
+                } label: {
+                    ScanItemView(resourceBundle: resourceBundle, scan: scan)
+                }
             }
         })
     }

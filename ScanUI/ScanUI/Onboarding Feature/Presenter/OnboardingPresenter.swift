@@ -9,22 +9,27 @@ import Foundation
 import Combine
 
 public class OnboardingPresenter: OnboardingPresenterProtocol {
-    
-    public var completeOnboarding: (() -> Void)
+        
     public var resourceBundle: Bundle
     
     private var service: OnboardingServiceProtocol
     private weak var delegate: OnboardingPresenterDelegate?
+    private var completeOnboardingCompletion: (() -> Void)
 
-    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, completeOnboarding: @escaping (() -> Void), bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
+    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, completeOnboardingCompletion: @escaping (() -> Void), bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
-        self.completeOnboarding = completeOnboarding
+        self.completeOnboardingCompletion = completeOnboardingCompletion
         self.resourceBundle = bundle
     }
     
     @MainActor
     @Sendable public func fetchOnboardingsCard() async {
+        guard await service.needToShowOnboarding() else {
+            completeOnboarding()
+            return
+        }
+        
         do {
             self.delegate?.renderLoading()
             
@@ -37,5 +42,10 @@ public class OnboardingPresenter: OnboardingPresenterProtocol {
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
+    }
+    
+    public func completeOnboarding() {
+        self.service.saveCompleteOnboardin()
+        self.completeOnboardingCompletion()
     }
 }

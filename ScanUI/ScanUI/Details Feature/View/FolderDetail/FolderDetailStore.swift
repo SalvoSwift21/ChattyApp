@@ -16,6 +16,7 @@ public class FolderDetailStore: ObservableObject {
     }
     
     @Published var state: State = .loading(show: false)
+    @Published var currentSelectedScan: Scan?
 
     public init(state: FolderDetailStore.State = .loading(show: true)) {
         self.state = state
@@ -35,5 +36,9 @@ extension FolderDetailStore: FolderDetailProtocolDelegate {
     
     public func render(viewModel: FolderDetailViewModel) {
         self.state = .loaded(viewModel: viewModel)
+    }
+    
+    public func select(scan: Scan) {
+        self.currentSelectedScan = scan
     }
 }

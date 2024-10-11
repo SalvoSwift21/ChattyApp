@@ -32,7 +32,7 @@ public class HomeService: HomeServiceProtocol {
         let allScan = allFolders
             .map({ $0.scans })
             .flatMap { $0 }
-            .sorted(by: { $0.scanDate < $1.scanDate })
+            .sorted(by: { $0.scanDate > $1.scanDate })
             .prefix(5)
         
         return Array(allScan)
@@ -54,4 +54,14 @@ public class HomeService: HomeServiceProtocol {
         
         return (folders, scans)
     }
+    
+    public func deleteFolder(folder: Folder) async throws {
+        return try client.deleteFolder(folder)
+    }
+    
+    public func renameFolder(folder: Folder) async throws {
+        return try client.renameFolder(folder)
+    }
+    
+    
 }
