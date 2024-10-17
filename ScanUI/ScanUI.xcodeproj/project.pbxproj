@@ -10,7 +10,6 @@
 		620A746D2BB23D95007CC315 /* FolderStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A8F522BA9043D004C5221 /* FolderStorageModel.swift */; };
 		620A74702BB2401C007CC315 /* SwiftDataScanStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A8F542BA90572004C5221 /* SwiftDataScanStorage.swift */; };
 		620AF0EF2B2A65F000042C23 /* HomeMyFoldesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AF0EE2B2A65F000042C23 /* HomeMyFoldesView.swift */; };
-		620AF0F22B2A66F300042C23 /* HomeAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620AF0F12B2A66F300042C23 /* HomeAsset.xcassets */; };
 		620AF0F42B2A78C200042C23 /* HomeMyRecentScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AF0F32B2A78C200042C23 /* HomeMyRecentScanView.swift */; };
 		621974322B27CA1A005A7895 /* HomeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621974312B27CA1A005A7895 /* HomeServiceProtocol.swift */; };
 		621974342B27CAF6005A7895 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621974332B27CAF6005A7895 /* HomeService.swift */; };
@@ -23,6 +22,8 @@
 		621974442B27DB63005A7895 /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621974432B27DB63005A7895 /* RestApi.framework */; };
 		6229955E2BF3CC5F009DE649 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229955D2BF3CC5F009DE649 /* TextFieldAlert.swift */; };
 		622B72FD2BFE8031000A2D57 /* FoldersViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622B72FC2BFE8031000A2D57 /* FoldersViewComposer.swift */; };
+		622FD87E2CBE469700A2756B /* HomeAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620AF0F12B2A66F300042C23 /* HomeAsset.xcassets */; };
+		622FD87F2CBE469C00A2756B /* ScanAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */; };
 		623351372BBCC6F100D13CD2 /* SwiftDataStore+ScanStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620A746E2BB23FDE007CC315 /* SwiftDataStore+ScanStorage.swift */; };
 		625865AA2B1956E9000B5660 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625865A92B1956E9000B5660 /* PageControl.swift */; };
 		6274FAD72B4F51B700010C7B /* ScanServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FAD62B4F51B700010C7B /* ScanServiceProtocol.swift */; };
@@ -104,7 +105,6 @@
 		62C303712C16450000E7605A /* ChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C303702C16450000E7605A /* ChatTextView.swift */; };
 		62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */; };
 		62C468EA2B2FB5EF002DD3A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E92B2FB5EF002DD3A3 /* Helper.swift */; };
-		62C469012B2FC3EF002DD3A3 /* ScanAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C469002B2FC3EF002DD3A3 /* ScanAsset.xcassets */; };
 		62C75B102B2278AF009D4383 /* OnboardingConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 628B86952B15569E009C6895 /* OnboardingConfiguration.json */; };
 		62CFB56D2B04A9F3006D70A5 /* ScanUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CFB56C2B04A9F3006D70A5 /* ScanUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */; };
@@ -1060,12 +1060,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				620AF0F22B2A66F300042C23 /* HomeAsset.xcassets in Resources */,
-				62C469012B2FC3EF002DD3A3 /* ScanAsset.xcassets in Resources */,
 				628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */,
+				622FD87F2CBE469C00A2756B /* ScanAsset.xcassets in Resources */,
 				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
 				62C75B102B2278AF009D4383 /* OnboardingConfiguration.json in Resources */,
+				622FD87E2CBE469700A2756B /* HomeAsset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

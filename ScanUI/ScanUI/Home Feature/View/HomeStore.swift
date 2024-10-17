@@ -16,7 +16,7 @@ public class HomeStore: ObservableObject {
         case loaded(viewModel: HomeViewModel)
     }
     
-    @Published var state: State = .loading(show: true)
+    @Published var state: State = .error(message: "pippo")
 
     public init(state: HomeStore.State = .loading(show: true)) {
         self.state = state

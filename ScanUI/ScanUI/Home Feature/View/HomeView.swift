@@ -130,7 +130,7 @@ public struct HomeView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
                         Button {
-                            
+                            presenter.menuButton()
                         } label: {
                             Image("menu_icon", bundle: resourceBundle)
                         }
@@ -177,7 +177,7 @@ public struct HomeView: View {
     @State var homeStore = HomeStore()
     let swiftDataStore = getFakeStorage()
     var homeService = HomeService(client: swiftDataStore)
-    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { }, scanTapped: { _ in }, folderTapped: { _ in })
+    @State var presenter = HomePresenter(service: homeService, delegate: homeStore, uploadImage: { }, newScan: { }, sellAllButton: { }, scanTapped: { _ in }, folderTapped: { _ in }, menuButton: { })
     
     return NavigationStack {
         HomeView(store: homeStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
