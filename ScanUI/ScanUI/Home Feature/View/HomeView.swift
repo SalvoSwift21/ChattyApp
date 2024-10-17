@@ -162,7 +162,7 @@ public struct HomeView: View {
                     }
                 }
             }
-            .toolbarBackground(.hidden, for: .navigationBar)
+            .padding(.horizontal)
             .task {
                 await presenter.loadData()
             }

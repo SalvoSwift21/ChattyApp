@@ -13,7 +13,7 @@ final class AppRootManager: ObservableObject {
     
     enum aiAppRoots {
         case onboarding
-        case home
+        case mainContainer
         case scan
         case upload
     }

@@ -53,11 +53,11 @@ struct AiAppApp: App {
                 case .onboarding:
                     OnboardingUIComposer.onboardingComposedWith {
                         withAnimation(.ripple()) {
-                            appRootManager.currentRoot = .home
+                            appRootManager.currentRoot = .mainContainer
                         }
                     }
-                case .home:
-                    ContainerHomeView(storage: getStorage())
+                case .mainContainer:
+                    MainContainerView(storage: getStorage())
                 default:
                     Text("Empty state")
                 }
