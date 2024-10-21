@@ -23,7 +23,7 @@ struct MainContainerView: View {
     @State private var path: NavigationPath = .init()
     
     @State private var isMenuShown = false
-    @State var selectedSideMenuTab = 0
+    @State var selectedSideMenuTab = SideMenuRowType.home
 
     init(storage: ScanStorege) {
         self.scanStorage = storage
@@ -32,15 +32,16 @@ struct MainContainerView: View {
     var body: some View {
         ZStack{
             switch $selectedSideMenuTab.wrappedValue {
-            case 0:
+            case .home:
                 homeSection
-            case 1:
-                SomeSection(presentSideMenu: $isMenuShown)
             default: 
-                EmptyView()
+                SomeSection(presentSideMenu: $isMenuShown)
             }
-            SideMenu(isShowing: $isMenuShown, content: AnyView(SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $isMenuShown)))
             
+            SideMenuUIComposer.sideMenuStore(isMenuShown: $isMenuShown) { row in
+                selectedSideMenuTab = row.rowType
+                isMenuShown.toggle()
+            }
         }
     }
     

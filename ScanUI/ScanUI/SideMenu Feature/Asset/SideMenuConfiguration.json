@@ -1,0 +1,47 @@
+[
+    {
+        "title": "",
+        "rows": [
+            {
+                "title": "Home",
+                "imageName": "side_menu_premium",
+                "rowType": "home"
+            },
+            {
+                "title": "Remove Ads",
+                "imageName": "side_menu_remove_ads",
+                "rowType": "premium"
+            },
+            {
+                "title": "Choose AI",
+                "imageName": "side_menu_premium",
+                "rowType": "chooseAi"
+            },
+            {
+                "title": "Rate Us",
+                "imageName": "side_menu_rate",
+                "rowType": "rateUs"
+            }
+        ]
+    },
+    {
+        "title": "More",
+        "rows": [
+            {
+                "title": "Help",
+                "imageName": "side_menu_help",
+                "rowType": "help"
+            },
+            {
+                "title": "Terms & Conditions",
+                "imageName": "side_menu_terms_and_cond",
+                "rowType": "termsAndConditions"
+            },
+            {
+                "title": "Privacy & Policy",
+                "imageName": "side_menu_privacy",
+                "rowType": "privacyPolicy"
+            }
+        ]
+    }
+]
