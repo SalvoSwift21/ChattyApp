@@ -9,7 +9,7 @@ import SwiftUI
 import ScanUI
 
 
-struct ContainerHomeView: View {
+struct MainContainerView: View {
     
     enum HomeNavigationDestination: Hashable {
         case newScan, seeAll
@@ -22,11 +22,30 @@ struct ContainerHomeView: View {
     
     @State private var path: NavigationPath = .init()
     
+    @State private var isMenuShown = false
+    @State var selectedSideMenuTab = SideMenuRowType.home
+
     init(storage: ScanStorege) {
         self.scanStorage = storage
     }
     
     var body: some View {
+        ZStack{
+            switch $selectedSideMenuTab.wrappedValue {
+            case .home:
+                homeSection
+            default: 
+                SomeSection(presentSideMenu: $isMenuShown)
+            }
+            
+            SideMenuUIComposer.sideMenuStore(isMenuShown: $isMenuShown) { row in
+                selectedSideMenuTab = row.rowType
+                isMenuShown.toggle()
+            }
+        }
+    }
+    
+    var homeSection: some View {
         NavigationStack(path: $path.animation(.easeOut)) {
             HomeUIComposer.homeComposedWith(client: scanStorage, upload: {
                 showUpload.toggle()
@@ -38,6 +57,8 @@ struct ContainerHomeView: View {
                 path.append(folder)
             }, sellAllButton: {
                 path.append(HomeNavigationDestination.seeAll)
+            }, menuButton: {
+                isMenuShown.toggle()
             })
             .navigationDestination(for: HomeNavigationDestination.self) { destination in
                 switch destination {
@@ -57,16 +78,28 @@ struct ContainerHomeView: View {
             .navigationDestination(for: Scan.self, destination: { scan in
                 ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
             })
-            .fileImporter(isPresented: $showUpload) { resultOfScan in
-                path.append(resultOfScan)
-            }
             .sheet(isPresented: $showDataScan) {
                 DataScannerSection(storage: scanStorage)
             }
         }
+        .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
+            path.append(resultOfScan)
+        }))
     }
 }
 
+struct SomeSection: View {
+    
+    @Binding var presentSideMenu: Bool
+
+    var body: some View {
+        Button {
+            presentSideMenu.toggle()
+        } label: {
+            Text("Hello world")
+        }
+    }
+}
 
 struct DataScannerSection: View {
     
@@ -91,12 +124,3 @@ struct DataScannerSection: View {
         }
     }
 }
-
-
-//#Preview {
-//    let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-//    let swiftDataStore = try! SwiftDataStore(storeURL: url)
-//    HStack {
-//        ContainerHomeView(storage: swiftDataStore)
-//    }
-//}

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6204E4012B801D9600B268A9 /* ContainerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E4002B801D9600B268A9 /* ContainerHomeView.swift */; };
+		6204E4012B801D9600B268A9 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E4002B801D9600B268A9 /* MainContainerView.swift */; };
 		62128CAD2A1F8F92005D732A /* AiAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62128CAC2A1F8F92005D732A /* AiAppApp.swift */; };
 		62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB02A1F8F92005D732A /* Assets.xcassets */; };
 		62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB32A1F8F92005D732A /* Preview Assets.xcassets */; };
+		623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
 		6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; };
 		6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -55,11 +56,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6204E4002B801D9600B268A9 /* ContainerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerHomeView.swift; sourceTree = "<group>"; };
+		6204E4002B801D9600B268A9 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
 		62128CA92A1F8F92005D732A /* AiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62128CAC2A1F8F92005D732A /* AiAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiAppApp.swift; sourceTree = "<group>"; };
 		62128CB02A1F8F92005D732A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62128CB32A1F8F92005D732A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUIComposer.swift; sourceTree = "<group>"; };
 		62639E532A264941004F5E44 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62639E542A264F4E004F5E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewUIComposer.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 				62C468EC2B2FB809002DD3A3 /* UIComposer */,
 				62C468F22B2FC0AB002DD3A3 /* RootUI.swift */,
 				62128CAC2A1F8F92005D732A /* AiAppApp.swift */,
-				6204E4002B801D9600B268A9 /* ContainerHomeView.swift */,
+				6204E4002B801D9600B268A9 /* MainContainerView.swift */,
 				62128CB02A1F8F92005D732A /* Assets.xcassets */,
 				62128CB22A1F8F92005D732A /* Preview Content */,
 			);
@@ -171,6 +173,7 @@
 				6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */,
 				628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */,
 				629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */,
+				623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */,
 			);
 			path = UIComposer;
 			sourceTree = "<group>";
@@ -254,13 +257,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6204E4012B801D9600B268A9 /* ContainerHomeView.swift in Sources */,
+				6204E4012B801D9600B268A9 /* MainContainerView.swift in Sources */,
 				629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */,
 				62128CAD2A1F8F92005D732A /* AiAppApp.swift in Sources */,
 				62C468F32B2FC0AB002DD3A3 /* RootUI.swift in Sources */,
 				62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */,
 				6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */,
 				628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */,
+				623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */,
 				62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */,
 				62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */,
 			);

@@ -60,13 +60,6 @@ public struct UploadFileView: ViewModifier {
             }
             Spacer()
         }
-        .padding()
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity,
-            alignment: .top
-        )
-        .background(.clear)
         .task(presenter.loadFilesType)
     }
 }

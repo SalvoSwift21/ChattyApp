@@ -16,6 +16,7 @@ public class HomePresenter: HomePresenterProtocol {
     public var newScan: (() -> Void)
     public var sellAllButton: (() -> Void)
     public var scanTapped: ((Scan) -> Void)
+    public var menuButton: (() -> Void)
     public var folderTapped: ((Folder) -> Void)
 
     
@@ -31,6 +32,7 @@ public class HomePresenter: HomePresenterProtocol {
                 sellAllButton: @escaping (() -> Void),
                 scanTapped: @escaping ((Scan) -> Void),
                 folderTapped: @escaping ((Folder) -> Void),
+                menuButton: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
@@ -40,6 +42,7 @@ public class HomePresenter: HomePresenterProtocol {
         self.sellAllButton = sellAllButton
         self.scanTapped = scanTapped
         self.folderTapped = folderTapped
+        self.menuButton = menuButton
         self.homeViewModel = HomeViewModel()
     }
     
