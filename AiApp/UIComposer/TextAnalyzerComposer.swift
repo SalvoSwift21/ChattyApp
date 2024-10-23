@@ -12,6 +12,7 @@ import SummariseTranslateFeature
 import OpenAIFeature
 
 public final class TextAnalyzerComposer {
+    
     private init() {}
         
     public static func textAnalyzerComposedWith(
@@ -23,10 +24,21 @@ public final class TextAnalyzerComposer {
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
         let textAnalyzerStore = TextAnalyzerStore()
         
-        let openAiClient = makeGoogleGeminiFlashAIClient()
+        var client: SummaryServiceProtocol & TranslateServiceProtocol
         
-        let summaryClient = SummaryClient(summariseService: openAiClient)
-        let trClient = TranslateClient(translateService: openAiClient)
+        switch AppConfiguration.shared.currentSelectedAI {
+        case .gpt_3_5:
+            client = makeOpenAIHTTPClient()
+        case .gemini_1_5_flash:
+            client = makeGoogleGeminiFlashAIClient()
+        case .gemini_pro:
+            client = makeGoogleGeminiProAIClient()
+        case .unowned:
+            fatalError("Not AI selected")
+        }
+                
+        let summaryClient = SummaryClient(summariseService: client)
+        let trClient = TranslateClient(translateService: client)
         let idLanguage = AppleIdentificationLanguage()
         
         let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: scanStorage)

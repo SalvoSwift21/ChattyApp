@@ -34,7 +34,9 @@ struct MainContainerView: View {
             switch $selectedSideMenuTab.wrappedValue {
             case .home:
                 homeSection
-            default: 
+            case .chooseAi:
+                preferencesView
+            default:
                 SomeSection(presentSideMenu: $isMenuShown)
             }
             
@@ -85,6 +87,16 @@ struct MainContainerView: View {
         .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
             path.append(resultOfScan)
         }))
+    }
+    
+    var preferencesView: some View {
+        NavigationStack {
+            PreferencesUIComposer.preferencesComposedWith {
+                isMenuShown.toggle()
+            } updatePreferences: {
+                AppConfiguration.shared.updatePreferences()
+            }
+        }
     }
 }
 
