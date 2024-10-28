@@ -27,12 +27,10 @@ public final class TextAnalyzerComposer {
         var client: SummaryServiceProtocol & TranslateServiceProtocol
         
         switch AppConfiguration.shared.currentSelectedAI {
-        case .gpt_3_5:
-            client = makeOpenAIHTTPClient()
-        case .gemini_1_5_flash:
-            client = makeGoogleGeminiFlashAIClient()
-        case .gemini_pro:
-            client = makeGoogleGeminiProAIClient()
+        case .gpt_4_o, .gpt_4o_mini:
+            client = makeOpenAIHTTPClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue)
+        case .gemini_1_5_flash, .gemini_pro:
+            client = makeGoogleGeminiAIClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue)
         case .unowned:
             fatalError("Not AI selected")
         }

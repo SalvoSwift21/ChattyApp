@@ -166,10 +166,10 @@ public struct TextAnalyzerView: View {
                                                in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main,
                                                with: nil))
     
-    let openAiClient = makeGoogleGeminiProAIClient()
+    let googleClient = makeGoogleGeminiAIClient(modelName: AIPreferenceType.gemini_1_5_flash.rawValue)
     
-    let summaryClient = SummaryClient(summariseService: openAiClient)
-    let trClient = TranslateClient(translateService: openAiClient)
+    let summaryClient = SummaryClient(summariseService: googleClient)
+    let trClient = TranslateClient(translateService: googleClient)
     let idLanguage = AppleIdentificationLanguage()
     
     let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: getFakeStorage())

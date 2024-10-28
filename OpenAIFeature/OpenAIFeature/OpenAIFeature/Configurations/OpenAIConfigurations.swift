@@ -27,7 +27,7 @@ ENDPOINT    MODEL NAME
 public class OpenAiConfiguration {
     
     static public let TEST_API_KEY: String = {
-        let base64Value = "c2stcmszdEszWXE1YTZtaWtRZWdOZldUM0JsYmtGSmZBNWtUNmhvM0RxYkFSRmdKeWtZ"
+        let base64Value = "c2stcHJvai1tRFVNN2NMYW9obmppY3d5NWpPYmpGXzl6WHFrZk1KemJyOVFmcnJEV0ZuazRuRVl5MGFJMEZRdWU4MS0tU2xJSXd0MEFsLTI2NFQzQmxia0ZKSlpfQW16MGg1OVpEVHVCYzgwcHlkM01yOGUxcWk1NnBTa1VGWFdNTzVjREZEeUpsaUdrV1BiRnh4d0JuMXJ6N1pYMjlzZExBSUE="
         guard let data = Data(base64Encoded: base64Value) else {
             return "Error"
         }

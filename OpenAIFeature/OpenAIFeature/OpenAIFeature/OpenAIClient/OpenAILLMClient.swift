@@ -22,9 +22,11 @@ public class OpenAILLMClient: LLMClient {
     private var history: [LLMMessage] = []
 
     private var httpClient: OpenAIApiClient
+    private var openAIModelName: String
     
-    public init(openAIHTTPClient: OpenAIApiClient) {
+    public init(openAIHTTPClient: OpenAIApiClient, modelName: String) {
         self.httpClient = openAIHTTPClient
+        self.openAIModelName = modelName
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
@@ -51,14 +53,14 @@ public class OpenAILLMClient: LLMClient {
     }
     
     private func createRequestBody(messages: [LLMMessage]) -> LLMRequestBody {
-        LLMRequestBody(model: "gpt-3.5-turbo", messages: messages, max_tokens: 35, stream: false, temperature: 1.0, user: nil)
+        LLMRequestBody(model: openAIModelName, messages: messages, max_tokens: 275, stream: false, temperature: 1.0, user: nil)
     }
 }
 
-public func makeOpenAIHTTPClient() -> OpenAILLMClient {
+public func makeOpenAIHTTPClient(modelName: String) -> OpenAILLMClient {
     let session = URLSession(configuration: .default)
     let client = URLSessionHTTPClient(session: session)
     let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
     let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
-    return OpenAILLMClient(openAIHTTPClient: clientOpenAi)
+    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName)
 }

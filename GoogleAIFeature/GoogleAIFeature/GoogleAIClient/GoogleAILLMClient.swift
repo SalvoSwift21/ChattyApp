@@ -50,14 +50,8 @@ public class GoogleAILLMClient: LLMClient {
     }
 }
 
-public func makeGoogleGeminiProAIClient() -> GoogleAILLMClient {
-    let gl = GenerativeModel(name: "gemini-pro", apiKey: GoogleAIConfigurations.TEST_API_KEY)
-    let sut = GoogleAILLMClient(generativeLanguageClient: gl)
-    return sut
-}
-
-public func makeGoogleGeminiFlashAIClient() -> GoogleAILLMClient {
-    let gl = GenerativeModel(name: "gemini-1.5-flash", apiKey: GoogleAIConfigurations.TEST_API_KEY)
+public func makeGoogleGeminiAIClient(modelName: String) -> GoogleAILLMClient {
+    let gl = GenerativeModel(name: modelName, apiKey: GoogleAIConfigurations.TEST_API_KEY)
     let sut = GoogleAILLMClient(generativeLanguageClient: gl)
     return sut
 }

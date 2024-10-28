@@ -29,7 +29,8 @@ public struct AIPreferenceModel: Codable {
 }
 
 public enum AIPreferenceType: String, CaseIterable, Codable {
-    case gpt_3_5 = "gpt-3.5"
+    case gpt_4_o = "gpt-4o"
+    case gpt_4o_mini = "gpt-4o-mini"
     case gemini_1_5_flash = "gemini-1.5-flash"
     case gemini_pro = "gemini-pro"
     
@@ -37,14 +38,15 @@ public enum AIPreferenceType: String, CaseIterable, Codable {
     
     func getDescription() -> String {
         switch self {
-        case .gpt_3_5:
-            "Riassunti chiari e veloci per qualsiasi testo."
+        case .gpt_4_o:
+            return "Il modello di linguaggio più avanzato, offre riassunti estremamente dettagliati e accurati, catturando le sfumature più complesse del testo. Ideale per analisi approfondite e comprensione a livello umano."
+        case .gpt_4o_mini:
+            return "Una versione più leggera di GPT-4, offre riassunti concisi e pertinenti, mantenendo un alto livello di qualità. Perfetto per un'analisi rapida ed efficace."
         case .gemini_1_5_flash:
-            "Riassunti istantanei e precisi, ottimizzati per la velocità."
+            return "Riassunti istantanei e precisi, ottimizzati per la velocità. Ideale per un'analisi rapida di grandi volumi di testo."
         case .gemini_pro:
-            "Riassunti personalizzati e dettagliati, su misura per le tue esigenze."
+            return "Riassunti personalizzati e dettagliati, su misura per le tue esigenze. Offre un'ampia gamma di opzioni di personalizzazione per soddisfare le tue richieste specifiche."
         case .unowned:
-            "Error"
+            return "Error"
         }
-    }
-}
+    }}
