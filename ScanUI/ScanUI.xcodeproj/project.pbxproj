@@ -31,6 +31,8 @@
 		626140262CC23A6F00D1D126 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626140252CC23A6F00D1D126 /* SideMenuViewModel.swift */; };
 		626140282CC23AC000D1D126 /* SideMenuProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626140272CC23AC000D1D126 /* SideMenuProtocolDelegate.swift */; };
 		6261402A2CC23E2F00D1D126 /* SideMenu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 626140292CC23E2F00D1D126 /* SideMenu.xcassets */; };
+		62681F1A2CC859660077ECE6 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62681F192CC859660077ECE6 /* PreferencesView.swift */; };
+		62681F1B2CC859960077ECE6 /* PreferenceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB67332CC7124B00350776 /* PreferenceStore.swift */; };
 		6274FAD72B4F51B700010C7B /* ScanServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FAD62B4F51B700010C7B /* ScanServiceProtocol.swift */; };
 		6274FAD92B4F522300010C7B /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FAD82B4F522300010C7B /* ScanService.swift */; };
 		6274FADB2B4F55D500010C7B /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FADA2B4F55D500010C7B /* ScanViewModel.swift */; };
@@ -120,6 +122,15 @@
 		62CFB56D2B04A9F3006D70A5 /* ScanUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CFB56C2B04A9F3006D70A5 /* ScanUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */; };
 		62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */; };
+		62DB67202CC7091300350776 /* PreferencesConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 62DB671E2CC7090100350776 /* PreferencesConfiguration.json */; };
+		62DB67222CC70DE800350776 /* Preferences.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DB67212CC70DE800350776 /* Preferences.xcassets */; };
+		62DB67262CC70EF600350776 /* AIPreferenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB67242CC70E3F00350776 /* AIPreferenceModel.swift */; };
+		62DB67282CC70F3500350776 /* AIPreferencesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB67272CC70F3500350776 /* AIPreferencesList.swift */; };
+		62DB672A2CC70F9800350776 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB67292CC70F9800350776 /* PreferencesViewModel.swift */; };
+		62DB672F2CC7121500350776 /* LocalAIPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB672C2CC70FD100350776 /* LocalAIPreferencesService.swift */; };
+		62DB67302CC7121500350776 /* PreferencePresenterProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB672E2CC7111B00350776 /* PreferencePresenterProtocolDelegate.swift */; };
+		62DB67312CC7121500350776 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB672D2CC7111B00350776 /* PreferencePresenter.swift */; };
+		62DB67322CC7121500350776 /* AIPreferencesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DB672B2CC70FD100350776 /* AIPreferencesServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +179,7 @@
 		626140252CC23A6F00D1D126 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		626140272CC23AC000D1D126 /* SideMenuProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuProtocolDelegate.swift; sourceTree = "<group>"; };
 		626140292CC23E2F00D1D126 /* SideMenu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SideMenu.xcassets; sourceTree = "<group>"; };
+		62681F192CC859660077ECE6 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		6274FAD62B4F51B700010C7B /* ScanServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServiceProtocol.swift; sourceTree = "<group>"; };
 		6274FAD82B4F522300010C7B /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		6274FADA2B4F55D500010C7B /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
@@ -261,6 +273,16 @@
 		62CFB56C2B04A9F3006D70A5 /* ScanUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanUI.h; sourceTree = "<group>"; };
 		62CFB5772B04AB18006D70A5 /* ScanColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScanColors.xcassets; sourceTree = "<group>"; };
 		62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CommonMedia.xcassets; sourceTree = "<group>"; };
+		62DB671E2CC7090100350776 /* PreferencesConfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PreferencesConfiguration.json; sourceTree = "<group>"; };
+		62DB67212CC70DE800350776 /* Preferences.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Preferences.xcassets; sourceTree = "<group>"; };
+		62DB67242CC70E3F00350776 /* AIPreferenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPreferenceModel.swift; sourceTree = "<group>"; };
+		62DB67272CC70F3500350776 /* AIPreferencesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPreferencesList.swift; sourceTree = "<group>"; };
+		62DB67292CC70F9800350776 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
+		62DB672B2CC70FD100350776 /* AIPreferencesServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPreferencesServiceProtocol.swift; sourceTree = "<group>"; };
+		62DB672C2CC70FD100350776 /* LocalAIPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAIPreferencesService.swift; sourceTree = "<group>"; };
+		62DB672D2CC7111B00350776 /* PreferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenter.swift; sourceTree = "<group>"; };
+		62DB672E2CC7111B00350776 /* PreferencePresenterProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenterProtocolDelegate.swift; sourceTree = "<group>"; };
+		62DB67332CC7124B00350776 /* PreferenceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -986,6 +1008,7 @@
 				62B137982BFD004400951B46 /* Folders Feature */,
 				6293B8272CC1C9160081E2A0 /* SideMenu Feature */,
 				6297F2AF2C2198570095BE0E /* Details Feature */,
+				62DB67182CC7074A00350776 /* Preferences Feature */,
 				629A8F4B2BA8FFF1004C5221 /* Storage Feature */,
 			);
 			path = ScanUI;
@@ -1035,6 +1058,64 @@
 				62CFB5792B04AD26006D70A5 /* CommonMedia.xcassets */,
 			);
 			path = "Asset files";
+			sourceTree = "<group>";
+		};
+		62DB67182CC7074A00350776 /* Preferences Feature */ = {
+			isa = PBXGroup;
+			children = (
+				62DB67192CC707A100350776 /* Asset */,
+				62DB671A2CC707AE00350776 /* Service */,
+				62DB671B2CC707B700350776 /* Model */,
+				62DB671C2CC707BF00350776 /* View */,
+				62DB671D2CC707C900350776 /* Presenter */,
+			);
+			path = "Preferences Feature";
+			sourceTree = "<group>";
+		};
+		62DB67192CC707A100350776 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				62DB67212CC70DE800350776 /* Preferences.xcassets */,
+				62DB671E2CC7090100350776 /* PreferencesConfiguration.json */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		62DB671A2CC707AE00350776 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				62DB672B2CC70FD100350776 /* AIPreferencesServiceProtocol.swift */,
+				62DB672C2CC70FD100350776 /* LocalAIPreferencesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		62DB671B2CC707B700350776 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62DB67242CC70E3F00350776 /* AIPreferenceModel.swift */,
+				62DB67272CC70F3500350776 /* AIPreferencesList.swift */,
+				62DB67292CC70F9800350776 /* PreferencesViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62DB671C2CC707BF00350776 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62DB67332CC7124B00350776 /* PreferenceStore.swift */,
+				62681F192CC859660077ECE6 /* PreferencesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62DB671D2CC707C900350776 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				62DB672E2CC7111B00350776 /* PreferencePresenterProtocolDelegate.swift */,
+				62DB672D2CC7111B00350776 /* PreferencePresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1143,8 +1224,10 @@
 			files = (
 				628B86942B155611009C6895 /* OnboardingAsset.xcassets in Resources */,
 				622FD87F2CBE469C00A2756B /* ScanAsset.xcassets in Resources */,
+				62DB67222CC70DE800350776 /* Preferences.xcassets in Resources */,
 				6261402A2CC23E2F00D1D126 /* SideMenu.xcassets in Resources */,
 				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
+				62DB67202CC7091300350776 /* PreferencesConfiguration.json in Resources */,
 				62C8EC0E2CC2AF8500647F95 /* SideMenuConfiguration.json in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
 				62C75B102B2278AF009D4383 /* OnboardingConfiguration.json in Resources */,
@@ -1179,6 +1262,7 @@
 				628B869C2B155789009C6895 /* OnboardingService.swift in Sources */,
 				6219743F2B27CD93005A7895 /* HomeProtocols.swift in Sources */,
 				623351372BBCC6F100D13CD2 /* SwiftDataStore+ScanStorage.swift in Sources */,
+				62DB67282CC70F3500350776 /* AIPreferencesList.swift in Sources */,
 				621974412B27CFD5005A7895 /* HomePresenter.swift in Sources */,
 				62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */,
 				62B137AA2BFD046900951B46 /* FoldersPresenter.swift in Sources */,
@@ -1187,6 +1271,7 @@
 				620A746D2BB23D95007CC315 /* FolderStorageModel.swift in Sources */,
 				6299061C2B74507F005B43A7 /* TextAnalyzerServiceProtocol.swift in Sources */,
 				629947CB2B4DFD7500B66917 /* UploadFileViewModel.swift in Sources */,
+				62681F1A2CC859660077ECE6 /* PreferencesView.swift in Sources */,
 				625865AA2B1956E9000B5660 /* PageControl.swift in Sources */,
 				629947C72B4DFC2F00B66917 /* UploadFileServiceProtocol.swift in Sources */,
 				62C8EC0D2CC2AA7C00647F95 /* SideMenuView.swift in Sources */,
@@ -1195,6 +1280,10 @@
 				6297F2E62C21EFEF0095BE0E /* FolderDetailProtocolDelegate.swift in Sources */,
 				6297F2EB2C21F2D40095BE0E /* FolderDetailComposer.swift in Sources */,
 				62C8EC082CC29FFD00647F95 /* SideMenuPresenter.swift in Sources */,
+				62DB672F2CC7121500350776 /* LocalAIPreferencesService.swift in Sources */,
+				62DB67302CC7121500350776 /* PreferencePresenterProtocolDelegate.swift in Sources */,
+				62DB67312CC7121500350776 /* PreferencePresenter.swift in Sources */,
+				62DB67322CC7121500350776 /* AIPreferencesServiceProtocol.swift in Sources */,
 				6297F2E72C21EFEF0095BE0E /* FolderDetailPresenter.swift in Sources */,
 				6297F2E82C21EFEF0095BE0E /* FolderDetailStore.swift in Sources */,
 				6297F2E92C21EFEF0095BE0E /* FolderDetailView.swift in Sources */,
@@ -1205,6 +1294,7 @@
 				6297F2DD2C21EEB80095BE0E /* FolderDetailViewModel.swift in Sources */,
 				628674D32B77DCC400843709 /* TextAnalyzerView.swift in Sources */,
 				62B137A52BFD011100951B46 /* FoldersLocalService.swift in Sources */,
+				62DB672A2CC70F9800350776 /* PreferencesViewModel.swift in Sources */,
 				62B137A62BFD011100951B46 /* FoldersServiceProtocol.swift in Sources */,
 				62B137A72BFD02BA00951B46 /* FoldersViewModel.swift in Sources */,
 				621974382B27CBEE005A7895 /* HomeViewModel.swift in Sources */,
@@ -1216,6 +1306,7 @@
 				6299062A2B745816005B43A7 /* TextAnalyzerProtocols.swift in Sources */,
 				622B72FD2BFE8031000A2D57 /* FoldersViewComposer.swift in Sources */,
 				6297F2D52C21DC7F0095BE0E /* FakeStorage.swift in Sources */,
+				62DB67262CC70EF600350776 /* AIPreferenceModel.swift in Sources */,
 				6296C8DB2B1E945600E8C4AB /* LoadingViewDefaultStyle.swift in Sources */,
 				6274FAE12B4F579000010C7B /* ScanStore.swift in Sources */,
 				629906282B7457AD005B43A7 /* TextAnalyzerStore.swift in Sources */,
@@ -1249,6 +1340,7 @@
 				62B137A82BFD02EB00951B46 /* FoldersProtocolDelegate.swift in Sources */,
 				629906262B74569D005B43A7 /* TextAnalyzerViewModel.swift in Sources */,
 				621974362B27CBCF005A7895 /* OnboardingModel.swift in Sources */,
+				62681F1B2CC859960077ECE6 /* PreferenceStore.swift in Sources */,
 				628273102BEA7FA70036C93F /* ScanProtocol.swift in Sources */,
 				628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */,
 				6219743A2B27CD4B005A7895 /* HomeStore.swift in Sources */,

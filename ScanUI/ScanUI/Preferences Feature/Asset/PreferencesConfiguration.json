@@ -1,0 +1,24 @@
+{
+    "avaibleAI": [
+        {
+            "title": "ChatGPT 4o",
+            "imageName": "open_ai",
+            "aiType": "gpt-4o"
+        },
+        {
+            "title": "ChatGPT 4o mini",
+            "imageName": "open_ai",
+            "aiType": "gpt-4o-mini"
+        },
+        {
+            "title": "Google Gemini Flash 1.5",
+            "imageName": "gemini",
+            "aiType": "gemini-1.5-flash"
+        },
+        {
+            "title": "Google Gemini Pro",
+            "imageName": "gemini",
+            "aiType": "gemini-1.5-pro"
+        }
+    ]
+}

@@ -19,6 +19,7 @@
 		628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
 		629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */; };
+		62B2A90C2CC9B8790051CBFB /* PreferencesUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */; };
 		62BB197E2B719E48004A0748 /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; };
 		62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62BB19802B719E48004A0748 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; };
@@ -70,6 +71,7 @@
 		628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileComposer.swift; sourceTree = "<group>"; };
 		629A8F562BA90927004C5221 /* AiApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AiApp.entitlements; sourceTree = "<group>"; };
 		629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerComposer.swift; sourceTree = "<group>"; };
+		62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUIComposer.swift; sourceTree = "<group>"; };
 		62BB19822B719E9C004A0748 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SummariseTranslateFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C09EA22B71203200490915 /* GoogleAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 				628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */,
 				629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */,
 				623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */,
+				62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */,
 			);
 			path = UIComposer;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */,
 				628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */,
 				623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */,
+				62B2A90C2CC9B8790051CBFB /* PreferencesUIComposer.swift in Sources */,
 				62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */,
 				62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */,
 			);

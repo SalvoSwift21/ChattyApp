@@ -16,6 +16,8 @@ public class AppConfiguration {
     
     static let appGroupName = "group.com.ariel.ai.scan.app"
     
+    let preferencesStoreManager = UserDefaults(suiteName: "PREFERENCES_STORE_MANAGER")
+    
     var storeURL: URL = {
         guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
             return URL(string: "Test")!
@@ -24,16 +26,57 @@ public class AppConfiguration {
         return storeURLResult
     }()
     
-    private init() { }
+    var preferenceService: LocalAIPreferencesService
+    
+    private(set) var currentSelectedAI: AIPreferenceType = .unowned
+    
+    private init() { 
+        preferenceService = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: preferencesStoreManager ?? .standard)
+    }
+    
+    public func bootApp() async {
+        await selectAIIfNeeded()
+    }
+    
+    public func updatePreferences() {
+        Task {
+            guard let result = try? await preferenceService.loadAIPreferencereType() else { return }
+            self.updateAI(with: result)
+        }
+    }
+    
+    
+    fileprivate func updateAI(with newAI: AIPreferenceType) {
+        self.currentSelectedAI = newAI
+    }
+    
+    fileprivate func selectAIIfNeeded() async {
+        do {
+            let allAI = try await preferenceService.getAIPreferences()
+            
+            guard let defaultAI = allAI.avaibleAI.first else {
+                fatalError("No AI Avaible")
+            }
+            
+            let result = try? await preferenceService.loadAIPreferencereType()
+            
+            guard let result = result else {
+                try await preferenceService.saveAIPreferencereType(defaultAI)
+                self.updateAI(with: defaultAI.aiType)
+                return
+            }
+            
+            self.updateAI(with: result)
+            
+        } catch {
+            fatalError("No AI Avaible")
+        }
+    }
 }
 
 @main
 struct AiAppApp: App {
     
-    @State private var scanText = ""
-    @State private var showingAlert = false
-    @State private var showTextAnalyzer = false
-
     @StateObject private var appRootManager = AppRootManager()
     
     @MainActor
@@ -63,6 +106,9 @@ struct AiAppApp: App {
                 }
             }
             .environmentObject(appRootManager)
+            .task {
+                await AppConfiguration.shared.bootApp()
+            }
         }
     }
 }
