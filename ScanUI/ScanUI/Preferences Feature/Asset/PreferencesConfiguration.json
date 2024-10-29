@@ -12,12 +12,12 @@
         },
         {
             "title": "Google Gemini Flash 1.5",
-            "imageName": "open_ai",
+            "imageName": "gemini",
             "aiType": "gemini-1.5-flash"
         },
         {
             "title": "Google Gemini Pro",
-            "imageName": "open_ai",
+            "imageName": "gemini",
             "aiType": "gemini-1.5-pro"
         }
     ]
