@@ -32,7 +32,7 @@ public enum AIPreferenceType: String, CaseIterable, Codable {
     case gpt_4_o = "gpt-4o"
     case gpt_4o_mini = "gpt-4o-mini"
     case gemini_1_5_flash = "gemini-1.5-flash"
-    case gemini_pro = "gemini-pro"
+    case gemini_pro = "gemini-1.5-pro"
     
     case unowned
     

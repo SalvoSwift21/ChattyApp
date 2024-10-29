@@ -18,7 +18,7 @@
         {
             "title": "Google Gemini Pro",
             "imageName": "open_ai",
-            "aiType": "gemini-pro"
+            "aiType": "gemini-1.5-pro"
         }
     ]
 }
