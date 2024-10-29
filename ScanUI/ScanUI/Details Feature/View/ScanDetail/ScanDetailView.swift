@@ -46,7 +46,7 @@ public struct ScanDetailView: View {
                     VStack {
                         makeDetailView(viewModel: viewModel)
                         HStack {
-                            MenuActions
+                            makeMenuActions(viewModel: viewModel)
                             Spacer()
                         }.padding(.horizontal)
                     }
@@ -81,6 +81,8 @@ public struct ScanDetailView: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(.rect(cornerRadius: 5))
                         .shadow(radius: 5.0)
+                        .frame(maxWidth: .infinity, maxHeight: 250, alignment: .leading)
+                        .padding(.vertical)
                 }
                 
                 ChatTextView(viewModel: ChatCellViewModel(title: nil,
@@ -95,8 +97,15 @@ public struct ScanDetailView: View {
         }
     }
     
-    var MenuActions: some View {
+    func makeMenuActions(viewModel: ScanDetailViewModel) -> some View {
         Menu {
+            
+            ShareLink(
+                item: viewModel.getSharableObject(),
+                preview: SharePreview(
+                    viewModel.getSharableObject().description,
+                    image: viewModel.getSharableObject().image))
+            
             Button(action: {
                 presenter.copyContent()
                 withAnimation(.easeInOut(duration: 0.4)) {
