@@ -72,6 +72,11 @@ public class ScanPresenter: ScanProtocols {
         let vModel = ScanViewModel(dataScannerController: controller)
         self.delegate?.render(viewModel: vModel)
     }
+    
+    @MainActor
+    public func goBack() {
+        self.delegate?.goBack()
+    }
 }
 
 //MARK: Help for Home

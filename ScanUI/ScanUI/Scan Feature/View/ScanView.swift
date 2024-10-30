@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct ScanView: View {
     
+    @Environment(\.dismiss) var dismiss
 
     var presenter: ScanPresenter
     @ObservedObject var store: ScanStore
@@ -23,37 +24,69 @@ public struct ScanView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center) {
-            Spacer()
+        ZStack(alignment: .center) {
             switch store.state {
             case .loading(let showLoader):
                 if showLoader {
                     LoadingView()
                 }
             case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
-                    print("Generic error ok")
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
+                VStack(alignment: .center, content: {
+                    Spacer()
+                    ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
+                        presenter.goBack()
+                    }, secondaryButtonTitle: nil, secondaryAction: nil)
+                    Spacer()
+                }).padding()
             case .loaded(let viewModel):
-                VStack(alignment: .center, spacing: 30.0) {
-                    Text("Position text within frame, and tap for choose text.")
-                    DataScannerView(dataScannerViewController: viewModel.dataScannerController)
-                        .cornerRadius(10.0)
-                        .padding()
+                DataScannerView(dataScannerViewController: viewModel.dataScannerController)
+                VStack {
+                    ZStack(alignment: .center, content: {
+                        Color.black.opacity(0.4)
+                            .frame(height: 120, alignment: .center)
+                        HStack(alignment: .top, content: {
+                            Button(action: {
+                                presenter.goBack()
+                            }, label: {
+                                Image(systemName: "xmark")
+                                    .resizable()
+                                    .frame(width: 20, height: 20, alignment: .center)
+                                    .foregroundStyle(.buttonTitle)
+                            })
+                            .padding()
+                            Spacer()
+                        })
+                        .padding(.top, 10)
+                        .padding(.horizontal, 8)
+                    })
+                    Spacer()
+                    ZStack(alignment: .top, content: {
+                        Color.black.opacity(0.4)
+                            .frame(height: 120, alignment: .center)
+                        Text("Position text within frame, and tap for choose text.")
+                            .multilineTextAlignment(.leading)
+                            .font(.system(size: 20))
+                            .fontWeight(.regular)
+                            .foregroundStyle(.buttonTitle)
+                            .padding(.vertical)
+                    })
                 }
             }
-            Spacer()
         }
-        .padding()
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
             alignment: .top
         )
-        .background(Color.scanBackground)
+        .ignoresSafeArea()
         .onAppear(perform: {
             presenter.startScan()
         })
+        .onChange(of: store.back) {
+            if store.back {
+                self.dismiss()
+            }
+        }
     }
 }
 

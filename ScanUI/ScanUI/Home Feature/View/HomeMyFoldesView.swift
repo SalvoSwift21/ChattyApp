@@ -28,7 +28,7 @@ struct HomeMyFoldesView: View {
                 Button(action: {
                     viewAllButtonTapped()
                 }, label: {
-                    Text("See All >")
+                    Text("See All")
                         .font(.system(size: 14))
                         .fontWeight(.medium)
                         .foregroundStyle(.prime)

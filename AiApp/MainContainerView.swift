@@ -80,7 +80,7 @@ struct MainContainerView: View {
             .navigationDestination(for: Scan.self, destination: { scan in
                 ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
             })
-            .sheet(isPresented: $showDataScan) {
+            .fullScreenCover(isPresented: $showDataScan) {
                 DataScannerSection(storage: scanStorage)
             }
         }

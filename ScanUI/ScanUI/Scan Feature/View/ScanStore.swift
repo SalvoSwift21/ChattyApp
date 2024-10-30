@@ -16,7 +16,8 @@ public class ScanStore: ObservableObject {
     }
     
     @Published var state: State = .loading(show: false)
-
+    @Published var back: Bool = false
+    
     public init(state: ScanStore.State = .loading(show: true)) {
         self.state = state
     }
@@ -24,6 +25,11 @@ public class ScanStore: ObservableObject {
 
 
 extension ScanStore: ScanProtocolsDelegate {
+    
+    public func goBack() {
+        back.toggle()
+    }
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }
