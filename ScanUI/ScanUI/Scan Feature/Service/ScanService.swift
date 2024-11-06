@@ -8,7 +8,7 @@
 import Foundation
 import OCRFeature
 
-public class ScanService: ScanServiceProtocol {
+public final class ScanService: ScanServiceProtocol {
     
     
     let dataScannerOCRClient: DataScannerOCRClient
@@ -24,4 +24,10 @@ public class ScanService: ScanServiceProtocol {
     @MainActor public func stopDataScanner() throws {
         try dataScannerOCRClient.makeRequest(object: false)
     }
+    
+    public func handleTappingItem(text: String) async {
+        await dataScannerOCRClient.handleTappingItem(text: text)
+    }
 }
+
+extension ScanService: Sendable { }

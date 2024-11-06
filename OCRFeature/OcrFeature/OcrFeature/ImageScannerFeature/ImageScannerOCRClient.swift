@@ -12,11 +12,11 @@ import OSLog
 
 public final class ImageScannerOCRClient {
     
-    private var delegate: ConcrateOCRClientDelegate
+    private var delegate: ImageScannerOCRClientDelegate
     
     private lazy var logger = Logger(subsystem: "com.ariel.one.OCRFeature", category: "ImageScannerOCRClient")
     
-    public init(delegate: ConcrateOCRClientDelegate) {
+    public init(delegate: ImageScannerOCRClientDelegate) {
         self.delegate = delegate
     }
 }

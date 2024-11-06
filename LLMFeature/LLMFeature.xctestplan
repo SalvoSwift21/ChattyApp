@@ -23,6 +23,9 @@
   "testTargets" : [
     {
       "parallelizable" : true,
+      "selectedTags" : {
+        "includeXCTests" : true
+      },
       "target" : {
         "containerPath" : "container:LLMFeature.xcodeproj",
         "identifier" : "628A79E72A53F05100ECEAF8",

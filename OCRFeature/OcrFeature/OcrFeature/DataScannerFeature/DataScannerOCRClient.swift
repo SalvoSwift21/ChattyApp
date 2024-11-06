@@ -13,7 +13,7 @@ import OSLog
 @MainActor
 public final class DataScannerOCRClient {
     
-    private var delegate: ConcrateOCRClientDelegate
+    private var delegate: DataScannerOCRClientDelegate
     
     private lazy var logger = Logger(subsystem: "com.ariel.one.OCRFeature", category: "DataScanner")
     
@@ -25,7 +25,7 @@ public final class DataScannerOCRClient {
     private var dataScannerViewController: DataScannerViewController
     private var allItems: [RecognizedItem] = []
     
-    public init(delegate: ConcrateOCRClientDelegate, recognizedDataType: Set<DataScannerViewController.RecognizedDataType>) {
+    public init(delegate: DataScannerOCRClientDelegate, recognizedDataType: Set<DataScannerViewController.RecognizedDataType>) {
         self.delegate = delegate
         self.dataScannerViewController = DataScannerFactor.makeDataScanner(recognizedDataType: recognizedDataType)
         self.setDelegate()
@@ -33,15 +33,13 @@ public final class DataScannerOCRClient {
         logger.debug("Data scanner delegate is: \(self.dataScannerViewController.delegate == nil)")
     }
     
-    fileprivate func handleTappingItem(text: String) {
-        Task {
-            let currentImage = await self.makePhoto()
-            self.delegate.recognizedItemCompletion?((text, currentImage))
-        }
+    public func handleTappingItem(text: String) async {
+        let currentImage = await self.makePhoto()
+        self.delegate.recognizedItemCompletion?((text, currentImage))
     }
 }
 
-extension DataScannerOCRClient: OCRClient {
+extension DataScannerOCRClient: @preconcurrency OCRClient {
     
     public typealias OCRClientRequest = Bool
     public typealias OCRClientResponse = Swift.Result<String, Error>
@@ -65,37 +63,23 @@ extension DataScannerOCRClient: DataScannerViewControllerDelegate {
     
     public func dataScanner(_ dataScanner: DataScannerViewController, didAdd addedItems: [RecognizedItem], allItems: [RecognizedItem]) {
         self.allItems = allItems
+        self.delegate.didRecognizeItems?(allItems)
     }
     
     public func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {
         self.allItems = allItems
+        self.delegate.didRecognizeItems?(allItems)
     }
     
     public func dataScanner(_ dataScanner: DataScannerViewController, didUpdate updatedItems: [RecognizedItem], allItems: [RecognizedItem]) {
         self.allItems = allItems
+        self.delegate.didRecognizeItems?(allItems)
     }
-    
     
     //MARK: Zooming
     
     public func dataScannerDidZoom(_ dataScanner: DataScannerViewController) {
         print("Zoom")
-    }
-    
-    //MARK: Tapping items
-    
-    public func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
-        switch item {
-        case .text(let text):
-            // Copy the text to the pasteboard.
-            logger.debug("User tap item:\(item.id) and Data Sanner recive and undestand: \(text.transcript)")
-            handleTappingItem(text: text.transcript)
-        case .barcode( _):
-            // Open the URL in the browser.
-            break
-        default: break
-            // Insert code to handle other data types.
-        }
     }
     
     //MARK: Handling errors

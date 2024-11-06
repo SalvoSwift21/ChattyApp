@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-public final class ConcrateOCRClientDelegate: OCRClientDelegate {
+public final class ImageScannerOCRClientDelegate: OCRClientDelegate {
     
     public typealias OCRClientResponse = (String, UIImage?)
-
+    public typealias OCRClientRecognizeItems = [String]
+    
     public var recognizedItemCompletion: ((OCRClientResponse) -> Void)?
     public var errorOnScanning: ((Error) -> Void)?
+    public var didRecognizeItems: ((OCRClientRecognizeItems) -> Void)?
     
     public init() { }
-
 }

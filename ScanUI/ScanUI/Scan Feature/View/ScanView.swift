@@ -41,34 +41,39 @@ public struct ScanView: View {
             case .loaded(let viewModel):
                 DataScannerView(dataScannerViewController: viewModel.dataScannerController)
                 VStack {
-                    ZStack(alignment: .center, content: {
-                        Color.black.opacity(0.4)
-                            .frame(height: 120, alignment: .center)
-                        HStack(alignment: .top, content: {
-                            Button(action: {
-                                presenter.goBack()
-                            }, label: {
-                                Image(systemName: "xmark")
-                                    .resizable()
-                                    .frame(width: 20, height: 20, alignment: .center)
-                                    .foregroundStyle(.buttonTitle)
+                    ZStack(alignment: .bottom, content: {
+                        bannerBackground
+                        ZStack(alignment: .center, content: {
+                            HStack(alignment: .center, content: {
+                                Button(action: {
+                                    presenter.goBack()
+                                }, label: {
+                                    Image(systemName: "xmark")
+                                        .resizable()
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .foregroundStyle(.buttonTitle)
+                                })
+                                .padding()
+                                Spacer()
                             })
-                            .padding()
-                            Spacer()
-                        })
-                        .padding(.top, 10)
-                        .padding(.horizontal, 8)
+                            
+                            HStack(alignment: .center, content: {
+                                Text("Search text and tap to scan")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 18))
+                                    .fontWeight(.regular)
+                                    .foregroundStyle(.buttonTitle)
+                                    .padding(.vertical)
+                            })
+                        }).padding()
                     })
                     Spacer()
                     ZStack(alignment: .top, content: {
-                        Color.black.opacity(0.4)
-                            .frame(height: 120, alignment: .center)
-                        Text("Position text within frame, and tap for choose text.")
-                            .multilineTextAlignment(.leading)
-                            .font(.system(size: 20))
-                            .fontWeight(.regular)
-                            .foregroundStyle(.buttonTitle)
-                            .padding(.vertical)
+                        bannerBackground
+                        HStack(alignment: .center, spacing: 0) {
+                            shutterButton
+                                .disabled(!store.scanButtonEnabled)
+                        }
                     })
                 }
             }
@@ -87,6 +92,35 @@ public struct ScanView: View {
                 self.dismiss()
             }
         }
+    }
+    
+    var bannerBackground: some View {
+        Color.prime.opacity(0.5)
+            .frame(height: 120, alignment: .center)
+    }
+    
+    
+    var shutterButton: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 6)
+                .foregroundColor(.white)
+                .frame(width: 65, height: 65)
+            
+            Button {
+                presenter.shutterButtonTapped()
+            } label: {
+                RoundedRectangle(cornerRadius: self.innerCircleWidth / 2)
+                    .foregroundColor(.white)
+                    .frame(width: self.innerCircleWidth, height: self.innerCircleWidth)
+            }
+        }
+        .animation(.linear, value: 0.5)
+        .padding(20)
+    }
+
+    var innerCircleWidth: CGFloat {
+         55
     }
 }
 

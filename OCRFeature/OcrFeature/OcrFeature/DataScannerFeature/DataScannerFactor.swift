@@ -8,18 +8,18 @@
 import Foundation
 import VisionKit
 
-@MainActor
+
 final class DataScannerFactor {
     private init() {}
         
-    
+    @MainActor
     public static func makeDataScanner(recognizedDataType: Set<DataScannerViewController.RecognizedDataType>) -> DataScannerViewController {
         return DataScannerViewController(recognizedDataTypes: recognizedDataType,
                                          qualityLevel: .accurate,
                                          recognizesMultipleItems: false,
                                          isHighFrameRateTrackingEnabled: false,
                                          isPinchToZoomEnabled: false,
-                                         isGuidanceEnabled: true,
+                                         isGuidanceEnabled: false,
                                          isHighlightingEnabled: true)
     }
 }

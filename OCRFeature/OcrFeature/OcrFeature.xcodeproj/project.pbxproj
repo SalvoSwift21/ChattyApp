@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		626AA56E2B34FCF600AA65E9 /* ConcrateOCRClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626AA56D2B34FCF600AA65E9 /* ConcrateOCRClientDelegate.swift */; };
+		6248EF722CDBF01E001E7DBA /* DataScannerOCRClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6248EF712CDBF011001E7DBA /* DataScannerOCRClientDelegate.swift */; };
+		626AA56E2B34FCF600AA65E9 /* ImageScannerOCRClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626AA56D2B34FCF600AA65E9 /* ImageScannerOCRClientDelegate.swift */; };
 		626AA5702B34FD1000AA65E9 /* DataScannerFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626AA56F2B34FD1000AA65E9 /* DataScannerFactor.swift */; };
 		6281B28B2B30FB4C002BD527 /* OCRFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6281B28A2B30FB4C002BD527 /* OCRFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6281B2932B30FB8E002BD527 /* OCRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B2922B30FB8E002BD527 /* OCRClient.swift */; };
@@ -17,7 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		626AA56D2B34FCF600AA65E9 /* ConcrateOCRClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcrateOCRClientDelegate.swift; sourceTree = "<group>"; };
+		6248EF712CDBF011001E7DBA /* DataScannerOCRClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerOCRClientDelegate.swift; sourceTree = "<group>"; };
+		626AA56D2B34FCF600AA65E9 /* ImageScannerOCRClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerOCRClientDelegate.swift; sourceTree = "<group>"; };
 		626AA56F2B34FD1000AA65E9 /* DataScannerFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerFactor.swift; sourceTree = "<group>"; };
 		6281B2872B30FB4C002BD527 /* OCRFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OCRFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6281B28A2B30FB4C002BD527 /* OCRFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRFeature.h; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				6281B2982B310149002BD527 /* DataScannerOCRClient.swift */,
-				626AA56D2B34FCF600AA65E9 /* ConcrateOCRClientDelegate.swift */,
+				6248EF712CDBF011001E7DBA /* DataScannerOCRClientDelegate.swift */,
 				626AA56F2B34FD1000AA65E9 /* DataScannerFactor.swift */,
 			);
 			path = DataScannerFeature;
@@ -95,6 +97,7 @@
 		628EE8492B4CAF0B005DFA76 /* ImageScannerFeature */ = {
 			isa = PBXGroup;
 			children = (
+				626AA56D2B34FCF600AA65E9 /* ImageScannerOCRClientDelegate.swift */,
 				628EE84A2B4CAF26005DFA76 /* ImageScannerOCRClient.swift */,
 			);
 			path = ImageScannerFeature;
@@ -185,7 +188,8 @@
 				628EE84B2B4CAF26005DFA76 /* ImageScannerOCRClient.swift in Sources */,
 				6281B2932B30FB8E002BD527 /* OCRClient.swift in Sources */,
 				6281B2992B310149002BD527 /* DataScannerOCRClient.swift in Sources */,
-				626AA56E2B34FCF600AA65E9 /* ConcrateOCRClientDelegate.swift in Sources */,
+				6248EF722CDBF01E001E7DBA /* DataScannerOCRClientDelegate.swift in Sources */,
+				626AA56E2B34FCF600AA65E9 /* ImageScannerOCRClientDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
