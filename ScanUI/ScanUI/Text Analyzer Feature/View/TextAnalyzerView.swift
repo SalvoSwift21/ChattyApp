@@ -82,7 +82,8 @@ public struct TextAnalyzerView: View {
             }
             .padding(0)
             .background(.clear)
-            
+            .defaultScrollAnchor(.bottom)
+
             
             HStack(alignment: .center, spacing: 10) {
                 Menu {
