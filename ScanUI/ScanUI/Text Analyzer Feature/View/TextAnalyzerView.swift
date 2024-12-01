@@ -86,6 +86,7 @@ public struct TextAnalyzerView: View {
             
             HStack(alignment: .center, spacing: 10) {
                 Menu {
+                    
                     Button(action: {
                         Task(priority: .background) {
                             await presenter.makeTranslation()
@@ -108,6 +109,13 @@ public struct TextAnalyzerView: View {
                     }) {
                         Label("Copy to clipboard", systemImage: "doc.on.doc")
                     }
+                    
+                    
+                    ShareLink(
+                        item: store.viewModel.getSharableObject(),
+                        preview: SharePreview(
+                            store.viewModel.getSharableObject().description,
+                            image: store.viewModel.getSharableObject().image))
                     
                 } label: {
                     Image(systemName: "ellipsis.circle")

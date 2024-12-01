@@ -25,7 +25,7 @@ public struct ScanDetailViewModel {
 
 struct ScanShareModel: Transferable {
     static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation(exporting: \.image)
+        ProxyRepresentation(exporting: \.description)
     }
 
 

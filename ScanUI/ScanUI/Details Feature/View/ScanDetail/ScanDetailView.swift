@@ -98,35 +98,17 @@ public struct ScanDetailView: View {
     }
     
     func makeMenuActions(viewModel: ScanDetailViewModel) -> some View {
-        Menu {
-            
-            ShareLink(
-                item: viewModel.getSharableObject(),
-                preview: SharePreview(
-                    viewModel.getSharableObject().description,
-                    image: viewModel.getSharableObject().image))
-            
-            Button(action: {
-                presenter.copyContent()
-                withAnimation(.easeInOut(duration: 0.4)) {
-                    self.showingCopyConfirmView.toggle()
+        ShareLink(
+            item: viewModel.getSharableObject(),
+            preview: SharePreview(
+                viewModel.getSharableObject().description,
+                image: viewModel.getSharableObject().image)) {
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .fontWeight(.regular)
+                        .frame(width: 25, height: 30)
+                        .foregroundColor(.prime)
                 }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        self.showingCopyConfirmView.toggle()
-                    }
-                })
-            }) {
-                Label("Copy to clipboard", systemImage: "doc.on.doc")
-            }
-            
-        } label: {
-            Image(systemName: "ellipsis.circle")
-                .resizable()
-                .frame(width: 25, height: 25)
-                .foregroundColor(.prime)
-        }
     }
 }
 

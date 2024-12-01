@@ -84,9 +84,9 @@ struct MainContainerView: View {
                 DataScannerSection(storage: scanStorage)
             }
         }
-//        .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
-//            path.append(resultOfScan)
-//        }))
+        .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
+            path.append(resultOfScan)
+        }))
     }
     
     var preferencesView: some View {
