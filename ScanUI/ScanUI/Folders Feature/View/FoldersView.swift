@@ -112,7 +112,7 @@ public struct AllFoldersView: View {
                         self.isShowingAlertToDeleteFolder.toggle()
                     })
                 })
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {

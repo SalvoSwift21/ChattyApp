@@ -10,7 +10,7 @@ import ScanUI
 
 
 struct MainContainerView: View {
-    
+
     enum HomeNavigationDestination: Hashable {
         case newScan, seeAll
     }
@@ -84,6 +84,7 @@ struct MainContainerView: View {
                 DataScannerSection(storage: scanStorage)
             }
         }
+        .tint(.primeAccentColor)
         .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
             path.append(resultOfScan)
         }))

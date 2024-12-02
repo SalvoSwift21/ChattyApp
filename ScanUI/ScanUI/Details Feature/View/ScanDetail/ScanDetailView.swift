@@ -56,7 +56,7 @@ public struct ScanDetailView: View {
                     }
                 })
                 .navigationTitle(viewModel.scan.title)
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitleDisplayMode(.inline)
             }
             Spacer()
         }
