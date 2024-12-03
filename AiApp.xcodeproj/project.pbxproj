@@ -13,6 +13,7 @@
 		62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB32A1F8F92005D732A /* Preview Assets.xcassets */; };
 		621ADBD92CFD28B400A01F68 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 62128CB02A1F8F92005D732A /* Assets.xcassets */; };
 		621ADBDB2CFD291400A01F68 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621ADBDA2CFD291100A01F68 /* ColorExtensions.swift */; };
+		622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */; };
 		623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
 		6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; };
@@ -65,6 +66,7 @@
 		62128CB02A1F8F92005D732A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62128CB32A1F8F92005D732A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621ADBDA2CFD291100A01F68 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUIComposer.swift; sourceTree = "<group>"; };
 		62639E532A264941004F5E44 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62639E542A264F4E004F5E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -127,13 +129,13 @@
 			children = (
 				629A8F562BA90927004C5221 /* AiApp.entitlements */,
 				62639E542A264F4E004F5E44 /* Info.plist */,
+				622959D52CFFC80F00A2EE3D /* Resources */,
 				62639E512A264903004F5E44 /* Configurations */,
 				62C468F42B2FC25F002DD3A3 /* Helper */,
 				62C468EC2B2FB809002DD3A3 /* UIComposer */,
 				62C468F22B2FC0AB002DD3A3 /* RootUI.swift */,
 				62128CAC2A1F8F92005D732A /* AiAppApp.swift */,
 				6204E4002B801D9600B268A9 /* MainContainerView.swift */,
-				62128CB02A1F8F92005D732A /* Assets.xcassets */,
 				62128CB22A1F8F92005D732A /* Preview Content */,
 			);
 			path = AiApp;
@@ -145,6 +147,15 @@
 				62128CB32A1F8F92005D732A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		622959D52CFFC80F00A2EE3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */,
+				62128CB02A1F8F92005D732A /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		62639E512A264903004F5E44 /* Configurations */ = {
@@ -235,7 +246,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 62128CA02A1F8F92005D732A;
 			productRefGroup = 62128CAA2A1F8F92005D732A /* Products */;
@@ -253,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */,
+				622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */,
 				62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +350,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -392,6 +404,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

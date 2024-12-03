@@ -1,0 +1,106 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "All folders" : {
+
+    },
+    "Empty state" : {
+
+    },
+    "Hello world" : {
+
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "ONBORDING_FIRST_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use your camera or upload images to effortlessly scan documents and extract text in seconds."
+          }
+        }
+      }
+    },
+    "ONBORDING_FIRST_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Documents Easily"
+          }
+        }
+      }
+    },
+    "ONBORDING_FORTH_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search through your saved summaries and documents with advanced tools to keep your workflow seamless."
+          }
+        }
+      }
+    },
+    "ONBORDING_FORTH_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find What You Need, When You Need It"
+          }
+        }
+      }
+    },
+    "ONBORDING_SECOND_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let AI summarize your scanned text instantly. Prefer custom AI settings? Choose your model later in the app settings."
+          }
+        }
+      }
+    },
+    "ONBORDING_SECOND_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summarize with AI"
+          }
+        }
+      }
+    },
+    "ONBORDING_THIRD_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translate your summaries into multiple languages and organize them directly into folders stored safely on iCloud."
+          }
+        }
+      }
+    },
+    "ONBORDING_THIRD_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translate and Save"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

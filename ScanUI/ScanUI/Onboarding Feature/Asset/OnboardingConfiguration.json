@@ -1,24 +1,19 @@
 {
     "onboardingCards": [
         {
-            "title": "Simple way to scan",
-            "subtitle": "Flash will turn your phone into portable amazing scanner!",
+            "title": "ONBORDING_FIRST_CARD_TITLE",
+            "subtitle": "ONBORDING_FIRST_CARD_DESCR",
             "image": "onboarding 1"
         },
         {
-            "title": "Organize is easy",
-            "subtitle": "Say no to mess, Add your folders, or just search with advanced search.",
+            "title": "ONBORDING_SECOND_CARD_TITLE",
+            "subtitle": "ONBORDING_SECOND_CARD_DESCR",
             "image": "onboarding 2"
         },
         {
-            "title": "Organize is easy 3",
-            "subtitle": "Say no to mess, Add your folders, or just search with advanced search.",
-            "image": "onboarding 2"
-        },
-        {
-            "title": "Organize is easy 4",
-            "subtitle": "Say no to mess, Add your folders, or just search with advanced search.",
-            "image": "onboarding 2"
+            "title": "ONBORDING_THIRD_CARD_TITLE",
+            "subtitle": "ONBORDING_THIRD_CARD_DESCR",
+            "image": "onboarding 3"
         }
     ]
 }
