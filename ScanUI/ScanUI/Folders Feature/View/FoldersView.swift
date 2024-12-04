@@ -59,19 +59,20 @@ public struct AllFoldersView: View {
                             } label: {
                                 FolderItemView(resourceBundle: resourceBundle, folder: folder)
                                     .contextMenu {
-                                        Button {
-                                            self.selectedFolderToEdit = folder
-                                            isShowingAlertToRenameFolder.toggle()
-                                        } label: {
-                                            Label("Rename", systemImage: "pencil")
-                                        }
-                                        
-                                        
-                                        Button(role: .destructive) {
-                                            self.selectedFolderToEdit = folder
-                                            isShowingAlertToDeleteFolder.toggle()
-                                        } label: {
-                                            Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                        if folder.canEdit {
+                                            Button {
+                                                self.selectedFolderToEdit = folder
+                                                isShowingAlertToRenameFolder.toggle()
+                                            } label: {
+                                                Label("Rename", systemImage: "pencil")
+                                            }
+                                            
+                                            Button(role: .destructive) {
+                                                self.selectedFolderToEdit = folder
+                                                isShowingAlertToDeleteFolder.toggle()
+                                            } label: {
+                                                Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                            }
                                         }
                                     }
                                     .cornerRadius(10)

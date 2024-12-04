@@ -23,6 +23,8 @@ public struct Folder: Hashable {
     
     var title: String
     var scans: [Scan]
+    
+    var canEdit: Bool = true
 }
 
 public struct HomeViewModel {

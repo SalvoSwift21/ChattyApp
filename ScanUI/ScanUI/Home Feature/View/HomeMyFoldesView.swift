@@ -43,17 +43,19 @@ struct HomeMyFoldesView: View {
                                 folderTapped(folder)
                             }
                         .contextMenu {
-                            Button {
-                                self.renameFolder(folder)
-                            } label: {
-                                Label("Rename", systemImage: "pencil")
-                            }
-                            
-                            
-                            Button(role: .destructive) {
-                                self.deleteFolder(folder)
-                            } label: {
-                                Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                            if folder.canEdit {
+                                Button {
+                                    self.renameFolder(folder)
+                                } label: {
+                                    Label("Rename", systemImage: "pencil")
+                                }
+                                
+                                
+                                Button(role: .destructive) {
+                                    self.deleteFolder(folder)
+                                } label: {
+                                    Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                }
                             }
                         }
                         .cornerRadius(10)

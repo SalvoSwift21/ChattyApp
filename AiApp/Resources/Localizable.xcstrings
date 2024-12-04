@@ -4,6 +4,16 @@
     "All folders" : {
 
     },
+    "DEFAULT_FOLDER_NAME" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home Folder"
+          }
+        }
+      }
+    },
     "Empty state" : {
 
     },
