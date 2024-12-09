@@ -19,6 +19,6 @@ public final class OnboardingUIComposer {
         let service = OnboardingService()
         let onboardingPresent: OnboardingPresenter = OnboardingPresenter(service: service, delegate: store, completeOnboardingCompletion: completeOnboarding)
         
-        return OnboardingContainerView(store: store, presenter: onboardingPresent, resourceBundle: .init(identifier: "com.ariel.ScanUI") ?? .main)
+        return OnboardingContainerView(store: store, presenter: onboardingPresent, resourceBundle: .init(identifier: "com.ariel.ScanUI") ?? .main, localizationBundle: .main)
     }
 }

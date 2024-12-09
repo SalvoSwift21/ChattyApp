@@ -14,6 +14,7 @@ public final class SwiftDataStore {
     
     private var configuration = ModelConfiguration()
     var modelContainer: ModelContainer
+    var defaultFolderName: String
     
     enum SwiftDataStore: Error {
         case modelNotFound
@@ -23,8 +24,9 @@ public final class SwiftDataStore {
         case failedToLoadPersistentContainer(Error)
     }
     
-    public init(storeURL: URL) throws {
+    public init(storeURL: URL, defaultFolderName: String) throws {
         do {
+            self.defaultFolderName = defaultFolderName
             let schema = Schema([
                 FolderStorageModel.self
             ])
@@ -46,7 +48,7 @@ public final class SwiftDataStore {
         }
         
         //Create folder
-        let folder = Folder(title: "Default Folder", scans: [])
+        let folder = Folder(title: defaultFolderName, scans: [], canEdit: false)
         try self.create(folder)
     }
     

@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct ScanView: View {
     
+    @Environment(\.dismiss) var dismiss
 
     var presenter: ScanPresenter
     @ObservedObject var store: ScanStore
@@ -23,37 +24,103 @@ public struct ScanView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center) {
-            Spacer()
+        ZStack(alignment: .center) {
             switch store.state {
             case .loading(let showLoader):
                 if showLoader {
                     LoadingView()
                 }
             case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
-                    print("Generic error ok")
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
+                VStack(alignment: .center, content: {
+                    Spacer()
+                    ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
+                        presenter.goBack()
+                    }, secondaryButtonTitle: nil, secondaryAction: nil)
+                    Spacer()
+                }).padding()
             case .loaded(let viewModel):
-                VStack(alignment: .center, spacing: 30.0) {
-                    Text("Position text within frame, and tap for choose text.")
-                    DataScannerView(dataScannerViewController: viewModel.dataScannerController)
-                        .cornerRadius(10.0)
-                        .padding()
+                DataScannerView(dataScannerViewController: viewModel.dataScannerController)
+                VStack {
+                    ZStack(alignment: .bottom, content: {
+                        bannerBackground
+                        ZStack(alignment: .center, content: {
+                            HStack(alignment: .center, content: {
+                                Button(action: {
+                                    presenter.goBack()
+                                }, label: {
+                                    Image(systemName: "xmark")
+                                        .resizable()
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .foregroundStyle(.buttonTitle)
+                                })
+                                .padding()
+                                Spacer()
+                            })
+                            
+                            HStack(alignment: .center, content: {
+                                Text("Search text and tap to scan")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 18))
+                                    .fontWeight(.regular)
+                                    .foregroundStyle(.buttonTitle)
+                                    .padding(.vertical)
+                            })
+                        }).padding()
+                    })
+                    Spacer()
+                    ZStack(alignment: .top, content: {
+                        bannerBackground
+                        HStack(alignment: .center, spacing: 0) {
+                            shutterButton
+                                .disabled(!store.scanButtonEnabled)
+                        }
+                    })
                 }
             }
-            Spacer()
         }
-        .padding()
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
             alignment: .top
         )
-        .background(Color.scanBackground)
+        .ignoresSafeArea()
         .onAppear(perform: {
             presenter.startScan()
         })
+        .onChange(of: store.back) {
+            if store.back {
+                self.dismiss()
+            }
+        }
+    }
+    
+    var bannerBackground: some View {
+        Color.prime.opacity(0.5)
+            .frame(height: 120, alignment: .center)
+    }
+    
+    
+    var shutterButton: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 6)
+                .foregroundColor(.white)
+                .frame(width: 65, height: 65)
+            
+            Button {
+                presenter.shutterButtonTapped()
+            } label: {
+                RoundedRectangle(cornerRadius: self.innerCircleWidth / 2)
+                    .foregroundColor(.white)
+                    .frame(width: self.innerCircleWidth, height: self.innerCircleWidth)
+            }
+        }
+        .animation(.linear, value: 0.5)
+        .padding(20)
+    }
+
+    var innerCircleWidth: CGFloat {
+         55
     }
 }
 

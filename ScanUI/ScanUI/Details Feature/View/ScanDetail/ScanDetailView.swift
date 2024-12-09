@@ -46,7 +46,7 @@ public struct ScanDetailView: View {
                     VStack {
                         makeDetailView(viewModel: viewModel)
                         HStack {
-                            MenuActions
+                            makeMenuActions(viewModel: viewModel)
                             Spacer()
                         }.padding(.horizontal)
                     }
@@ -56,7 +56,7 @@ public struct ScanDetailView: View {
                     }
                 })
                 .navigationTitle(viewModel.scan.title)
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitleDisplayMode(.inline)
             }
             Spacer()
         }
@@ -81,6 +81,8 @@ public struct ScanDetailView: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(.rect(cornerRadius: 5))
                         .shadow(radius: 5.0)
+                        .frame(maxWidth: .infinity, maxHeight: 250, alignment: .leading)
+                        .padding(.vertical)
                 }
                 
                 ChatTextView(viewModel: ChatCellViewModel(title: nil,
@@ -95,29 +97,18 @@ public struct ScanDetailView: View {
         }
     }
     
-    var MenuActions: some View {
-        Menu {
-            Button(action: {
-                presenter.copyContent()
-                withAnimation(.easeInOut(duration: 0.4)) {
-                    self.showingCopyConfirmView.toggle()
+    func makeMenuActions(viewModel: ScanDetailViewModel) -> some View {
+        ShareLink(
+            item: viewModel.getSharableObject(),
+            preview: SharePreview(
+                viewModel.getSharableObject().description,
+                image: viewModel.getSharableObject().image)) {
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .fontWeight(.regular)
+                        .frame(width: 25, height: 30)
+                        .foregroundColor(.prime)
                 }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        self.showingCopyConfirmView.toggle()
-                    }
-                })
-            }) {
-                Label("Copy to clipboard", systemImage: "doc.on.doc")
-            }
-            
-        } label: {
-            Image(systemName: "ellipsis.circle")
-                .resizable()
-                .frame(width: 25, height: 25)
-                .foregroundColor(.prime)
-        }
     }
 }
 

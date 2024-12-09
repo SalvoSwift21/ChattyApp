@@ -15,7 +15,7 @@ public class UploadFilePresenter: UploadFileProtocols {
     public var resultOfScan: ((ScanResult) -> Void)
 
     private var service: UploadFileService
-    private var ocrConcreteDelegate = ConcrateOCRClientDelegate()
+    private var ocrConcreteDelegate = ImageScannerOCRClientDelegate()
     private weak var delegate: UploadFileProtocolsDelegate?
     
 

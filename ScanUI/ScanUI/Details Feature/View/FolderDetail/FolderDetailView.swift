@@ -45,7 +45,7 @@ public struct FolderDetailView: View {
             case .loaded(let viewModel):
                 makeDetailView(viewModel: viewModel)
                     .navigationTitle(viewModel.folder.title)
-                    .navigationBarTitleDisplayMode(.automatic)
+                    .navigationBarTitleDisplayMode(.inline)
             }
             Spacer()
         }

@@ -16,7 +16,7 @@ final class AppleIdentificationLanguageEndToEndTest: XCTestCase {
         
         let sut = makeSUT()
         let testString = "Ciao, sono una string di lingua italiana"
-        let resultIdentification = try sut.identifyLanguageProtocol(fromText: testString)
+        let resultIdentification = try sut.identifyLanguage(fromText: testString)
         XCTAssertEqual(resultIdentification, resultExpted)
     }
     
@@ -25,7 +25,7 @@ final class AppleIdentificationLanguageEndToEndTest: XCTestCase {
         
         let sut = makeSUT()
         let testString = "Hi, it is cold"
-        let resultIdentification = try sut.identifyLanguageProtocol(fromText: testString)
+        let resultIdentification = try sut.identifyLanguage(fromText: testString)
         XCTAssertEqual(resultIdentification, resultExpted)
     }
 

@@ -10,7 +10,7 @@ import ScanUI
 
 
 struct MainContainerView: View {
-    
+
     enum HomeNavigationDestination: Hashable {
         case newScan, seeAll
     }
@@ -80,10 +80,11 @@ struct MainContainerView: View {
             .navigationDestination(for: Scan.self, destination: { scan in
                 ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
             })
-            .sheet(isPresented: $showDataScan) {
+            .fullScreenCover(isPresented: $showDataScan) {
                 DataScannerSection(storage: scanStorage)
             }
         }
+        .tint(.primeAccentColor)
         .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
             path.append(resultOfScan)
         }))

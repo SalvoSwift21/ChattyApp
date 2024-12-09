@@ -15,8 +15,11 @@ public class ScanStore: ObservableObject {
         case loaded(viewModel: ScanViewModel)
     }
     
+    
     @Published var state: State = .loading(show: false)
-
+    @Published var scanButtonEnabled: Bool = false
+    @Published var back: Bool = false
+    
     public init(state: ScanStore.State = .loading(show: true)) {
         self.state = state
     }
@@ -24,6 +27,11 @@ public class ScanStore: ObservableObject {
 
 
 extension ScanStore: ScanProtocolsDelegate {
+    
+    public func goBack() {
+        back.toggle()
+    }
+    
     public func render(errorMessage: String) {
         self.state = .error(message: errorMessage)
     }
@@ -34,5 +42,12 @@ extension ScanStore: ScanProtocolsDelegate {
     
     public func render(viewModel: ScanViewModel) {
         self.state = .loaded(viewModel: viewModel)
+    }
+}
+
+extension ScanStore: ScanButtonProtocolDelegate {
+    
+    public func enabledButton(_ enabeld: Bool) {
+        self.scanButtonEnabled = enabeld
     }
 }

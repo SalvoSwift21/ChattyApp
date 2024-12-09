@@ -48,7 +48,10 @@ struct ChatTextView: View {
                     if let image = viewModel.image {
                         Image(uiImage: image)
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(.rect(cornerRadius: 5))
+                            .frame(maxWidth: .infinity, maxHeight: 250, alignment: .leading)
+                            .padding(.vertical)
                     }
                     
                     if let description = viewModel.description {

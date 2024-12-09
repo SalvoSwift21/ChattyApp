@@ -17,8 +17,11 @@ public protocol OCRClient {
 
 public protocol OCRClientDelegate {
     
+    associatedtype OCRClientRecognizeItems
     associatedtype OCRClientResponse
     
     var recognizedItemCompletion: ((OCRClientResponse) -> Void)? { get set }
+    var didRecognizeItems: ((OCRClientRecognizeItems) -> Void)? { get set }
+
     var errorOnScanning: ((Error) -> Void)? { get set }
 }

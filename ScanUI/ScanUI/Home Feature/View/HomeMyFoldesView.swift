@@ -28,7 +28,7 @@ struct HomeMyFoldesView: View {
                 Button(action: {
                     viewAllButtonTapped()
                 }, label: {
-                    Text("See All >")
+                    Text("See All")
                         .font(.system(size: 14))
                         .fontWeight(.medium)
                         .foregroundStyle(.prime)
@@ -43,17 +43,19 @@ struct HomeMyFoldesView: View {
                                 folderTapped(folder)
                             }
                         .contextMenu {
-                            Button {
-                                self.renameFolder(folder)
-                            } label: {
-                                Label("Rename", systemImage: "pencil")
-                            }
-                            
-                            
-                            Button(role: .destructive) {
-                                self.deleteFolder(folder)
-                            } label: {
-                                Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                            if folder.canEdit {
+                                Button {
+                                    self.renameFolder(folder)
+                                } label: {
+                                    Label("Rename", systemImage: "pencil")
+                                }
+                                
+                                
+                                Button(role: .destructive) {
+                                    self.deleteFolder(folder)
+                                } label: {
+                                    Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                }
                             }
                         }
                         .cornerRadius(10)

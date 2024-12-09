@@ -15,6 +15,7 @@ public class AppConfiguration {
     static public var shared = AppConfiguration()
     
     static let appGroupName = "group.com.ariel.ai.scan.app"
+    static let defaultFolderName = String(localized: "DEFAULT_FOLDER_NAME")
     
     let preferencesStoreManager = UserDefaults(suiteName: "PREFERENCES_STORE_MANAGER")
     
@@ -83,9 +84,9 @@ struct AiAppApp: App {
     private func getStorage() -> ScanStorege {
         let url = AppConfiguration.shared.storeURL
         do {
-            return try SwiftDataStore(storeURL: url)
+            return try SwiftDataStore(storeURL: url, defaultFolderName: AppConfiguration.defaultFolderName)
         } catch {
-            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!)
+            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: AppConfiguration.defaultFolderName)
         }
     }
 

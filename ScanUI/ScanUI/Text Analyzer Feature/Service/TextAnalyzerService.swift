@@ -58,7 +58,7 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
     }
     
     private func getDefaultFolder() throws -> Folder {
-        guard let folder = try storageClient.retrieveFolders(title: "Default Folder")?.first else {
+        guard let folder = try storageClient.retrieveFolders(title: storageClient.getDefaultFolderName())?.first else {
             throw TextAnalyzerServiceError.noDefaultFolder
         }
         return folder

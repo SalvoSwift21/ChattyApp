@@ -7,6 +7,8 @@
 
 import Foundation
 import OCRFeature
+import UIKit
+import VisionKit
 
 
 public class ScanPresenter: ScanProtocols {
@@ -15,15 +17,16 @@ public class ScanPresenter: ScanProtocols {
     public var resultOfScan: ((ScanResult) -> Void)
 
     private var service: ScanService
-    private var ocrConcreteDelegate = ConcrateOCRClientDelegate()
-    private weak var delegate: ScanProtocolsDelegate?
-    
+    private var dataScannerDelegate = DataScannerOCRClientDelegate()
+    private weak var delegate: (ScanProtocolsDelegate & ScanButtonProtocolDelegate)?
+
+    private var lastItem: RecognizedItem?
 
     @MainActor
-    public init(delegate: ScanProtocolsDelegate,
+    public init(delegate: ScanProtocolsDelegate & ScanButtonProtocolDelegate,
                 resultOfScan: @escaping ((ScanResult) -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
-        let dataScannerOCR = DataScannerOCRClient(delegate: self.ocrConcreteDelegate, recognizedDataType: [.text()])
+        let dataScannerOCR = DataScannerOCRClient(delegate: self.dataScannerDelegate, recognizedDataType: [.text()])
         self.service = ScanService(dataScannerOCRClient: dataScannerOCR)
         self.delegate = delegate
         self.resourceBundle = bundle
@@ -34,18 +37,23 @@ public class ScanPresenter: ScanProtocols {
     
     @MainActor
     private func setConcreteDelegateCompletion() {
-        self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
+        self.dataScannerDelegate.recognizedItemCompletion = { scanResult in
             self.showLoader(false)
             self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
         }
         
-        self.ocrConcreteDelegate.errorOnScanning = { error in
+        self.dataScannerDelegate.errorOnScanning = { error in
             self.showLoader(false)
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
+        
+        self.dataScannerDelegate.didRecognizeItems = { items in
+            self.delegate?.enabledButton(items.count > 0)
+            self.lastItem = items.last
+        }
     }
     
-    @MainActor 
+    @MainActor
     public func startScan() {
         self.showLoader(false)
         do {
@@ -54,12 +62,14 @@ public class ScanPresenter: ScanProtocols {
             self.delegate?.render(errorMessage: error.localizedDescription)
             return
         }
+
         let controller = self.service.dataScannerOCRClient.getCurrentDataScannerController()
         let vModel = ScanViewModel(dataScannerController: controller)
+        
         self.delegate?.render(viewModel: vModel)
     }
     
-    @MainActor 
+    @MainActor
     public func stopScan() {
         self.showLoader(false)
         do {
@@ -68,16 +78,35 @@ public class ScanPresenter: ScanProtocols {
             self.delegate?.render(errorMessage: error.localizedDescription)
             return
         }
+        
         let controller = self.service.dataScannerOCRClient.getCurrentDataScannerController()
         let vModel = ScanViewModel(dataScannerController: controller)
+        
         self.delegate?.render(viewModel: vModel)
+    }
+    
+    
+    public func goBack() {
+        self.delegate?.goBack()
+    }
+    
+    public func shutterButtonTapped() {
+        Task {
+            guard let lastItem = self.lastItem else { return }
+            switch lastItem {
+            case .text(let text):
+                await self.service.handleTappingItem(text: text.transcript)
+                await self.stopScan()
+            default:
+                return
+            }
+        }
     }
 }
 
 //MARK: Help for Home
 extension ScanPresenter {
     
-    @MainActor
     fileprivate func showLoader(_ show: Bool) {
         self.delegate?.renderLoading(visible: show)
     }

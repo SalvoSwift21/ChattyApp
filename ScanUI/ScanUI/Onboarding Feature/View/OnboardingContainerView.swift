@@ -12,11 +12,13 @@ public struct OnboardingContainerView: View {
     @ObservedObject var store: OnboardingStore
     
     var resourceBundle: Bundle
+    var localizationBundle: Bundle
     
-    public init(store: OnboardingStore, presenter: OnboardingPresenterProtocol, resourceBundle: Bundle = .main) {
+    public init(store: OnboardingStore, presenter: OnboardingPresenterProtocol, resourceBundle: Bundle = .main, localizationBundle: Bundle = .main) {
         self.store = store
         self.presenter = presenter
         self.resourceBundle = resourceBundle
+        self.localizationBundle = localizationBundle
     }
     
     public var body: some View {
@@ -38,7 +40,7 @@ public struct OnboardingContainerView: View {
             case .loaded(let cards):
                 TabView(selection: $store.currentPage) {
                     ForEach(cards) { card in
-                        OnboardingView(onboardingViewModel: card, resourceBundle: resourceBundle)
+                        OnboardingView(onboardingViewModel: card, resourceBundle: resourceBundle, localizationBundle: localizationBundle)
                             .tag(cards.firstIndex(of: card) ?? 0)
                     }
                 }

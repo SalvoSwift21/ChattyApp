@@ -10,4 +10,7 @@ import Foundation
 public protocol ScanServiceProtocol: AnyObject {
     func startDataScanner() throws
     func stopDataScanner() throws
+    
+    func handleTappingItem(text: String) async
+
 }
