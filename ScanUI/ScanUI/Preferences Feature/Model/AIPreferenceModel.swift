@@ -32,6 +32,7 @@ public enum AIPreferenceType: String, CaseIterable, Codable {
     case gpt_4_o = "gpt-4o"
     case gpt_4o_mini = "gpt-4o-mini"
     case gemini_1_5_flash = "gemini-1.5-flash"
+    case gemini_1_5_flash_8b = "gemini-1.5-flash-8b"
     case gemini_pro = "gemini-1.5-pro"
     
     case unowned
@@ -46,7 +47,10 @@ public enum AIPreferenceType: String, CaseIterable, Codable {
             return "Riassunti istantanei e precisi, ottimizzati per la velocità. Ideale per un'analisi rapida di grandi volumi di testo."
         case .gemini_pro:
             return "Riassunti personalizzati e dettagliati, su misura per le tue esigenze. Offre un'ampia gamma di opzioni di personalizzazione per soddisfare le tue richieste specifiche."
+        case .gemini_1_5_flash_8b:
+            return "Riassunti istantanei e precisi, ottimizzati per la velocità. Ideale per un'analisi rapida di grandi volumi di testo."
         case .unowned:
             return "Error"
         }
-    }}
+    }
+}

@@ -18,7 +18,7 @@ public class UploadFileService: UploadFileServiceProtocol {
     }
    
     public func getFileUTTypes() async -> [UTType] {
-        return [.image, .png, .image, .jpeg]
+        return [.image, .png, .jpeg, .pdf, .text, .plainText, .html, .rtf]
     }
     
     public func startScan(atURL url: URL) async throws {

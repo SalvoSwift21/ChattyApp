@@ -6,6 +6,19 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
+
+//# File extensions supported by Google AI
+//PDF - application/pdf
+//JavaScript - application/x-javascript, text/javascript
+//Python - application/x-python, text/x-python
+//TXT - text/plain
+//HTML - text/html
+//CSS - text/css
+//Markdown - text/md
+//CSV - text/csv
+//XML - text/xml
+//RTF - text/rtf
 
 public class GoogleAIConfigurations {
     //AIzaSyCi9N2rcBGzvt4BAgLIlH2R0qktjUxiGEY
@@ -16,8 +29,8 @@ public class GoogleAIConfigurations {
         }
         return String(data: data, encoding: .utf8) ?? "Error"
     }()
-
-    static let ORG_ID = "org-Vf9PkFk6RhkFsVJgasYIXl7j"
-    static let BASE_HOST = "api.openai.com"
-    static let BASE_PATH = "/v1"
+    
+    func getSupportedUTType() -> [UTType] {
+        [.pdf, .javaScript, .text, .html, .css, .commaSeparatedText, .xml, .rtf]
+    }
 }

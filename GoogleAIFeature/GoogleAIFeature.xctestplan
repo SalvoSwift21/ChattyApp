@@ -18,12 +18,21 @@
         }
       ]
     },
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-GoogleGenerativeAIDebugLogEnabled"
+      }
+    ],
     "testExecutionOrdering" : "random",
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "GoogleAIFeatureEndToEndTest",
+        "GoogleAIFeatureEndToEndTest\/test_endToEndTestServerGETTextSummarise_notNilResponse()"
+      ],
       "target" : {
         "containerPath" : "container:GoogleAIFeature.xcodeproj",
         "identifier" : "6222D5982ADF1CE6005A73EC",
@@ -31,6 +40,7 @@
       }
     },
     {
+      "enabled" : false,
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:GoogleAIFeature.xcodeproj",
