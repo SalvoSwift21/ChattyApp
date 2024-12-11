@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
+import LLMFeature
 
 /*
 ROLE
@@ -24,8 +26,7 @@ ENDPOINT    MODEL NAME
 */
 
 
-public class OpenAiConfiguration {
-    
+public class OpenAiConfiguration: LLMFileConfigurationProtocol {
     static public let TEST_API_KEY: String = {
         let base64Value = "c2stcHJvai1tRFVNN2NMYW9obmppY3d5NWpPYmpGXzl6WHFrZk1KemJyOVFmcnJEV0ZuazRuRVl5MGFJMEZRdWU4MS0tU2xJSXd0MEFsLTI2NFQzQmxia0ZKSlpfQW16MGg1OVpEVHVCYzgwcHlkM01yOGUxcWk1NnBTa1VGWFdNTzVjREZEeUpsaUdrV1BiRnh4d0JuMXJ6N1pYMjlzZExBSUE="
         guard let data = Data(base64Encoded: base64Value) else {
@@ -34,7 +35,11 @@ public class OpenAiConfiguration {
         return String(data: data, encoding: .utf8) ?? "Error"
     }()
 
-    static let ORG_ID = "org-Vf9PkFk6RhkFsVJgasYIXl7j"
-    static let BASE_HOST = "api.openai.com"
-    static let BASE_PATH = "/v1"
+    public static let ORG_ID = "org-Vf9PkFk6RhkFsVJgasYIXl7j"
+    public static let BASE_HOST = "api.openai.com"
+    public static let BASE_PATH = "/v1"
+    
+    public static func getSupportedUTType() -> [UTType] {
+        [.image, .png, .jpeg]
+    }
 }

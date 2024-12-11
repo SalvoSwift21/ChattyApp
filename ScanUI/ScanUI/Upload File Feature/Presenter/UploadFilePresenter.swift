@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OCRFeature
 
 public class UploadFilePresenter: UploadFileProtocols {
     
@@ -14,36 +13,28 @@ public class UploadFilePresenter: UploadFileProtocols {
     public var resourceBundle: Bundle
     public var resultOfScan: ((ScanResult) -> Void)
 
-    private var service: UploadFileService
-    private var ocrConcreteDelegate = ImageScannerOCRClientDelegate()
+    private var service: UploadFileServiceProtocol
     private weak var delegate: UploadFileProtocolsDelegate?
     
 
     public init(delegate: UploadFileProtocolsDelegate,
+                service: UploadFileServiceProtocol,
                 resultOfScan: @escaping ((ScanResult) -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
-        let imgScanner = ImageScannerOCRClient(delegate: self.ocrConcreteDelegate)
-        self.service = UploadFileService(imageScannerOCRClient: imgScanner)
+        self.service = service
         self.delegate = delegate
         self.resourceBundle = bundle
         self.resultOfScan = resultOfScan
-        
-        self.setConcreteDelegateCompletion()
-    }
-    
-    private func setConcreteDelegateCompletion() {
-        self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
-            self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
-        }
-        
-        self.ocrConcreteDelegate.errorOnScanning = { error in
-            self.delegate?.render(errorMessage: error.localizedDescription)
-        }
     }
     
     @MainActor
-    public func startScan(atURL url: URL) async throws {
-        try await self.service.startScan(atURL: url)
+    public func startScan(atURL url: URL) async {
+        do {
+            let scanResult = try await self.service.startScan(atURL: url)
+            resultOfScan(scanResult)
+        } catch {
+            self.delegate?.render(errorMessage: error.localizedDescription)
+        }
     }
     
     @MainActor

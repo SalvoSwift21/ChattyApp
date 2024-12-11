@@ -8,8 +8,8 @@
 import Foundation
 import UniformTypeIdentifiers
 
-extension URL {
-    public func mimeType() -> UTType? {
+public extension URL {
+    func mimeType() -> UTType? {
         if let mimeType = UTType(filenameExtension: self.pathExtension) {
             return mimeType
         }

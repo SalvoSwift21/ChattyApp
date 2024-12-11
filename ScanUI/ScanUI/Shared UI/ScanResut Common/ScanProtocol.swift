@@ -11,7 +11,7 @@ import UIKit
 public struct ScanResult: Hashable {
     public var stringResult: String
     public var scanDate: Date
-    public var image: UIImage?
+    public var fileData: Data?
 }
 
 public protocol ScanProtocol: AnyObject {

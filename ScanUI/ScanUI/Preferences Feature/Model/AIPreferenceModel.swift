@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+import UniformTypeIdentifiers
+import LLMFeature
+import OpenAIFeature
+import GoogleAIFeature
 
 public struct AIPreferenceModel: Codable {
     var id: UUID = UUID()
@@ -51,6 +54,17 @@ public enum AIPreferenceType: String, CaseIterable, Codable {
             return "Riassunti istantanei e precisi, ottimizzati per la velocità. Ideale per un'analisi rapida di grandi volumi di testo."
         case .unowned:
             return "Error"
+        }
+    }
+    
+    public func getAISupportedFileTypes() -> [UTType] {
+        switch self {
+            case .gpt_4_o, .gpt_4o_mini:
+            return OpenAiConfiguration.getSupportedUTType()
+        case .gemini_1_5_flash, .gemini_1_5_flash_8b, .gemini_pro:
+            return GoogleAIConfigurations.getSupportedUTType()
+        default:
+            return []
         }
     }
 }

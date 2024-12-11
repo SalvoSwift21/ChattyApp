@@ -27,8 +27,9 @@ public final class UploadFileComposer {
             UploadFileComposer.uploadFileStore = uploadFileStore
         }
         
-                
-        let uploadFilePresenter = UploadFilePresenter(delegate: UploadFileComposer.uploadFileStore ?? uploadFileStore, resultOfScan: scanResult, bundle: bundle)
+        let service = UploadFileService(UTTypes: AppConfiguration.shared.currentSelectedAI.getAISupportedFileTypes())
+        
+        let uploadFilePresenter = UploadFilePresenter(delegate: UploadFileComposer.uploadFileStore ?? uploadFileStore, service: service, resultOfScan: scanResult, bundle: bundle)
 
         return UploadFileView(isPresented: isPresented, store: UploadFileComposer.uploadFileStore ?? uploadFileStore, presenter: uploadFilePresenter, resourceBundle: bundle)
     }

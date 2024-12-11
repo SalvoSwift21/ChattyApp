@@ -46,9 +46,10 @@ public class TextAnalyzerPresenter {
     @MainActor
     fileprivate func makeSummary() async {
         do {
+            let image = UIImage(data: scannedResult.fileData ?? Data())
             let summerCell = createChatViewModel(title: "Summurize my content",
                                                  description: nil,
-                                                 image: scannedResult.image,
+                                                 image: image,
                                                  backgroundColor: .white,
                                                  position: .left,
                                                  isInLoading: false)
@@ -153,7 +154,8 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     @MainActor
     public func doneButtonTapped(withFolder folder: Folder) {
         guard let currentSaveText = currentSaveText else { return }
-        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
+        let image = UIImage(data: scannedResult.fileData ?? Data())
+        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: image)
         
         Task {
             do {

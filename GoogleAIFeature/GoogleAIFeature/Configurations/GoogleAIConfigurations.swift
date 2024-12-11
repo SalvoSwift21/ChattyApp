@@ -7,6 +7,7 @@
 
 import Foundation
 import UniformTypeIdentifiers
+import LLMFeature
 
 //# File extensions supported by Google AI
 //PDF - application/pdf
@@ -20,7 +21,14 @@ import UniformTypeIdentifiers
 //XML - text/xml
 //RTF - text/rtf
 
-public class GoogleAIConfigurations {
+public class GoogleAIConfigurations: LLMFileConfigurationProtocol {
+    
+    public static var ORG_ID: String = ""
+    
+    public static var BASE_HOST: String = ""
+    
+    public static var BASE_PATH: String = ""
+    
     //AIzaSyCi9N2rcBGzvt4BAgLIlH2R0qktjUxiGEY
     static public let TEST_API_KEY: String = {
         let base64Value = "QUl6YVN5Q2k5TjJyY0JHenZ0NEJBZ0xJbEgyUjBxa3RqVXhpR0VZ"
@@ -30,7 +38,7 @@ public class GoogleAIConfigurations {
         return String(data: data, encoding: .utf8) ?? "Error"
     }()
     
-    func getSupportedUTType() -> [UTType] {
-        [.pdf, .javaScript, .text, .html, .css, .commaSeparatedText, .xml, .rtf]
+    public static func getSupportedUTType() -> [UTType] {
+        [.image, .png, .jpeg, .pdf, .text, .html, .css, .commaSeparatedText, .xml, .rtf]
     }
 }

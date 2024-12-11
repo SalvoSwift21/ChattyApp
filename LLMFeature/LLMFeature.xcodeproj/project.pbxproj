@@ -18,6 +18,7 @@
 		6239AEA72A55C63C00972588 /* LLMMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AEA62A55C63C00972588 /* LLMMessage.swift */; };
 		6239AEA92A55C7C200972588 /* LLMRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AEA82A55C7C200972588 /* LLMRequestBody.swift */; };
 		6239AEAB2A55C87300972588 /* LLMResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AEAA2A55C87300972588 /* LLMResponse.swift */; };
+		626352322D09018A002EA7DF /* LLMFileConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626352312D090181002EA7DF /* LLMFileConfigurationProtocol.swift */; };
 		628A79E92A53F05100ECEAF8 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A79E02A53F05100ECEAF8 /* LLMFeature.framework */; };
 		628A79EF2A53F05100ECEAF8 /* LLMFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 628A79E32A53F05100ECEAF8 /* LLMFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		6239AEA62A55C63C00972588 /* LLMMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMMessage.swift; sourceTree = "<group>"; };
 		6239AEA82A55C7C200972588 /* LLMRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMRequestBody.swift; sourceTree = "<group>"; };
 		6239AEAA2A55C87300972588 /* LLMResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMResponse.swift; sourceTree = "<group>"; };
+		626352312D090181002EA7DF /* LLMFileConfigurationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMFileConfigurationProtocol.swift; sourceTree = "<group>"; };
 		628A79E02A53F05100ECEAF8 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A79E32A53F05100ECEAF8 /* LLMFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLMFeature.h; sourceTree = "<group>"; };
 		628A79E82A53F05100ECEAF8 /* LLMFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LLMFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 		6239AEA52A55C5B200972588 /* LLM Model */ = {
 			isa = PBXGroup;
 			children = (
+				626352312D090181002EA7DF /* LLMFileConfigurationProtocol.swift */,
 				6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */,
 				6239AEA62A55C63C00972588 /* LLMMessage.swift */,
 				6239AEA82A55C7C200972588 /* LLMRequestBody.swift */,
@@ -288,6 +291,7 @@
 			files = (
 				6239AEA72A55C63C00972588 /* LLMMessage.swift in Sources */,
 				6239AEA92A55C7C200972588 /* LLMRequestBody.swift in Sources */,
+				626352322D09018A002EA7DF /* LLMFileConfigurationProtocol.swift in Sources */,
 				6228BF1C2A5545A600E27BA0 /* LLMConfiguration.swift in Sources */,
 				6239AEAB2A55C87300972588 /* LLMResponse.swift in Sources */,
 				6228BF182A55437200E27BA0 /* LLMClient.swift in Sources */,

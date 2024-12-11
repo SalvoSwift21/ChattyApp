@@ -44,7 +44,7 @@ extension ImageScannerOCRClient: OCRClient {
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
 
         // Create a new request to recognize text.
-        let request = VNRecognizeTextRequest { [weak self] request, error in 
+        let request = VNRecognizeTextRequest { [weak self] request, error in
             self?.recognizeTextHandler(request: request, error: error, image: image)
         }
         
