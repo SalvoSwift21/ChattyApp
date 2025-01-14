@@ -10,6 +10,7 @@ import LLMFeature
 import GoogleAIFeature
 import GoogleGenerativeAI
 import RestApi
+import UniformTypeIdentifiers
 
 final class GoogleAIFileSummurizeEndToEndTest: XCTestCase {
     
@@ -46,13 +47,15 @@ final class GoogleAIFileSummurizeEndToEndTest: XCTestCase {
         return sut
     }
 
-    private func getSummariseText(file: StaticString = #filePath, line: UInt = #line, pdfURL: URL) async throws -> GoogleFileLLMMessage? {
+    private func getSummariseText(file: StaticString = #filePath, line: UInt = #line, pdfURL: URL) async throws -> LLMMessage? {
         let client = makeGoogleAIHTTPClient()
         let exp = XCTestExpectation(description: "Wait for load completion")
         let prompt = """
                     Summarise the following document
                     """
-        let llmMessage = GoogleFileLLMMessage(role: "user", content: prompt, fileURL: pdfURL)
+        let pdfData = try Data(contentsOf: pdfURL)
+        let fileData = DataGenAiThrowingPartsRepresentable(data: pdfData, preferredMIMEType: UTType.pdf.preferredMIMEType ?? "")
+        let llmMessage = GoogleFileLLMMessage(role: "user", content: prompt, fileData: fileData)
         let result = try await client.sendMessage(object: llmMessage)
         exp.fulfill()
         await fulfillment(of: [exp])

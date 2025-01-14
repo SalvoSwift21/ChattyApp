@@ -11,6 +11,10 @@ import UniformTypeIdentifiers
 
 public class UploadFileService: UploadFileServiceProtocol {
     
+    enum UploadFileServiceError: Error {
+        case invalidFileType
+    }
+    
     let imageScannerOCRClient: ImageScannerOCRClient
     let UTTypes: [UTType]
     private var ocrConcreteDelegate = ImageScannerOCRClientDelegate()
@@ -25,9 +29,27 @@ public class UploadFileService: UploadFileServiceProtocol {
     }
     
     public func startScan(atURL url: URL) async throws -> ScanResult {
+        guard let fileType = url.mimeType() else {
+            throw UploadFileServiceError.invalidFileType
+        }
+        
+        switch fileType {
+        case .pdf:
+            return try extractDataFromFiles(url)
+        case .image, .jpeg, .png:
+            return try await extractScanFromImage(url)
+        default: throw UploadFileServiceError.invalidFileType
+        }
+    }
+}
+
+//MARK: Logic for Image
+fileprivate extension UploadFileService {
+    
+    func extractScanFromImage(_ url: URL) async throws -> ScanResult {
         return try await withCheckedThrowingContinuation { continuation in
             self.ocrConcreteDelegate.recognizedItemCompletion = { scanResult in
-                let result = ScanResult(stringResult: scanResult.0, scanDate: Date(), fileData: scanResult.1?.pngData())
+                let result = ScanResult(stringResult: scanResult.0, scanDate: Date(), fileData: scanResult.1?.pngData(), fileType: url.mimeType()?.identifier)
                 continuation.resume(returning: result)
             }
             
@@ -42,4 +64,15 @@ public class UploadFileService: UploadFileServiceProtocol {
             }
         }
     }
+    
+}
+
+//MARK: Logic for PDF
+fileprivate extension UploadFileService {
+    
+    func extractDataFromFiles(_ url: URL) throws -> ScanResult {
+        let data = try Data(contentsOf: url)
+        return ScanResult(stringResult: "", scanDate: Date(), fileData: data, fileType: url.mimeType()?.identifier)
+    }
+    
 }

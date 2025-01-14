@@ -35,6 +35,14 @@ extension GoogleAILLMClient: TranslateServiceProtocol {
     }
 }
 
+extension GoogleAIFileSummizeClient: TranslateServiceProtocol {
+    public func translate(fromText text: String) async throws -> String {
+        let message = GoogleFileLLMMessage(role: "user", content: text, fileData: DataGenAiThrowingPartsRepresentable(data: Data(), preferredMIMEType: ""))
+        let response = try await self.sendMessage(object: message)
+        return response?.content ?? ""
+    }
+}
+
 extension OpenAILLMClient: TranslateServiceProtocol {
     public func translate(fromText text: String) async throws -> String {
         let message = LLMMessage(role: "user", content: text)

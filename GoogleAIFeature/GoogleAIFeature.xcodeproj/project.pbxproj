@@ -28,6 +28,7 @@
 		6292A9CB2D07C84B00544803 /* GoogleFileLLMMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9CA2D07C84B00544803 /* GoogleFileLLMMessage.swift */; };
 		6292A9CD2D07C86C00544803 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9CC2D07C86700544803 /* URL+Extensions.swift */; };
 		6292A9CF2D07C88A00544803 /* PDFDocument+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9CE2D07C88300544803 /* PDFDocument+Extensions.swift */; };
+		629B7B5D2D1233BE0048267B /* DataGenAiThrowingPartsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B7B5C2D1233B40048267B /* DataGenAiThrowingPartsRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		6292A9CA2D07C84B00544803 /* GoogleFileLLMMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFileLLMMessage.swift; sourceTree = "<group>"; };
 		6292A9CC2D07C86700544803 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		6292A9CE2D07C88300544803 /* PDFDocument+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PDFDocument+Extensions.swift"; sourceTree = "<group>"; };
+		629B7B5C2D1233B40048267B /* DataGenAiThrowingPartsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGenAiThrowingPartsRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				6292A9CA2D07C84B00544803 /* GoogleFileLLMMessage.swift */,
+				629B7B5C2D1233B40048267B /* DataGenAiThrowingPartsRepresentable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				6292A9CB2D07C84B00544803 /* GoogleFileLLMMessage.swift in Sources */,
 				6292A9CD2D07C86C00544803 /* URL+Extensions.swift in Sources */,
 				6222D58E2ADF1167005A73EC /* GoogleAILLMClient.swift in Sources */,
+				629B7B5D2D1233BE0048267B /* DataGenAiThrowingPartsRepresentable.swift in Sources */,
 				6222D5902ADF1167005A73EC /* GoogleAIConfigurations.swift in Sources */,
 				6292A9C12D07B35400544803 /* GoogleAIFileSummizeClient.swift in Sources */,
 				6222D5912ADF1167005A73EC /* Encorder+Extensions.swift in Sources */,

@@ -27,15 +27,4 @@ public final class GoogleAIMapper {
         
         return message
     }
-    
-    public static func map(_ response: GenerateContentResponse) throws -> GoogleAIFileSummizeClient.LLMClientResult {
-        
-        guard let text = response.text else {
-            throw GoogleAIMapper.GoogleAIMapperError.notValidOutput
-        }
-        
-        let message = GoogleFileLLMMessage(role: "", content: text, fileURL: URL(fileURLWithPath: ""))
-        
-        return message
-    }
 }

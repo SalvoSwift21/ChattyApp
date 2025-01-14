@@ -8,13 +8,14 @@
 import Foundation
 
 public struct GoogleFileLLMMessage: Codable, Equatable {
+    
     public let role: String
     public let content: String
-    public let fileURL: URL
+    public let fileData: DataGenAiThrowingPartsRepresentable
     
-    public init(role: String, content: String, fileURL: URL) {
+    public init(role: String, content: String, fileData: DataGenAiThrowingPartsRepresentable) {
         self.role = role
         self.content = content
-        self.fileURL = fileURL
+        self.fileData = fileData
     }
 }

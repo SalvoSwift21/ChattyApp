@@ -19,7 +19,7 @@ public class GoogleAIFileSummizeClient: LLMClient {
         case notValidChatResult
     }
     
-    public typealias LLMClientResult = GoogleFileLLMMessage?
+    public typealias LLMClientResult = LLMMessage?
     public typealias LLMClientObject = GoogleFileLLMMessage
         
 
@@ -29,24 +29,18 @@ public class GoogleAIFileSummizeClient: LLMClient {
         self.generativeLanguageClient = generativeLanguageClient
     }
 
-    public func sendMessage(object: GoogleFileLLMMessage) async throws -> GoogleFileLLMMessage? {
+    public func sendMessage(object: GoogleFileLLMMessage) async throws -> LLMMessage? {
         
         let prompt = object.content
-        guard let fileMineType = object.fileURL.mimeType() else { throw GoogleAIError.generic("Could not get file mime type") }
-        switch fileMineType {
-        case .pdf:
-            guard let pdfDocument = PDFDocument(url: object.fileURL) else { throw GoogleAIError.generic("Unsupported file type") }
-            
-            let count = try await generativeLanguageClient.countTokens(prompt, pdfDocument)
-            
-            guard count.totalTokens > 1000000 else { throw GoogleAIError.generic("Document too large") }
-            
-            let response = try await generativeLanguageClient.generateContent(prompt, pdfDocument)
+        let fileData = object.fileData
+        
+        let count = try await generativeLanguageClient.countTokens(prompt, fileData)
+        
+        guard count.totalTokens < 120000 else { throw GoogleAIError.generic("Document too large") }
+        
+        let response = try await generativeLanguageClient.generateContent(prompt, fileData)
 
-            return try GoogleAIMapper.map(response)
-            
-        default : throw GoogleAIError.generic("Unsupported file type")
-        }
+        return try GoogleAIMapper.map(response)
     }
     
     public func saveInHistory(newObject: GoogleFileLLMMessage) async throws { }

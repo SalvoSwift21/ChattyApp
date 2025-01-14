@@ -12,6 +12,7 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
     
     private enum TextAnalyzerServiceError: Swift.Error {
         case noDefaultFolder
+        case noCorrectClient
     }
     
     private let summaryClient: SummaryClientProtocol
@@ -32,6 +33,10 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
     
     public func makeSummary(forText text: String) async throws -> String {
         try await summaryClient.makeSummary(fromText: text)
+    }
+    
+    public func makeSummary(forData data: Data, mimeType: String) async throws -> String {
+        try await summaryClient.makeSummary(forData: data, mimeType: mimeType)
     }
     
     public func makeTranslation(forText text: String, to locale: Locale) async throws -> String {

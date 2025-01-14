@@ -10,6 +10,7 @@ import ScanUI
 import GoogleAIFeature
 import SummariseTranslateFeature
 import OpenAIFeature
+import UniformTypeIdentifiers
 
 public final class TextAnalyzerComposer {
     
@@ -19,21 +20,13 @@ public final class TextAnalyzerComposer {
         scanResult: ScanResult,
         scanStorage: ScanStorege,
         done: @escaping () -> Void = {  }
-    ) -> TextAnalyzerView {
+    ) -> TextAnalyzerView? {
         
+        guard let fileType = scanResult.getFileUTType() else { return nil  }
+        guard let client = TextAnalyzerComposer.chooseClient(fileType: fileType) else { return nil}
+
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
         let textAnalyzerStore = TextAnalyzerStore()
-        
-        var client: SummaryServiceProtocol & TranslateServiceProtocol
-        
-        switch AppConfiguration.shared.currentSelectedAI {
-        case .gpt_4_o, .gpt_4o_mini:
-            client = makeOpenAIHTTPClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue)
-        case .gemini_1_5_flash, .gemini_pro, .gemini_1_5_flash_8b:
-            client = makeGoogleGeminiAIClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue)
-        case .unowned:
-            fatalError("Not AI selected")
-        }
                 
         let summaryClient = SummaryClient(summariseService: client)
         let trClient = TranslateClient(translateService: client)
@@ -44,5 +37,30 @@ public final class TextAnalyzerComposer {
         let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, done: done, bundle: bundle)
         
         return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
+    }
+    
+    fileprivate static func chooseClient(fileType: UTType) -> (SummaryServiceProtocol & TranslateServiceProtocol)? {
+        var client: SummaryServiceProtocol & TranslateServiceProtocol
+        let currentAi = AppConfiguration.shared.currentSelectedAI
+        
+        guard currentAi.getAISupportedFileTypes().contains(fileType) else {
+            return nil
+        }
+        
+        switch currentAi {
+        case .gpt_4_o, .gpt_4o_mini:
+            client = makeOpenAIHTTPClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue)
+        case .gemini_1_5_flash, .gemini_pro, .gemini_1_5_flash_8b:
+            switch fileType {
+            case .image, .jpeg, .png:
+                client = makeGoogleGeminiAIClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue) as GoogleAILLMClient
+            default:
+                client = makeGoogleGeminiAIClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue) as GoogleAIFileSummizeClient
+            }
+        case .unowned:
+            fatalError("Not AI selected")
+        }
+
+        return client
     }
 }

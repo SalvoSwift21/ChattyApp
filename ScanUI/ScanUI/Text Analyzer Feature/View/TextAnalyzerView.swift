@@ -171,9 +171,7 @@ public struct TextAnalyzerView: View {
     let textAnalyzerStore = TextAnalyzerStore()
     let scanResult = ScanResult(stringResult: "Test result Test result Test result Test result",
                                 scanDate: .now,
-                                fileData: UIImage(named: "FakeImage",
-                                                  in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main,
-                                                  with: nil)?.pngData())
+                                fileData: nil)
 
     let googleClient: GoogleAILLMClient = makeGoogleGeminiAIClient(modelName: AIPreferenceType.gemini_1_5_flash.rawValue)
     
