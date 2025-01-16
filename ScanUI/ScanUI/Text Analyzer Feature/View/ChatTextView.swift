@@ -79,8 +79,13 @@ struct ChatTextView: View {
                                                   image: UIImage(named: "FakeImage", in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, with: nil),
                                                   backgroundColor: .white,
                                                   position: .left,
-                                                  isInLoading: true))
-        
+                                                  isInLoading: false))
+        ChatTextView(viewModel: ChatCellViewModel(title: "Summury text",
+                                                  description: "document name",
+                                                  image: UIImage(named: "document_icon", in: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, with: nil),
+                                                  backgroundColor: .white,
+                                                  position: .left,
+                                                  isInLoading: false))
         
         ChatTextView(viewModel: ChatCellViewModel(title: nil,
                                                   description: "But I must explain to you how all tehis mistaken idea of denouncing pleasure and praisingmely painful. Nor again is there toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?",

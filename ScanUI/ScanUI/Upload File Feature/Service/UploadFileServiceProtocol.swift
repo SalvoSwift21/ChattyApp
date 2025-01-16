@@ -10,5 +10,5 @@ import UniformTypeIdentifiers
 
 public protocol UploadFileServiceProtocol: AnyObject {
     func getFileUTTypes() async -> [UTType]
-    func startScan(atURL url: URL) async throws
+    func startScan(atURL url: URL) async throws -> ScanResult
 }

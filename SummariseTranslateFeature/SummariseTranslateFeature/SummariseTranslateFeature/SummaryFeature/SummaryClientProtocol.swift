@@ -7,6 +7,8 @@
 
 import Foundation
 
+
 public protocol SummaryClientProtocol {
     func makeSummary(fromText text: String) async throws -> String
+    func makeSummary(forData data: Data, mimeType: String) async throws -> String
 }

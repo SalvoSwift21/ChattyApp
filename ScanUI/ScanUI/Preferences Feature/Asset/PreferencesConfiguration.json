@@ -16,6 +16,11 @@
             "aiType": "gemini-1.5-flash"
         },
         {
+            "title": "Google Gemini Flash 1.5-8b",
+            "imageName": "gemini",
+            "aiType": "gemini-1.5-flash-8b"
+        },
+        {
             "title": "Google Gemini Pro",
             "imageName": "gemini",
             "aiType": "gemini-1.5-pro"

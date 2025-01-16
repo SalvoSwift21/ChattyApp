@@ -72,7 +72,9 @@ struct MainContainerView: View {
                 }
             }
             .navigationDestination(for: ScanResult.self) { scanResult in
-                TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage)
+                if let view = TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage) {
+                    view
+                }
             }
             .navigationDestination(for: Folder.self, destination: { folder in
                 FolderDetailComposer.folderDetailComposedWith(folder: folder, client: self.scanStorage)

@@ -42,11 +42,10 @@ public struct UploadFileView: ViewModifier {
                         guard let url = resultUrl else { return }
                         self.isLoading.toggle()
                         Task {
-                            try? await presenter.startScan(atURL: url)
+                            await presenter.startScan(atURL: url)
                             self.isLoading.toggle()
                         }
                     }
-                
                 if self.isLoading {
                     LoadingView()
                         .frame(

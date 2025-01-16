@@ -39,7 +39,7 @@ public class ScanPresenter: ScanProtocols {
     private func setConcreteDelegateCompletion() {
         self.dataScannerDelegate.recognizedItemCompletion = { scanResult in
             self.showLoader(false)
-            self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), image: scanResult.1))
+            self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), fileData: scanResult.1?.pngData()))
         }
         
         self.dataScannerDelegate.errorOnScanning = { error in

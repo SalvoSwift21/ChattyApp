@@ -33,7 +33,7 @@ public class GoogleAILLMClient: LLMClient {
         let prompt = object.content
         let response = try await generativeLanguageClient.generateContent(prompt)
         
-        guard let message = try GoogleAIMapper.map(response) else { throw GoogleAIError.notValidChatResult }
+        guard let message: LLMMessage = try GoogleAIMapper.map(response) else { throw GoogleAIError.notValidChatResult }
         
         try await saveInHistory(newObject: object)
         try await saveInHistory(newObject: message)

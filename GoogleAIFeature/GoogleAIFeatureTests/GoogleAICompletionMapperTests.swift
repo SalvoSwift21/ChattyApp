@@ -25,7 +25,7 @@ class GoogleAIMapperMapperTests: XCTestCase {
         
         let fakeResponse = try makeGenerateTextResponse(fromJSONData: fakeJSONData)
         XCTAssertThrowsError(
-            try GoogleAIMapper.map(fakeResponse)
+            try GoogleAIMapper.map(fakeResponse) as GoogleAILLMClient.LLMClientResult
         )
     }
 
@@ -34,7 +34,7 @@ class GoogleAIMapperMapperTests: XCTestCase {
         let responseEmptyListJSON = try makeGenerateTextResponse(fromJSONData: makeCandidatesJSON([]))
         
         XCTAssertThrowsError(
-            try GoogleAIMapper.map(responseEmptyListJSON)
+            try GoogleAIMapper.map(responseEmptyListJSON) as GoogleAILLMClient.LLMClientResult
         )
     }
     
@@ -45,7 +45,7 @@ class GoogleAIMapperMapperTests: XCTestCase {
         let jsonData = makeCandidatesJSON([item1.json, item2.json])
         let response = try makeGenerateTextResponse(fromJSONData: jsonData)
         
-        let result = try GoogleAIMapper.map(response)
+        let result = try GoogleAIMapper.map(response) as GoogleAILLMClient.LLMClientResult
         
         XCTAssertEqual(result?.content, item1.model.parts.first?.text)
     }

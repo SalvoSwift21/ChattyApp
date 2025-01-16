@@ -40,15 +40,16 @@ public class TextAnalyzerPresenter {
     
     @MainActor 
     public func getData() async {
-        await makeSummary()
+        await makeSummary(forScan: scannedResult)
     }
     
     @MainActor
-    fileprivate func makeSummary() async {
+    fileprivate func makeSummary(forScan scan: ScanResult) async {
         do {
+            let image = getCorrectPlaceholderImage(forScan: scan)
             let summerCell = createChatViewModel(title: "Summurize my content",
                                                  description: nil,
-                                                 image: scannedResult.image,
+                                                 image: image,
                                                  backgroundColor: .white,
                                                  position: .left,
                                                  isInLoading: false)
@@ -67,7 +68,7 @@ public class TextAnalyzerPresenter {
 
             self.renderViewModel()
             
-            let result = try await self.service.makeSummary(forText: self.scannedResult.stringResult)
+            let result = try await self.chooseSummaryService(scan)
             self.currentSaveText = result
             
             summerResultCell.description = result
@@ -77,6 +78,51 @@ public class TextAnalyzerPresenter {
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
+    }
+}
+
+//Helper
+extension TextAnalyzerPresenter {
+    @MainActor
+    fileprivate func makeTranslationFromText(text: String) async throws -> String {
+        try await self.service.makeTranslation(forText: text, to: .current)
+    }
+    
+    fileprivate func chooseSummaryService(_ scan: ScanResult) async throws -> String {
+        guard let type = scan.getFileUTType()?.preferredMIMEType, let data = scan.fileData, scan.stringResult.isEmpty else {
+            return try await self.service.makeSummary(forText: scan.stringResult)
+        }
+        
+        return try await self.service.makeSummary(forData: data, mimeType: type)
+    }
+    
+    @MainActor
+    fileprivate func renderViewModel() {
+        self.delegate?.render(viewModel: textAnalyzerViewModel)
+    }
+    
+    
+    fileprivate func getCorrectPlaceholderImage(forScan scan: ScanResult) -> UIImage {
+        
+        let placeholderImage = UIImage(systemName: "document")?.withTintColor(.prime.withAlphaComponent(0.7), renderingMode: .alwaysOriginal)
+        
+        let icon = getIconFromDocumentController(data: scan.fileData ?? Data())
+        
+        let scanImageData = UIImage(data: scan.fileData ?? Data())
+        
+        return scanImageData ?? icon ?? placeholderImage ?? UIImage()
+    }
+    
+    fileprivate func getIconFromDocumentController(data: Data) -> UIImage? {
+        let tempUrl = URL(fileURLWithPath: NSTemporaryDirectory())
+        try? data.write(to: tempUrl)
+        
+        let controller = UIDocumentInteractionController(url: tempUrl)
+        let image = controller.icons.first
+        
+        try? FileManager.default.removeItem(at: tempUrl)
+        
+        return image
     }
     
     fileprivate func createChatViewModel(title: String?,
@@ -91,17 +137,6 @@ public class TextAnalyzerPresenter {
                                  backgroundColor: backgroundColor,
                                  position: position,
                                  isInLoading: isInLoading)
-    }
-    
-    
-    @MainActor
-    fileprivate func makeTranslationFromText(text: String) async throws -> String {
-        try await self.service.makeTranslation(forText: text, to: .current)
-    }
-    
-    @MainActor
-    fileprivate func renderViewModel() {
-        self.delegate?.render(viewModel: textAnalyzerViewModel)
     }
 }
 
@@ -153,7 +188,8 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     @MainActor
     public func doneButtonTapped(withFolder folder: Folder) {
         guard let currentSaveText = currentSaveText else { return }
-        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: scannedResult.image)
+        let image = getCorrectPlaceholderImage(forScan: scannedResult)
+        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: image)
         
         Task {
             do {

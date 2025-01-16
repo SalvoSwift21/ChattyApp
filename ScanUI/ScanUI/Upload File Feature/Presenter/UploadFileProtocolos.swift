@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol UploadFileProtocols: ScanProtocol {
-    func startScan(atURL url: URL) async throws
+    func startScan(atURL url: URL) async 
     @Sendable func loadFilesType() async
 }
 
