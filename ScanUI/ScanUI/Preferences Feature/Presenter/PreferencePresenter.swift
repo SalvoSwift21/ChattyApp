@@ -34,11 +34,12 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     func loadData() async {
         do {
             let aiPreferences = try await service.getAIPreferences()
-            let choosenAI = try await self.loadAIPreferencereType()
+            let choosenAIType = try await self.loadAIPreferencereType()
             
-            let vModel = PreferencesViewModel(chooseAISection: aiPreferences, selectedAI: choosenAI)
+            guard let selected = aiPreferences.avaibleAI.first(where: { $0.aiType == choosenAIType }) else { return }
+            
+            let vModel = PreferencesViewModel(chooseAISection: aiPreferences, selectedAI: selected)
             self.delegate?.render(viewModel: vModel)
-            
         } catch {
             print("Error \(error.localizedDescription)")
             self.delegate?.render(errorMessage: error.localizedDescription)
@@ -66,5 +67,11 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     
     internal func loadAIPreferencereType() async throws -> AIPreferenceType {
         return try await service.loadAIPreferencereType()
+    }
+}
+
+extension PreferencePresenter: AIModelListDelegate {
+    func didSelectModel(_ model: AIPreferenceModel) {
+        saveAIPreferencereType(model)
     }
 }

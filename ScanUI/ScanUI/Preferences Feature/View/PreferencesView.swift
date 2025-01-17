@@ -13,6 +13,7 @@ public struct PreferencesView: View {
     
     var presenter: PreferencePresenter
     @ObservedObject var store: PreferenceStore
+    @State var showAiModelsList: Bool = false
 
     var resourceBundle: Bundle
 
@@ -36,35 +37,50 @@ public struct PreferencesView: View {
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .loaded(let viewModel):
                 ScrollView {
-                    Group {
-                        Section {
-                            VStack(alignment: .leading, spacing: 20, content: {
-                                ForEach(viewModel.chooseAISection.avaibleAI, id: \.id) { ai in
-                                    Button {
-                                        presenter.saveAIPreferencereType(ai)
-                                    } label: {
-                                        AiCell(model: ai, isSelected: viewModel.selectedAI == ai.aiType)
-                                    }
-                                }
-                            })
-                        } header: {
-                            VStack(alignment: .leading, spacing: 5.0) {
-                                Text("Scegli il tuo modello di AI")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.system(size: 20))
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.title)
-                                
-                                Text("Qui potrai scegliere quale modello di AI vuoi utilizzare per fare riassunti e/o traduzioni")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.system(size: 14))
-                                    .fontWeight(.regular)
-                                    .foregroundStyle(.subtitle)
-                            }
-                        }.padding()
-
+                    Section {
+                        Button {
+                            showAiModelsList.toggle()
+                        } label: {
+                            AICellViewBuilder().AiCell(model: viewModel.selectedAI, isSelected: true, resourceBundle: resourceBundle)
+                        }
+                    } header: {
+                        VStack(alignment: .leading, spacing: 5.0) {
+                            Text("Modello AI")
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 18))
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.title)
+                            
+                            Text("Qui potrai scegliere quale modello di AI vuoi utilizzare per fare riassunti e/o traduzioni")
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 12))
+                                .fontWeight(.regular)
+                                .foregroundStyle(.subtitle)
+                        }
                     }
+                    .padding()
+                    
+                    Section {
+                        
+                    } header: {
+                        VStack(alignment: .leading, spacing: 5.0) {
+                            Text("Lingua")
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 20))
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.title)
+                            
+                            Text("Qui puoi scegliere la lingua di default con cui vuoi fare le traduzioni")
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 14))
+                                .fontWeight(.regular)
+                                .foregroundStyle(.subtitle)
+                        }
+                    }
+                    .padding()
                 }
+                .listStyle(.sidebar)
+                .scrollContentBackground(.hidden)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
@@ -76,6 +92,9 @@ public struct PreferencesView: View {
                             }
                         }
                     }
+                }
+                .sheet(isPresented: $showAiModelsList) {
+                    AiModelListView(models: viewModel.chooseAISection.avaibleAI, selected: viewModel.selectedAI, resourceBundle: resourceBundle, delegate: presenter)
                 }
             }
         }
@@ -89,47 +108,16 @@ public struct PreferencesView: View {
             await presenter.loadData()
         }
     }
-    
-    @ViewBuilder
-    func AiCell(model: AIPreferenceModel, isSelected: Bool) -> some View {
-        HStack(alignment: .top) {
-            Image(model.imageName, bundle: resourceBundle)
-                .resizable()
-                .frame(width: 20, height: 20, alignment: .center)
-            
-            VStack(alignment: .leading, spacing: 3, content: {
-                Text(model.title)
-                    .multilineTextAlignment(.leading)
-                    .font(.system(size: 16))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.title)
-                
-                Text(model.aiType.getDescription())
-                    .multilineTextAlignment(.leading)
-                    .font(.system(size: 12))
-                    .fontWeight(.regular)
-                    .foregroundStyle(.subtitle)
-            })
-            
-            Spacer()
-        }
-        .padding()
-        .background(.white)
-        .clipShape(.buttonBorder)
-        .overlay(
-            RoundedRectangle(cornerRadius: 16.0)
-                .stroke(.prime.opacity(0.5), lineWidth: isSelected ? 1 : 0)
-        )
-        .shadow(color: isSelected ? .prime.opacity(0.5) : .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
-    }
 }
 
 #Preview {
-    @State var preferenceStore = PreferenceStore()
+    var preferenceStore = PreferenceStore()
+    
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-    var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard)
-
-    @State var presenter = PreferencePresenter(delegate: preferenceStore, service: service, menuButton: { }, updatePreferences: { })
+    
+    var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard, aiPreference: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash))
+    
+    var presenter = PreferencePresenter(delegate: preferenceStore, service: service, menuButton: { }, updatePreferences: { })
     
     return NavigationView {
         PreferencesView(store: preferenceStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)

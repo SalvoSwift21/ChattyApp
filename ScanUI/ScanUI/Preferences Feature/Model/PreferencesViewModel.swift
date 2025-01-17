@@ -10,9 +10,9 @@ import Foundation
 public struct PreferencesViewModel {
     
     var chooseAISection: AIPreferencesList
-    var selectedAI: AIPreferenceType
+    var selectedAI: AIPreferenceModel
     
-    public init(chooseAISection: AIPreferencesList, selectedAI: AIPreferenceType) {
+    public init(chooseAISection: AIPreferencesList, selectedAI: AIPreferenceModel) {
         self.chooseAISection = chooseAISection
         self.selectedAI = selectedAI
     }

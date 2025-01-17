@@ -23,6 +23,11 @@ import LLMFeature
 
 public class GoogleAIConfigurations: LLMFileConfigurationProtocol {
     
+    enum GoogleAIError: Error {
+        case JSONNotFound
+        case JSONNotValid
+    }
+    
     public static var ORG_ID: String = ""
     
     public static var BASE_HOST: String = ""
@@ -40,5 +45,21 @@ public class GoogleAIConfigurations: LLMFileConfigurationProtocol {
     
     public static func getSupportedUTType() -> [UTType] {
         [.image, .png, .jpeg, .pdf, .text, .html, .css, .commaSeparatedText, .xml, .rtf]
+    }
+    
+    public static func getSupportedLanguages() throws -> [Locale] {
+       
+        guard let resourceUrl = Bundle.main.url(forResource: "languages", withExtension: ".json") else {
+            throw GoogleAIError.JSONNotFound
+        }
+        
+        
+        guard let data = try? Data(contentsOf: resourceUrl) else {
+            throw GoogleAIError.JSONNotValid
+        }
+        
+        let model = try JSONDecoder().decode(LLMSuppotedLanguages.self, from: data)
+        
+        return model.getAllLocales()
     }
 }

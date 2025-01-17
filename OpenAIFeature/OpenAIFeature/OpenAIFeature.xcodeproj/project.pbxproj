@@ -28,6 +28,7 @@
 		62DDAB8C2AA7052300E1DB2C /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DDAB8B2AA7052300E1DB2C /* TestHelper.swift */; };
 		62DE22E72AA5B0CE00484DFE /* OpenAIApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DE22E62AA5B0CE00484DFE /* OpenAIApiClient.swift */; };
 		62DE22EA2AA5B38E00484DFE /* OpenAIModelsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DE22E92AA5B38E00484DFE /* OpenAIModelsMapper.swift */; };
+		62F11CC92D38EF8A0028996A /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 62F11CC82D38EF8A0028996A /* languages.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		62DDAB8B2AA7052300E1DB2C /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		62DE22E62AA5B0CE00484DFE /* OpenAIApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIApiClient.swift; sourceTree = "<group>"; };
 		62DE22E92AA5B38E00484DFE /* OpenAIModelsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModelsMapper.swift; sourceTree = "<group>"; };
+		62F11CC82D38EF8A0028996A /* languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = languages.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				6224B9692A7A3558009B2A23 /* OpenAIConfigurations.swift */,
+				62F11CC82D38EF8A0028996A /* languages.json */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F11CC92D38EF8A0028996A /* languages.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

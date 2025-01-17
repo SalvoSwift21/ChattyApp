@@ -17,4 +17,5 @@ public protocol LLMFileConfigurationProtocol {
     static var BASE_PATH: String { get }
     
     static func getSupportedUTType() -> [UTType]
+    static func getSupportedLanguages() throws -> [Locale]
 }

@@ -9,8 +9,7 @@ import Foundation
 
 public class LocalAIPreferencesService: AIPreferencesServiceProtocol {
     
-    
-    public enum LocalAIPreferencesError: Swift.Error {
+    enum LocalAIPreferencesError: Error {
         case JSONNotFound
         case JSONNotValid
         case AITypeNotFound
@@ -24,6 +23,15 @@ public class LocalAIPreferencesService: AIPreferencesServiceProtocol {
     public init(resourceBundle: Bundle, userDefault: UserDefaults) {
         self.resourceBundle = resourceBundle
         self.userDefault = userDefault
+    }
+    
+    ///Use init only for preview !!!!!!!!
+    public init(resourceBundle: Bundle, userDefault: UserDefaults, aiPreference: AIPreferenceModel) {
+        self.resourceBundle = resourceBundle
+        self.userDefault = userDefault
+        Task {
+            try! await self.saveAIPreferencereType(aiPreference)
+        }
     }
     
     public func getAIPreferences() async throws -> AIPreferencesList {
