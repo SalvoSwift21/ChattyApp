@@ -6,14 +6,20 @@
 //
 
 import Foundation
+import LLMFeature
 
 public struct PreferencesViewModel {
     
-    var chooseAISection: AIPreferencesList
+    var aiList: AIPreferencesList
     var selectedAI: AIPreferenceModel
     
-    public init(chooseAISection: AIPreferencesList, selectedAI: AIPreferenceModel) {
-        self.chooseAISection = chooseAISection
+    var translateLanguage: LLMSuppotedLanguages
+    var selectedLanguage: LLMLanguage
+    
+    public init(aiList: AIPreferencesList, selectedAI: AIPreferenceModel, translateLanguage: LLMSuppotedLanguages, selectedLanguage: LLMLanguage) {
+        self.aiList = aiList
         self.selectedAI = selectedAI
+        self.translateLanguage = translateLanguage
+        self.selectedLanguage = selectedLanguage
     }
 }

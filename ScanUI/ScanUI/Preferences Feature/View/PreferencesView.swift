@@ -14,6 +14,7 @@ public struct PreferencesView: View {
     var presenter: PreferencePresenter
     @ObservedObject var store: PreferenceStore
     @State var showAiModelsList: Bool = false
+    @State var showLanguagesModelsList: Bool = false
 
     var resourceBundle: Bundle
 
@@ -61,7 +62,11 @@ public struct PreferencesView: View {
                     .padding()
                     
                     Section {
-                        
+                        Button {
+                            showLanguagesModelsList.toggle()
+                        } label: {
+                            LanguageCellViewBuilder().languageCell(model: viewModel.selectedLanguage, isSelected: true)
+                        }
                     } header: {
                         VStack(alignment: .leading, spacing: 5.0) {
                             Text("Lingua")
@@ -94,7 +99,10 @@ public struct PreferencesView: View {
                     }
                 }
                 .sheet(isPresented: $showAiModelsList) {
-                    AiModelListView(models: viewModel.chooseAISection.avaibleAI, selected: viewModel.selectedAI, resourceBundle: resourceBundle, delegate: presenter)
+                    AiModelListView(models: viewModel.aiList.avaibleAI, selected: viewModel.selectedAI, resourceBundle: resourceBundle, delegate: presenter)
+                }
+                .sheet(isPresented: $showLanguagesModelsList) {
+                    LanguagesListView(models: viewModel.translateLanguage.languages, selected: viewModel.selectedLanguage, resourceBundle: resourceBundle, delegate: presenter)
                 }
             }
         }

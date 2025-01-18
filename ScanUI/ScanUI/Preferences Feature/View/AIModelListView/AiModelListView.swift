@@ -64,8 +64,7 @@ public struct AiModelListView: View {
 }
 
 #Preview {
-    
-    return NavigationView {
+    NavigationView {
         AiModelListView(models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
     }
     

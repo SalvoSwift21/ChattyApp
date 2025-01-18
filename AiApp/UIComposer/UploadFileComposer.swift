@@ -27,7 +27,7 @@ public final class UploadFileComposer {
             UploadFileComposer.uploadFileStore = uploadFileStore
         }
         
-        let service = UploadFileService(UTTypes: AppConfiguration.shared.currentSelectedAI.getAISupportedFileTypes())
+        let service = UploadFileService(UTTypes: AppConfiguration.shared.currentPreference.selectedAI.getAISupportedFileTypes())
         
         let uploadFilePresenter = UploadFilePresenter(delegate: UploadFileComposer.uploadFileStore ?? uploadFileStore, service: service, resultOfScan: scanResult, bundle: bundle)
 

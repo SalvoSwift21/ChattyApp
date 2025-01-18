@@ -50,9 +50,10 @@ public class OpenAiConfiguration: LLMFileConfigurationProtocol {
         [.image, .png, .jpeg]
     }
     
-    public static func getSupportedLanguages() throws -> [Locale] {
-       
-        guard let resourceUrl = Bundle.main.url(forResource: "languages", withExtension: ".json") else {
+    public static func getSupportedLanguages() throws -> LLMSuppotedLanguages {
+        let localBundle = Bundle(identifier: "com.ariel.OpenAIFeature") ?? .main
+        
+        guard let resourceUrl = localBundle.url(forResource: "languages", withExtension: ".json") else {
             throw OpenAIError.JSONNotFound
         }
         
@@ -62,6 +63,6 @@ public class OpenAiConfiguration: LLMFileConfigurationProtocol {
         
         let model = try JSONDecoder().decode(LLMSuppotedLanguages.self, from: data)
         
-        return model.getAllLocales()
+        return model
     }
 }

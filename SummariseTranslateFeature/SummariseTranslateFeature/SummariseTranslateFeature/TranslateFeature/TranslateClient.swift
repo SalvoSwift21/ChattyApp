@@ -12,17 +12,17 @@ import OpenAIFeature
 
 public class TranslateClient: TranslateClientProtocol {
     
-    
     var translateService: TranslateServiceProtocol
+    var localeToTranslate: Locale
     
-    public init(translateService: TranslateServiceProtocol) {
+    public init(translateService: TranslateServiceProtocol, localeToTranslate: Locale) {
         self.translateService = translateService
+        self.localeToTranslate = localeToTranslate
     }
     
-    public func translate(fromText text: String, to: Locale) async throws -> String {
-        let trPrompt = "Translate the following text: \(text) in \(to.identifier)"
+    public func translate(fromText text: String) async throws -> String {
+        let trPrompt = "Translate the following text: \(text) in \(localeToTranslate.identifier)"
         return try await self.translateService.translate(fromText: trPrompt)
-
     }
     
 }

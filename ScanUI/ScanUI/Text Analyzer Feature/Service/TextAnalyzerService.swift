@@ -45,7 +45,7 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
         
         guard currentLanguage != locale.identifier else { return text }
         
-        let translate = try await self.translateClient.translate(fromText: text, to: locale)
+        let translate = try await self.translateClient.translate(fromText: text)
 
         return translate
     }

@@ -29,7 +29,7 @@ public final class TextAnalyzerComposer {
         let textAnalyzerStore = TextAnalyzerStore()
                 
         let summaryClient = SummaryClient(summariseService: client)
-        let trClient = TranslateClient(translateService: client)
+        let trClient = TranslateClient(translateService: client, localeToTranslate: TextAnalyzerComposer.getCurrentTranslationLanguage())
         let idLanguage = AppleIdentificationLanguage()
         
         let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: scanStorage)
@@ -41,7 +41,7 @@ public final class TextAnalyzerComposer {
     
     fileprivate static func chooseClient(fileType: UTType) -> (SummaryServiceProtocol & TranslateServiceProtocol)? {
         var client: SummaryServiceProtocol & TranslateServiceProtocol
-        let currentAi = AppConfiguration.shared.currentSelectedAI
+        let currentAi = AppConfiguration.shared.currentPreference.selectedAI
         
         guard currentAi.getAISupportedFileTypes().contains(fileType) else {
             return nil
@@ -49,18 +49,22 @@ public final class TextAnalyzerComposer {
         
         switch currentAi {
         case .gpt_4_o, .gpt_4o_mini:
-            client = makeOpenAIHTTPClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue)
+            client = makeOpenAIHTTPClient(modelName: currentAi.rawValue)
         case .gemini_1_5_flash, .gemini_pro, .gemini_1_5_flash_8b:
             switch fileType {
             case .image, .jpeg, .png:
-                client = makeGoogleGeminiAIClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue) as GoogleAILLMClient
+                client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue) as GoogleAILLMClient
             default:
-                client = makeGoogleGeminiAIClient(modelName: AppConfiguration.shared.currentSelectedAI.rawValue) as GoogleAIFileSummizeClient
+                client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue) as GoogleAIFileSummizeClient
             }
         case .unowned:
             fatalError("Not AI selected")
         }
 
         return client
+    }
+    
+    fileprivate static func getCurrentTranslationLanguage() -> Locale {
+        return AppConfiguration.shared.currentPreference.selectedLanguage.locale
     }
 }
