@@ -176,10 +176,10 @@ public struct TextAnalyzerView: View {
     let googleClient: GoogleAILLMClient = makeGoogleGeminiAIClient(modelName: AIModelType.gemini_1_5_flash.rawValue)
     
     let summaryClient = SummaryClient(summariseService: googleClient)
-    let trClient = TranslateClient(translateService: googleClient, localeToTranslate: .current)
     let idLanguage = AppleIdentificationLanguage()
+    let trClient = TranslateClient(translateService: googleClient, identificationLanguageClient: idLanguage, localeToTranslate: .current)
     
-    let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: getFakeStorage())
+    let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: getFakeStorage())
     
     let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, bundle: bundle)
     

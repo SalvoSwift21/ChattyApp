@@ -35,6 +35,7 @@ struct ChatTextView: View {
         VStack(alignment: .leading) {
             if viewModel.isInLoading {
                 ProgressView()
+                    .tint(.white)
             } else {
                 VStack(alignment: .leading) {
                     if let title = viewModel.title {
@@ -93,6 +94,13 @@ struct ChatTextView: View {
                                                   backgroundColor: .prime.opacity(0.7),
                                                   position: .right,
                                                   isInLoading: false))
+        
+        ChatTextView(viewModel: ChatCellViewModel(title: nil,
+                                                  description: "",
+                                                  image: nil,
+                                                  backgroundColor: .prime.opacity(0.7),
+                                                  position: .right,
+                                                  isInLoading: true))
                      
     }
     .padding()

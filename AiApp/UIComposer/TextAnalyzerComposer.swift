@@ -29,10 +29,10 @@ public final class TextAnalyzerComposer {
         let textAnalyzerStore = TextAnalyzerStore()
                 
         let summaryClient = SummaryClient(summariseService: client)
-        let trClient = TranslateClient(translateService: client, localeToTranslate: TextAnalyzerComposer.getCurrentTranslationLanguage())
         let idLanguage = AppleIdentificationLanguage()
+        let trClient = TranslateClient(translateService: client, identificationLanguageClient: idLanguage, localeToTranslate: TextAnalyzerComposer.getCurrentTranslationLanguage())
         
-        let service = TextAnalyzerService(summaryClient: summaryClient, identificationLanguageClient: idLanguage, translateClient: trClient, storageClient: scanStorage)
+        let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: scanStorage)
         
         let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, done: done, bundle: bundle)
         
