@@ -66,6 +66,10 @@ public struct PreferencesView: View {
                             showLanguagesModelsList.toggle()
                         } label: {
                             LanguageCellViewBuilder().languageCell(model: viewModel.selectedLanguage, isSelected: true)
+                                .padding()
+                                .background(.white)
+                                .clipShape(.buttonBorder)
+                                .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
                         }
                     } header: {
                         VStack(alignment: .leading, spacing: 5.0) {

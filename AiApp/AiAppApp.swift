@@ -30,7 +30,7 @@ public class AppConfiguration {
     
     var preferenceService: LocalAIPreferencesService
     
-    private(set) var currentPreference: PreferenceModel = .init(selectedLanguage: LLMLanguage.init(code: "", name: "", locale: Locale.current), selectedAI: .unowned)
+    private(set) var currentPreference: PreferenceModel = .init(selectedLanguage: LLMLanguage.init(code: "", name: "", locale: Locale.current, id: UUID()), selectedAI: .unowned)
     
     private init() { 
         preferenceService = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: preferencesStoreManager ?? .standard)

@@ -16,7 +16,7 @@ class LanguageCellViewBuilder {
     func languageCell(model: LLMLanguage, isSelected: Bool) -> some View {
         HStack(alignment: .center, spacing: 8) {
             Text("\(flag(from: model.locale) ?? "")")
-                .font(.largeTitle)
+                .font(.title)
                 .multilineTextAlignment(.leading)
             Text("\(model.name)")
                 .font(.system(size: 18))

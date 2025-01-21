@@ -18,16 +18,17 @@ public struct LLMSuppotedLanguages: Codable, Equatable {
 
 public struct LLMLanguage: Codable, Equatable {
     
-    public var id: UUID = UUID()
+    public var id: UUID
 
     public let code: String
     public let name: String
     public let locale: Locale
     
-    public init(code: String, name: String, locale: Locale) {
+    public init(code: String, name: String, locale: Locale, id: UUID) {
         self.code = code
         self.name = name
         self.locale = locale
+        self.id = id
     }
     
     enum CodingKeys: CodingKey {

@@ -1106,6 +1106,9 @@
 				62DB671B2CC707B700350776 /* Model */,
 				62DB671C2CC707BF00350776 /* View */,
 				62DB671D2CC707C900350776 /* Presenter */,
+				621F34102D3A4176007020DC /* LanguageListView */,
+				621F340F2D3A4168007020DC /* AIModelListView */,
+				621F340E2D3A415C007020DC /* Common */,
 			);
 			path = "Preferences Feature";
 			sourceTree = "<group>";
@@ -1142,9 +1145,6 @@
 		62DB671C2CC707BF00350776 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				621F34102D3A4176007020DC /* LanguageListView */,
-				621F340F2D3A4168007020DC /* AIModelListView */,
-				621F340E2D3A415C007020DC /* Common */,
 				62DB67332CC7124B00350776 /* PreferenceStore.swift */,
 				62681F192CC859660077ECE6 /* PreferencesView.swift */,
 			);

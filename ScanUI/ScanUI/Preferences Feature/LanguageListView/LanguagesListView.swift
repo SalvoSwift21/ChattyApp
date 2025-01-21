@@ -17,22 +17,40 @@ protocol LanguagesListDelegate: AnyObject {
 public struct LanguagesListView: View {
     
     @Environment(\.dismiss) var dismiss
-
-    var models: [LLMLanguage]
-    var selected: LLMLanguage
-    var resourceBundle: Bundle
+    @State private var searchText: String = ""
     
-    var delegate: LanguagesListDelegate
+    private var models: [LLMLanguage]
+    private var selected: LLMLanguage
+    private var resourceBundle: Bundle
+    
+    private var delegate: LanguagesListDelegate
+    
+    private var searchResults: [LLMLanguage] {
+        if searchText.isEmpty {
+            return models
+        } else {
+            return models.filter { $0.name.contains(searchText) }
+        }
+    }
+    
+    init(models: [LLMLanguage], selected: LLMLanguage, resourceBundle: Bundle, delegate: LanguagesListDelegate) {
+        self.models = models
+        self.selected = selected
+        self.resourceBundle = resourceBundle
+        self.delegate = delegate
+    }
     
     public var body: some View {
         NavigationView {
             List {
-                ForEach(models, id: \.id) { language in
+                ForEach(searchResults, id: \.id) { language in
                     Button {
                         delegate.didSelectModel(language)
                         dismiss()
                     } label: {
-                        LanguageCellViewBuilder().languageCell(model: language, isSelected: language.id == selected.id)
+                        VStack {
+                            LanguageCellViewBuilder().languageCell(model: language, isSelected: language.code == selected.code)
+                        }
                     }
                 }
             }
@@ -52,7 +70,9 @@ public struct LanguagesListView: View {
                 }
             }
         }
+        .searchable(text: $searchText, prompt: "Search your favorite language")
     }
+    
 }
 
 #Preview {
@@ -62,8 +82,8 @@ public struct LanguagesListView: View {
 
 class FakeLanguagesListDelegate: LanguagesListDelegate {
     static var fakeList: [LLMLanguage] = [
-        LLMLanguage(code: "en", name: "English", locale: Locale.init(identifier: "en_US")),
-        LLMLanguage(code: "es", name: "Español", locale: Locale.init(identifier: "es_ES")),
+        LLMLanguage(code: "en", name: "English", locale: Locale.init(identifier: "en_US"), id: UUID()),
+        LLMLanguage(code: "es", name: "Español", locale: Locale.init(identifier: "es_ES"), id: UUID()),
     ]
             
     func didSelectModel(_ model: LLMLanguage) { }
