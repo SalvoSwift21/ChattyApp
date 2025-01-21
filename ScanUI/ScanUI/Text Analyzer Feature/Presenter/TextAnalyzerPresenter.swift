@@ -85,7 +85,7 @@ public class TextAnalyzerPresenter {
 extension TextAnalyzerPresenter {
     @MainActor
     fileprivate func makeTranslationFromText(text: String) async throws -> String {
-        try await self.service.makeTranslation(forText: text, to: .current)
+        try await self.service.makeTranslation(forText: text)
     }
     
     fileprivate func chooseSummaryService(_ scan: ScanResult) async throws -> String {

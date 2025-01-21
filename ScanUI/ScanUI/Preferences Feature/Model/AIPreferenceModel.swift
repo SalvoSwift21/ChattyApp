@@ -16,9 +16,9 @@ public struct AIPreferenceModel: Codable {
 
     var title: String
     var imageName: String
-    public var aiType: AIPreferenceType
+    public var aiType: AIModelType
     
-    public init(title: String, imageName: String, aiType: AIPreferenceType) {
+    public init(title: String, imageName: String, aiType: AIModelType) {
         self.title = title
         self.imageName = imageName
         self.aiType = aiType
@@ -31,7 +31,7 @@ public struct AIPreferenceModel: Codable {
     }
 }
 
-public enum AIPreferenceType: String, CaseIterable, Codable {
+public enum AIModelType: String, CaseIterable, Codable {
     case gpt_4_o = "gpt-4o"
     case gpt_4o_mini = "gpt-4o-mini"
     case gemini_1_5_flash = "gemini-1.5-flash"
@@ -65,6 +65,15 @@ public enum AIPreferenceType: String, CaseIterable, Codable {
             return GoogleAIConfigurations.getSupportedUTType()
         default:
             return []
+        }
+    }
+    
+    public func getAllSupportedLanguages() throws -> LLMSuppotedLanguages {
+        switch self {
+        case .gpt_4_o, .gpt_4o_mini:
+            return try OpenAiConfiguration.getSupportedLanguages()
+        case .gemini_1_5_flash, .gemini_1_5_flash_8b, .gemini_pro, .unowned:
+            return try GoogleAIConfigurations.getSupportedLanguages()
         }
     }
 }

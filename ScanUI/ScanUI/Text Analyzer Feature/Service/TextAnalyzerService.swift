@@ -17,15 +17,12 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
     
     private let summaryClient: SummaryClientProtocol
     private let translateClient: TranslateClientProtocol
-    private let identificationLanguageClient: IdentificationLanguageProtocol
     let storageClient: ScanStorege
    
     public init(summaryClient: SummaryClientProtocol,
-                identificationLanguageClient: IdentificationLanguageProtocol,
                 translateClient: TranslateClientProtocol,
                 storageClient: ScanStorege) {
         self.summaryClient = summaryClient
-        self.identificationLanguageClient = identificationLanguageClient
         self.translateClient = translateClient
         self.storageClient = storageClient
     }
@@ -39,15 +36,8 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
         try await summaryClient.makeSummary(forData: data, mimeType: mimeType)
     }
     
-    public func makeTranslation(forText text: String, to locale: Locale) async throws -> String {
-        
-        let currentLanguage = try self.identificationLanguageClient.identifyLanguage(fromText: text)
-        
-        guard currentLanguage != locale.identifier else { return text }
-        
-        let translate = try await self.translateClient.translate(fromText: text, to: locale)
-
-        return translate
+    public func makeTranslation(forText text: String) async throws -> String {
+        return try await self.translateClient.translate(fromText: text)
     }
     
     public func saveCurrentScan(scan: Scan, folder: Folder? = nil) async throws {

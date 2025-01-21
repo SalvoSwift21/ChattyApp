@@ -9,6 +9,7 @@ import SwiftUI
 import RestApi
 import ScanUI
 import VisionKit
+import LLMFeature
 
 public class AppConfiguration {
     
@@ -29,7 +30,7 @@ public class AppConfiguration {
     
     var preferenceService: LocalAIPreferencesService
     
-    private(set) var currentSelectedAI: AIPreferenceType = .unowned
+    private(set) var currentPreference: PreferenceModel = .init(selectedLanguage: LLMLanguage.init(code: "", name: "", locale: Locale.current, id: UUID()), selectedAI: .unowned)
     
     private init() { 
         preferenceService = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: preferencesStoreManager ?? .standard)
@@ -42,13 +43,12 @@ public class AppConfiguration {
     public func updatePreferences() {
         Task {
             guard let result = try? await preferenceService.loadAIPreferencereType() else { return }
-            self.updateAI(with: result)
+            self.updatePreference(with: result)
         }
     }
     
-    
-    fileprivate func updateAI(with newAI: AIPreferenceType) {
-        self.currentSelectedAI = newAI
+    fileprivate func updatePreference(with preference: PreferenceModel) {
+        self.currentPreference = preference
     }
     
     fileprivate func selectAIIfNeeded() async {
@@ -59,15 +59,20 @@ public class AppConfiguration {
                 fatalError("No AI Avaible")
             }
             
+            guard let defaultLanguage = try defaultAI.aiType.getAllSupportedLanguages().languages.first else {
+                fatalError("No supported Language")
+            }
+            
             let result = try? await preferenceService.loadAIPreferencereType()
             
             guard let result = result else {
-                try await preferenceService.saveAIPreferencereType(defaultAI)
-                self.updateAI(with: defaultAI.aiType)
+                let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: defaultLanguage, selectedAI: defaultAI.aiType)
+                try await preferenceService.saveAIPreferencereType(preference)
+                self.updatePreference(with: preference)
                 return
             }
             
-            self.updateAI(with: result)
+            self.updatePreference(with: result)
             
         } catch {
             fatalError("No AI Avaible")

@@ -30,17 +30,22 @@ public class GoogleAIFileSummizeClient: LLMClient {
     }
 
     public func sendMessage(object: GoogleFileLLMMessage) async throws -> LLMMessage? {
-        
+        let response = try await handleCorrectResponse(object)
+        return try GoogleAIMapper.map(response)
+    }
+    
+    fileprivate func handleCorrectResponse(_ object: GoogleFileLLMMessage) async throws -> GenerateContentResponse {
         let prompt = object.content
-        let fileData = object.fileData
+        
+        guard let fileData = object.fileData else {
+            return try await generativeLanguageClient.generateContent(prompt)
+        }
         
         let count = try await generativeLanguageClient.countTokens(prompt, fileData)
         
         guard count.totalTokens < 120000 else { throw GoogleAIError.generic("Document too large") }
         
-        let response = try await generativeLanguageClient.generateContent(prompt, fileData)
-
-        return try GoogleAIMapper.map(response)
+        return try await generativeLanguageClient.generateContent(prompt, fileData)
     }
     
     public func saveInHistory(newObject: GoogleFileLLMMessage) async throws { }

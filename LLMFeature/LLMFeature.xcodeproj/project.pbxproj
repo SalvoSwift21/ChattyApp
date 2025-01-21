@@ -21,6 +21,7 @@
 		626352322D09018A002EA7DF /* LLMFileConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626352312D090181002EA7DF /* LLMFileConfigurationProtocol.swift */; };
 		628A79E92A53F05100ECEAF8 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628A79E02A53F05100ECEAF8 /* LLMFeature.framework */; };
 		628A79EF2A53F05100ECEAF8 /* LLMFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 628A79E32A53F05100ECEAF8 /* LLMFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62F11CCB2D38F1E60028996A /* LLMSuppotedLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F11CCA2D38F1DB0028996A /* LLMSuppotedLanguages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		628A79E02A53F05100ECEAF8 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		628A79E32A53F05100ECEAF8 /* LLMFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLMFeature.h; sourceTree = "<group>"; };
 		628A79E82A53F05100ECEAF8 /* LLMFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LLMFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F11CCA2D38F1DB0028996A /* LLMSuppotedLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMSuppotedLanguages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				6239AEA62A55C63C00972588 /* LLMMessage.swift */,
 				6239AEA82A55C7C200972588 /* LLMRequestBody.swift */,
 				6239AEAA2A55C87300972588 /* LLMResponse.swift */,
+				62F11CCA2D38F1DB0028996A /* LLMSuppotedLanguages.swift */,
 			);
 			path = "LLM Model";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F11CCB2D38F1E60028996A /* LLMSuppotedLanguages.swift in Sources */,
 				6239AEA72A55C63C00972588 /* LLMMessage.swift in Sources */,
 				6239AEA92A55C7C200972588 /* LLMRequestBody.swift in Sources */,
 				626352322D09018A002EA7DF /* LLMFileConfigurationProtocol.swift in Sources */,
