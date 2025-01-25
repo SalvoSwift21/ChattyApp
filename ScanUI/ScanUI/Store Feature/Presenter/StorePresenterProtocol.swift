@@ -14,7 +14,7 @@ protocol StorePresenterProtocol: AnyObject {
 
     func loadData() async
     
-    func productTapped(_ productModel: ProductModel) async throws
+    func productTapped(_ productModel: ProductFeature) async throws
 }
 
 public protocol StoreDelegate: AnyObject {

@@ -7,5 +7,5 @@
 
 
 public struct StoreViewModel {
-    var products: [ProductModel]
+    var products: [ProductFeature]
 }

@@ -10,13 +10,13 @@ public class StorePresenter: StorePresenterProtocol {
         
     internal var resourceBundle: Bundle
 
-    private var service: StoreServiceProtocol
+    private var service: ProductFeatureProtocol
     private weak var delegate: StoreDelegate?
     public var menuButton: (() -> Void)
 
 
     public init(delegate: StoreDelegate,
-                service: StoreServiceProtocol,
+                service: ProductFeatureService,
                 menuButton: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
@@ -27,14 +27,18 @@ public class StorePresenter: StorePresenterProtocol {
     
     @MainActor
     func loadData() async {
-        let products = service.getProducts()
-        let vModel = StoreViewModel(products: products)
-        if products.isEmpty {
+        do {
+            let products = try await service.getProductFeatures()
+            let vModel = StoreViewModel(products: products)
+            if products.isEmpty {
+                self.delegate?.render(errorMessage: "No products avaible")
+            } else {
+                self.delegate?.render(viewModel: vModel)
+            }
+        } catch {
             self.delegate?.render(errorMessage: "No products avaible")
-        } else {
-            self.delegate?.render(viewModel: vModel)
         }
     }
     
-    func productTapped(_ productModel: ProductModel) async throws { }
+    func productTapped(_ productModel: ProductFeature) async throws { }
 }

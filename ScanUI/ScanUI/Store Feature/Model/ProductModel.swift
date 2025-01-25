@@ -7,13 +7,7 @@
 
 import StoreKit
 
-public struct ProductModel: Codable, Decodable {
-    
+public struct ProductFeature: Codable {
     var features: [FeatureEnum]
-    var storeKITModel: Product
-    
-    init(features: [FeatureEnum], storeKITModel: Product) {
-        self.features = features
-        self.storeKITModel = storeKITModel
-    }
+    var productID: String
 }
