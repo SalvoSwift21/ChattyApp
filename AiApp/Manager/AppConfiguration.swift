@@ -20,6 +20,7 @@ public class AppConfiguration {
     static let defaultFolderName = String(localized: "DEFAULT_FOLDER_NAME")
     
     let preferencesStoreManager = UserDefaults(suiteName: "PREFERENCES_STORE_MANAGER")
+    let purchaseManager: PurchaseManager
     
     var storeURL: URL = {
         guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
@@ -33,12 +34,17 @@ public class AppConfiguration {
     
     private(set) var currentPreference: PreferenceModel = .init(selectedLanguage: LLMLanguage.init(code: "", name: "", locale: Locale.current, id: UUID()), selectedAI: .unowned)
     
-    private init() { 
-        preferenceService = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: preferencesStoreManager ?? .standard)
+    private init() {
+        let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
+        preferenceService = LocalAIPreferencesService(resourceBundle: bundle, userDefault: preferencesStoreManager ?? .standard)
+        let storeService = StoreService()
+        let productFeatureService = ProductFeatureService(resourceBundle: bundle)
+        purchaseManager = PurchaseManager(storeService: storeService, productFeatureService: productFeatureService)
     }
     
-    public func bootApp() async {
-        await selectAIIfNeeded()
+    public func bootApp() async throws {
+        try await selectAIIfNeeded()
+        try await purchaseManager.startManager()
     }
     
     public func updatePreferences() {
@@ -52,31 +58,26 @@ public class AppConfiguration {
         self.currentPreference = preference
     }
     
-    fileprivate func selectAIIfNeeded() async {
-        do {
-            let allAI = try await preferenceService.getAIPreferences()
-            
-            guard let defaultAI = allAI.avaibleAI.first else {
-                fatalError("No AI Avaible")
-            }
-            
-            guard let defaultLanguage = try defaultAI.aiType.getAllSupportedLanguages().languages.first else {
-                fatalError("No supported Language")
-            }
-            
-            let result = try? await preferenceService.loadAIPreferencereType()
-            
-            guard let result = result else {
-                let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: defaultLanguage, selectedAI: defaultAI.aiType)
-                try await preferenceService.saveAIPreferencereType(preference)
-                self.updatePreference(with: preference)
-                return
-            }
-            
-            self.updatePreference(with: result)
-            
-        } catch {
+    fileprivate func selectAIIfNeeded() async throws {
+        let allAI = try await preferenceService.getAIPreferences()
+        
+        guard let defaultAI = allAI.avaibleAI.first else {
             fatalError("No AI Avaible")
         }
+        
+        guard let defaultLanguage = try defaultAI.aiType.getAllSupportedLanguages().languages.first else {
+            fatalError("No supported Language")
+        }
+        
+        let result = try? await preferenceService.loadAIPreferencereType()
+        
+        guard let result = result else {
+            let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: defaultLanguage, selectedAI: defaultAI.aiType)
+            try await preferenceService.saveAIPreferencereType(preference)
+            self.updatePreference(with: preference)
+            return
+        }
+        
+        self.updatePreference(with: result)
     }
 }

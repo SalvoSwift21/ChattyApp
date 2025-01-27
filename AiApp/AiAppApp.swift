@@ -43,9 +43,18 @@ struct AiAppApp: App {
                 }
             }
             .environmentObject(appRootManager)
+            .environment(AppConfiguration.shared.purchaseManager)
             .task {
-                await AppConfiguration.shared.bootApp()
+                await bootApp()
             }
+        }
+    }
+    
+    fileprivate func bootApp() async {
+        do {
+            try await AppConfiguration.shared.bootApp()
+        } catch {
+            fatalError("App not load correctly: \(error)")
         }
     }
 }

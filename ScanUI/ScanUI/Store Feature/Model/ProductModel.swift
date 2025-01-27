@@ -8,6 +8,11 @@
 import StoreKit
 
 public struct ProductFeature: Codable {
-    var features: [FeatureEnum]
-    var productID: String
+    public var features: [FeatureEnum]
+    public var productID: String
+    
+    public init(features: [FeatureEnum], productID: String) {
+        self.features = features
+        self.productID = productID
+    }
 }

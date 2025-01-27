@@ -14,7 +14,6 @@
 		621ADBD92CFD28B400A01F68 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 62128CB02A1F8F92005D732A /* Assets.xcassets */; };
 		621ADBDB2CFD291400A01F68 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621ADBDA2CFD291100A01F68 /* ColorExtensions.swift */; };
 		621D62D72D445032005A03A9 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D62D62D445013005A03A9 /* AppConfiguration.swift */; };
-		621D62DA2D4450C0005A03A9 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D62D92D4450AC005A03A9 /* PurchaseManager.swift */; };
 		622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */; };
 		623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
@@ -70,7 +69,6 @@
 		62128CB32A1F8F92005D732A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		621ADBDA2CFD291100A01F68 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		621D62D62D445013005A03A9 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
-		621D62D92D4450AC005A03A9 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUIComposer.swift; sourceTree = "<group>"; };
 		62639E532A264941004F5E44 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		621D62D82D44504E005A03A9 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				621D62D92D4450AC005A03A9 /* PurchaseManager.swift */,
 				621D62D62D445013005A03A9 /* AppConfiguration.swift */,
 				62C468F22B2FC0AB002DD3A3 /* AppRootManager.swift */,
 			);
@@ -297,7 +294,6 @@
 				621ADBDB2CFD291400A01F68 /* ColorExtensions.swift in Sources */,
 				6204E4012B801D9600B268A9 /* MainContainerView.swift in Sources */,
 				629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */,
-				621D62DA2D4450C0005A03A9 /* PurchaseManager.swift in Sources */,
 				62128CAD2A1F8F92005D732A /* AiAppApp.swift in Sources */,
 				62C468F32B2FC0AB002DD3A3 /* AppRootManager.swift in Sources */,
 				62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */,

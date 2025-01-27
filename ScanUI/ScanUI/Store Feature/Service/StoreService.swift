@@ -17,11 +17,11 @@ public class StoreService: StoreServiceProtocol {
     
     public init() { }
     
-    func loadProductsForStoreKit(ids: [String]) async throws -> [Product] {
+    public func loadProductsForStoreKit(ids: [String]) async throws -> [Product] {
         return try await Product.products(for: ids)
     }
     
-    func purchase(_ product: Product) async throws -> Bool  {
+    public func purchase(_ product: Product) async throws -> Bool  {
         let result = try await product.purchase()
         
         switch result {
@@ -46,7 +46,7 @@ public class StoreService: StoreServiceProtocol {
     }
     
     
-    func getLastPurchasedProducts() async -> String? {
+    public func getLastPurchasedProducts() async -> String? {
         // Iterate through the user's purchased products.
         for await verificationResult in Transaction.currentEntitlements {
             switch verificationResult {

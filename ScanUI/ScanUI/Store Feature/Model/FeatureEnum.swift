@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FeatureEnum: String, Codable {
+public enum FeatureEnum: String, Codable {
     case simpleSummary
     case simpleScan
     case icloudBackup

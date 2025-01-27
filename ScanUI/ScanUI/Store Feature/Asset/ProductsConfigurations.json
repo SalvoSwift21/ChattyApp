@@ -1,16 +1,15 @@
-{
-    [
-        {
-            "prdouct": "free",
-            "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject"],
-        },
-        {
-            "prdouct": "base_monthly",
-            "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject", "removeAds", "complexSummaryPDF128kToken", "translation"],
-        },
-        {
-            "prdouct": "pro_monthly",
-            "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject", "removeAds", "complexSummaryPDF128kToken", "translation", "complexAIModel", "complexSummary1MToken"],
-        }
-    ]
-}
+[
+    {
+        "productID": "free",
+        "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject"],
+    },
+    {
+        "productID": "base_monthly",
+        "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject", "removeAds", "complexSummaryPDF128kToken", "translation"],
+    },
+    {
+        "productID": "pro_monthly",
+        "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject", "removeAds", "complexSummaryPDF128kToken", "translation", "complexAIModel", "complexSummary1MToken"],
+    }
+]
+
