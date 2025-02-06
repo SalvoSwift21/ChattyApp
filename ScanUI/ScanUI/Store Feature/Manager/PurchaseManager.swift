@@ -8,7 +8,8 @@
 import Foundation
 
 public class PurchaseManager: ObservableObject, Observable {
-    var currentAppProductFeature: ProductFeature
+    
+    public var currentAppProductFeature: ProductFeature
 
     enum PurchaseManagerError: Error {
         case noProductAvailable
@@ -25,6 +26,16 @@ public class PurchaseManager: ObservableObject, Observable {
     
     public func startManager() async throws {
         currentAppProductFeature = try await self.loadCurrentFeatureProduct()
+    }
+    
+    public func saveNewPurchase(_ productFeature: ProductFeature) async {
+        do {
+            let newProduct = try await loadCurrentFeatureProduct()
+            guard productFeature.productID == newProduct.productID else { return }
+            self.currentAppProductFeature = productFeature
+        } catch {
+            debugPrint("Error in update purchase \(error.localizedDescription)")
+        }
     }
 
     fileprivate func loadCurrentFeatureProduct() async throws -> ProductFeature {

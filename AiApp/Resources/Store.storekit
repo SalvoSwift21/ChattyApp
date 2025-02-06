@@ -85,13 +85,9 @@
           ],
           "displayPrice" : "9.99",
           "familyShareable" : false,
-          "groupNumber" : 1,
+          "groupNumber" : 2,
           "internalID" : "97E5323B",
-          "introductoryOffer" : {
-            "internalID" : "7C5D201F",
-            "paymentMode" : "free",
-            "subscriptionPeriod" : "P1W"
-          },
+          "introductoryOffer" : null,
           "localizations" : [
             {
               "description" : "Sblocca il pacchetto premium per rimuovere gli annunci, scansionare documenti (fino a 10 pagine e 128k token), generare riassunti e tradurli facilmente, ottimizzando la tua produttività.\nScansioni da fotocamere\n\nArchiviazione iCloud\n\nCondivisione del riassunto",
@@ -117,7 +113,7 @@
           ],
           "displayPrice" : "19.99",
           "familyShareable" : false,
-          "groupNumber" : 2,
+          "groupNumber" : 1,
           "internalID" : "51C1C809",
           "introductoryOffer" : null,
           "localizations" : [

@@ -57,9 +57,9 @@ public class StoreService: StoreServiceProtocol {
                     continue
                 } else {
                     if transaction.revocationDate == nil {
-                        continue
-                    } else {
                         return transaction.productID
+                    } else {
+                        continue
                     }
                 }
             case .unverified(let unverifiedTransaction, let verificationError):

@@ -16,6 +16,7 @@
 		621D62D72D445032005A03A9 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D62D62D445013005A03A9 /* AppConfiguration.swift */; };
 		622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */; };
 		623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */; };
+		6253D7492D47710B00843E38 /* StoreUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253D7482D47710B00843E38 /* StoreUIComposer.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
 		6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; };
 		6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -71,6 +72,7 @@
 		621D62D62D445013005A03A9 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUIComposer.swift; sourceTree = "<group>"; };
+		6253D7482D47710B00843E38 /* StoreUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUIComposer.swift; sourceTree = "<group>"; };
 		62639E532A264941004F5E44 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62639E542A264F4E004F5E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewUIComposer.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */,
 				623FC6592CC63E9E0074A611 /* SideMenuUIComposer.swift */,
 				62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */,
+				6253D7482D47710B00843E38 /* StoreUIComposer.swift */,
 			);
 			path = UIComposer;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				62C468F32B2FC0AB002DD3A3 /* AppRootManager.swift in Sources */,
 				62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */,
 				6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */,
+				6253D7492D47710B00843E38 /* StoreUIComposer.swift in Sources */,
 				628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */,
 				623FC65A2CC63E9E0074A611 /* SideMenuUIComposer.swift in Sources */,
 				62B2A90C2CC9B8790051CBFB /* PreferencesUIComposer.swift in Sources */,

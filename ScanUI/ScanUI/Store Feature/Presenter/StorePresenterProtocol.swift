@@ -7,6 +7,7 @@
 
 
 import Foundation
+import StoreKit
 
 protocol StorePresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
@@ -14,7 +15,7 @@ protocol StorePresenterProtocol: AnyObject {
 
     func loadData() async
     
-    func productTapped(_ productModel: ProductFeature) async throws
+    func productTapped(productModelID: String, productPurchaseResult: Result<Product.PurchaseResult, any Error>)
 }
 
 public protocol StoreDelegate: AnyObject {
