@@ -43,8 +43,8 @@ public class AppConfiguration {
     }
     
     public func bootApp() async throws {
-        try await selectAIIfNeeded()
         try await purchaseManager.startManager()
+        try await selectAIIfNeeded()
     }
     
     public func updatePreferences() {
@@ -61,7 +61,8 @@ public class AppConfiguration {
     fileprivate func selectAIIfNeeded() async throws {
         let allAI = try await preferenceService.getAIPreferences()
         
-        guard let defaultAI = allAI.avaibleAI.first else {
+        
+        guard let defaultAI = allAI.avaibleAI.first(where: { $0.aiType.isEnabledFor(productID: purchaseManager.currentAppProductFeature.productID ) }) else {
             fatalError("No AI Avaible")
         }
         

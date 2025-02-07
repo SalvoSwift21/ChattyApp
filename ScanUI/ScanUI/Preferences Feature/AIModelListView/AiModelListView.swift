@@ -15,6 +15,7 @@ protocol AIModelListDelegate: AnyObject {
 public struct AiModelListView: View {
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var manager: PurchaseManager
 
     var models: [AIPreferenceModel]
     var selected: AIPreferenceModel
@@ -34,6 +35,8 @@ public struct AiModelListView: View {
                             } label: {
                                 AICellViewBuilder().AiCell(model: ai, isSelected: selected.aiType == ai.aiType, resourceBundle: resourceBundle)
                             }
+                            .disabled(!ai.aiType.isEnabledFor(productID: manager.currentAppProductFeature.productID))
+                            .opacity(ai.aiType.isEnabledFor(productID: manager.currentAppProductFeature.productID) ? 1 : 0.5)
                         }
                     })
                     .padding()

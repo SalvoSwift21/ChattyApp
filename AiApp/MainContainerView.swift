@@ -122,7 +122,7 @@ struct SomeSection: View {
             presentSideMenu.toggle()
         } label: {
             VStack {
-                Text("Hai comprato questo pacchetto \(manager.currentAppProductFeature.features)")
+                Text("Hai comprato questo pacchetto\n \(manager.currentAppProductFeature.productID)\n \(manager.currentAppProductFeature.features)")
             }
         }
     }
