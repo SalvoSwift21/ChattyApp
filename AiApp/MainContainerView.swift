@@ -19,7 +19,8 @@ struct MainContainerView: View {
     
     @State private var showUpload: Bool = false
     @State private var showDataScan: Bool = false
-    
+    @State private var showPremiumFeature: Bool = false
+
     @State private var path: NavigationPath = .init()
     
     @State private var isMenuShown = false
@@ -33,13 +34,14 @@ struct MainContainerView: View {
         ZStack{
             switch $selectedSideMenuTab.wrappedValue {
             case .home:
-                homeSection
+                HomeSection
             case .chooseAi:
-                preferencesView
+                PreferencesView
+            case .premium:
+                StoreFeatureView
             default:
                 SomeSection(presentSideMenu: $isMenuShown)
             }
-            
             SideMenuUIComposer.sideMenuStore(isMenuShown: $isMenuShown) { row in
                 selectedSideMenuTab = row.rowType
                 isMenuShown.toggle()
@@ -47,7 +49,7 @@ struct MainContainerView: View {
         }
     }
     
-    var homeSection: some View {
+    var HomeSection: some View {
         NavigationStack(path: $path.animation(.easeOut)) {
             HomeUIComposer.homeComposedWith(client: scanStorage, upload: {
                 showUpload.toggle()
@@ -92,7 +94,7 @@ struct MainContainerView: View {
         }))
     }
     
-    var preferencesView: some View {
+    var PreferencesView: some View {
         NavigationStack {
             PreferencesUIComposer.preferencesComposedWith {
                 isMenuShown.toggle()
@@ -101,17 +103,27 @@ struct MainContainerView: View {
             }
         }
     }
+    
+    var StoreFeatureView: some View {
+        NavigationStack {
+            StoreUIComposer.storeComposedWith {
+                isMenuShown.toggle()
+            }
+        }
+    }
 }
 
 struct SomeSection: View {
-    
+    @EnvironmentObject var manager: PurchaseManager
     @Binding var presentSideMenu: Bool
 
     var body: some View {
         Button {
             presentSideMenu.toggle()
         } label: {
-            Text("Hello world")
+            VStack {
+                Text("Hai comprato questo pacchetto\n \(manager.currentAppProductFeature.productID)\n \(manager.currentAppProductFeature.features)")
+            }
         }
     }
 }

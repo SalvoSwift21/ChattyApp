@@ -16,10 +16,13 @@ public struct PreferencesViewModel {
     var translateLanguage: LLMSuppotedLanguages
     var selectedLanguage: LLMLanguage
     
-    public init(aiList: AIPreferencesList, selectedAI: AIPreferenceModel, translateLanguage: LLMSuppotedLanguages, selectedLanguage: LLMLanguage) {
+    var transactionServiceIsEnabled: Bool
+    
+    public init(aiList: AIPreferencesList, selectedAI: AIPreferenceModel, translateLanguage: LLMSuppotedLanguages, selectedLanguage: LLMLanguage, transactionServiceIsEnabled: Bool) {
         self.aiList = aiList
         self.selectedAI = selectedAI
         self.translateLanguage = translateLanguage
         self.selectedLanguage = selectedLanguage
+        self.transactionServiceIsEnabled = transactionServiceIsEnabled
     }
 }

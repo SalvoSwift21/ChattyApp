@@ -34,7 +34,7 @@ public final class TextAnalyzerComposer {
         
         let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: scanStorage)
         
-        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, done: done, bundle: bundle)
+        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, bundle: bundle, done: done)
         
         return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
     }
@@ -42,6 +42,7 @@ public final class TextAnalyzerComposer {
     fileprivate static func chooseClient(fileType: UTType) -> (SummaryServiceProtocol & TranslateServiceProtocol)? {
         var client: SummaryServiceProtocol & TranslateServiceProtocol
         let currentAi = AppConfiguration.shared.currentPreference.selectedAI
+        let currentProductFeature = AppConfiguration.shared.purchaseManager.currentAppProductFeature
         
         guard currentAi.getAISupportedFileTypes().contains(fileType) else {
             return nil
@@ -55,7 +56,7 @@ public final class TextAnalyzerComposer {
             case .image, .jpeg, .png:
                 client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue) as GoogleAILLMClient
             default:
-                client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue) as GoogleAIFileSummizeClient
+                client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken()) as GoogleAIFileSummizeClient
             }
         case .unowned:
             fatalError("Not AI selected")

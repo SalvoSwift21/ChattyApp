@@ -126,7 +126,6 @@ public struct ScanView: View {
 
 #Preview {
     @State var scanStore = ScanStore(state: .loading(show: false))
-    
     @State var presenter = ScanPresenter(delegate: scanStore, resultOfScan: { _ in })
     
     return ScanView(store: scanStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)

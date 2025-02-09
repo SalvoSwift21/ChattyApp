@@ -24,9 +24,11 @@ public class GoogleAIFileSummizeClient: LLMClient {
         
 
     private var generativeLanguageClient: GenerativeModel
+    private var MAX_RESOURCES_TOKEN = 100000
     
-    public init(generativeLanguageClient: GenerativeModel) {
+    public init(generativeLanguageClient: GenerativeModel, maxResourceToken: Int) {
         self.generativeLanguageClient = generativeLanguageClient
+        self.MAX_RESOURCES_TOKEN = maxResourceToken
     }
 
     public func sendMessage(object: GoogleFileLLMMessage) async throws -> LLMMessage? {
@@ -43,7 +45,7 @@ public class GoogleAIFileSummizeClient: LLMClient {
         
         let count = try await generativeLanguageClient.countTokens(prompt, fileData)
         
-        guard count.totalTokens < 120000 else { throw GoogleAIError.generic("Document too large") }
+        guard count.totalTokens < MAX_RESOURCES_TOKEN else { throw GoogleAIError.generic("Document too large") }
         
         return try await generativeLanguageClient.generateContent(prompt, fileData)
     }
@@ -53,8 +55,8 @@ public class GoogleAIFileSummizeClient: LLMClient {
     public func deleteFromHistory() async throws { }
 }
 
-public func makeGoogleGeminiAIClient(modelName: String) -> GoogleAIFileSummizeClient {
+public func makeGoogleGeminiAIClient(modelName: String, maxResourceToken: Int) -> GoogleAIFileSummizeClient {
     let gl = GenerativeModel(name: modelName, apiKey: GoogleAIConfigurations.TEST_API_KEY)
-    let sut = GoogleAIFileSummizeClient(generativeLanguageClient: gl)
+    let sut = GoogleAIFileSummizeClient(generativeLanguageClient: gl, maxResourceToken: maxResourceToken)
     return sut
 }

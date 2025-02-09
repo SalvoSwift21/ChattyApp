@@ -28,7 +28,7 @@ public final class PreferencesUIComposer {
             PreferencesUIComposer.preferenceStore = preferenceStore
         }
         
-        let preferencePresenter = PreferencePresenter(delegate: PreferencesUIComposer.preferenceStore ?? preferenceStore, service: preferenceAIService, menuButton: menuButtonTapped, updatePreferences: updatePreferences, bundle: bundle)
+        let preferencePresenter = PreferencePresenter(delegate: PreferencesUIComposer.preferenceStore ?? preferenceStore, service: preferenceAIService, currentAppProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, menuButton: menuButtonTapped, updatePreferences: updatePreferences, bundle: bundle)
                 
         return PreferencesView(store: PreferencesUIComposer.preferenceStore ?? preferenceStore, presenter: preferencePresenter, resourceBundle: bundle)
     }

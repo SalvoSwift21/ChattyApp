@@ -76,4 +76,25 @@ public enum AIModelType: String, CaseIterable, Codable {
             return try GoogleAIConfigurations.getSupportedLanguages()
         }
     }
+    
+    public func isEnabledFor(productID: String) -> Bool {
+        var licenseType: [String] = []
+        
+        switch self {
+        case .gpt_4_o:
+            licenseType = ["pro_monthly"]
+        case .gpt_4o_mini:
+            licenseType = ["free", "base_monthly", "pro_monthly"]
+        case .gemini_1_5_flash:
+            licenseType = ["free", "base_monthly", "pro_monthly"]
+        case .gemini_1_5_flash_8b:
+            licenseType = ["base_monthly", "pro_monthly"]
+        case .gemini_pro:
+            licenseType = ["pro_monthly"]
+        case .unowned:
+            break
+        }
+        
+        return licenseType.contains(where: { $0 == productID })
+    }
 }

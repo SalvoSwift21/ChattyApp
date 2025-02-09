@@ -24,18 +24,22 @@ public class TextAnalyzerPresenter {
     
     private var currentSaveText: String?
     private var currentSaveTitle: String?
+    
+    private var currentProductFeature: ProductFeature
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
                 scannedResult: ScanResult,
-                done: @escaping () -> Void = {  },
-                bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
+                currentProductFeature: ProductFeature,
+                bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main,
+                done: @escaping () -> Void = {  }) {
         self.service = service
         self.delegate = delegate
         self.scannedResult = scannedResult
         self.resourceBundle = bundle
         self.doneCompletion = done
         self.textAnalyzerViewModel = TextAnalyzerViewModel(chatHistory: [])
+        self.currentProductFeature = currentProductFeature
     }
     
     @MainActor 
@@ -83,6 +87,7 @@ public class TextAnalyzerPresenter {
 
 //Helper
 extension TextAnalyzerPresenter {
+    
     @MainActor
     fileprivate func makeTranslationFromText(text: String) async throws -> String {
         try await self.service.makeTranslation(forText: text)
@@ -146,6 +151,9 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
         self.currentSaveTitle = title
     }
     
+    public func transactionFeatureIsEnabled() -> Bool {
+        currentProductFeature.features.contains(where: { $0 == .translation })
+    }
     
     @MainActor
     public func makeTranslation() async {
