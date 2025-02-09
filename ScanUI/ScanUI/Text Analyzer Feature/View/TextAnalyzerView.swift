@@ -93,12 +93,14 @@ public struct TextAnalyzerView: View {
             HStack(alignment: .center, spacing: 10) {
                 Menu {
                     
-                    Button(action: {
-                        Task(priority: .background) {
-                            await presenter.makeTranslation()
+                    if presenter.transactionFeatureIsEnabled() {
+                        Button(action: {
+                            Task(priority: .background) {
+                                await presenter.makeTranslation()
+                            }
+                        }) {
+                            Label("Translate", systemImage: "bubble.left.and.text.bubble.right")
                         }
-                    }) {
-                        Label("Translate", systemImage: "bubble.left.and.text.bubble.right")
                     }
                     
                     Button(action: {
@@ -185,8 +187,9 @@ public struct TextAnalyzerView: View {
     let trClient = TranslateClient(translateService: googleClient, identificationLanguageClient: idLanguage, localeToTranslate: .current)
     
     let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: getFakeStorage())
-    
-    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, bundle: bundle)
+    var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
+
+    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: currentAppProductFeature, bundle: bundle)
     
     TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
 }

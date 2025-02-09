@@ -9,6 +9,7 @@ import Foundation
 
 protocol PreferencePresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
+    var currentAppProductFeature: ProductFeature { get set }
     var menuButton: (() -> Void) { get set }
     var updatePreferences: (() -> Void) { get set }
 
@@ -16,6 +17,8 @@ protocol PreferencePresenterProtocol: AnyObject {
     
     func saveAIPreferencereType(_ preferenceModel: PreferenceModel) async throws
     func loadAIPreferencereType() async throws -> PreferenceModel
+    
+    func transactionServiceIsEnabled() -> Bool
 }
 
 public protocol PreferenceDelegate: AnyObject {

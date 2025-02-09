@@ -15,7 +15,7 @@ protocol AIModelListDelegate: AnyObject {
 public struct AiModelListView: View {
     
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var manager: PurchaseManager
+    var currentAppProductFeature: ProductFeature
 
     var models: [AIPreferenceModel]
     var selected: AIPreferenceModel
@@ -35,8 +35,8 @@ public struct AiModelListView: View {
                             } label: {
                                 AICellViewBuilder().AiCell(model: ai, isSelected: selected.aiType == ai.aiType, resourceBundle: resourceBundle)
                             }
-                            .disabled(!ai.aiType.isEnabledFor(productID: manager.currentAppProductFeature.productID))
-                            .opacity(ai.aiType.isEnabledFor(productID: manager.currentAppProductFeature.productID) ? 1 : 0.5)
+                            .disabled(!ai.aiType.isEnabledFor(productID: currentAppProductFeature.productID))
+                            .opacity(ai.aiType.isEnabledFor(productID: currentAppProductFeature.productID) ? 1 : 0.5)
                         }
                     })
                     .padding()
@@ -67,8 +67,10 @@ public struct AiModelListView: View {
 }
 
 #Preview {
+    var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
+
     NavigationView {
-        AiModelListView(models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
+        AiModelListView(currentAppProductFeature: currentAppProductFeature, models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
     }
     
 }

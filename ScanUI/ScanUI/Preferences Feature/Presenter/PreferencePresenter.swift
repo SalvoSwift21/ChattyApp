@@ -17,10 +17,12 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     private weak var delegate: PreferenceDelegate?
     public var menuButton: (() -> Void)
     public var updatePreferences: (() -> Void)
+    var currentAppProductFeature: ProductFeature
 
 
     public init(delegate: PreferenceDelegate,
                 service: AIPreferencesServiceProtocol,
+                currentAppProductFeature: ProductFeature,
                 menuButton: @escaping (() -> Void),
                 updatePreferences: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
@@ -29,6 +31,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         self.menuButton = menuButton
         self.updatePreferences = updatePreferences
         self.resourceBundle = bundle
+        self.currentAppProductFeature = currentAppProductFeature
     }
     
     @MainActor
@@ -45,7 +48,8 @@ public class PreferencePresenter: PreferencePresenterProtocol {
             let vModel = PreferencesViewModel(aiList: aiPreferences,
                                               selectedAI: selected,
                                               translateLanguage: allLanguages,
-                                              selectedLanguage: selectedLanguage)
+                                              selectedLanguage: selectedLanguage,
+                                              transactionServiceIsEnabled: transactionServiceIsEnabled())
             
             self.delegate?.render(viewModel: vModel)
         } catch {
@@ -76,6 +80,10 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 updatePreferences()
             }
         }
+    }
+    
+    func transactionServiceIsEnabled() -> Bool {
+        currentAppProductFeature.features.contains(where: { $0 == .translation })
     }
     
     fileprivate func savePreferenceFromLanguage(_ model: LLMLanguage) {
