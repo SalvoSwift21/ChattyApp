@@ -12,8 +12,7 @@ public final class ScanDetailViewComposer {
     private init() {}
         
     public static func scanDetailComposedWith(
-        scan: Scan,
-        productFeature: ProductFeature
+        scan: Scan
     ) -> ScanDetailView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
@@ -21,7 +20,7 @@ public final class ScanDetailViewComposer {
                 
         let scanService = ScanDetailService(scan: scan)
                 
-        let scanPresenter = ScanDetailPresenter(delegate: scanDetailStore, service: scanService, currentAppProductFeature: productFeature, bundle: bundle)
+        let scanPresenter = ScanDetailPresenter(delegate: scanDetailStore, service: scanService, bundle: bundle)
         
         return ScanDetailView(store: scanDetailStore, presenter: scanPresenter, resourceBundle: bundle)
     }
