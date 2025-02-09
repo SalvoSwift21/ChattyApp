@@ -11,6 +11,8 @@ import ScanUI
 
 struct MainContainerView: View {
 
+    @Environment(\.requestReview) var requestReview
+
     enum HomeNavigationDestination: Hashable {
         case newScan, seeAll
     }
@@ -39,11 +41,17 @@ struct MainContainerView: View {
                 PreferencesView
             case .premium:
                 StoreFeatureView
+            case .rateUs: EmptyView()
             default:
                 SomeSection(presentSideMenu: $isMenuShown)
             }
             SideMenuUIComposer.sideMenuStore(isMenuShown: $isMenuShown) { row in
-                selectedSideMenuTab = row.rowType
+                switch row.rowType {
+                case .rateUs:
+                    requestReview()
+                default:
+                    selectedSideMenuTab = row.rowType
+                }
                 isMenuShown.toggle()
             }
         }
