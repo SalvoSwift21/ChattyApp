@@ -79,8 +79,6 @@ public struct TextAnalyzerView: View {
     var CompleteTextView: some View {
         VStack(spacing: 10.0) {
             ScrollView(.vertical, showsIndicators: false) {
-                Text("Chat history \(purchaseManager.currentAppProductFeature.productID)")
-                    .font(.headline)
                 ForEach(store.viewModel.chatHistory, id: \.uuid) { vModel in
                     ChatTextView(viewModel: vModel)
                 }.padding(.all, 16.0)
