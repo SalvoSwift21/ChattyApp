@@ -55,7 +55,7 @@ public struct UploadFileView: ViewModifier {
                         )
                         .background(.white)
                         .onDisappear {
-                            presenter.showADFromViewModel()
+                            presenter.showAdvFromViewModel()
                         }
                 }
                                 
