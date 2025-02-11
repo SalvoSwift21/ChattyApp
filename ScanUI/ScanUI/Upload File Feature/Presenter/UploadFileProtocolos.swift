@@ -8,8 +8,14 @@
 import Foundation
 
 public protocol UploadFileProtocols: ScanProtocol {
-    func startScan(atURL url: URL) async 
+    var currentProductFeature: ProductFeature { get set }
+
+    func startScan(atURL url: URL) async
+    func adIsEnabled() -> Bool
+    func showAdvFromViewModel()
+    
     @Sendable func loadFilesType() async
+    @Sendable func loadAd() async
 }
 
 public protocol UploadFileProtocolsDelegate: AnyObject {

@@ -41,7 +41,7 @@ public class AppConfiguration {
         let storeService = StoreService()
         let productFeatureService = ProductFeatureService(resourceBundle: bundle)
         purchaseManager = PurchaseManager(storeService: storeService, productFeatureService: productFeatureService)
-        adMobManager = AdMobManager(bannerUnitId: ADUnitIDCode.bannerID.id)
+        adMobManager = AdMobManager(bannerUnitId: ADUnitIDCode.bannerID.id, interstitialUnitId: ADUnitIDCode.interstitialID.id)
     }
     
     public func bootApp() async throws {

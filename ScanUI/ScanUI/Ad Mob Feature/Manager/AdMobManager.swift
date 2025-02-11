@@ -11,9 +11,11 @@ import GoogleMobileAds
 public class AdMobManager: ObservableObject {
     
     var bannerUnitId: String
+    var interstitialUnitId: String
     
-    public init(bannerUnitId: String) {
+    public init(bannerUnitId: String, interstitialUnitId: String) {
         self.bannerUnitId = bannerUnitId
+        self.interstitialUnitId = interstitialUnitId
     }
     
     public func startManager() async throws {
@@ -22,5 +24,9 @@ public class AdMobManager: ObservableObject {
     
     public func getBannerUnitId() -> String {
         return self.bannerUnitId
+    }
+    
+    public func getInterstitialUnitId() -> String {
+        return self.interstitialUnitId
     }
 }
