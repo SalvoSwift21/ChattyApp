@@ -58,6 +58,10 @@
 		6274FAE32B4F58D500010C7B /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FAE22B4F58D500010C7B /* ScanView.swift */; };
 		6274FAE52B4F594A00010C7B /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FAE42B4F594A00010C7B /* DataScannerView.swift */; };
 		6274FAE72B4F5F3B00010C7B /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6274FAE62B4F5F3B00010C7B /* OCRFeature.framework */; };
+		627B90122D590A8E00E190D9 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 627B90112D590A8E00E190D9 /* GoogleMobileAds */; };
+		627B90172D590C6000E190D9 /* AdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B90162D590C5B00E190D9 /* AdMobManager.swift */; };
+		627B901A2D590DF300E190D9 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B90192D590DEF00E190D9 /* BannerView.swift */; };
+		627B90202D59E0A900E190D9 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 627B901F2D59E0A900E190D9 /* Debug.xcconfig */; };
 		628273102BEA7FA70036C93F /* ScanProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282730F2BEA7FA70036C93F /* ScanProtocol.swift */; };
 		628674D32B77DCC400843709 /* TextAnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628674D22B77DCC400843709 /* TextAnalyzerView.swift */; };
 		628B868C2B1551E3009C6895 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */; };
@@ -218,6 +222,10 @@
 		6274FAE22B4F58D500010C7B /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		6274FAE42B4F594A00010C7B /* DataScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
 		6274FAE62B4F5F3B00010C7B /* OCRFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OCRFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		627B90162D590C5B00E190D9 /* AdMobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobManager.swift; sourceTree = "<group>"; };
+		627B90192D590DEF00E190D9 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		627B901D2D59E07700E190D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		627B901F2D59E0A900E190D9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		6282730F2BEA7FA70036C93F /* ScanProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanProtocol.swift; sourceTree = "<group>"; };
 		628674D22B77DCC400843709 /* TextAnalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerView.swift; sourceTree = "<group>"; };
 		628B868B2B1551E3009C6895 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -338,6 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627B90122D590A8E00E190D9 /* GoogleMobileAds in Frameworks */,
 				6274FAE72B4F5F3B00010C7B /* OCRFeature.framework in Frameworks */,
 				629906222B74552B005B43A7 /* SummariseTranslateFeature.framework in Frameworks */,
 				621974442B27DB63005A7895 /* RestApi.framework in Frameworks */,
@@ -473,6 +482,39 @@
 				625865A92B1956E9000B5660 /* PageControl.swift */,
 			);
 			path = PageControl;
+			sourceTree = "<group>";
+		};
+		627B90142D590C4500E190D9 /* Ad Mob Feature */ = {
+			isa = PBXGroup;
+			children = (
+				627B90182D590DDD00E190D9 /* View */,
+				627B90152D590C5500E190D9 /* Manager */,
+			);
+			path = "Ad Mob Feature";
+			sourceTree = "<group>";
+		};
+		627B90152D590C5500E190D9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				627B90162D590C5B00E190D9 /* AdMobManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		627B90182D590DDD00E190D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				627B90192D590DEF00E190D9 /* BannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		627B901E2D59E08C00E190D9 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				627B901F2D59E0A900E190D9 /* Debug.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		6282730E2BEA7F720036C93F /* ScanResut Common */ = {
@@ -1133,6 +1175,8 @@
 		62CFB56B2B04A9F3006D70A5 /* ScanUI */ = {
 			isa = PBXGroup;
 			children = (
+				627B901E2D59E08C00E190D9 /* Configurations */,
+				627B901D2D59E07700E190D9 /* Info.plist */,
 				62CFB56C2B04A9F3006D70A5 /* ScanUI.h */,
 				62CFB5732B04AA96006D70A5 /* Shared UI */,
 				628B86872B15517A009C6895 /* Onboarding Feature */,
@@ -1146,6 +1190,7 @@
 				62DB67182CC7074A00350776 /* Preferences Feature */,
 				629A8F4B2BA8FFF1004C5221 /* Storage Feature */,
 				629E8BAE2D41B6D400FECBAC /* Store Feature */,
+				627B90142D590C4500E190D9 /* Ad Mob Feature */,
 			);
 			path = ScanUI;
 			sourceTree = "<group>";
@@ -1338,6 +1383,9 @@
 				Base,
 			);
 			mainGroup = 62CFB55F2B04A9F3006D70A5;
+			packageReferences = (
+				627B90102D590A8E00E190D9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 62CFB56A2B04A9F3006D70A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1370,6 +1418,7 @@
 				62CFB5782B04AB18006D70A5 /* ScanColors.xcassets in Resources */,
 				62DB67202CC7091300350776 /* PreferencesConfiguration.json in Resources */,
 				621D62D52D444B83005A03A9 /* ProductsConfigurations.json in Resources */,
+				627B90202D59E0A900E190D9 /* Debug.xcconfig in Resources */,
 				62C8EC0E2CC2AF8500647F95 /* SideMenuConfiguration.json in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
 				62C75B102B2278AF009D4383 /* OnboardingConfiguration.json in Resources */,
@@ -1407,6 +1456,7 @@
 				62DB67282CC70F3500350776 /* AIPreferencesList.swift in Sources */,
 				621974412B27CFD5005A7895 /* HomePresenter.swift in Sources */,
 				62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */,
+				627B90172D590C6000E190D9 /* AdMobManager.swift in Sources */,
 				62B137AA2BFD046900951B46 /* FoldersPresenter.swift in Sources */,
 				626140262CC23A6F00D1D126 /* SideMenuViewModel.swift in Sources */,
 				6297F2D92C21EE5B0095BE0E /* FolderDetailServiceProtocol.swift in Sources */,
@@ -1494,6 +1544,7 @@
 				621D62E72D445E11005A03A9 /* StorePresenter.swift in Sources */,
 				6296C8E02B1EA06700E8C4AB /* OnboardingView.swift in Sources */,
 				6274FADF2B4F563C00010C7B /* ScanPresenter.swift in Sources */,
+				627B901A2D590DF300E190D9 /* BannerView.swift in Sources */,
 				62C9F5322D3B21BD00E649BE /* PreferenceModel.swift in Sources */,
 				62B137A82BFD02EB00951B46 /* FoldersProtocolDelegate.swift in Sources */,
 				621F340D2D39C4A1007020DC /* AICellViewBuilder.swift in Sources */,
@@ -1693,6 +1744,7 @@
 		};
 		62CFB5712B04A9F3006D70A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 627B901F2D59E0A900E190D9 /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1704,6 +1756,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScanUI/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1737,6 +1791,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScanUI/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1787,6 +1843,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		627B90102D590A8E00E190D9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		627B90112D590A8E00E190D9 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 627B90102D590A8E00E190D9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 62CFB5602B04A9F3006D70A5 /* Project object */;
 }

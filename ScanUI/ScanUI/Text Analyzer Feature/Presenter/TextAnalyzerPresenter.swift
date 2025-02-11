@@ -26,11 +26,13 @@ public class TextAnalyzerPresenter {
     private var currentSaveTitle: String?
     
     private var currentProductFeature: ProductFeature
+    private var bannerID: String
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
                 scannedResult: ScanResult,
                 currentProductFeature: ProductFeature,
+                bannerID: String,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main,
                 done: @escaping () -> Void = {  }) {
         self.service = service
@@ -40,6 +42,7 @@ public class TextAnalyzerPresenter {
         self.doneCompletion = done
         self.textAnalyzerViewModel = TextAnalyzerViewModel(chatHistory: [])
         self.currentProductFeature = currentProductFeature
+        self.bannerID = bannerID
     }
     
     @MainActor 
@@ -143,6 +146,11 @@ extension TextAnalyzerPresenter {
                                  position: position,
                                  isInLoading: isInLoading)
     }
+    
+    //MARK: AD SERVICE
+    public func getADBannerID() -> String {
+        bannerID
+    }
 }
 
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {
@@ -153,6 +161,10 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func transactionFeatureIsEnabled() -> Bool {
         currentProductFeature.features.contains(where: { $0 == .translation })
+    }
+    
+    public func adMobIsEnabled() -> Bool {
+        !currentProductFeature.features.contains(where: { $0 == .removeAds })
     }
     
     @MainActor

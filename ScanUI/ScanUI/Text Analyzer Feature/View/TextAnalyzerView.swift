@@ -40,7 +40,6 @@ public struct TextAnalyzerView: View {
     
     public var body: some View {
         VStack(alignment: .center) {
-            Spacer()
             switch store.state {
             case .error(let message):
                 ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
@@ -56,7 +55,6 @@ public struct TextAnalyzerView: View {
             }
             Spacer()
         }
-        .padding()
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
@@ -77,77 +75,82 @@ public struct TextAnalyzerView: View {
     }
     
     var CompleteTextView: some View {
-        VStack(spacing: 10.0) {
-            ScrollView(.vertical, showsIndicators: false) {
-                ForEach(store.viewModel.chatHistory, id: \.uuid) { vModel in
-                    ChatTextView(viewModel: vModel)
-                }.padding(.all, 16.0)
+        VStack(spacing: 2) {
+            if presenter.adMobIsEnabled() {
+                ExternalBannerView(addUnitID: presenter.getADBannerID())
+                Spacer()
             }
-            .padding(0)
-            .background(.clear)
-            .defaultScrollAnchor(.bottom)
-
             
-            HStack(alignment: .center, spacing: 10) {
-                Menu {
-                    
-                    if presenter.transactionFeatureIsEnabled() {
-                        Button(action: {
-                            Task(priority: .background) {
-                                await presenter.makeTranslation()
+            VStack(spacing: 10) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    ForEach(store.viewModel.chatHistory, id: \.uuid) { vModel in
+                        ChatTextView(viewModel: vModel)
+                    }.padding()
+                }
+                .background(.clear)
+                .defaultScrollAnchor(.bottom)
+
+                
+                HStack(alignment: .center, spacing: 10) {
+                    Menu {
+                        if presenter.transactionFeatureIsEnabled() {
+                            Button(action: {
+                                Task(priority: .background) {
+                                    await presenter.makeTranslation()
+                                }
+                            }) {
+                                Label("Translate", systemImage: "bubble.left.and.text.bubble.right")
                             }
-                        }) {
-                            Label("Translate", systemImage: "bubble.left.and.text.bubble.right")
-                        }
-                    }
-                    
-                    Button(action: {
-                        presenter.copySummary()
-                        withAnimation(.easeInOut(duration: 0.4)) {
-                            self.showingCopyConfirmView.toggle()
                         }
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                            withAnimation(.easeInOut(duration: 0.3)) {
+                        Button(action: {
+                            presenter.copySummary()
+                            withAnimation(.easeInOut(duration: 0.4)) {
                                 self.showingCopyConfirmView.toggle()
                             }
-                        })
-                    }) {
-                        Label("Copy to clipboard", systemImage: "doc.on.doc")
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    self.showingCopyConfirmView.toggle()
+                                }
+                            })
+                        }) {
+                            Label("Copy to clipboard", systemImage: "doc.on.doc")
+                        }
+                        
+                        
+                        ShareLink(
+                            item: store.viewModel.getSharableObject(),
+                            preview: SharePreview(
+                                store.viewModel.getSharableObject().description,
+                                image: store.viewModel.getSharableObject().image))
+                        
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.prime)
                     }
-                    
-                    
-                    ShareLink(
-                        item: store.viewModel.getSharableObject(),
-                        preview: SharePreview(
-                            store.viewModel.getSharableObject().description,
-                            image: store.viewModel.getSharableObject().image))
-                    
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.prime)
-                }
 
-                Spacer()
-                
-                Button(action: { self.isShowingAlert.toggle() }) {
-                    Text("Save")
-                        .font(.body)
-                        .fontWeight(.semibold)
+                    Spacer()
+                    
+                    Button(action: { self.isShowingAlert.toggle() }) {
+                        Text("Save")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                    }
+                    .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
+                    .textFieldAlert(text: $scanName,
+                                    title: "Add title to this new scan",
+                                    okButtonTitle: "Ok",
+                                    placeholder: "Scan name",
+                                    isShowingAlert: $isShowingAlert) {
+                        presenter.addTitle(scanName)
+                        self.showFoldersView.toggle()
+                    }
                 }
-                .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
-                .textFieldAlert(text: $scanName,
-                                title: "Add title to this new scan",
-                                okButtonTitle: "Ok",
-                                placeholder: "Scan name",
-                                isShowingAlert: $isShowingAlert) {
-                    presenter.addTitle(scanName)
-                    self.showFoldersView.toggle()
-                }
+                .padding()
             }
-            
         }
         .navigationTitle("Summary result")
         .navigationBarTitleDisplayMode(.inline)
@@ -172,7 +175,9 @@ public struct TextAnalyzerView: View {
 }
 
 #Preview {
+    
     let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
+    
     let textAnalyzerStore = TextAnalyzerStore()
     let scanResult = ScanResult(stringResult: "Test result Test result Test result Test result",
                                 scanDate: .now,
@@ -187,7 +192,7 @@ public struct TextAnalyzerView: View {
     let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: getFakeStorage())
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
 
-    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: currentAppProductFeature, bundle: bundle)
+    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: currentAppProductFeature, bannerID: "ca-app-pub-3940256099942544/2435281174", bundle: bundle)
     
     TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
 }
