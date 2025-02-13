@@ -159,7 +159,7 @@ public struct TextAnalyzerView: View {
     
     var FoldersView: some View {
         NavigationView {
-            FoldersViewComposer.foldersComposedWith(client: presenter.getStoredService()) { selectedFolder in
+            FoldersViewComposer.foldersComposedWith(client: presenter.getStoredService(), currentProductFeature: presenter.getCurrentProductFeature(), bannerID: presenter.getADBannerID()) { selectedFolder in
                 presenter.doneButtonTapped(withFolder: selectedFolder)
             }
             .navigationTitle("Choose folder")

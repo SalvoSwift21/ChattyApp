@@ -147,7 +147,7 @@ public struct AllFoldersView: View {
         }
         .navigationDestination(isPresented: $showFolderDetail, destination: {
             if let folder = self.currentFolderSelected {
-                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: presenter.getStorage())
+                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: presenter.getStorage(), currentProductFeature: presenter.currentProductFeature, bannerID: presenter.bannerID)
             } else {
                 EmptyView().task {
                     showFolderDetail.toggle()
@@ -162,7 +162,9 @@ public struct AllFoldersView: View {
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     var service = FoldersLocalService(client: getFakeStorage())
 
-    @State var presenter = FoldersPresenter(delegate: foldersStore, service: service, didSelectFolder: { folder in
+    var product = ProductFeature(features: [], productID: "")
+    
+    @State var presenter = FoldersPresenter(delegate: foldersStore, service: service, currentProductFeature: product, bannerID: "12345678", didSelectFolder: { folder in
         print("Folders \(folder.title)")
     })
     

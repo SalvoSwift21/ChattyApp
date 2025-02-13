@@ -151,6 +151,10 @@ extension TextAnalyzerPresenter {
     public func getADBannerID() -> String {
         bannerID
     }
+    
+    public func getCurrentProductFeature() -> ProductFeature {
+        currentProductFeature
+    }
 }
 
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {

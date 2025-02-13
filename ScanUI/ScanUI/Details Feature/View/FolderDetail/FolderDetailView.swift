@@ -85,7 +85,7 @@ public struct FolderDetailView: View {
     func correctDestination() -> some View {
         if let scan = self.store.currentSelectedScan {
             NavigationStack {
-                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
+                ScanDetailViewComposer.scanDetailComposedWith(scan: scan, currentProductFeature: presenter.getProductInfoAndBanner().0, bannerID: presenter.getProductInfoAndBanner().1)
                     .navigationTitle(scan.title)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
@@ -107,9 +107,10 @@ public struct FolderDetailView: View {
     let folder = createSomeFolders().first!
                                                    
     var service = FolderDetailService(folder: folder, client: getFakeStorage())
+    var product = ProductFeature(features: [], productID: "")
 
-    @State var presenter = FolderDetailPresenter(delegate: folderDetailStore, service: service)
-   
+    @State var presenter = FolderDetailPresenter(delegate: folderDetailStore, service: service, currentProductFeature: product, bannerID: "12345678")
+    
     return NavigationView {
         FolderDetailView(store: folderDetailStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
     }

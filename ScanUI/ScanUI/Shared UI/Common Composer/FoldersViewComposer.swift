@@ -12,6 +12,8 @@ public final class FoldersViewComposer {
         
     public static func foldersComposedWith(
         client: ScanStorege,
+        currentProductFeature: ProductFeature,
+        bannerID: String,
         didSelectFolder: ((Folder) -> Void)? = nil
     ) -> AllFoldersView {
         
@@ -22,6 +24,8 @@ public final class FoldersViewComposer {
                 
         let foldersPresenter = FoldersPresenter(delegate: foldersStore,
                                                 service: foldersService,
+                                                currentProductFeature: currentProductFeature,
+                                                bannerID: bannerID,
                                                 didSelectFolder: didSelectFolder,
                                                 bundle: bundle)
         
