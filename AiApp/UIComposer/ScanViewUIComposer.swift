@@ -16,7 +16,7 @@ public final class DataScannerComposer {
     
     private init() {}
         
-    public static func uploadFileComposedWith(
+    public static func dataScanComposedWith(
         scanResult: @escaping (ScanResult) -> Void = { _ in }
     ) -> ScanView {
         

@@ -9,6 +9,7 @@ import Foundation
 import OCRFeature
 import UIKit
 import VisionKit
+import UniformTypeIdentifiers
 
 
 public class ScanPresenter: ScanProtocols {
@@ -39,7 +40,7 @@ public class ScanPresenter: ScanProtocols {
     private func setConcreteDelegateCompletion() {
         self.dataScannerDelegate.recognizedItemCompletion = { scanResult in
             self.showLoader(false)
-            self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), fileData: scanResult.1?.pngData()))
+            self.resultOfScan(ScanResult(stringResult: scanResult.0, scanDate: Date(), fileData: scanResult.1?.pngData(), fileType: UTType.png.identifier))
         }
         
         self.dataScannerDelegate.errorOnScanning = { error in

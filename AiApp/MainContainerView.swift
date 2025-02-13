@@ -155,7 +155,7 @@ struct DataScannerSection: View {
     
     var body: some View {
         NavigationStack(path: $pathOfScanSection.animation(.easeOut)) {
-            DataScannerComposer.uploadFileComposedWith { resultOfScan in
+            DataScannerComposer.dataScanComposedWith { resultOfScan in
                 pathOfScanSection.append(resultOfScan)
             }
             .navigationDestination(for: ScanResult.self) { scanResult in
