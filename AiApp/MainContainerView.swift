@@ -77,7 +77,9 @@ struct MainContainerView: View {
                 case .newScan:
                     EmptyView()
                 case .seeAll:
-                    FoldersViewComposer.foldersComposedWith(client: scanStorage)
+                    FoldersViewComposer.foldersComposedWith(client: scanStorage,
+                                                            currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature,
+                                                            bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId())
                         .navigationTitle("All folders")
                 }
             }
@@ -87,10 +89,15 @@ struct MainContainerView: View {
                 }
             }
             .navigationDestination(for: Folder.self, destination: { folder in
-                FolderDetailComposer.folderDetailComposedWith(folder: folder, client: self.scanStorage)
+                FolderDetailComposer.folderDetailComposedWith(folder: folder,
+                                                              client: self.scanStorage,
+                                                              currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature,
+                                                              bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId())
             })
             .navigationDestination(for: Scan.self, destination: { scan in
-                ScanDetailViewComposer.scanDetailComposedWith(scan: scan)
+                ScanDetailViewComposer.scanDetailComposedWith(scan: scan,
+                                                              currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature,
+                                                              bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId())
             })
             .fullScreenCover(isPresented: $showDataScan) {
                 DataScannerSection(storage: scanStorage)
@@ -148,7 +155,7 @@ struct DataScannerSection: View {
     
     var body: some View {
         NavigationStack(path: $pathOfScanSection.animation(.easeOut)) {
-            DataScannerComposer.uploadFileComposedWith { resultOfScan in
+            DataScannerComposer.dataScanComposedWith { resultOfScan in
                 pathOfScanSection.append(resultOfScan)
             }
             .navigationDestination(for: ScanResult.self) { scanResult in

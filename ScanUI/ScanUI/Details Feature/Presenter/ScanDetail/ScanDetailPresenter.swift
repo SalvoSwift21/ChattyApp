@@ -11,7 +11,9 @@ import UIKit
 public class ScanDetailPresenter: ScanDetailPresenterProtocol {
     
     internal var resourceBundle: Bundle
-
+    internal var currentProductFeature: ProductFeature
+    internal var bannerID: String
+    
     private var service: ScanDetailService
     private weak var delegate: ScanDetailProtocolDelegate?
     
@@ -20,10 +22,14 @@ public class ScanDetailPresenter: ScanDetailPresenterProtocol {
 
     public init(delegate: ScanDetailProtocolDelegate,
                 service: ScanDetailService,
+                currentProductFeature: ProductFeature,
+                bannerID: String,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
         self.resourceBundle = bundle
+        self.currentProductFeature = currentProductFeature
+        self.bannerID = bannerID
     }
     
     @MainActor
@@ -33,9 +39,18 @@ public class ScanDetailPresenter: ScanDetailPresenterProtocol {
         self.delegate?.render(viewModel: ScanDetailViewModel(scan: currentScan))
     }
     
+    func showADBanner() -> Bool {
+        !currentProductFeature.features.contains(where: { $0 == .removeAds })
+    }
+    
     func copyContent() {
         guard let text = currentScan?.contentText else { return }
         UIPasteboard.general.string = text
+    }
+    
+    //MARK: AD SERVICE
+    public func getADBannerID() -> String {
+        bannerID
     }
 }
 

@@ -9,9 +9,14 @@ import Foundation
 
 protocol ScanDetailPresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
+    var currentProductFeature: ProductFeature { get set }
+    var bannerID: String { get set }
+    
     func loadData() async
     
     func copyContent()
+    
+    func showADBanner() -> Bool
 }
 
 public protocol ScanDetailProtocolDelegate: AnyObject {

@@ -11,7 +11,8 @@ import UIKit
 public class FolderDetailPresenter: FolderDetailPresenterProtocol {
     
     internal var resourceBundle: Bundle
-
+    internal var currentProductFeature: ProductFeature
+    internal var bannerID: String
 
     private var service: FolderDetailService
     private weak var delegate: FolderDetailProtocolDelegate?
@@ -21,10 +22,14 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
 
     public init(delegate: FolderDetailProtocolDelegate,
                 service: FolderDetailService,
+                currentProductFeature: ProductFeature,
+                bannerID: String,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
         self.resourceBundle = bundle
+        self.currentProductFeature = currentProductFeature
+        self.bannerID = bannerID
     }
     
     @MainActor
@@ -56,6 +61,10 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
                 }
             }
         }
+    }
+    
+    func getProductInfoAndBanner() -> (ProductFeature, String) {
+        (currentProductFeature, bannerID)
     }
 }
 

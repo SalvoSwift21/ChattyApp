@@ -18,6 +18,9 @@ public protocol TextAnalyzerProtocol: AnyObject {
     func done()
     func back()
     
+    func transactionFeatureIsEnabled() -> Bool
+    func adMobIsEnabled() -> Bool
+    
 }
 
 public protocol TextAnalyzerProtocolDelegate: AnyObject {

@@ -54,12 +54,16 @@ public struct UploadFileView: ViewModifier {
                             alignment: .center
                         )
                         .background(.white)
+                        .onDisappear {
+                            presenter.showAdvFromViewModel()
+                        }
                 }
                                 
             }
             Spacer()
         }
         .task(presenter.loadFilesType)
+        .task(presenter.loadAd)
     }
 }
 

@@ -12,19 +12,25 @@ public class FoldersPresenter: FoldersPresenterProtocol {
     
     internal var didSelectFolder: ((Folder) -> Void)?
     internal var resourceBundle: Bundle
-
+    internal var currentProductFeature: ProductFeature
+    internal var bannerID: String
+    
     private var service: FoldersServiceProtocol
     private weak var delegate: FoldersProtocolDelegate?
     
 
     public init(delegate: FoldersProtocolDelegate,
                 service: FoldersServiceProtocol,
+                currentProductFeature: ProductFeature,
+                bannerID: String,
                 didSelectFolder: ((Folder) -> Void)?,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
         self.resourceBundle = bundle
         self.didSelectFolder = didSelectFolder
+        self.currentProductFeature = currentProductFeature
+        self.bannerID = bannerID
     }
     
     @MainActor

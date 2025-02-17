@@ -34,7 +34,7 @@ public final class TextAnalyzerComposer {
         
         let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: scanStorage)
         
-        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, bundle: bundle, done: done)
+        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId(), bundle: bundle, done: done)
         
         return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
     }

@@ -45,10 +45,17 @@ public struct ScanDetailView: View {
                 ZStack(content: {
                     VStack {
                         makeDetailView(viewModel: viewModel)
-                        HStack {
-                            makeMenuActions(viewModel: viewModel)
-                            Spacer()
-                        }.padding(.horizontal)
+                        
+                        VStack(spacing: 5) {
+                            HStack {
+                                makeMenuActions(viewModel: viewModel)
+                                Spacer()
+                            }.padding(.horizontal)
+                            
+                            if presenter.showADBanner() {
+                                ExternalBannerView(addUnitID: presenter.getADBannerID())
+                            }
+                        }
                     }
                     
                     if showingCopyConfirmView {
@@ -119,8 +126,9 @@ public struct ScanDetailView: View {
                     mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil))
     @State var scanDetailStore = ScanDetailStore(state: .loaded(viewModel: ScanDetailViewModel(scan: scan)))
     var service = ScanDetailService(scan: scan)
+    var product = ProductFeature(features: [], productID: "")
 
-    @State var presenter = ScanDetailPresenter(delegate: scanDetailStore, service: service)
+    @State var presenter = ScanDetailPresenter(delegate: scanDetailStore, service: service, currentProductFeature: product, bannerID: "12345678")
    
     return NavigationView {
         ScanDetailView(store: scanDetailStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
