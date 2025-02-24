@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 public protocol ScanProtocols: ScanProtocol {
     func startScan()
     func stopScan()

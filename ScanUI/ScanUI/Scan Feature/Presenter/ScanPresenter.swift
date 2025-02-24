@@ -97,7 +97,7 @@ public class ScanPresenter: ScanProtocols {
             switch lastItem {
             case .text(let text):
                 await self.service.handleTappingItem(text: text.transcript)
-                await self.stopScan()
+                self.stopScan()
             default:
                 return
             }

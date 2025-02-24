@@ -14,6 +14,7 @@ public final class UploadFileComposer {
     
     static var uploadFileStore: UploadFileStore?
 
+    @MainActor
     public static func uploadFileModifierView(
         isPresented: Binding<Bool>,
         scanResult: @escaping (ScanResult) -> Void = { _ in }

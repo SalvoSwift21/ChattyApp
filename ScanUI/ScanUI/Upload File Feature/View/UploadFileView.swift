@@ -65,24 +65,19 @@ public struct UploadFileView: ViewModifier {
                         .ignoresSafeArea(.all)
                         .onTapGesture {
                             Task {
-                                await self.presenter.handleCancelAction()
+                                self.presenter.handleCancelAction()
                             }
                         }
                     switch errorState {
                     case .error(let message):
                         ErrorView(title: "Error", description: message, primaryButtonTitle: "Try with another file", primaryAction: {
-                            Task {
-                                await self.presenter.handleTryAgain()
-                                self.isPresented.wrappedValue = true
-                            }
+                            self.presenter.handleTryAgain()
+                            self.isPresented.wrappedValue = true
                         }, secondaryButtonTitle: "Cancel", secondaryAction: {
-                            Task {
-                                await self.presenter.handleCancelAction()
-                            }
+                            self.presenter.handleCancelAction()
                         })
                     }
                 }
-                
             }
             Spacer()
         }

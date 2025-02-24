@@ -41,7 +41,7 @@ public struct HomeView: View {
                     }
                 case .error(let message):
                     ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload home", primaryAction: {
-                        
+                        presenter.handleReloadButton()
                     }, secondaryButtonTitle: nil, secondaryAction: nil)
                 case .loaded(let viewModel):
                     ScrollView(showsIndicators: false) {

@@ -18,13 +18,18 @@ public protocol TextAnalyzerProtocol: AnyObject {
     func done()
     func back()
     
+    func handleErrorPrimaryAction(state: TextAnalyzerStore.ErrorState)
+    func handleErrorSecondaryAction(state: TextAnalyzerStore.ErrorState)
+
     func transactionFeatureIsEnabled() -> Bool
     func adMobIsEnabled() -> Bool
     
 }
 
 public protocol TextAnalyzerProtocolDelegate: AnyObject {
-    func render(errorMessage: String)
+    func renderErrorSummary(errorMessage: String)
+    func renderErrorTr(errorMessage: String)
     func render(viewModel: TextAnalyzerViewModel)
     func goBack()
+    func resetErrorState()
 }

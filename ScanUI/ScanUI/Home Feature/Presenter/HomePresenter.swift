@@ -108,6 +108,12 @@ public class HomePresenter: HomePresenterProtocol {
             print("Error new folder not created, error \(error)")
         }
     }
+    
+    func handleReloadButton() {
+        Task {
+            await self.loadData()
+        }
+    }
 }
 
 //MARK: Help for Home

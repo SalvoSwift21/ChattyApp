@@ -24,6 +24,8 @@ protocol HomePresenterProtocol: AnyObject {
     
     func renameFolder(folder: Folder) async
     func deleteFolder(folder: Folder) async
+    
+    func handleReloadButton()
 }
 
 public protocol HomePresenterDelegate: AnyObject {

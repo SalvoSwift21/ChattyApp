@@ -8,6 +8,12 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>Questa app necessita dell'accesso ai file per importare documenti.</string>
+    <key>UIFileSharingEnabled</key>
+    <true/>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>GADApplicationIdentifier</key>

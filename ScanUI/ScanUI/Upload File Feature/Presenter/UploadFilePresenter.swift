@@ -37,8 +37,13 @@ public class UploadFilePresenter: UploadFileProtocols {
     @MainActor
     public func startScan(atURL url: URL) async {
         do {
+            guard url.startAccessingSecurityScopedResource() else {
+                self.delegate?.render(errorMessage: "Not access to file")
+                return
+            }
             let scanResult = try await self.service.startScan(atURL: url)
             resultOfScan(scanResult)
+            url.stopAccessingSecurityScopedResource()
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
