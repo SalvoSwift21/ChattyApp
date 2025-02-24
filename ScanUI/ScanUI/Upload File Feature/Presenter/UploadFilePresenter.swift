@@ -58,6 +58,16 @@ public class UploadFilePresenter: UploadFileProtocols {
         }
     }
     
+    @MainActor
+    public func handleTryAgain() {
+        self.delegate?.resetErrorState()
+    }
+    
+    @MainActor
+    public func handleCancelAction() {
+        self.delegate?.resetErrorState()
+    }
+    
     public func adIsEnabled() -> Bool {
         !currentProductFeature.features.contains(.removeAds)
     }

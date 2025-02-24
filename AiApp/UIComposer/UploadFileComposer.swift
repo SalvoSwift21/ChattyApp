@@ -21,7 +21,7 @@ public final class UploadFileComposer {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
         
-        let uploadFileStore = UploadFileStore(state: .error(message: "View not load"))
+        let uploadFileStore = UploadFileStore(state: .initState)
         
         if UploadFileComposer.uploadFileStore == nil {
             UploadFileComposer.uploadFileStore = uploadFileStore
