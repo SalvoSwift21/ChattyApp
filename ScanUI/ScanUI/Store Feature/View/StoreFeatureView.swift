@@ -24,31 +24,39 @@ public struct StoreFeatureView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center) {
-            switch store.state {
-            case .unowned:
-                EmptyView()
-            case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "Store kit error", primaryAction: {
-                    Task {
-                        await presenter.loadData()
+        ZStack {
+            VStack(alignment: .center) {
+                switch store.state {
+                case .unowned:
+                    EmptyView()
+                case .loaded(let viewModel):
+                    SubscriptionStoreView(
+                        productIDs: viewModel.products.map(\.productID)
+                    )
+                    .subscriptionStoreButtonLabel(.multiline)
+                    .subscriptionStoreControlStyle(.automatic)
+                    .subscriptionStorePickerItemBackground(.backgroundFolder.opacity(0.5))
+                    .background(Color.mainBackground)
+                    .onInAppPurchaseCompletion { product, result in
+                        presenter.productTapped(productModelID: product.id,
+                                                productPurchaseResult: result)
                     }
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
-            case .loaded(let viewModel):
-                SubscriptionStoreView(
-                    productIDs: viewModel.products.map(\.productID)
-                )
-                .subscriptionStoreButtonLabel(.multiline)
-                .subscriptionStoreControlStyle(.automatic)
-                .subscriptionStorePickerItemBackground(.backgroundFolder.opacity(0.5))
-                .background(Color.mainBackground)
-                .onInAppPurchaseCompletion { product, result in
-                    presenter.productTapped(productModelID: product.id,
-                                            productPurchaseResult: result)
+                    .tint(.prime)
+                    .foregroundColor(.title)
                 }
-                .tint(.prime)
-                .foregroundColor(.title)
             }
+            
+            if let errorMessage = store.errorMessage {
+                Color
+                    .scanBackground
+                    .opacity(0.15)
+                    .ignoresSafeArea(.all)
+                
+                ErrorView(title: "Error", description: errorMessage, primaryButtonTitle: "Reload", primaryAction: {
+                    presenter.handleErrorButtonTapped()
+                }, secondaryButtonTitle: nil, secondaryAction: nil)
+            }
+            
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

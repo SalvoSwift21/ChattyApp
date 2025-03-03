@@ -21,7 +21,7 @@ public final class PreferencesUIComposer {
     ) -> PreferencesView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
-        let preferenceStore = PreferenceStore()
+        let preferenceStore = PreferenceStore(state: .unowned)
         let preferenceAIService = LocalAIPreferencesService(resourceBundle: bundle, userDefault: AppConfiguration.shared.preferencesStoreManager ?? .standard)
         
         if PreferencesUIComposer.preferenceStore == nil {

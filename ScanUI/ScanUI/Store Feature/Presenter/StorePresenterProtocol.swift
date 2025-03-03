@@ -16,9 +16,12 @@ protocol StorePresenterProtocol: AnyObject {
     func loadData() async
     
     func productTapped(productModelID: String, productPurchaseResult: Result<Product.PurchaseResult, any Error>)
+    
+    func handleErrorButtonTapped()
 }
 
+@MainActor
 public protocol StoreDelegate: AnyObject {
-    func render(errorMessage: String)
+    func render(errorMessage: String?)
     func render(viewModel: StoreViewModel)
 }

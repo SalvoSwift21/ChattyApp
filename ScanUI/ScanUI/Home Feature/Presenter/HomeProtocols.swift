@@ -28,8 +28,9 @@ protocol HomePresenterProtocol: AnyObject {
     func handleReloadButton()
 }
 
+@MainActor
 public protocol HomePresenterDelegate: AnyObject {
-    func render(errorMessage: String)
+    func render(errorMessage: String?)
     func renderLoading(visible: Bool)
     func render(viewModel: HomeViewModel)
 }

@@ -11,12 +11,12 @@ import Foundation
 public class StoreFeatureStore: ObservableObject {
     
     public enum State {
-        case error(message: String)
         case loaded(viewModel: StoreViewModel)
         case unowned
     }
     
     @Published var state: State
+    @Published var errorMessage: String?
 
     public init(state: StoreFeatureStore.State = .unowned) {
         self.state = state
@@ -25,8 +25,8 @@ public class StoreFeatureStore: ObservableObject {
 
 
 extension StoreFeatureStore: StoreDelegate {
-    public func render(errorMessage: String) {
-        self.state = .error(message: errorMessage)
+    public func render(errorMessage: String?) {
+        self.errorMessage = errorMessage
     }
     
     

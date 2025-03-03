@@ -38,81 +38,93 @@ public struct AllFoldersView: View {
                 if showLoader {
                     LoadingView()
                 }
-            case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "Try with another file", primaryAction: {
-//                    presenter.loadData()
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .loaded(let viewModel):
-                ScrollView {
-                    LazyVGrid(columns: [
-                        .init(spacing: 8.0),
-                        .init(spacing: 8.0)
-                    ]) {
-                        ForEach(viewModel.folders, id: \.id) { folder in
-                            Button {
-                                if let _ = presenter.didSelectFolder {
-                                    presenter.didSelectFolder?(folder)
-                                } else {
-                                    self.currentFolderSelected = folder
-                                    self.showFolderDetail.toggle()
-                                }
-                            } label: {
-                                FolderItemView(resourceBundle: resourceBundle, folder: folder)
-                                    .contextMenu {
-                                        if folder.canEdit {
-                                            Button {
-                                                self.selectedFolderToEdit = folder
-                                                isShowingAlertToRenameFolder.toggle()
-                                            } label: {
-                                                Label("Rename", systemImage: "pencil")
-                                            }
-                                            
-                                            Button(role: .destructive) {
-                                                self.selectedFolderToEdit = folder
-                                                isShowingAlertToDeleteFolder.toggle()
-                                            } label: {
-                                                Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                ZStack {
+                    ScrollView {
+                        LazyVGrid(columns: [
+                            .init(spacing: 8.0),
+                            .init(spacing: 8.0)
+                        ]) {
+                            ForEach(viewModel.folders, id: \.id) { folder in
+                                Button {
+                                    if let _ = presenter.didSelectFolder {
+                                        presenter.didSelectFolder?(folder)
+                                    } else {
+                                        self.currentFolderSelected = folder
+                                        self.showFolderDetail.toggle()
+                                    }
+                                } label: {
+                                    FolderItemView(resourceBundle: resourceBundle, folder: folder)
+                                        .contextMenu {
+                                            if folder.canEdit {
+                                                Button {
+                                                    self.selectedFolderToEdit = folder
+                                                    isShowingAlertToRenameFolder.toggle()
+                                                } label: {
+                                                    Label("Rename", systemImage: "pencil")
+                                                }
+                                                
+                                                Button(role: .destructive) {
+                                                    self.selectedFolderToEdit = folder
+                                                    isShowingAlertToDeleteFolder.toggle()
+                                                } label: {
+                                                    Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                                }
                                             }
                                         }
-                                    }
-                                    .cornerRadius(10)
+                                        .cornerRadius(10)
+                                }
                             }
-                        }
-                    }.padding()
-                }
-                .textFieldAlert(text: $newFolderName,
-                                title: "Rename folder",
-                                okButtonTitle: "Ok",
-                                placeholder: "Folder Name",
-                                isShowingAlert: $isShowingAlertToRenameFolder) {
-                    Task {
-                        guard var folder = self.selectedFolderToEdit else {
+                        }.padding()
+                    }
+                    .textFieldAlert(text: $newFolderName,
+                                    title: "Rename folder",
+                                    okButtonTitle: "Ok",
+                                    placeholder: "Folder Name",
+                                    isShowingAlert: $isShowingAlertToRenameFolder) {
+                        Task {
+                            guard var folder = self.selectedFolderToEdit else {
+                                self.selectedFolderToEdit = nil
+                                self.newFolderName = ""
+                                return
+                            }
+                            folder.title = newFolderName
+                            await presenter.renameFolder(folder: folder)
                             self.selectedFolderToEdit = nil
                             self.newFolderName = ""
-                            return
                         }
-                        folder.title = newFolderName
-                        await presenter.renameFolder(folder: folder)
-                        self.selectedFolderToEdit = nil
-                        self.newFolderName = ""
+                    }
+                    .alert("Are you shure to delete this folder ?", isPresented: $isShowingAlertToDeleteFolder, actions: {
+                        Button("Ok", action: {
+                            guard let folder = self.selectedFolderToEdit else {
+                                selectedFolderToEdit = nil
+                                return
+                            }
+                            Task {
+                                await presenter.deleteFolder(folder: folder)
+                                selectedFolderToEdit = nil
+                            }
+                        })
+                        Button("Cancel", action: {
+                            selectedFolderToEdit = nil
+                            self.isShowingAlertToDeleteFolder.toggle()
+                        })
+                    })
+                    
+                    if let message = store.errorMessage {
+                        Color
+                            .scanBackground
+                            .opacity(0.15)
+                            .ignoresSafeArea(.all)
+                            .onTapGesture {
+                                self.presenter.handleErrorButton()
+                            }
+                        
+                        ErrorView(title: "Error", description: message, primaryButtonTitle: "Close", primaryAction: {
+                            self.presenter.handleErrorButton()
+                        }, secondaryButtonTitle: nil, secondaryAction: nil)
                     }
                 }
-                .alert("Are you shure to delete this folder ?", isPresented: $isShowingAlertToDeleteFolder, actions: {
-                    Button("Ok", action: {
-                        guard let folder = self.selectedFolderToEdit else {
-                            selectedFolderToEdit = nil
-                            return
-                        }
-                        Task {
-                            await presenter.deleteFolder(folder: folder)
-                            selectedFolderToEdit = nil
-                        }
-                    })
-                    Button("Cancel", action: {
-                        selectedFolderToEdit = nil
-                        self.isShowingAlertToDeleteFolder.toggle()
-                    })
-                })
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {

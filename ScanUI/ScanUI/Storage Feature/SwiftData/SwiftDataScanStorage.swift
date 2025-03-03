@@ -21,6 +21,7 @@ public final class SwiftDataStore {
         case scanNotFound
         case folderNotExist
         case folderAlreadyExist
+        case folderNameNotValid
         case failedToLoadPersistentContainer(Error)
     }
     

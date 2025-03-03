@@ -18,7 +18,7 @@ public class FolderDetailService: FolderDetailServiceProtocol {
     }
     
     public func getFolder() async throws -> Folder {
-        guard let folder = try self.client.retrieveFolder(id: self.folder.id) else {
+        guard let folder = try await self.client.retrieveFolder(id: self.folder.id) else {
             return self.folder
         }
         
@@ -26,6 +26,6 @@ public class FolderDetailService: FolderDetailServiceProtocol {
     }
     
     public func deleteScan(scan: Scan) async throws {
-        try self.client.deleteScan(id: scan.id)
+        try await self.client.deleteScan(id: scan.id)
     }
 }

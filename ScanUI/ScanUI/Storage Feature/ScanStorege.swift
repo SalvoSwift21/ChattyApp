@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+@MainActor
 public protocol ScanStorege {
     func create(_ folder: Folder) throws
 

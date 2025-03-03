@@ -30,14 +30,6 @@ public struct ScanView: View {
                 if showLoader {
                     LoadingView()
                 }
-            case .error(let message):
-                VStack(alignment: .center, content: {
-                    Spacer()
-                    ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
-                        presenter.goBack()
-                    }, secondaryButtonTitle: nil, secondaryAction: nil)
-                    Spacer()
-                }).padding()
             case .loaded(let viewModel):
                 DataScannerView(dataScannerViewController: viewModel.dataScannerController)
                 VStack {
@@ -75,6 +67,16 @@ public struct ScanView: View {
                                 .disabled(!store.scanButtonEnabled)
                         }
                     })
+                }
+            }
+            
+            if let errorMessage = store.errorMessage {
+                VStack {
+                    Spacer()
+                    ErrorView(title: "Error", description: errorMessage, primaryButtonTitle: "Back", primaryAction: {
+                        presenter.goBack()
+                    }, secondaryButtonTitle: nil, secondaryAction: nil)
+                    Spacer()
                 }
             }
         }

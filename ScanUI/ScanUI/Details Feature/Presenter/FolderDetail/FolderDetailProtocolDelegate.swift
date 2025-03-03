@@ -16,10 +16,14 @@ protocol FolderDetailPresenterProtocol: AnyObject {
     
     func select(scan: Scan)
     func delete(scan: Scan) async throws
+    
+    func handlePrimaryErrorButton()
+    func handleSecondaryErrorButton()
 }
 
+@MainActor
 public protocol FolderDetailProtocolDelegate: AnyObject {
-    func render(errorMessage: String)
+    func render(errorMessage: String?)
     func renderLoading(visible: Bool)
     func render(viewModel: FolderDetailViewModel)
     

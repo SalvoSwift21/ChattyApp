@@ -18,7 +18,7 @@ public class FoldersLocalService: FoldersServiceProtocol {
     
     public func getFolders() async -> [Folder] {
         do {
-            return try self.client.retrieveFolders() ?? []
+            return try await self.client.retrieveFolders() ?? []
         } catch {
             debugPrint("Error get folders \(error.localizedDescription)")
             return []
@@ -28,15 +28,15 @@ public class FoldersLocalService: FoldersServiceProtocol {
     
     public func createFolder(name: String) async throws {
         let newFolder = Folder(title: name, scans: [])
-        try self.client.create(newFolder)
+        try await self.client.create(newFolder)
     }
     
     public func deleteFolder(folder: Folder) async throws {
-        return try client.deleteFolder(folder)
+        return try await client.deleteFolder(folder)
     }
     
     public func renameFolder(folder: Folder) async throws {
-        return try client.renameFolder(folder)
+        return try await client.renameFolder(folder)
     }
     
     public func getStorage() -> any ScanStorege {

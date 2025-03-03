@@ -53,8 +53,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
             
             self.delegate?.render(viewModel: vModel)
         } catch {
-            print("Error \(error.localizedDescription)")
-            self.delegate?.render(errorMessage: error.localizedDescription)
+            self.delegate?.render(errorState: PreferenceStore.ErrorState.loadPreferenceError(message: error.localizedDescription))
         }
     }
     
@@ -76,7 +75,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 await loadData()
                 updatePreferences()
             } catch {
-                debugPrint("Error in save preference \(error.localizedDescription)")
+                await self.delegate?.render(errorState: PreferenceStore.ErrorState.genericError(message: error.localizedDescription))
                 updatePreferences()
             }
         }
@@ -95,12 +94,26 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 await loadData()
                 updatePreferences()
             } catch {
-                debugPrint("Error in save preference \(error.localizedDescription)")
+                await self.delegate?.render(errorState: PreferenceStore.ErrorState.genericError(message: error.localizedDescription))
                 updatePreferences()
             }
         }
     }
     
+    
+    func handleErrorMessageButton(errorState: PreferenceStore.ErrorState) {
+        switch errorState {
+        case .genericError:
+            Task {
+                await self.delegate?.render(errorState: nil)
+            }
+        case .loadPreferenceError:
+            Task {
+                await loadData()
+                await self.delegate?.render(errorState: nil)
+            }
+        }
+    }
 }
 
 extension PreferencePresenter: AIModelListDelegate {
