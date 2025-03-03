@@ -45,7 +45,7 @@ public class FoldersPresenter: FoldersPresenterProtocol {
             try await self.service.createFolder(name: name)
             await self.loadData()
         } catch {
-            print("Error new folder not created, error \(error)")
+            await self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
@@ -58,7 +58,7 @@ public class FoldersPresenter: FoldersPresenterProtocol {
             try await self.service.renameFolder(folder: folder)
             await self.loadData()
         } catch {
-            print("Error new folder not created, error \(error)")
+            await self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
@@ -67,7 +67,13 @@ public class FoldersPresenter: FoldersPresenterProtocol {
             try await self.service.deleteFolder(folder: folder)
             await self.loadData()
         } catch {
-            print("Error new folder not created, error \(error)")
+            await self.delegate?.render(errorMessage: error.localizedDescription)
+        }
+    }
+    
+    func handleErrorButton() {
+        Task {
+            await self.delegate?.render(errorMessage: nil)
         }
     }
 }

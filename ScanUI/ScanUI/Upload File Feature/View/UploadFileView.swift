@@ -30,10 +30,8 @@ public struct UploadFileView: ViewModifier {
         ZStack(alignment: .center) {
             Spacer()
             switch store.state {
-            case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "Try with another file", primaryAction: {
-                    self.isPresented.wrappedValue = false
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
+            case .initState:
+                content
             case .loaded(let viewModel):
                 content
                     .fileImporter(isPresented: self.isPresented,
@@ -46,6 +44,7 @@ public struct UploadFileView: ViewModifier {
                             self.isLoading.toggle()
                         }
                     }
+                
                 if self.isLoading {
                     LoadingView()
                         .frame(
@@ -58,7 +57,27 @@ public struct UploadFileView: ViewModifier {
                             presenter.showAdvFromViewModel()
                         }
                 }
-                                
+                
+                if let errorState = store.errorState {
+                    Color
+                        .scanBackground
+                        .opacity(0.15)
+                        .ignoresSafeArea(.all)
+                        .onTapGesture {
+                            Task {
+                                self.presenter.handleCancelAction()
+                            }
+                        }
+                    switch errorState {
+                    case .error(let message):
+                        ErrorView(title: "Error", description: message, primaryButtonTitle: "Try with another file", primaryAction: {
+                            self.presenter.handleTryAgain()
+                            self.isPresented.wrappedValue = true
+                        }, secondaryButtonTitle: "Cancel", secondaryAction: {
+                            self.presenter.handleCancelAction()
+                        })
+                    }
+                }
             }
             Spacer()
         }

@@ -34,11 +34,13 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
     
     @MainActor
     func loadData() async {
+        self.showLoader(true)
         guard let currentFolder = try? await service.getFolder() else {
             self.delegate?.render(errorMessage: "Error can't load folder")
             return
         }
         self.currentFolder = currentFolder
+        self.showLoader(false)
         self.delegate?.render(viewModel: FolderDetailViewModel(folder: currentFolder))
     }
     
@@ -66,6 +68,14 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
     func getProductInfoAndBanner() -> (ProductFeature, String) {
         (currentProductFeature, bannerID)
     }
+    
+    func handlePrimaryErrorButton() {
+        Task {
+            await self.loadData()
+        }
+    }
+    
+    func handleSecondaryErrorButton() {  }
 }
 
 //MARK: Help for Home

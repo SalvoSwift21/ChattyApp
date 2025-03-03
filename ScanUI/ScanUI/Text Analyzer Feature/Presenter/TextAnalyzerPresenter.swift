@@ -47,6 +47,7 @@ public class TextAnalyzerPresenter {
     
     @MainActor 
     public func getData() async {
+        self.textAnalyzerViewModel.chatHistory.removeAll()
         await makeSummary(forScan: scannedResult)
     }
     
@@ -83,7 +84,7 @@ public class TextAnalyzerPresenter {
             
             self.renderViewModel()
         } catch {
-            self.delegate?.render(errorMessage: error.localizedDescription)
+            self.delegate?.renderErrorSummary(errorMessage: error.localizedDescription)
         }
     }
 }
@@ -159,6 +160,29 @@ extension TextAnalyzerPresenter {
 
 extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
+    public func handleErrorPrimaryAction(state: TextAnalyzerStore.ErrorState) {
+        self.delegate?.resetErrorState()
+        switch state {
+        case .errorSummary:
+            Task {
+                await self.getData()
+            }
+        case .errorTR:
+            Task {
+                await self.makeTranslation()
+            }
+        }
+    }
+    
+    public func handleErrorSecondaryAction(state: TextAnalyzerStore.ErrorState) {
+        self.delegate?.resetErrorState()
+        switch state {
+        case .errorSummary:
+            delegate?.goBack()
+        case .errorTR: break
+        }
+    }
+    
     public func addTitle(_ title: String) {
         self.currentSaveTitle = title
     }
@@ -201,7 +225,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
             
             self.renderViewModel()
         } catch {
-            self.delegate?.render(errorMessage: error.localizedDescription)
+            self.delegate?.renderErrorTr(errorMessage: error.localizedDescription)
         }
     }
     

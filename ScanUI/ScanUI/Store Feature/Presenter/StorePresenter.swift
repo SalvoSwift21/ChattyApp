@@ -70,9 +70,18 @@ public class StorePresenter: StorePresenterProtocol {
             default: break
             }
         case .failure(let error):
-            debugPrint("Error in purchase \(error.localizedDescription)")
+            Task {
+                await self.delegate?.render(errorMessage: "L'acquisto non è stato completato")
+            }
         }
         refreshView()
+    }
+    
+    func handleErrorButtonTapped() {
+        Task {
+            await self.delegate?.render(errorMessage: nil)
+            await self.loadData()
+        }
     }
     
     fileprivate func refreshView() {

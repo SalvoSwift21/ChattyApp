@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 public protocol ScanProtocols: ScanProtocol {
     func startScan()
     func stopScan()
@@ -15,9 +16,10 @@ public protocol ScanProtocols: ScanProtocol {
     func shutterButtonTapped()
 }
 
+@MainActor
 public protocol ScanProtocolsDelegate: AnyObject {
     func goBack()
-    func render(errorMessage: String)
+    func render(errorMessage: String?)
     func renderLoading(visible: Bool)
     func render(viewModel: ScanViewModel)
 }

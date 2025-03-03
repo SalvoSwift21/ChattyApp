@@ -10,11 +10,26 @@ import Foundation
 public class TextAnalyzerStore: ObservableObject {
     
     public enum State {
-        case error(message: String)
         case showViewModel
     }
     
+    public enum ErrorState {
+        case errorSummary(message: String)
+        case errorTR(message: String)
+        
+        func getMessage() -> String {
+            switch self {
+            case .errorSummary(let message):
+                return message
+            case .errorTR(let message):
+                return message
+            }
+        }
+    }
+    
     @Published var state: State = .showViewModel
+    @Published var errorState: ErrorState? = nil
+    
     @Published var back: Bool = false
     @Published var viewModel = TextAnalyzerViewModel(chatHistory: [])
 
@@ -25,16 +40,26 @@ public class TextAnalyzerStore: ObservableObject {
 
 
 extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
+    
+    
     public func goBack() {
         self.back = true
-    }
-    
-    public func render(errorMessage: String) {
-        self.state = .error(message: errorMessage)
     }
     
     public func render(viewModel: TextAnalyzerViewModel) {
         self.viewModel = viewModel
         self.state = .showViewModel
+    }
+    
+    public func renderErrorTr(errorMessage: String) {
+        self.errorState = .errorTR(message: errorMessage)
+    }
+    
+    public func renderErrorSummary(errorMessage: String) {
+        self.errorState = .errorSummary(message: errorMessage)
+    }
+    
+    public func resetErrorState() {
+        self.errorState = nil
     }
 }

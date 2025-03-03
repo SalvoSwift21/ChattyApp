@@ -41,16 +41,32 @@ public struct TextAnalyzerView: View {
     public var body: some View {
         VStack(alignment: .center) {
             switch store.state {
-            case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "ok", primaryAction: {
-                    print("Generic error ok")
-                }, secondaryButtonTitle: nil, secondaryAction: nil)
             case .showViewModel:
                 ZStack {
                     CompleteTextView
                     if showingCopyConfirmView {
                         FlashAlert(title: "Copy on clipoboard", image: Image(systemName: "checkmark.circle.fill"))
                     }
+                    
+                    if let errorState = store.errorState {
+                        
+                        Color
+                            .scanBackground
+                            .opacity(0.15)
+                            .ignoresSafeArea(.all)
+                            .onTapGesture {
+                                Task {
+                                    self.presenter.handleErrorSecondaryAction(state: errorState)
+                                }
+                            }
+                        
+                        ErrorView(title: "Error", description: errorState.getMessage(), primaryButtonTitle: "Try again", primaryAction: {
+                            presenter.handleErrorPrimaryAction(state: errorState)
+                        }, secondaryButtonTitle: "Cancel", secondaryAction: {
+                            presenter.handleErrorSecondaryAction(state: errorState)
+                        })
+                    }
+                    
                 }
             }
             Spacer()

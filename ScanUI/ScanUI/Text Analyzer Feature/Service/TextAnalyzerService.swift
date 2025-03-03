@@ -44,15 +44,15 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
         var saveFolder: Folder
         
         if folder == nil {
-            saveFolder = try getDefaultFolder()
+            saveFolder = try await getDefaultFolder()
         } else {
             saveFolder = folder!
         }
         
-        try storageClient.insert(scan, inFolder: saveFolder)
+        try await storageClient.insert(scan, inFolder: saveFolder)
     }
     
-    private func getDefaultFolder() throws -> Folder {
+    @MainActor private func getDefaultFolder() throws -> Folder {
         guard let folder = try storageClient.retrieveFolders(title: storageClient.getDefaultFolderName())?.first else {
             throw TextAnalyzerServiceError.noDefaultFolder
         }

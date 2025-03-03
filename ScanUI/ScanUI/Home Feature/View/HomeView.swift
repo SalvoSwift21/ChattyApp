@@ -32,17 +32,12 @@ public struct HomeView: View {
     
     public var body: some View {
         ZStack {
-//            Color.mainBackground.ignoresSafeArea()
             VStack(alignment: .center) {
                 switch store.state {
                 case .loading(let showLoader):
                     if showLoader {
                         LoadingView()
                     }
-                case .error(let message):
-                    ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload home", primaryAction: {
-                        
-                    }, secondaryButtonTitle: nil, secondaryAction: nil)
                 case .loaded(let viewModel):
                     ScrollView(showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 32, content: {
@@ -156,7 +151,7 @@ public struct HomeView: View {
                                     placeholder: "Folder Name",
                                     isShowingAlert: $isShowingAlert) {
                         Task {
-                            await presenter.createNewFolderAndReload(name: newFolderName)
+                            await presenter.createNewFolder(name: newFolderName)
                             newFolderName = ""
                         }
                     }
@@ -168,6 +163,17 @@ public struct HomeView: View {
             }
             .task(id: self.searchText, priority: .high) {
                 await presenter.getSearchResult(for: searchText)
+            }
+            
+            if let errorState = store.errorState {
+                Color
+                    .scanBackground
+                    .opacity(0.15)
+                    .ignoresSafeArea(.all)
+                
+                ErrorView(title: "Error", description: errorState.getMessage(), primaryButtonTitle: "Reload home", primaryAction: {
+                    presenter.handleReloadButton()
+                }, secondaryButtonTitle: nil, secondaryAction: nil)
             }
         }
     }

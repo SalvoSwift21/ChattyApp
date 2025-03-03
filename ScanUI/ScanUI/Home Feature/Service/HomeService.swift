@@ -21,7 +21,7 @@ public class HomeService: HomeServiceProtocol {
     }
     
     public func getMyFolder() async throws -> [Folder] {
-        guard let folders = try client.retrieveFolders() else {
+        guard let folders = try await client.retrieveFolders() else {
             throw HomeServiceError.RetriveFoldersError
         }
         return folders
@@ -40,27 +40,27 @@ public class HomeService: HomeServiceProtocol {
     
     public func createFolder(name: String) async throws {
         let newFolder = Folder(title: name, scans: [])
-        try self.client.create(newFolder)
+        try await self.client.create(newFolder)
     }
     
     public func getSearchResults(for query: String) async throws -> ([Folder], [Scan]) {
-        let folders = (try client.retrieveFolders() ?? [])
+        let folders = await (try client.retrieveFolders() ?? [])
             .compactMap({ $0 })
             .filter({ folder in
                 return folder.title.contains(query)
             })
         
-        let scans = try client.retrieveScans(title: query) ?? []
+        let scans = try await client.retrieveScans(title: query) ?? []
         
         return (folders, scans)
     }
     
     public func deleteFolder(folder: Folder) async throws {
-        return try client.deleteFolder(folder)
+        return try await client.deleteFolder(folder)
     }
     
     public func renameFolder(folder: Folder) async throws {
-        return try client.renameFolder(folder)
+        return try await client.renameFolder(folder)
     }
     
     

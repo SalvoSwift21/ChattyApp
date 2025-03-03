@@ -12,16 +12,19 @@ protocol PreferencePresenterProtocol: AnyObject {
     var currentAppProductFeature: ProductFeature { get set }
     var menuButton: (() -> Void) { get set }
     var updatePreferences: (() -> Void) { get set }
-
+    
     func loadData() async
     
     func saveAIPreferencereType(_ preferenceModel: PreferenceModel) async throws
     func loadAIPreferencereType() async throws -> PreferenceModel
     
     func transactionServiceIsEnabled() -> Bool
+    
+    func handleErrorMessageButton(errorState: PreferenceStore.ErrorState)
 }
 
+@MainActor
 public protocol PreferenceDelegate: AnyObject {
-    func render(errorMessage: String)
+    func render(errorState: PreferenceStore.ErrorState?)
     func render(viewModel: PreferencesViewModel)
 }

@@ -11,11 +11,12 @@ public class FoldersStore: ObservableObject {
     
     public enum State {
         case loading(show: Bool)
-        case error(message: String)
         case loaded(viewModel: FoldersViewModel)
     }
     
     @Published var state: State = .loading(show: false)
+    
+    @Published var errorMessage: String?
 
     public init(state: FoldersStore.State = .loading(show: true)) {
         self.state = state
@@ -25,8 +26,8 @@ public class FoldersStore: ObservableObject {
 
 extension FoldersStore: FoldersProtocolDelegate {
     
-    public func render(errorMessage: String) {
-        self.state = .error(message: errorMessage)
+    public func render(errorMessage: String?) {
+        self.errorMessage = errorMessage
     }
     
     public func renderLoading(visible: Bool) {

@@ -15,10 +15,13 @@ protocol FoldersPresenterProtocol: AnyObject {
     
     func loadData() async
     func createNewFolder(name: String) async
+    
+    func handleErrorButton()
 }
 
+@MainActor
 public protocol FoldersProtocolDelegate: AnyObject {
-    func render(errorMessage: String)
+    func render(errorMessage: String?)
     func renderLoading(visible: Bool)
     func render(viewModel: FoldersViewModel)
 }

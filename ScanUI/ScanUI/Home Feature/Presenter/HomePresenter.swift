@@ -48,7 +48,7 @@ public class HomePresenter: HomePresenterProtocol {
     
     @MainActor
     public func loadData() async {
-        self.showLoader(true)
+        await self.showLoader(true)
         
         do {
             let newViewModel = try await getHome()
@@ -62,7 +62,7 @@ public class HomePresenter: HomePresenterProtocol {
     @MainActor
     internal func getSearchResult(for query: String) async {
         if query.isEmpty {
-            self.resetSearchMode()
+            await self.resetSearchMode()
             return
         }
         
@@ -71,7 +71,7 @@ public class HomePresenter: HomePresenterProtocol {
             self.homeViewModel.searchResult = HomeSearchResultViewModel(scans: result.1, folders: result.0)
             self.delegate?.render(viewModel: homeViewModel)
         } catch {
-            self.resetSearchMode()
+           await self.resetSearchMode()
         }
     }
     
@@ -87,7 +87,7 @@ public class HomePresenter: HomePresenterProtocol {
             try await self.service.createFolder(name: name)
             await self.loadData()
         } catch {
-            print("Error new folder not created, error \(error)")
+            await self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
@@ -96,7 +96,7 @@ public class HomePresenter: HomePresenterProtocol {
             try await self.service.renameFolder(folder: folder)
             await self.loadData()
         } catch {
-            print("Error new folder not created, error \(error)")
+            await self.delegate?.render(errorMessage: error.localizedDescription)
         }
     }
     
@@ -105,7 +105,14 @@ public class HomePresenter: HomePresenterProtocol {
             try await self.service.deleteFolder(folder: folder)
             await self.loadData()
         } catch {
-            print("Error new folder not created, error \(error)")
+            await self.delegate?.render(errorMessage: error.localizedDescription)
+        }
+    }
+    
+    func handleReloadButton() {
+        Task {
+            await self.delegate?.render(errorMessage: nil)
+            await self.loadData()
         }
     }
 }
@@ -113,21 +120,12 @@ public class HomePresenter: HomePresenterProtocol {
 //MARK: Help for Home
 extension HomePresenter {
     
-    public func createNewFolderAndReload(name: String) async {
-        do {
-            try await self.service.createFolder(name: name)
-            await self.loadData()
-        } catch {
-            print("Error new folder not created, error \(error)")
-        }
+    fileprivate func showLoader(_ show: Bool) async {
+        await self.delegate?.renderLoading(visible: show)
     }
     
-    fileprivate func showLoader(_ show: Bool) {
-        self.delegate?.renderLoading(visible: show)
-    }
-    
-    fileprivate func resetSearchMode() {
+    fileprivate func resetSearchMode() async {
         self.homeViewModel.searchResult = nil
-        self.delegate?.render(viewModel: homeViewModel)
+        await self.delegate?.render(viewModel: homeViewModel)
     }
 }

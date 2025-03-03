@@ -11,12 +11,13 @@ public class FolderDetailStore: ObservableObject {
     
     public enum State {
         case loading(show: Bool)
-        case error(message: String)
         case loaded(viewModel: FolderDetailViewModel)
     }
     
     @Published var state: State = .loading(show: false)
     @Published var currentSelectedScan: Scan?
+    
+    @Published var errorMessage: String?
 
     public init(state: FolderDetailStore.State = .loading(show: true)) {
         self.state = state
@@ -26,8 +27,8 @@ public class FolderDetailStore: ObservableObject {
 
 extension FolderDetailStore: FolderDetailProtocolDelegate {
     
-    public func render(errorMessage: String) {
-        self.state = .error(message: errorMessage)
+    public func render(errorMessage: String?) {
+        self.errorMessage = errorMessage
     }
     
     public func renderLoading(visible: Bool) {

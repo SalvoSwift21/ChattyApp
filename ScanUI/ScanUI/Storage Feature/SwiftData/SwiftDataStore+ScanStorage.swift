@@ -44,6 +44,10 @@ extension SwiftDataStore: ScanStorege {
     }
     
     public func create(_ folder: Folder) throws {
+        guard folder.title.isEmpty == false else {
+            throw SwiftDataStore.folderNameNotValid
+        }
+        
         guard try findFoldersByID(id: folder.id).isEmpty else {
             throw SwiftDataStore.folderAlreadyExist
         }

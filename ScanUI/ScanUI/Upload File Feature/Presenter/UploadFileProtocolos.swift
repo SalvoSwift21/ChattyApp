@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 public protocol UploadFileProtocols: ScanProtocol {
     var currentProductFeature: ProductFeature { get set }
 
@@ -16,9 +17,15 @@ public protocol UploadFileProtocols: ScanProtocol {
     
     @Sendable func loadFilesType() async
     @Sendable func loadAd() async
+    
+    func handleTryAgain()
+    func handleCancelAction()
 }
 
+@MainActor
 public protocol UploadFileProtocolsDelegate: AnyObject {
     func render(errorMessage: String)
     func render(viewModel: UploadFileViewModel)
+    func renderInitState()
+    func resetErrorState()
 }

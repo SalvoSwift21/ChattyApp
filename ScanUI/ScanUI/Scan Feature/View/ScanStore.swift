@@ -11,10 +11,11 @@ public class ScanStore: ObservableObject {
     
     public enum State {
         case loading(show: Bool)
-        case error(message: String)
         case loaded(viewModel: ScanViewModel)
     }
     
+    
+    @Published var errorMessage: String? = nil
     
     @Published var state: State = .loading(show: false)
     @Published var scanButtonEnabled: Bool = false
@@ -32,8 +33,8 @@ extension ScanStore: ScanProtocolsDelegate {
         back.toggle()
     }
     
-    public func render(errorMessage: String) {
-        self.state = .error(message: errorMessage)
+    public func render(errorMessage: String?) {
+        self.errorMessage = errorMessage
     }
     
     public func renderLoading(visible: Bool) {

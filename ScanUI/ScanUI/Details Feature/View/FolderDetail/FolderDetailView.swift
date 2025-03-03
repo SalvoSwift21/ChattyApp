@@ -25,29 +25,37 @@ public struct FolderDetailView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center) {
-            switch store.state {
-            case .loading(let showLoader):
-                if showLoader {
-                    LoadingView()
-                }
-            case .error(let message):
-                ErrorView(title: "Error", description: message,
-                          primaryButtonTitle: "Reload view folder detail",
-                          primaryAction: {
-                    Task {
-                        await presenter.loadData()
+        ZStack {
+            VStack(alignment: .center) {
+                switch store.state {
+                case .loading(let showLoader):
+                    if showLoader {
+                        LoadingView()
                     }
-                }, secondaryButtonTitle: "Back", 
+                case .loaded(let viewModel):
+                    makeDetailView(viewModel: viewModel)
+                        .navigationTitle(viewModel.folder.title)
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+                Spacer()
+            }
+            
+            
+            if let errorMessage = store.errorMessage {
+                Color
+                    .scanBackground
+                    .opacity(0.15)
+                    .ignoresSafeArea(.all)
+                
+                ErrorView(title: "Error", description: errorMessage,
+                          primaryButtonTitle: "Reload view",
+                          primaryAction: {
+                    self.presenter.handlePrimaryErrorButton()
+                }, secondaryButtonTitle: "Back",
                           secondaryAction: {
                     presentation.wrappedValue.dismiss()
                 })
-            case .loaded(let viewModel):
-                makeDetailView(viewModel: viewModel)
-                    .navigationTitle(viewModel.folder.title)
-                    .navigationBarTitleDisplayMode(.inline)
-            }
-            Spacer()
+        }
         }
         .frame(
             maxWidth: .infinity,

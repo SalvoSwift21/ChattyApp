@@ -19,37 +19,43 @@ struct ErrorView: View {
     let secondaryAction: (() -> Void)?
 
     var body: some View {
-        VStack {
-            Text(title)
-                .font(.title3)
-                .fontWeight(.bold)
-                .foregroundStyle(.red)
-            Text(description)
-                .font(.subheadline)
-                .fontWeight(.regular)
-                .foregroundStyle(.subtitle)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 5)
-            HStack() {
-                Button(action: { primaryAction() }) {
-                    Text(primaryButtonTitle)
-                        .font(.footnote)
+        ZStack(alignment: .center) {
+            VStack(spacing: 20.0) {
+                VStack(spacing: 10) {
+                    Text(title)
+                        .font(.title2)
                         .fontWeight(.bold)
-                }.buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 30)))
-                
-                if let secondaryAction = self.secondaryAction, let secondaryButtonTitle = self.secondaryButtonTitle {
-                    Button(action: { secondaryAction() }) {
-                        Text(secondaryButtonTitle)
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                    }.buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 30), backgroundColor: .red))
+                        .foregroundStyle(.red)
+                    Text(description)
+                        .font(.body)
+                        .fontWeight(.regular)
+                        .foregroundStyle(.subtitle)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 5)
                 }
+                
+                VStack(spacing: 10) {
+                    Button(action: { primaryAction() }) {
+                        Text(primaryButtonTitle)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                    }.buttonStyle(DefaultButtonStyle(frame: .init(width: 200, height: 45)))
+                    
+                    if let secondaryAction = self.secondaryAction, let secondaryButtonTitle = self.secondaryButtonTitle {
+                        Button(action: { secondaryAction() }) {
+                            Text(secondaryButtonTitle)
+                                .font(.body)
+                                .fontWeight(.semibold)
+                        }.buttonStyle(DefaultButtonStyle(frame: .init(width: 200, height: 45), backgroundColor: .red))
+                    }
+                }.padding()
             }
+            .padding()
+            .background(.white)
+            .clipShape(.rect(cornerRadius: 10.0))
+            .shadow(radius: 10.0)
         }
         .padding()
-        .background(.white)
-        .clipShape(.buttonBorder)
-        .shadow(radius: 10.0)
     }
 }
 
