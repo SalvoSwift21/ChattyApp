@@ -70,10 +70,10 @@ public struct UploadFileView: ViewModifier {
                         }
                     switch errorState {
                     case .error(let message):
-                        ErrorView(title: "Error", description: message, primaryButtonTitle: "Try with another file", primaryAction: {
+                        ErrorView(title: "GENERIC_ERROR_TITLE", description: message, primaryButtonTitle: "UPLOAD_FILE_TRY_ANOTHER_ALERT_ACTION", primaryAction: {
                             self.presenter.handleTryAgain()
                             self.isPresented.wrappedValue = true
-                        }, secondaryButtonTitle: "Cancel", secondaryAction: {
+                        }, secondaryButtonTitle: "GENERIC_CANCEL_TITLE", secondaryAction: {
                             self.presenter.handleCancelAction()
                         })
                     }

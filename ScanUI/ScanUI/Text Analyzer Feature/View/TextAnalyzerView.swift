@@ -45,7 +45,7 @@ public struct TextAnalyzerView: View {
                 ZStack {
                     CompleteTextView
                     if showingCopyConfirmView {
-                        FlashAlert(title: "Copy on clipoboard", image: Image(systemName: "checkmark.circle.fill"))
+                        FlashAlert(title: "GENERIC_COPY_CLIPBOARD_ACTION", image: Image(systemName: "checkmark.circle.fill"))
                     }
                     
                     if let errorState = store.errorState {
@@ -60,9 +60,9 @@ public struct TextAnalyzerView: View {
                                 }
                             }
                         
-                        ErrorView(title: "Error", description: errorState.getMessage(), primaryButtonTitle: "Try again", primaryAction: {
+                        ErrorView(title: "GENERIC_ERROR_TITLE", description: errorState.getMessage(), primaryButtonTitle: "GENERIC_TRY_AGAIN", primaryAction: {
                             presenter.handleErrorPrimaryAction(state: errorState)
-                        }, secondaryButtonTitle: "Cancel", secondaryAction: {
+                        }, secondaryButtonTitle: "GENERIC_CANCEL_TITLE", secondaryAction: {
                             presenter.handleErrorSecondaryAction(state: errorState)
                         })
                     }
@@ -115,7 +115,7 @@ public struct TextAnalyzerView: View {
                                     await presenter.makeTranslation()
                                 }
                             }) {
-                                Label("Translate", systemImage: "bubble.left.and.text.bubble.right")
+                                Label("GENERIC_TRANSLATE_ACTION", systemImage: "bubble.left.and.text.bubble.right")
                             }
                         }
                         
@@ -131,7 +131,7 @@ public struct TextAnalyzerView: View {
                                 }
                             })
                         }) {
-                            Label("Copy to clipboard", systemImage: "doc.on.doc")
+                            Label("GENERIC_COPY_CLIPBOARD_ACTION", systemImage: "doc.on.doc")
                         }
                         
                         
@@ -151,15 +151,16 @@ public struct TextAnalyzerView: View {
                     Spacer()
                     
                     Button(action: { self.isShowingAlert.toggle() }) {
-                        Text("Save")
+                        Text("GENERIC_SAVE_ACTION")
                             .font(.body)
                             .fontWeight(.semibold)
                     }
                     .buttonStyle(DefaultButtonStyle(frame: .init(width: 100, height: 35)))
                     .textFieldAlert(text: $scanName,
-                                    title: "Add title to this new scan",
-                                    okButtonTitle: "Ok",
-                                    placeholder: "Scan name",
+                                    title: "TEXT_ANALYZER_NEW_SCAN_ALERT_TITLE",
+                                    okButtonTitle: "GENERIC_SAVE_ACTION",
+                                    message: "TEXT_ANALYZER_NEW_SCAN_ALERT_MESSAGE",
+                                    placeholder: "TEXT_ANALYZER_NEW_SCAN_ALERT_PLACEHOLDER",
                                     isShowingAlert: $isShowingAlert) {
                         presenter.addTitle(scanName)
                         self.showFoldersView.toggle()
@@ -168,7 +169,7 @@ public struct TextAnalyzerView: View {
                 .padding()
             }
         }
-        .navigationTitle("Summary result")
+        .navigationTitle("TEXT_ANALYZER_TITLE")
         .navigationBarTitleDisplayMode(.inline)
         .background(.mainBackground)
     }
@@ -177,11 +178,12 @@ public struct TextAnalyzerView: View {
         NavigationView {
             FoldersViewComposer.foldersComposedWith(client: presenter.getStoredService(), currentProductFeature: presenter.getCurrentProductFeature(), bannerID: presenter.getADBannerID()) { selectedFolder in
                 presenter.doneButtonTapped(withFolder: selectedFolder)
+                showFoldersView.toggle()
             }
-            .navigationTitle("Choose folder")
+            .navigationTitle("TEXT_ANALYZER_CHOOSE_FOLDER_ACTION_TITLE")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Close") {
+                    Button("GENERIC_CLOSE_ACTION") {
                         self.showFoldersView.toggle()
                     }
                 }

@@ -14,7 +14,7 @@ struct FlashAlert: View {
     
     var body: some View {
         VStack {
-            Text(title)
+            Text(LocalizedStringKey(title))
             image
                 .resizable()
                 .frame(width: 50, height: 50)

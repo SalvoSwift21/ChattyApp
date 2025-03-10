@@ -16,12 +16,15 @@ public class TextAnalyzerStore: ObservableObject {
     public enum ErrorState {
         case errorSummary(message: String)
         case errorTR(message: String)
+        case saveError(message: String, folder: Folder)
         
         func getMessage() -> String {
             switch self {
             case .errorSummary(let message):
                 return message
             case .errorTR(let message):
+                return message
+            case .saveError(let message, _):
                 return message
             }
         }
@@ -41,7 +44,6 @@ public class TextAnalyzerStore: ObservableObject {
 
 extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
     
-    
     public func goBack() {
         self.back = true
     }
@@ -57,6 +59,10 @@ extension TextAnalyzerStore: TextAnalyzerProtocolDelegate {
     
     public func renderErrorSummary(errorMessage: String) {
         self.errorState = .errorSummary(message: errorMessage)
+    }
+    
+    public func renderSaveError(errorMessage: String, folder: Folder) {
+        self.errorState = .saveError(message: errorMessage, folder: folder)
     }
     
     public func resetErrorState() {

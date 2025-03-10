@@ -11,7 +11,7 @@ import CoreData
 
 @MainActor
 public final class SwiftDataStore {
-    
+
     private var configuration = ModelConfiguration()
     var modelContainer: ModelContainer
     var defaultFolderName: String
@@ -23,6 +23,23 @@ public final class SwiftDataStore {
         case folderAlreadyExist
         case folderNameNotValid
         case failedToLoadPersistentContainer(Error)
+        
+        var localizedDescription: String {
+            switch self {
+            case .modelNotFound:
+                return "DATA_STORE_ERROR_MODELNOTFOUND"
+            case .scanNotFound:
+                return "DATA_STORE_ERROR_SCANNOTFOUND"
+            case .folderNotExist:
+                return "DATA_STORE_ERROR_FOLDERNOTEXIST"
+            case .folderAlreadyExist:
+                return "DATA_STORE_ERROR_FOLDERALREADYEXIST"
+            case .folderNameNotValid:
+                return "DATA_STORE_ERROR_FOLDERNAMENOTVALID"
+            case .failedToLoadPersistentContainer(let error):
+                return "DATA_STORE_ERROR_FAILEDTOLOADPERSISTENTCONTAINER"
+            }
+        }
     }
     
     public init(storeURL: URL, defaultFolderName: String) throws {

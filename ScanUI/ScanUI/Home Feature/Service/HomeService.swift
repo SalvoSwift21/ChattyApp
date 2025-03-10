@@ -10,8 +10,15 @@ import RestApi
 
 public class HomeService: HomeServiceProtocol {
     
-    public enum HomeServiceError: Swift.Error {
+    public enum HomeServiceError: Error {
         case RetriveFoldersError
+        
+        var localizedDescription: String {
+            switch self {
+            case .RetriveFoldersError:
+                return "HOME_SERVICE_ERROR_RETRIEVEFOLDERERROR"
+            }
+        }
     }
     
     private var client: ScanStorege

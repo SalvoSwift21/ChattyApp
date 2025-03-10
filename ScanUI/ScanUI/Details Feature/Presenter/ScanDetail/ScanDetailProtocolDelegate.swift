@@ -20,7 +20,7 @@ protocol ScanDetailPresenterProtocol: AnyObject {
 }
 
 public protocol ScanDetailProtocolDelegate: AnyObject {
-    func render(errorMessage: String)
+    func render(errorMessage: String?)
     func renderLoading(visible: Bool)
     func render(viewModel: ScanDetailViewModel)
 }

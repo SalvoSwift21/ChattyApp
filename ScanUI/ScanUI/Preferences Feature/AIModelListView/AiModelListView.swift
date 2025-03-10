@@ -42,15 +42,15 @@ public struct AiModelListView: View {
                     .padding()
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("AI Model list")
+                .navigationTitle("CHOOSE_AI_MODEL_TITLE")
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         HStack {
                             Button {
                                 dismiss()
                             } label: {
-                                Text("Close")
-                                    .foregroundStyle(.primary)
+                                Text("GENERIC_CLOSE_ACTION")
+                                    .foregroundStyle(.prime)
                             }
                         }
                     }

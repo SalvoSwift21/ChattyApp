@@ -36,7 +36,7 @@ public class FolderDetailPresenter: FolderDetailPresenterProtocol {
     func loadData() async {
         self.showLoader(true)
         guard let currentFolder = try? await service.getFolder() else {
-            self.delegate?.render(errorMessage: "Error can't load folder")
+            self.delegate?.render(errorMessage: "FOLDER_DETAIL_LOAD_ERROR")
             return
         }
         self.currentFolder = currentFolder

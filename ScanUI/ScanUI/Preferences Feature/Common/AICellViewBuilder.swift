@@ -19,13 +19,13 @@ class AICellViewBuilder {
                 .frame(width: 20, height: 20, alignment: .center)
             
             VStack(alignment: .leading, spacing: 3, content: {
-                Text(model.title)
+                Text(LocalizedStringKey(model.title))
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
                     .foregroundStyle(.title)
                 
-                Text(model.aiType.getDescription())
+                Text(LocalizedStringKey(model.aiType.getDescription()))
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 12))
                     .fontWeight(.regular)

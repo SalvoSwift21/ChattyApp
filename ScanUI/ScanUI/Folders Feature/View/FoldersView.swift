@@ -105,7 +105,7 @@ public struct AllFoldersView: View {
                                 selectedFolderToEdit = nil
                             }
                         })
-                        Button("Cancel", action: {
+                        Button("GENERIC_CANCEL_TITLE", action: {
                             selectedFolderToEdit = nil
                             self.isShowingAlertToDeleteFolder.toggle()
                         })
@@ -120,7 +120,7 @@ public struct AllFoldersView: View {
                                 self.presenter.handleErrorButton()
                             }
                         
-                        ErrorView(title: "Error", description: message, primaryButtonTitle: "Close", primaryAction: {
+                        ErrorView(title: "GENERIC_ERROR_TITLE", description: message, primaryButtonTitle: "Close", primaryAction: {
                             self.presenter.handleErrorButton()
                         }, secondaryButtonTitle: nil, secondaryAction: nil)
                     }

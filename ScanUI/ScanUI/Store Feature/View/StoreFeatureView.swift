@@ -52,7 +52,7 @@ public struct StoreFeatureView: View {
                     .opacity(0.15)
                     .ignoresSafeArea(.all)
                 
-                ErrorView(title: "Error", description: errorMessage, primaryButtonTitle: "Reload", primaryAction: {
+                ErrorView(title: "GENERIC_ERROR_TITLE", description: errorMessage, primaryButtonTitle: "GENERIC_RELOAD_ACTION", primaryAction: {
                     presenter.handleErrorButtonTapped()
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             }

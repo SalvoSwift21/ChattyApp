@@ -80,7 +80,7 @@ struct MainContainerView: View {
                     FoldersViewComposer.foldersComposedWith(client: scanStorage,
                                                             currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature,
                                                             bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId())
-                        .navigationTitle("All folders")
+                        .navigationTitle("ALL_FOLDER_TITLE")
                 }
             }
             .navigationDestination(for: ScanResult.self) { scanResult in
