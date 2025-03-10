@@ -15,7 +15,7 @@ public enum ChatPosition {
 public class ChatCellViewModel: ObservableObject {
     var uuid: UUID = UUID()
     
-    var title: String?
+    var title: LocalizedStringKey?
     @Published var description: String?
     var image: UIImage?
     
@@ -25,7 +25,7 @@ public class ChatCellViewModel: ObservableObject {
     @Published var isInLoading: Bool
     
     public init(title: String? = nil, description: String? = nil, image: UIImage? = nil, backgroundColor: Color, position: ChatPosition = .left, isInLoading: Bool) {
-        self.title = title
+        self.title = title == nil ? nil : LocalizedStringKey(title ?? "")
         self.description = description
         self.image = image
         self.backgroundColor = backgroundColor

@@ -47,11 +47,11 @@ public struct FolderDetailView: View {
                     .opacity(0.15)
                     .ignoresSafeArea(.all)
                 
-                ErrorView(title: "Error", description: errorMessage,
-                          primaryButtonTitle: "Reload view",
+                ErrorView(title: "GENERIC_ERROR_TITLE", description: errorMessage,
+                          primaryButtonTitle: "GENERIC_RELOAD_ACTION",
                           primaryAction: {
                     self.presenter.handlePrimaryErrorButton()
-                }, secondaryButtonTitle: "Back",
+                }, secondaryButtonTitle: "GENERIC_BACK_ACTION",
                           secondaryAction: {
                     presentation.wrappedValue.dismiss()
                 })
@@ -97,7 +97,7 @@ public struct FolderDetailView: View {
                     .navigationTitle(scan.title)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            Button("Close") {
+                            Button("GENERIC_CLOSE_ACTION") {
                                 self.showScanDetail.toggle()
                             }
                         }

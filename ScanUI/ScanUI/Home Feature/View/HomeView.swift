@@ -71,9 +71,10 @@ public struct HomeView: View {
                     }
                     .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic))
                     .textFieldAlert(text: $newFolderName,
-                                    title: "Rename folder",
-                                    okButtonTitle: "Ok",
-                                    placeholder: "Folder Name",
+                                    title: "HOME_VIEW_RENAME_ALERT_TITLE",
+                                    okButtonTitle: "HOME_VIEW_RENAME_ALERT_ACTION_BUTTON",
+                                    message: "HOME_VIEW_RENAME_ALERT_MESSAGE",
+                                    placeholder: "HOME_VIEW_RENAME_ALERT_PLACEHOLDER",
                                     isShowingAlert: $isShowingAlertToRenameFolder) {
                         Task {
                             guard var folder = self.selectedFolderToEdit else {
@@ -87,8 +88,8 @@ public struct HomeView: View {
                             self.newFolderName = ""
                         }
                     }
-                    .alert("Are you shure to delete this folder ?", isPresented: $isShowingAlertToDeleteFolder, actions: {
-                        Button("Ok", action: {
+                    .alert("HOME_VIEW_DELETE_ALERT_TITLE", isPresented: $isShowingAlertToDeleteFolder, actions: {
+                        Button("GENERIC_OK_BUTTON", action: {
                             guard let folder = self.selectedFolderToEdit else {
                                 selectedFolderToEdit = nil
                                 return
@@ -98,7 +99,7 @@ public struct HomeView: View {
                                 selectedFolderToEdit = nil
                             }
                         })
-                        Button("Cancel", action: { 
+                        Button("GENERIC_CANCEL_TITLE", action: {
                             selectedFolderToEdit = nil
                             self.isShowingAlertToDeleteFolder.toggle()
                         })
@@ -146,9 +147,10 @@ public struct HomeView: View {
                             .foregroundColor(Color.prime)
                     }
                     .textFieldAlert(text: $newFolderName,
-                                    title: "Create new Folder",
-                                    okButtonTitle: "Ok",
-                                    placeholder: "Folder Name",
+                                    title: "HOME_VIEW_CREATE_ALERT_TITLE",
+                                    okButtonTitle: "HOME_VIEW_CREATE_ALERT_ACTION_BUTTON",
+                                    message: "HOME_VIEW_CREATE_ALERT_MESSAGE",
+                                    placeholder: "HOME_VIEW_CREATE_ALERT_PLACEHOLDER",
                                     isShowingAlert: $isShowingAlert) {
                         Task {
                             await presenter.createNewFolder(name: newFolderName)
@@ -171,7 +173,7 @@ public struct HomeView: View {
                     .opacity(0.15)
                     .ignoresSafeArea(.all)
                 
-                ErrorView(title: "Error", description: errorState.getMessage(), primaryButtonTitle: "Reload home", primaryAction: {
+                ErrorView(title: "GENERIC_ERROR_TITLE", description: errorState.getMessage(), primaryButtonTitle: "GENERIC_RELOAD_ACTION", primaryAction: {
                     presenter.handleReloadButton()
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             }

@@ -3,42 +3,42 @@
         "title": "",
         "rows": [
             {
-                "title": "Home",
+                "title": "SIDE_MENU_HOME",
                 "imageName": "side_menu_premium",
                 "rowType": "home"
             },
             {
-                "title": "Remove Ads",
+                "title": "SIDE_MENU_REMOVE_ADS",
                 "imageName": "side_menu_remove_ads",
                 "rowType": "premium"
             },
             {
-                "title": "Choose AI",
+                "title": "SIDE_MENU_CHOOSE_AI",
                 "imageName": "side_menu_premium",
                 "rowType": "chooseAi"
             },
             {
-                "title": "Rate Us",
+                "title": "SIDE_MENU_RATE_US",
                 "imageName": "side_menu_rate",
                 "rowType": "rateUs"
             }
         ]
     },
     {
-        "title": "More",
+        "title": "SIDE_MENU_MORE_SECTION_TITLE",
         "rows": [
             {
-                "title": "Help",
+                "title": "SIDE_MENU_HELP",
                 "imageName": "side_menu_help",
                 "rowType": "help"
             },
             {
-                "title": "Terms & Conditions",
+                "title": "SIDE_MENU_TERMS_AND_COND",
                 "imageName": "side_menu_terms_and_cond",
                 "rowType": "termsAndConditions"
             },
             {
-                "title": "Privacy & Policy",
+                "title": "SIDE_MENU_PRIVACY_POLICY",
                 "imageName": "side_menu_privacy",
                 "rowType": "privacyPolicy"
             }

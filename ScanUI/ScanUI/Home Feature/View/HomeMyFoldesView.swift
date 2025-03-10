@@ -20,7 +20,7 @@ struct HomeMyFoldesView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15, content: {
             HStack(content: {
-                Text("My Folders")
+                Text("HOME_MY_FOLDER_SECTION_TITLE")
                     .font(.system(size: 22))
                     .fontWeight(.semibold)
                     .foregroundStyle(.title)
@@ -28,7 +28,7 @@ struct HomeMyFoldesView: View {
                 Button(action: {
                     viewAllButtonTapped()
                 }, label: {
-                    Text("See All")
+                    Text("HOME_MY_FOLDER_SECTION_SEE_ALL")
                         .font(.system(size: 14))
                         .fontWeight(.medium)
                         .foregroundStyle(.prime)
@@ -47,14 +47,14 @@ struct HomeMyFoldesView: View {
                                 Button {
                                     self.renameFolder(folder)
                                 } label: {
-                                    Label("Rename", systemImage: "pencil")
+                                    Label("HOME_MY_FOLDER_SECTION_RENAME_ACTION", systemImage: "pencil")
                                 }
                                 
                                 
                                 Button(role: .destructive) {
                                     self.deleteFolder(folder)
                                 } label: {
-                                    Label("Delete folder", systemImage: "folder.fill.badge.minus")
+                                    Label("HOME_MY_FOLDER_SECTION_DELETE_ACTION", systemImage: "folder.fill.badge.minus")
                                 }
                             }
                         }

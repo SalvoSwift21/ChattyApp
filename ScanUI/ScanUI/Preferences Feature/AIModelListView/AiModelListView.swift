@@ -42,15 +42,15 @@ public struct AiModelListView: View {
                     .padding()
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("AI Model list")
+                .navigationTitle("CHOOSE_AI_MODEL_TITLE")
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         HStack {
                             Button {
                                 dismiss()
                             } label: {
-                                Text("Close")
-                                    .foregroundStyle(.primary)
+                                Text("GENERIC_CLOSE_ACTION")
+                                    .foregroundStyle(.prime)
                             }
                         }
                     }
@@ -70,7 +70,7 @@ public struct AiModelListView: View {
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
 
     NavigationView {
-        AiModelListView(currentAppProductFeature: currentAppProductFeature, models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
+        AiModelListView(currentAppProductFeature: currentAppProductFeature, models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_2_0_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
     }
     
 }

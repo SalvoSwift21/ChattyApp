@@ -24,48 +24,52 @@ public struct ScanDetailView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center) {
-            switch store.state {
-            case .loading(let showLoader):
-                if showLoader {
-                    LoadingView()
+        ZStack {
+            VStack(alignment: .center) {
+                switch store.state {
+                case .loading(let showLoader):
+                    if showLoader {
+                        LoadingView()
+                    }
+                case .loaded(let viewModel):
+                    ZStack(content: {
+                        VStack {
+                            makeDetailView(viewModel: viewModel)
+                            
+                            VStack(spacing: 5) {
+                                HStack {
+                                    makeMenuActions(viewModel: viewModel)
+                                    Spacer()
+                                }.padding(.horizontal)
+                                
+                                if presenter.showADBanner() {
+                                    ExternalBannerView(addUnitID: presenter.getADBannerID())
+                                }
+                            }
+                        }
+                        
+                        if showingCopyConfirmView {
+                            FlashAlert(title: "GENERIC_COPY_CLIPBOARD_ACTION", image: Image(systemName: "checkmark.circle.fill"))
+                        }
+                    })
+                    .navigationTitle(viewModel.scan.title)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
-            case .error(let message):
-                ErrorView(title: "Error", description: message,
-                          primaryButtonTitle: "Reload view Scan detail",
+                Spacer()
+            }
+            
+            if let errorMessage = store.errorMessage {
+                ErrorView(title: "GENERIC_ERROR_TITLE", description: errorMessage,
+                          primaryButtonTitle: "GENERIC_RELOAD_ACTION",
                           primaryAction: {
                     Task {
                         await presenter.loadData()
                     }
-                }, secondaryButtonTitle: "Back",
+                }, secondaryButtonTitle: "GENERIC_BACK_ACTION",
                           secondaryAction: {
                     presentation.wrappedValue.dismiss()
                 })
-            case .loaded(let viewModel):
-                ZStack(content: {
-                    VStack {
-                        makeDetailView(viewModel: viewModel)
-                        
-                        VStack(spacing: 5) {
-                            HStack {
-                                makeMenuActions(viewModel: viewModel)
-                                Spacer()
-                            }.padding(.horizontal)
-                            
-                            if presenter.showADBanner() {
-                                ExternalBannerView(addUnitID: presenter.getADBannerID())
-                            }
-                        }
-                    }
-                    
-                    if showingCopyConfirmView {
-                        FlashAlert(title: "Copy on clipoboard", image: Image(systemName: "checkmark.circle.fill"))
-                    }
-                })
-                .navigationTitle(viewModel.scan.title)
-                .navigationBarTitleDisplayMode(.inline)
             }
-            Spacer()
         }
         .frame(
             maxWidth: .infinity,

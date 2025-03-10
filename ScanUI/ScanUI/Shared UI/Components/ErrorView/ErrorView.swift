@@ -9,15 +9,29 @@ import SwiftUI
 
 struct ErrorView: View {
     
-    let title: String
-    let description: String
+    let title: LocalizedStringKey
+    let description: LocalizedStringKey
     
-    let primaryButtonTitle: String
+    let primaryButtonTitle: LocalizedStringKey
     let primaryAction: () -> Void
 
-    let secondaryButtonTitle: String?
+    let secondaryButtonTitle: LocalizedStringKey?
     let secondaryAction: (() -> Void)?
 
+    init(title: String, description: String, primaryButtonTitle: String, primaryAction: @escaping () -> Void, secondaryButtonTitle: String?, secondaryAction: (() -> Void)?) {
+        self.title = LocalizedStringKey(title)
+        self.description = LocalizedStringKey(description)
+        self.primaryButtonTitle = LocalizedStringKey(primaryButtonTitle)
+        self.primaryAction = primaryAction
+        if let secondaryButtonTitle {
+            self.secondaryButtonTitle = LocalizedStringKey(secondaryButtonTitle)
+            self.secondaryAction = secondaryAction
+        } else {
+            self.secondaryAction = nil
+            self.secondaryButtonTitle = nil
+        }
+    }
+    
     var body: some View {
         ZStack(alignment: .center) {
             VStack(spacing: 20.0) {

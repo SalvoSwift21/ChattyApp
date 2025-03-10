@@ -14,7 +14,7 @@ struct HomeMyRecentScanView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 15, content: {
-            Text("Recent Scans")
+            Text("HOME_RECENT_SECTION_TITLE")
                 .font(.system(size: 22))
                 .fontWeight(.semibold)
                 .foregroundStyle(.title)

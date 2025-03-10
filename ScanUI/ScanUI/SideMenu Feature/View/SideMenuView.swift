@@ -92,7 +92,7 @@ public struct SideMenuView: View {
     func SectionView(section: MenuSection) -> some View {
         VStack(alignment: .leading, spacing: 20) {
             if let title = section.title {
-                Text(title)
+                Text(LocalizedStringKey(title))
                     .font(.system(size: 14))
                     .fontWeight(.bold)
                     .foregroundStyle(.title)
@@ -116,7 +116,7 @@ public struct SideMenuView: View {
                         .resizable()
                         .frame(width: 28, height: 28, alignment: .center)
                     
-                    Text(row.title)
+                    Text(LocalizedStringKey(row.title))
                         .font(.system(size: 16))
                         .fontWeight(.medium)
                         .foregroundStyle(.title)

@@ -55,7 +55,7 @@ public struct LanguagesListView: View {
                 }
             }
             .listStyle(.sidebar)
-            .navigationTitle("Choose language")
+            .navigationTitle("CHOOSE_AI_LANGUAGE")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -63,14 +63,14 @@ public struct LanguagesListView: View {
                         Button {
                             dismiss()
                         } label: {
-                            Text("Close")
+                            Text("GENERIC_CLOSE_ACTION")
                                 .foregroundStyle(.prime)
                         }
                     }
                 }
             }
         }
-        .searchable(text: $searchText, prompt: "Search your favorite language")
+        .searchable(text: $searchText, prompt: "CHOOSE_AI_LANGUAGE_SEARCH_BAR_PLACEHOLDER")
     }
     
 }

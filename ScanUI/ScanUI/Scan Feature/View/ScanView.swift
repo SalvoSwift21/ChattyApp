@@ -45,19 +45,21 @@ public struct ScanView: View {
                                         .frame(width: 20, height: 20, alignment: .center)
                                         .foregroundStyle(.buttonTitle)
                                 })
-                                .padding()
+                                .padding(.bottom, 10)
+
                                 Spacer()
-                            })
-                            
-                            HStack(alignment: .center, content: {
-                                Text("Search text and tap to scan")
+                                
+                                Text("SCAN_INFO_TITLE")
                                     .multilineTextAlignment(.center)
                                     .font(.system(size: 18))
                                     .fontWeight(.regular)
                                     .foregroundStyle(.buttonTitle)
-                                    .padding(.vertical)
+                                    .padding(.top, 10)
+                                
+                                Spacer()
                             })
-                        }).padding()
+                            .padding()
+                        })
                     })
                     Spacer()
                     ZStack(alignment: .top, content: {
@@ -73,7 +75,7 @@ public struct ScanView: View {
             if let errorMessage = store.errorMessage {
                 VStack {
                     Spacer()
-                    ErrorView(title: "Error", description: errorMessage, primaryButtonTitle: "Back", primaryAction: {
+                    ErrorView(title: "GENERIC_ERROR_TITLE", description: errorMessage, primaryButtonTitle: "GENERIC_BACK_ACTION", primaryAction: {
                         presenter.goBack()
                     }, secondaryButtonTitle: nil, secondaryAction: nil)
                     Spacer()

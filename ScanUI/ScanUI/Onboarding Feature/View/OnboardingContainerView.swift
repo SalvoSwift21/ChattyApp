@@ -32,7 +32,7 @@ public struct OnboardingContainerView: View {
             case .loading:
                 LoadingView()
             case .error(let message):
-                ErrorView(title: "Error", description: message, primaryButtonTitle: "Reload", primaryAction: {
+                ErrorView(title: "GENERIC_ERROR_TITLE", description: message, primaryButtonTitle: "GENERIC_RELOAD_ACTION", primaryAction: {
                     Task {
                         await presenter.fetchOnboardingsCard()
                     }

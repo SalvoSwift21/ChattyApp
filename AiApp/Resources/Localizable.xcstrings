@@ -1,8 +1,170 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "All folders" : {
-
+    "AI_MODEL_DESCRIPTION_GEMINI_1.5_FLASH" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instant and precise summaries, optimized for speed. Perfect for quickly processing large text volumes."
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GEMINI_1.5FLASH_8B" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightning-fast and accurate summaries, built for rapid analysis of large texts.\n"
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GEMINI_PRO" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed, high-quality summaries, ideal for analyzing documents, PDFs, and other file types."
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GPT4_O" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The most advanced model delivers highly detailed and accurate summaries, capturing even the subtlest text nuances. Perfect for deep analysis and human-level understanding."
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GPT4_O_MINI" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A lighter version of GPT-4, providing concise, high-quality summaries. Ideal for quick and effective analysis."
+          }
+        }
+      }
+    },
+    "ALL_FOLDER_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Your Folders"
+          }
+        }
+      }
+    },
+    "CHOOSE_AI_LANGUAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Languages"
+          }
+        }
+      }
+    },
+    "CHOOSE_AI_LANGUAGE_SEARCH_BAR_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find your language"
+          }
+        }
+      }
+    },
+    "CHOOSE_AI_MODEL_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI Models"
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FAILEDTOLOADPERSISTENTCONTAINER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load data. Please check your storage or try restarting the app."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FOLDERALREADYEXIST" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A folder with this name already exists. Please choose a different name."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FOLDERNAMENOTVALID" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid folder name. Make sure the name is not empty and doesn’t contain unsupported characters."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FOLDERNOTEXIST" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The folder you are trying to access does not exist. It might have been deleted or renamed."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_MODELNOTFOUND" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data model not found. Please try restarting the app."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_SCANNOTFOUND" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document not found. Make sure the scan exists or try refreshing the view."
+          }
+        }
+      }
     },
     "DEFAULT_FOLDER_NAME" : {
       "localizations" : {
@@ -17,8 +179,292 @@
     "Empty state" : {
 
     },
-    "Key" : {
-      "extractionState" : "manual"
+    "FOLDER_DETAIL_LOAD_ERROR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was an issue loading the folder’s content. Please try reloading or check your connection."
+          }
+        }
+      }
+    },
+    "GENERIC_BACK_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
+    "GENERIC_CANCEL_TITLE" : {
+      "comment" : "Generic cancel button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "GENERIC_CLOSE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "GENERIC_COPY_CLIPBOARD_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy on clipoboard"
+          }
+        }
+      }
+    },
+    "GENERIC_ERROR_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
+    "GENERIC_OK_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "GENERIC_RELOAD_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reload"
+          }
+        }
+      }
+    },
+    "GENERIC_SAVE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "GENERIC_TRANSLATE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translate"
+          }
+        }
+      }
+    },
+    "GENERIC_TRY_AGAIN" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_DELETE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_RENAME_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rename"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_SEE_ALL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See All"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Folders"
+          }
+        }
+      }
+    },
+    "HOME_RECENT_SECTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Scans"
+          }
+        }
+      }
+    },
+    "HOME_SERVICE_ERROR_RETRIEVEFOLDERERROR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred while loading the folders. Please try reloading or check your connection."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_ACTION_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a name for your new folder."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folder name"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create New Folder"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_DELETE_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete this folder? This action cannot be undone."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_ACTION_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rename"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a new name for your folder to keep your documents organized."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter folder name…"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rename folder"
+          }
+        }
+      }
     },
     "ONBORDING_FIRST_CARD_DESCR" : {
       "extractionState" : "manual",
@@ -104,6 +550,237 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translate and Save"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the AI model you want to use for generating summaries. Pick the option that best suits your needs."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose Your AI Model"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LANGUAGE_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the language you want to use for translations. This will be the default language for your content."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LANGUAGE_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Your Default Translation Language"
+          }
+        }
+      }
+    },
+    "SCAN_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for the text, select it, then tap to capture the photo"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_CHOOSE_AI" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferences"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_HELP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_HOME" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_MORE_SECTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_PRIVACY_POLICY" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy & Policy"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_RATE_US" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate Us"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_REMOVE_ADS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove Ads"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_TERMS_AND_COND" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms & Conditions"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_CHOOSE_FOLDER_ACTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose folder"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_NEW_SCAN_ALERT_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a title for your new scan"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_NEW_SCAN_ALERT_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan name"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_NEW_SCAN_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save new scan"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_SUMMURIZE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generate summary"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Summary"
+          }
+        }
+      }
+    },
+    "UPLOAD_FILE_ACCESS_FILE_ERROR_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to access the file. Please check permissions and try again."
+          }
+        }
+      }
+    },
+    "UPLOAD_FILE_TRY_ANOTHER_ALERT_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try a different file"
           }
         }
       }

@@ -34,8 +34,8 @@ public struct AIPreferenceModel: Codable {
 public enum AIModelType: String, CaseIterable, Codable {
     case gpt_4_o = "gpt-4o"
     case gpt_4o_mini = "gpt-4o-mini"
-    case gemini_1_5_flash = "gemini-1.5-flash"
-    case gemini_1_5_flash_8b = "gemini-1.5-flash-8b"
+    case gemini_2_0_flash = "gemini-2.0-flash"
+    case gemini_2_0_flash_lite = "gemini-2.0-flash-lite"
     case gemini_pro = "gemini-1.5-pro"
     
     case unowned
@@ -43,15 +43,15 @@ public enum AIModelType: String, CaseIterable, Codable {
     func getDescription() -> String {
         switch self {
         case .gpt_4_o:
-            return "Il modello di linguaggio più avanzato, offre riassunti estremamente dettagliati e accurati, catturando le sfumature più complesse del testo. Ideale per analisi approfondite e comprensione a livello umano."
+            return "AI_MODEL_DESCRIPTION_GPT4_O"
         case .gpt_4o_mini:
-            return "Una versione più leggera di GPT-4, offre riassunti concisi e pertinenti, mantenendo un alto livello di qualità. Perfetto per un'analisi rapida ed efficace."
-        case .gemini_1_5_flash:
-            return "Riassunti istantanei e precisi, ottimizzati per la velocità. Ideale per un'analisi rapida di grandi volumi di testo."
+            return "AI_MODEL_DESCRIPTION_GPT4_O_MINI"
+        case .gemini_2_0_flash:
+            return "AI_MODEL_DESCRIPTION_GEMINI_1.5_FLASH"
         case .gemini_pro:
-            return "Riassunti personalizzati e dettagliati, su misura per le tue esigenze. Offre un'ampia gamma di opzioni di personalizzazione per soddisfare le tue richieste specifiche."
-        case .gemini_1_5_flash_8b:
-            return "Riassunti istantanei e precisi, ottimizzati per la velocità. Ideale per un'analisi rapida di grandi volumi di testo."
+            return "AI_MODEL_DESCRIPTION_GEMINI_PRO"
+        case .gemini_2_0_flash_lite:
+            return "AI_MODEL_DESCRIPTION_GEMINI_1.5FLASH_8B"
         case .unowned:
             return "Error"
         }
@@ -61,7 +61,7 @@ public enum AIModelType: String, CaseIterable, Codable {
         switch self {
             case .gpt_4_o, .gpt_4o_mini:
             return OpenAiConfiguration.getSupportedUTType()
-        case .gemini_1_5_flash, .gemini_1_5_flash_8b, .gemini_pro:
+        case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro:
             return GoogleAIConfigurations.getSupportedUTType()
         default:
             return []
@@ -72,7 +72,7 @@ public enum AIModelType: String, CaseIterable, Codable {
         switch self {
         case .gpt_4_o, .gpt_4o_mini:
             return try OpenAiConfiguration.getSupportedLanguages()
-        case .gemini_1_5_flash, .gemini_1_5_flash_8b, .gemini_pro, .unowned:
+        case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro, .unowned:
             return try GoogleAIConfigurations.getSupportedLanguages()
         }
     }
@@ -85,9 +85,9 @@ public enum AIModelType: String, CaseIterable, Codable {
             licenseType = ["pro_monthly"]
         case .gpt_4o_mini:
             licenseType = ["free", "base_monthly", "pro_monthly"]
-        case .gemini_1_5_flash:
+        case .gemini_2_0_flash:
             licenseType = ["free", "base_monthly", "pro_monthly"]
-        case .gemini_1_5_flash_8b:
+        case .gemini_2_0_flash_lite:
             licenseType = ["base_monthly", "pro_monthly"]
         case .gemini_pro:
             licenseType = ["pro_monthly"]

@@ -55,7 +55,7 @@ public class TextAnalyzerPresenter {
     fileprivate func makeSummary(forScan scan: ScanResult) async {
         do {
             let image = getCorrectPlaceholderImage(forScan: scan)
-            let summerCell = createChatViewModel(title: "Summurize my content",
+            let summerCell = createChatViewModel(title: "TEXT_ANALYZER_SUMMURIZE_ACTION",
                                                  description: nil,
                                                  image: image,
                                                  backgroundColor: .white,
@@ -171,6 +171,10 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
             Task {
                 await self.makeTranslation()
             }
+        case .saveError(_, let folder):
+            Task {
+                await self.doneButtonTapped(withFolder: folder)
+            }
         }
     }
     
@@ -180,6 +184,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
         case .errorSummary:
             delegate?.goBack()
         case .errorTR: break
+        case .saveError: break
         }
     }
     
@@ -199,7 +204,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     public func makeTranslation() async {
         guard let currentSaveText = currentSaveText else { return }
         do {
-            let trCell = createChatViewModel(title: "Translate",
+            let trCell = createChatViewModel(title: "GENERIC_TRANSLATE_ACTION",
                                              description: nil,
                                              image: nil,
                                              backgroundColor: .white,
@@ -244,7 +249,7 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
                 try await service.saveCurrentScan(scan: scanToSave, folder: folder)
                 self.done()
             } catch {
-                print("Error \(error.localizedDescription)")
+                self.delegate?.renderSaveError(errorMessage: error.localizedDescription, folder: folder)
             }
         }
     }

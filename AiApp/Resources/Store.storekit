@@ -90,8 +90,8 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Sblocca il pacchetto premium per rimuovere gli annunci, scansionare documenti (fino a 10 pagine e 128k token), generare riassunti e tradurli facilmente, ottimizzando la tua produttività.\nScansioni da fotocamere\n\nArchiviazione iCloud\n\nCondivisione del riassunto",
-              "displayName" : "Base subscription",
+              "description" : "Unlock essential features to streamline your tasks and stay focused.  \n\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \n\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease.  \n\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \n\nEverything you need to stay organized and efficient — start your Essential Plan today!",
+              "displayName" : "Essential Plan",
               "locale" : "en_US"
             }
           ],
@@ -118,8 +118,8 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Sblocca il pacchetto Pro per scansionare documenti senza limiti di 128k token e accedere a modelli avanzati come Gemini 2 o ChatGPT-4 per analisi e funzionalità di livello superiore.",
-              "displayName" : "Pro",
+              "description" : "Take your productivity to the next level with advanced features and limitless capabilities.  \n\n• 📄 Unlimited Document Scanning — No 128k token limit, scan as much as you need.  \n\n• 🧠 Access to Advanced Models — Leverage powerful AI like Gemini 2 and ChatGPT-4 for in-depth analysis and enhanced functionality.  \n\nPerfect for power users and professionals — unlock the full potential of AI with the Pro Plan!",
+              "displayName" : "Pro Plan",
               "locale" : "en_US"
             }
           ],

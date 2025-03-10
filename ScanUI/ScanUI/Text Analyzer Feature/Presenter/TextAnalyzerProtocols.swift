@@ -29,6 +29,7 @@ public protocol TextAnalyzerProtocol: AnyObject {
 public protocol TextAnalyzerProtocolDelegate: AnyObject {
     func renderErrorSummary(errorMessage: String)
     func renderErrorTr(errorMessage: String)
+    func renderSaveError(errorMessage: String, folder: Folder)
     func render(viewModel: TextAnalyzerViewModel)
     func goBack()
     func resetErrorState()

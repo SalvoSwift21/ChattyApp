@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TextFieldAlert: ViewModifier {
+       
     @Binding var text: String
-    var title: String
-    var okButtonTitle: String
-    var message: String?
-    var placeholder: String
+    var title: LocalizedStringKey
+    var okButtonTitle: LocalizedStringKey
+    var message: LocalizedStringKey?
+    var placeholder: LocalizedStringKey
     var action: () -> Void
 
     @Binding var isShowingAlert: Bool
@@ -21,7 +22,7 @@ struct TextFieldAlert: ViewModifier {
         content.alert(title, isPresented: $isShowingAlert) {
             TextField(placeholder, text: $text)
             Button(okButtonTitle, action: action)
-            Button("Cancel", action: { self.isShowingAlert.toggle() })
+            Button(String(localized: "GENERIC_CANCEL_TITLE"), action: { self.isShowingAlert.toggle() })
         } message: {
             if let message = message {
                 Text(message)
@@ -31,7 +32,7 @@ struct TextFieldAlert: ViewModifier {
 }
 
 extension View {
-    func textFieldAlert(text: Binding<String>, title: String, okButtonTitle: String, message: String? = nil, placeholder: String, isShowingAlert: Binding<Bool>, action: @escaping () -> Void) -> some View {
-        self.modifier(TextFieldAlert(text: text, title: title, okButtonTitle: okButtonTitle, message: message, placeholder: placeholder, action: action, isShowingAlert: isShowingAlert))
+    func textFieldAlert(text: Binding<String>, title: String, okButtonTitle: String, message: String = "", placeholder: String, isShowingAlert: Binding<Bool>, action: @escaping () -> Void) -> some View {
+        return self.modifier(TextFieldAlert(text: text, title: LocalizedStringKey(title), okButtonTitle: LocalizedStringKey(okButtonTitle), message: message.isEmpty ? nil : LocalizedStringKey(message), placeholder: LocalizedStringKey(placeholder), action: action, isShowingAlert: isShowingAlert))
     }
 }

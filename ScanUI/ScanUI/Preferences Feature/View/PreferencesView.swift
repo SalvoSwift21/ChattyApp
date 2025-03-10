@@ -41,13 +41,13 @@ public struct PreferencesView: View {
                             }
                         } header: {
                             VStack(alignment: .leading, spacing: 5.0) {
-                                Text("Modello AI")
+                                Text("PREFERENCES_CHOOSE_AI_TITLE")
                                     .multilineTextAlignment(.leading)
                                     .font(.system(size: 18))
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.title)
                                 
-                                Text("Qui potrai scegliere quale modello di AI vuoi utilizzare per fare riassunti e/o traduzioni")
+                                Text("PREFERENCES_CHOOSE_AI_MESSAGE")
                                     .multilineTextAlignment(.leading)
                                     .font(.system(size: 12))
                                     .fontWeight(.regular)
@@ -69,13 +69,13 @@ public struct PreferencesView: View {
                                 }
                             } header: {
                                 VStack(alignment: .leading, spacing: 5.0) {
-                                    Text("Lingua")
+                                    Text("PREFERENCES_CHOOSE_LANGUAGE_TITLE")
                                         .multilineTextAlignment(.leading)
                                         .font(.system(size: 20))
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.title)
                                     
-                                    Text("Qui puoi scegliere la lingua di default con cui vuoi fare le traduzioni")
+                                    Text("PREFERENCES_CHOOSE_LANGUAGE_MESSAGE")
                                         .multilineTextAlignment(.leading)
                                         .font(.system(size: 14))
                                         .fontWeight(.regular)
@@ -105,12 +105,13 @@ public struct PreferencesView: View {
                         self.presenter.handleErrorMessageButton(errorState: errorState)
                     }
                 
-                ErrorView(title: "Error", description: errorState.getMessage(), primaryButtonTitle: errorState.getSubMess(), primaryAction: {
+                ErrorView(title: "GENERIC_ERROR_TITLE", description: errorState.getMessage(), primaryButtonTitle: errorState.getSubMess(), primaryAction: {
                     presenter.handleErrorMessageButton(errorState: errorState)
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("SIDE_MENU_CHOOSE_AI")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 HStack {
@@ -139,7 +140,7 @@ public struct PreferencesView: View {
     
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     
-    var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard, aiPreference: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash))
+    var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard, aiPreference: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_2_0_flash))
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
     
     var presenter = PreferencePresenter(delegate: preferenceStore, service: service, currentAppProductFeature: currentAppProductFeature, menuButton: { }, updatePreferences: { })
