@@ -70,7 +70,7 @@ public struct AiModelListView: View {
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
 
     NavigationView {
-        AiModelListView(currentAppProductFeature: currentAppProductFeature, models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_1_5_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
+        AiModelListView(currentAppProductFeature: currentAppProductFeature, models: [], selected: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_2_0_flash), resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, delegate: FakeDelegate())
     }
     
 }

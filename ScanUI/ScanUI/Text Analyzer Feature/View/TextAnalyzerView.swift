@@ -201,7 +201,7 @@ public struct TextAnalyzerView: View {
                                 scanDate: .now,
                                 fileData: nil)
 
-    let googleClient: GoogleAILLMClient = makeGoogleGeminiAIClient(modelName: AIModelType.gemini_1_5_flash.rawValue)
+    let googleClient: GoogleAILLMClient = makeGoogleGeminiAIClient(modelName: AIModelType.gemini_2_0_flash.rawValue)
     
     let summaryClient = SummaryClient(summariseService: googleClient)
     let idLanguage = AppleIdentificationLanguage()

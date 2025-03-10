@@ -56,17 +56,6 @@
         }
       }
     },
-    "All folders" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All Your Folders"
-          }
-        }
-      }
-    },
     "ALL_FOLDER_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {

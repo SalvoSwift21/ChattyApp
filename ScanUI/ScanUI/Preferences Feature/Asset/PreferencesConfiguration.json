@@ -11,14 +11,14 @@
             "aiType": "gpt-4o-mini"
         },
         {
-            "title": "Google Gemini Flash 1.5",
+            "title": "Google Gemini Flash 2.0",
             "imageName": "gemini",
-            "aiType": "gemini-1.5-flash"
+            "aiType": "gemini-2.0-flash"
         },
         {
-            "title": "Google Gemini Flash 1.5-8b",
+            "title": "Google Gemini Flash 2.0 Lite",
             "imageName": "gemini",
-            "aiType": "gemini-1.5-flash-8b"
+            "aiType": "gemini-2.0-flash-lite"
         },
         {
             "title": "Google Gemini Pro",
