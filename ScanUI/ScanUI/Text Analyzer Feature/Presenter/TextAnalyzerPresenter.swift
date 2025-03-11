@@ -241,8 +241,8 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     @MainActor
     public func doneButtonTapped(withFolder folder: Folder) {
         guard let currentSaveText = currentSaveText else { return }
-        let image = getCorrectPlaceholderImage(forScan: scannedResult)
-        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImage: image)
+        let image = getCorrectPlaceholderImage(forScan: scannedResult).pngData()
+        let scanToSave = Scan(id: UUID(), title: currentSaveTitle ?? currentSaveText, contentText: currentSaveText, scanDate: scannedResult.scanDate, mainImageData: image)
         
         Task {
             do {

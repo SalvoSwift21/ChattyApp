@@ -45,8 +45,10 @@ public struct HomeView: View {
                                 HomeSearchResultView(resourceBundle: resourceBundle, 
                                                      folders: searchResult.folders, 
                                                      scans: searchResult.scans) { scan in
+                                    searchText = ""
                                     presenter.scanTapped(scan)
                                 } folderTapped: { folder in
+                                    searchText = ""
                                     presenter.folderTapped(folder)
                                 }
                             } else {
@@ -160,13 +162,9 @@ public struct HomeView: View {
                 }
             }
             .padding(.horizontal)
-            .task {
-                await presenter.loadData()
-            }
             .task(id: self.searchText, priority: .high) {
                 await presenter.getSearchResult(for: searchText)
             }
-            
             if let errorState = store.errorState {
                 Color
                     .scanBackground
@@ -176,6 +174,11 @@ public struct HomeView: View {
                 ErrorView(title: "GENERIC_ERROR_TITLE", description: errorState.getMessage(), primaryButtonTitle: "GENERIC_RELOAD_ACTION", primaryAction: {
                     presenter.handleReloadButton()
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
+            }
+        }
+        .onAppear {
+            Task {
+                await presenter.loadData()
             }
         }
     }

@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct LoadingView: View {
-    @State private var progress: Double = 0.0
+    @State private var isAnimating = false
 
     var body: some View {
         ZStack {
             Color.clear
-            VStack {
-                Spacer()
-                ProgressView(value: progress, total: 1.0)
-                    .progressViewStyle(LoadingViewDefaultStyle())
-                    .onAppear {
-                        withAnimation(Animation.linear(duration: 1.2).repeatForever(autoreverses: false)) {
-                            progress = 1.0
-                        }
-                    }
-                Spacer()
-            }
+            Circle()
+                .trim(from: 0.1, to: 1.0)
+                .stroke(Color.prime, lineWidth: 3)
+                .frame(width: 30, height: 30)
+                .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isAnimating)
+                .onAppear {
+                    isAnimating = true
+                }
         }
     }
+
 }
 
 

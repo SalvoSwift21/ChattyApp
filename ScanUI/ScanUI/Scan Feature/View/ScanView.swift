@@ -54,7 +54,7 @@ public struct ScanView: View {
                                     .font(.system(size: 16))
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.buttonTitle)
-                                    .padding(.top, 5)
+                                    .padding(.top, 6)
                                 
                                 Spacer()
                             })

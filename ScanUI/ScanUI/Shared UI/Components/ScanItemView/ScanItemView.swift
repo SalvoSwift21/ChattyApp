@@ -57,6 +57,6 @@ struct ScanItemView: View {
         ScanItemView(resourceBundle: Bundle(identifier: "com.ariel.ScanUI") ?? .main,
                      scan: Scan(title: "Test scan title",
                                 contentText: "Test conten", scanDate: .now,
-                                mainImage: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)))
+                                mainImageData: UIImage(named: "default_scan", in: Bundle(identifier: "com.ariel.ScanUI"), with: nil)?.pngData()))
     }.padding()
 }

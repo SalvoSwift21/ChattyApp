@@ -301,6 +301,17 @@
         }
       }
     },
+    "HOME_MY_FOLDER_SECTION_COUNT_ITEMS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Items"
+          }
+        }
+      }
+    },
     "HOME_MY_FOLDER_SECTION_DELETE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {

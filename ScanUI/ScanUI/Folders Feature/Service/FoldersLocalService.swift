@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OCRFeature
 
 public class FoldersLocalService: FoldersServiceProtocol {
         
@@ -18,7 +17,7 @@ public class FoldersLocalService: FoldersServiceProtocol {
     
     public func getFolders() async -> [Folder] {
         do {
-            return try await self.client.retrieveFolders() ?? []
+            return try await self.client.retrieveFolders()?.compactMap({ $0.toLocal() }) ?? []
         } catch {
             debugPrint("Error get folders \(error.localizedDescription)")
             return []

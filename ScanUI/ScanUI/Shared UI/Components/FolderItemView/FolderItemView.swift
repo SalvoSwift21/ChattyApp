@@ -53,7 +53,8 @@ struct FolderItemView: View {
                 .fontWeight(.medium)
                 .foregroundStyle(.title)
                 .lineLimit(1)
-            Text("\(folder.scans.count) Items")
+
+            Text(LocalizedStringKey("\(folder.scanCount) HOME_MY_FOLDER_SECTION_COUNT_ITEMS"))
                 .font(.system(size: 12))
                 .fontWeight(.regular)
                 .foregroundStyle(.subtitle)

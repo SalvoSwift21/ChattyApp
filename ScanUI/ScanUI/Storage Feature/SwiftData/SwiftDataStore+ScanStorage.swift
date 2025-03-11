@@ -29,7 +29,7 @@ extension SwiftDataStore: ScanStorege {
         guard let folder = try findFoldersByID(id: folder.id).first else {
             throw SwiftDataStore.folderNotExist
         }
-        let storedScan = ScanStorageModel(id: scan.id, title: scan.title, contentText: scan.contentText, scanDate: scan.scanDate, mainImage: scan.mainImage?.pngData())
+        let storedScan = ScanStorageModel(id: scan.id, title: scan.title, contentText: scan.contentText, scanDate: scan.scanDate, mainImage: scan.mainImage?.jpegData(compressionQuality: 0.1))
         folder.scans?.insert(storedScan, at: 0)
         try modelContainer.mainContext.save()
     }
@@ -60,7 +60,7 @@ extension SwiftDataStore: ScanStorege {
     }
     
     public func renameFolder(_ folder: Folder) throws {
-        guard var model = try findFoldersByID(id: folder.id).first else { return }
+        guard let model = try findFoldersByID(id: folder.id).first else { return }
         model.title = folder.title
         try modelContainer.mainContext.save()
     }
@@ -72,14 +72,15 @@ extension SwiftDataStore: ScanStorege {
             throw SwiftDataStore.scanNotFound
         }
         
-        return result.local
+        return result.toLocal(image: true)
     }
     
-    public func retrieveScans(title: String) throws -> [Scan]? {
+    public func retrieveScans(title: String) throws -> [ScanStorageModel]? {
         guard let folders = try retrieveFolders() else { throw SwiftDataStore.modelNotFound }
         
         let result = folders
-            .flatMap({ $0.scans })
+            .compactMap({ $0.scans })
+            .flatMap({ $0 })
             .filter({ scan in
                 return scan.title.contains(title)
             })
@@ -89,23 +90,22 @@ extension SwiftDataStore: ScanStorege {
     }
     
     //MARK: Search folders service
-    public func retrieveFolders() throws -> [Folder]? {
+    public func retrieveFolders() throws -> [FolderStorageModel]? {
         try getAllFolders()
-            .map({ $0.local })
             .sorted(by: { $0.creationDate < $1.creationDate })
-
     }
     
-    public func retrieveFolder(id: UUID) throws -> Folder? {
+    public func retrieveFolder(id: UUID) throws -> FolderStorageModel? {
         guard let folderStorage = try findFoldersByID(id: id).first else {
             throw SwiftDataStore.modelNotFound
         }
-        return folderStorage.local
+        
+        return folderStorage
     }
     
-    public func retrieveFolders(title: String) throws -> [Folder]? {
+    public func retrieveFolders(title: String) throws -> [FolderStorageModel]? {
         let folderStorage = try findFoldersByTitle(title: title)
-        return folderStorage.map { $0.local }
+        return folderStorage
     }
     
     public func getDefaultFolderName() -> String {

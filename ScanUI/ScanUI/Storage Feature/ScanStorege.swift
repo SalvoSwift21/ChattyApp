@@ -13,9 +13,9 @@ public protocol ScanStorege {
 
     func insert(_ scan: Scan, inFolder folder: Folder) throws
     
-    func retrieveFolders() throws -> [Folder]?
-    func retrieveFolder(id: UUID) throws -> Folder?
-    func retrieveFolders(title: String) throws -> [Folder]?
+    func retrieveFolders() throws -> [FolderStorageModel]?
+    func retrieveFolder(id: UUID) throws -> FolderStorageModel?
+    func retrieveFolders(title: String) throws -> [FolderStorageModel]?
 
     func renameFolder(_ folder: Folder) throws
 
@@ -23,7 +23,7 @@ public protocol ScanStorege {
     func deleteFolder(_ folder: Folder) throws
     
     func retrieveScan(id: UUID) throws -> Scan
-    func retrieveScans(title: String) throws -> [Scan]?
+    func retrieveScans(title: String) throws -> [ScanStorageModel]?
     
     func deleteScan(id: UUID) throws
     
