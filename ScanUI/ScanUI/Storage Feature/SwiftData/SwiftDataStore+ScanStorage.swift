@@ -23,6 +23,7 @@ extension SwiftDataStore: ScanStorege {
         }
         
         try modelContainer.mainContext.save()
+        changeManager.addNewChange(newStrings: "delete")
     }
     
     public func insert(_ scan: Scan, inFolder folder: Folder) throws {
@@ -32,6 +33,7 @@ extension SwiftDataStore: ScanStorege {
         let storedScan = ScanStorageModel(id: scan.id, title: scan.title, contentText: scan.contentText, scanDate: scan.scanDate, mainImage: scan.mainImage?.jpegData(compressionQuality: 0.1))
         folder.scans?.insert(storedScan, at: 0)
         try modelContainer.mainContext.save()
+        changeManager.addNewChange(newStrings: "insert")
     }
     
     public func deleteScan(id: UUID) throws {
@@ -41,6 +43,7 @@ extension SwiftDataStore: ScanStorege {
 
         modelContainer.mainContext.delete(scan)
         try modelContainer.mainContext.save()
+        changeManager.addNewChange(newStrings: "delete")
     }
     
     public func create(_ folder: Folder) throws {
@@ -57,12 +60,14 @@ extension SwiftDataStore: ScanStorege {
         modelContainer.mainContext.insert(storeFolder)
         
         try modelContainer.mainContext.save()
+        changeManager.addNewChange(newStrings: "create")
     }
     
     public func renameFolder(_ folder: Folder) throws {
         guard let model = try findFoldersByID(id: folder.id).first else { return }
         model.title = folder.title
         try modelContainer.mainContext.save()
+        changeManager.addNewChange(newStrings: "rename")
     }
     
     //MARK: Search scan service

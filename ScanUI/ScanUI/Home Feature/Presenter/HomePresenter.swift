@@ -91,7 +91,6 @@ public class HomePresenter: HomePresenterProtocol {
     internal func createNewFolder(name: String) async {
         do {
             try await self.service.createFolder(name: name)
-            await self.loadData()
         } catch {
             await self.delegate?.render(errorMessage: error.localizedDescription)
         }
@@ -100,7 +99,6 @@ public class HomePresenter: HomePresenterProtocol {
     func renameFolder(folder: Folder) async {
         do {
             try await self.service.renameFolder(folder: folder)
-            await self.loadData()
         } catch {
             await self.delegate?.render(errorMessage: error.localizedDescription)
         }
@@ -109,7 +107,6 @@ public class HomePresenter: HomePresenterProtocol {
     func deleteFolder(folder: Folder) async {
         do {
             try await self.service.deleteFolder(folder: folder)
-            await self.loadData()
         } catch {
             await self.delegate?.render(errorMessage: error.localizedDescription)
         }

@@ -43,7 +43,7 @@ struct MainContainerView: View {
                 StoreFeatureView
             case .rateUs: EmptyView()
             default:
-                SomeSection(presentSideMenu: $isMenuShown)
+                EmptyView()
             }
             SideMenuUIComposer.sideMenuStore(isMenuShown: $isMenuShown) { row in
                 switch row.rowType {
@@ -123,21 +123,6 @@ struct MainContainerView: View {
         NavigationStack {
             StoreUIComposer.storeComposedWith {
                 isMenuShown.toggle()
-            }
-        }
-    }
-}
-
-struct SomeSection: View {
-    @EnvironmentObject var manager: PurchaseManager
-    @Binding var presentSideMenu: Bool
-
-    var body: some View {
-        Button {
-            presentSideMenu.toggle()
-        } label: {
-            VStack {
-                Text("Hai comprato questo pacchetto\n \(manager.currentAppProductFeature.productID)\n \(manager.currentAppProductFeature.features)")
             }
         }
     }

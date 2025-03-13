@@ -28,5 +28,5 @@ public protocol ScanStorege {
     func deleteScan(id: UUID) throws
     
     func getDefaultFolderName() -> String
-
+    
 }

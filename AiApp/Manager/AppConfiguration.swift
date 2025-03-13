@@ -22,6 +22,7 @@ public class AppConfiguration {
     let preferencesStoreManager = UserDefaults(suiteName: "PREFERENCES_STORE_MANAGER")
     let purchaseManager: PurchaseManager
     let adMobManager: AdMobManager
+    let changeManager: ChangeManager
     
     var storeURL: URL = {
         guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
@@ -42,6 +43,7 @@ public class AppConfiguration {
         let productFeatureService = ProductFeatureService(resourceBundle: bundle)
         purchaseManager = PurchaseManager(storeService: storeService, productFeatureService: productFeatureService)
         adMobManager = AdMobManager(bannerUnitId: ADUnitIDCode.bannerID.id, interstitialUnitId: ADUnitIDCode.interstitialID.id)
+        changeManager = ChangeManager()
     }
     
     public func bootApp() async throws {

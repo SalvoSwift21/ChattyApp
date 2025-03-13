@@ -7,8 +7,12 @@
 
 import SwiftUI
 import RestApi
+import SwiftData
 
 public struct HomeView: View {
+    
+    @EnvironmentObject var changeManager: ChangeManager
+
     var presenter: HomePresenter
     @ObservedObject var store: HomeStore
 
@@ -176,7 +180,10 @@ public struct HomeView: View {
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             }
         }
-        .onAppear {
+        .task {
+            await presenter.loadData()
+        }
+        .onChange(of: changeManager.changes) {
             Task {
                 await presenter.loadData()
             }

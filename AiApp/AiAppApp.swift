@@ -10,6 +10,7 @@ import RestApi
 import ScanUI
 import VisionKit
 import LLMFeature
+import SwiftData
 
 @main
 struct AiAppApp: App {
@@ -17,12 +18,13 @@ struct AiAppApp: App {
     @StateObject private var appRootManager = AppRootManager()
     
     @MainActor
-    private func getStorage() -> ScanStorege {
+    private var storage: ScanStorege {
         let url = AppConfiguration.shared.storeURL
         do {
-            return try SwiftDataStore(storeURL: url, defaultFolderName: AppConfiguration.defaultFolderName)
+            let dataStore = try SwiftDataStore(storeURL: url, defaultFolderName: AppConfiguration.defaultFolderName, changeManager: AppConfiguration.shared.changeManager)
+            return dataStore
         } catch {
-            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: AppConfiguration.defaultFolderName)
+            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: AppConfiguration.defaultFolderName, changeManager: AppConfiguration.shared.changeManager)
         }
     }
 
@@ -37,13 +39,14 @@ struct AiAppApp: App {
                         }
                     }
                 case .mainContainer:
-                    MainContainerView(storage: getStorage())
+                    MainContainerView(storage: storage)
                 default:
                     Text("Empty state")
                 }
             }
             .environmentObject(appRootManager)
             .environment(AppConfiguration.shared.purchaseManager)
+            .environment(AppConfiguration.shared.changeManager)
             .task {
                 await bootApp()
             }
