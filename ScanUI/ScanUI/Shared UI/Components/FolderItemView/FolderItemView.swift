@@ -53,8 +53,7 @@ struct FolderItemView: View {
                 .fontWeight(.medium)
                 .foregroundStyle(.title)
                 .lineLimit(1)
-
-            Text(LocalizedStringKey("\(folder.scanCount) HOME_MY_FOLDER_SECTION_COUNT_ITEMS"))
+            Text(String(format: NSLocalizedString("HOME_MY_FOLDER_SECTION_COUNT_ITEMS", comment: ""), "\(folder.scanCount)"))
                 .font(.system(size: 12))
                 .fontWeight(.regular)
                 .foregroundStyle(.subtitle)
