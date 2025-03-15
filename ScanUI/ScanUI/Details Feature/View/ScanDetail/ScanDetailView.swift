@@ -14,6 +14,7 @@ public struct ScanDetailView: View {
     var presenter: ScanDetailPresenter
     @ObservedObject var store: ScanDetailStore
     @State private var showingCopyConfirmView = false
+    @State private var isSharing = false
 
     var resourceBundle: Bundle
     
@@ -109,17 +110,18 @@ public struct ScanDetailView: View {
     }
     
     func makeMenuActions(viewModel: ScanDetailViewModel) -> some View {
-        ShareLink(
-            item: viewModel.getSharableObject(),
-            preview: SharePreview(
-                viewModel.getSharableObject().description,
-                image: viewModel.getSharableObject().image)) {
-                    Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .fontWeight(.regular)
-                        .frame(width: 25, height: 30)
-                        .foregroundColor(.prime)
-                }
+        Button {
+            isSharing.toggle()
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .resizable()
+                .fontWeight(.regular)
+                .frame(width: 25, height: 30)
+                .foregroundColor(.prime)
+        }
+        .sheet(isPresented: $isSharing) {
+            ShareSheet(items: viewModel.getSharableObject().getAnyArray())
+        }
     }
 }
 

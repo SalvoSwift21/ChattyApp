@@ -18,17 +18,17 @@ public struct TextAnalyzerViewModel {
     }
     
     func getSharableObject() -> TextAnalyzerSharableModel {
-        let image = Image(uiImage: chatHistory.first?.image ?? UIImage())
+        let image = chatHistory.first?.image ?? UIImage()
         let text = chatHistory.last?.description ?? ""
         return TextAnalyzerSharableModel(image: image, description: text)
     }
 }
 
-struct TextAnalyzerSharableModel: Transferable {
-    static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation(exporting: \.description)
-    }
-
-    public var image: Image
+struct TextAnalyzerSharableModel {
+    public var image: UIImage?
     public var description: String
+    
+    func getAnyArray() -> [Any] {
+        return [image, description].compactMap({ $0 })
+    }
 }

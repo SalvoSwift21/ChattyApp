@@ -32,6 +32,8 @@ public struct TextAnalyzerView: View {
     @State private var isShowingAlert: Bool = false
     @State private var scanName: String = ""
 
+    @State private var isSharing = false
+
     public init(store: TextAnalyzerStore, presenter: TextAnalyzerPresenter, resourceBundle: Bundle = .main) {
         self.store = store
         self.presenter = presenter
@@ -134,12 +136,11 @@ public struct TextAnalyzerView: View {
                             Label("GENERIC_COPY_CLIPBOARD_ACTION", systemImage: "doc.on.doc")
                         }
                         
-                        
-                        ShareLink(
-                            item: store.viewModel.getSharableObject(),
-                            preview: SharePreview(
-                                store.viewModel.getSharableObject().description,
-                                image: store.viewModel.getSharableObject().image))
+                        Button {
+                            isSharing.toggle()
+                        } label: {
+                            Label("GENERIC_SHARE_ACTION", systemImage: "square.and.arrow.up")
+                        }
                         
                     } label: {
                         Image(systemName: "ellipsis.circle")
@@ -172,6 +173,9 @@ public struct TextAnalyzerView: View {
         .navigationTitle("TEXT_ANALYZER_TITLE")
         .navigationBarTitleDisplayMode(.inline)
         .background(.mainBackground)
+        .sheet(isPresented: $isSharing) {
+            ShareSheet(items: store.viewModel.getSharableObject().getAnyArray())
+        }
     }
     
     var FoldersView: some View {
