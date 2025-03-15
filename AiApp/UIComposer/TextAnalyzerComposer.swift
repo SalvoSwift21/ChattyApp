@@ -44,7 +44,7 @@ public final class TextAnalyzerComposer {
         let currentAi = AppConfiguration.shared.currentPreference.selectedAI
         let currentProductFeature = AppConfiguration.shared.purchaseManager.currentAppProductFeature
         
-        guard currentAi.getAISupportedFileTypes().contains(fileType) else {
+        guard currentAi.getAISupportedFileTypes(forProductFeature: currentProductFeature).contains(fileType) else {
             return nil
         }
         
