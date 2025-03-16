@@ -15,19 +15,24 @@ public class OnboardingPresenter: OnboardingPresenterProtocol {
     private var service: OnboardingServiceProtocol
     private weak var delegate: OnboardingPresenterDelegate?
     private var completeOnboardingCompletion: (() -> Void)
+    
+    private var forceShowOnboarding: Bool = false
 
-    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, completeOnboardingCompletion: @escaping (() -> Void), bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
+    public init(service: OnboardingServiceProtocol, delegate: OnboardingPresenterDelegate, forceShowOnboarding: Bool = false, completeOnboardingCompletion: @escaping (() -> Void), bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
+        self.forceShowOnboarding = forceShowOnboarding
         self.completeOnboardingCompletion = completeOnboardingCompletion
         self.resourceBundle = bundle
     }
     
     @MainActor
     @Sendable public func fetchOnboardingsCard() async {
-        guard await service.needToShowOnboarding() else {
-            completeOnboarding()
-            return
+        if !forceShowOnboarding {
+            guard await service.needToShowOnboarding() else {
+                completeOnboarding()
+                return
+            }
         }
         
         do {

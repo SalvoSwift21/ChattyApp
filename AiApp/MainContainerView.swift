@@ -22,6 +22,7 @@ struct MainContainerView: View {
     @State private var showUpload: Bool = false
     @State private var showDataScan: Bool = false
     @State private var showPremiumFeature: Bool = false
+    @State private var showOnboarding: Bool = false
 
     @State private var path: NavigationPath = .init()
     
@@ -49,6 +50,8 @@ struct MainContainerView: View {
                 switch row.rowType {
                 case .rateUs:
                     requestReview()
+                case .help:
+                    showOnboarding.toggle()
                 default:
                     selectedSideMenuTab = row.rowType
                 }
@@ -101,6 +104,11 @@ struct MainContainerView: View {
             })
             .fullScreenCover(isPresented: $showDataScan) {
                 DataScannerSection(storage: scanStorage)
+            }
+            .sheet(isPresented: $showOnboarding) {
+                OnboardingUIComposer.onboardingComposedWith(forceOnboarding: true) {
+                    showOnboarding.toggle()
+                }
             }
         }
         .tint(.primeAccentColor)
