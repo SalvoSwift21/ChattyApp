@@ -128,8 +128,9 @@ extension HomePresenter {
         await self.delegate?.renderLoading(visible: show)
     }
     
+    @MainActor
     fileprivate func resetSearchMode() async {
         self.homeViewModel.searchResult = nil
-        await self.delegate?.render(viewModel: homeViewModel)
+        self.delegate?.render(viewModel: homeViewModel)
     }
 }
