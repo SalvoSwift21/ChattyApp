@@ -179,6 +179,72 @@
     "Empty state" : {
 
     },
+    "EMPTY_VIEW_NO_FOLDER_SCAN_SUB" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start adding scans to keep your documents organized."
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_FOLDER_SCAN_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Folder is Empty"
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_RESULTS_SUB" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn’t find any scans or folders matching your search."
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_RESULTS_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Results Found"
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_SCAN_SUB" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan a document or upload an image to get started."
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_SCAN_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Recent Scans"
+          }
+        }
+      }
+    },
     "FOLDER_DETAIL_LOAD_ERROR" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -19,11 +19,15 @@ struct HomeMyRecentScanView: View {
                 .fontWeight(.semibold)
                 .foregroundStyle(.title)
             
-            ForEach(scans, id: \.id) { scan in
-                Button {
-                    scanTapped(scan)
-                } label: {
-                    ScanItemView(resourceBundle: resourceBundle, scan: scan)
+            if scans.isEmpty {
+                EmptyStateView(iconSystemName: "doc.viewfinder", title: "EMPTY_VIEW_NO_SCAN_TITLE", subtitle: "EMPTY_VIEW_NO_SCAN_SUB")
+            } else {
+                ForEach(scans, id: \.id) { scan in
+                    Button {
+                        scanTapped(scan)
+                    } label: {
+                        ScanItemView(resourceBundle: resourceBundle, scan: scan)
+                    }
                 }
             }
         })

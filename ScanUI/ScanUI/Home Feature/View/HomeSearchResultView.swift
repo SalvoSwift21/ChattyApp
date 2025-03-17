@@ -53,6 +53,12 @@ struct HomeSearchResultView: View {
                     }
                 })
             }
+            
+            if scans.count == 0 && folders.count == 0 {
+                VStack {
+                    EmptyStateView(iconSystemName: "magnifyingglass", title: "EMPTY_VIEW_NO_RESULTS_TITLE", subtitle: "EMPTY_VIEW_NO_RESULTS_SUB")
+                }.padding(.vertical, 80)
+            }
         })
     }
 }
