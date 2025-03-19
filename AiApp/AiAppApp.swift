@@ -11,11 +11,22 @@ import ScanUI
 import VisionKit
 import LLMFeature
 import SwiftData
+import FirebaseCore
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
+}
 
 @main
 struct AiAppApp: App {
     
     @StateObject private var appRootManager = AppRootManager()
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @MainActor
     private var storage: ScanStorege {

@@ -176,9 +176,6 @@
         }
       }
     },
-    "Empty state" : {
-
-    },
     "EMPTY_VIEW_NO_FOLDER_SCAN_SUB" : {
       "extractionState" : "manual",
       "localizations" : {
