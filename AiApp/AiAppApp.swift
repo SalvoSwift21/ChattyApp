@@ -41,7 +41,7 @@ struct AiAppApp: App {
                 case .mainContainer:
                     MainContainerView(storage: storage)
                 default:
-                    Text("Empty state")
+                    EmptyView()
                 }
             }
             .environmentObject(appRootManager)
