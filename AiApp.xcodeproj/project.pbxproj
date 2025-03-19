@@ -44,6 +44,7 @@
 		62CC50EE2D8B3CD200404494 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 62CC50ED2D8B3CD200404494 /* FirebasePerformance */; };
 		62CC50F02D8B3CD200404494 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 62CC50EF2D8B3CD200404494 /* FirebaseRemoteConfig */; };
 		62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62CC50F12D8B3CEA00404494 /* GoogleService-Info.plist */; };
+		62CC50FB2D8B898C00404494 /* WebViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */; };
 		62D242002B31159700B0EF1A /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; };
 		62D242012B31159700B0EF1A /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -99,6 +100,7 @@
 		62C468F22B2FC0AB002DD3A3 /* AppRootManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppRootManager.swift; path = /Users/Salvo1/Library/Developer/AiApp/AiApp/AiApp/Manager/AppRootManager.swift; sourceTree = "<absolute>"; };
 		62C468F52B2FC274002DD3A3 /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		62CC50F12D8B3CEA00404494 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewUIComposer.swift; sourceTree = "<group>"; };
 		62D241FF2B31159700B0EF1A /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E510A02A5376EF00A40773 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +216,7 @@
 		62C468EC2B2FB809002DD3A3 /* UIComposer */ = {
 			isa = PBXGroup;
 			children = (
+				62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */,
 				62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */,
 				62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */,
 				6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */,
@@ -346,6 +349,7 @@
 				62C468F32B2FC0AB002DD3A3 /* AppRootManager.swift in Sources */,
 				62C468F62B2FC274002DD3A3 /* AnimationHelper.swift in Sources */,
 				6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */,
+				62CC50FB2D8B898C00404494 /* WebViewUIComposer.swift in Sources */,
 				6253D7492D47710B00843E38 /* StoreUIComposer.swift in Sources */,
 				628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */,
 				627B901C2D590F9800E190D9 /* ADUnitIDCode.swift in Sources */,

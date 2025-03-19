@@ -683,6 +683,17 @@
         }
       }
     },
+    "PRIVACY_POLICY_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy & Policy"
+          }
+        }
+      }
+    },
     "SCAN_INFO_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -778,6 +789,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terms & Conditions"
+          }
+        }
+      }
+    },
+    "TERMS_AND_CONDIITIONS_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
+          }
+        }
+      }
+    },
+    "TERMS_AND_CONDITIONS_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
           }
         }
       }

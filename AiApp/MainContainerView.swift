@@ -23,6 +23,8 @@ struct MainContainerView: View {
     @State private var showDataScan: Bool = false
     @State private var showPremiumFeature: Bool = false
     @State private var showOnboarding: Bool = false
+    @State private var showTermsAndConditions: Bool = false
+    @State private var showPrivacyPolicy: Bool = false
 
     @State private var path: NavigationPath = .init()
     
@@ -34,7 +36,7 @@ struct MainContainerView: View {
     }
     
     var body: some View {
-        ZStack{
+        ZStack {
             switch $selectedSideMenuTab.wrappedValue {
             case .home:
                 HomeSection
@@ -52,6 +54,10 @@ struct MainContainerView: View {
                     requestReview()
                 case .help:
                     showOnboarding.toggle()
+                case .termsAndConditions:
+                    showTermsAndConditions.toggle()
+                case .privacyPolicy:
+                    showPrivacyPolicy.toggle()
                 default:
                     selectedSideMenuTab = row.rowType
                 }
@@ -110,6 +116,12 @@ struct MainContainerView: View {
                     showOnboarding.toggle()
                 }
             }
+            .sheet(isPresented: $showTermsAndConditions) {
+                TermsAndConditionsView
+            }
+            .sheet(isPresented: $showPrivacyPolicy) {
+                PrivacyPolicyView
+            }
         }
         .tint(.primeAccentColor)
         .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
@@ -132,6 +144,20 @@ struct MainContainerView: View {
             StoreUIComposer.storeComposedWith {
                 isMenuShown.toggle()
             }
+        }
+    }
+    
+    var TermsAndConditionsView: some View {
+        NavigationStack {
+            WebViewUIComposer.webViewComposedWith(url: URL.init(string: "https://www.google.com/")!)
+                .navigationBarTitle("TERMS_AND_CONDIITIONS_TITLE")
+        }
+    }
+    
+    var PrivacyPolicyView: some View {
+        NavigationStack {
+            WebViewUIComposer.webViewComposedWith(url: URL.init(string: "https://www.google.com/")!)
+                .navigationBarTitle("PRIVACY_POLICY_TITLE")
         }
     }
 }
