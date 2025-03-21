@@ -44,15 +44,27 @@ public final class TextAnalyzerComposer {
         let currentAi = AppConfiguration.shared.currentPreference.selectedAI
         let currentProductFeature = AppConfiguration.shared.purchaseManager.currentAppProductFeature
         
-        guard currentAi.getAISupportedFileTypes(forProductFeature: currentProductFeature).contains(fileType) else {
+        guard currentAi.aiType.getAISupportedFileTypes(forProductFeature: currentProductFeature).contains(fileType) else {
             return nil
         }
         
-        switch currentAi {
+        switch currentAi.aiType {
         case .gpt_4_o, .gpt_4o_mini:
-            client = makeOpenAIHTTPClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken())
+            var maxInputToken: Int = currentProductFeature.getMaxResourceToken()
+            
+            if let _ = currentProductFeature.features.filter({ $0 == .complexSummaryMaxTokenAvaible }).first {
+                maxInputToken = currentAi.maxInputToken
+            }
+            
+            client = makeOpenAIHTTPClient(modelName: currentAi.aiType.rawValue, maxInputToken: maxInputToken, maxOutputToken: currentAi.maxOutputToken)
         case .gemini_2_0_flash, .gemini_pro, .gemini_2_0_flash_lite:
-            client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken())
+            var maxResourceToken: Int = currentProductFeature.getMaxResourceToken()
+            
+            if let _ = currentProductFeature.features.filter({ $0 == .complexSummaryMaxTokenAvaible }).first {
+                maxResourceToken = currentAi.maxInputToken
+            }
+            
+            client = makeGoogleGeminiAIClient(modelName: currentAi.aiType.rawValue, maxResourceToken: maxResourceToken)
         case .unowned:
             fatalError("Not AI selected")
         }

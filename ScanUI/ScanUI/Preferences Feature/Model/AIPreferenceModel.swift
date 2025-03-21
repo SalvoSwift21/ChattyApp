@@ -17,8 +17,8 @@ public struct AIPreferenceModel: Codable {
     var title: String
     var imageName: String
     public var aiType: AIModelType
-    var maxOutputToken: Int
-    var maxInputToken: Int
+    public var maxOutputToken: Int
+    public var maxInputToken: Int
     
     public init(title: String, imageName: String, aiType: AIModelType, maxOutputToken: Int, maxInputToken: Int) {
         self.title = title

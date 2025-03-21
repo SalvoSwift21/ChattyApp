@@ -17,14 +17,10 @@ public struct ProductFeature: Codable {
     }
     
     public func getMaxResourceToken() -> Int {
-        if let proFeature = features.filter({ $0 == .complexSummary1MToken }).first {
-            return proFeature.getMaxResourcToken()
-        }
-        
         if let baseFeature = features.filter({ $0 == .complexSummaryPDF128kToken }).first {
             return baseFeature.getMaxResourcToken()
         }
         
-        return 0
+        return 10000
     }
 }

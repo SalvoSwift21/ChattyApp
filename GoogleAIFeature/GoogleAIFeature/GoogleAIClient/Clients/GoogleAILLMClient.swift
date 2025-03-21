@@ -24,11 +24,11 @@ public class GoogleAILLMClient: LLMClient {
     private var history: [LLMMessage] = []
 
     private var generativeLanguageClient: GenerativeModel
-    private var MAX_INPUT_TOKEN: Int
+    private var MAX_RESOURCE_TOKEN: Int
     
     public init(generativeLanguageClient: GenerativeModel, maxResourceToken: Int) {
         self.generativeLanguageClient = generativeLanguageClient
-        self.MAX_INPUT_TOKEN = maxResourceToken
+        self.MAX_RESOURCE_TOKEN = maxResourceToken
     }
 
     public func sendMessage(object: GoogleFileLLMMessage) async throws -> LLMMessage? {
@@ -45,7 +45,7 @@ public class GoogleAILLMClient: LLMClient {
         
         let count = try await generativeLanguageClient.countTokens(prompt, fileData)
         
-        guard count.totalTokens < MAX_INPUT_TOKEN else { throw GoogleAIError.generic("Document too large") }
+        guard count.totalTokens < MAX_RESOURCE_TOKEN else { throw GoogleAIError.generic("Document too large") }
         
         return try await generativeLanguageClient.generateContent(prompt, fileData)
     }

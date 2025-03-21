@@ -10,9 +10,9 @@ import LLMFeature
 
 public struct PreferenceModel: Codable {
     public var selectedLanguage: LLMLanguage
-    public var selectedAI: AIModelType
+    public var selectedAI: AIPreferenceModel
     
-    public init(selectedLanguage: LLMLanguage, selectedAI: AIModelType) {
+    public init(selectedLanguage: LLMLanguage, selectedAI: AIPreferenceModel) {
         self.selectedLanguage = selectedLanguage
         self.selectedAI = selectedAI
     }

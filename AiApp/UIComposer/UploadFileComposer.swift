@@ -28,7 +28,7 @@ public final class UploadFileComposer {
             UploadFileComposer.uploadFileStore = uploadFileStore
         }
         let currentProduct = AppConfiguration.shared.purchaseManager.currentAppProductFeature
-        let service = UploadFileService(UTTypes: AppConfiguration.shared.currentPreference.selectedAI.getAISupportedFileTypes(forProductFeature: currentProduct))
+        let service = UploadFileService(UTTypes: AppConfiguration.shared.currentPreference.selectedAI.aiType.getAISupportedFileTypes(forProductFeature: currentProduct))
         
         let uploadFilePresenter = UploadFilePresenter(delegate: UploadFileComposer.uploadFileStore ?? uploadFileStore, service: service, bundle: bundle, currentProductFeature: currentProduct, interstitialID: AppConfiguration.shared.adMobManager.getInterstitialUnitId(), resultOfScan: scanResult)
 

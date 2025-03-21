@@ -16,10 +16,10 @@ public struct LLMRequestBody: Codable {
     public var temperature: Double = 1.0
     public var user: String?
     
-    public init(model: String, messages: [LLMMessage], max_tokens: Int = 25, stream: Bool = false, temperature: Double = 1.0, user: String? = nil) {
+    public init(model: String, messages: [LLMMessage], max_output_tokens: Int = 25, stream: Bool = false, temperature: Double = 1.0, user: String? = nil) {
         self.model = model
         self.messages = messages
-        self.max_tokens = max_tokens
+        self.max_tokens = max_output_tokens
         self.stream = stream
         self.temperature = temperature
         self.user = user

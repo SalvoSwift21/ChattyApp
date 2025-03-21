@@ -24,19 +24,21 @@ public class OpenAILLMClient: LLMClient {
     private var httpClient: OpenAIApiClient
     private var openAIModelName: String
     
-    private var MAX_RESOURCES_TOKEN: Int
+    private var maxInputToken: Int
+    private var maxOutputToken: Int
 
-    public init(openAIHTTPClient: OpenAIApiClient, modelName: String, maxResourceToken: Int) {
+    public init(openAIHTTPClient: OpenAIApiClient, modelName: String, maxInputToken: Int, maxOutputToken: Int) {
         self.httpClient = openAIHTTPClient
         self.openAIModelName = modelName
-        self.MAX_RESOURCES_TOKEN = maxResourceToken
+        self.maxInputToken = maxInputToken
+        self.maxOutputToken = maxOutputToken
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
         
         let count = try await httpClient.getTokenCount(model: openAIModelName, text: object.content)
         
-        guard count < MAX_RESOURCES_TOKEN else { throw OpenAIError.generic("Document too large") }
+        guard count < maxInputToken else { throw OpenAIError.generic("Document too large") }
         
         let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object], max_tokens: 16384)
         
@@ -59,14 +61,14 @@ public class OpenAILLMClient: LLMClient {
     }
     
     private func createRequestBody(messages: [LLMMessage], max_tokens: Int) -> LLMRequestBody {
-        LLMRequestBody(model: openAIModelName, messages: messages, max_tokens: max_tokens, stream: false, temperature: 1.0, user: nil)
+        LLMRequestBody(model: openAIModelName, messages: messages, max_output_tokens: maxOutputToken, stream: false, temperature: 1.0, user: nil)
     }
 }
 
-public func makeOpenAIHTTPClient(modelName: String, maxResourceToken: Int) -> OpenAILLMClient {
+public func makeOpenAIHTTPClient(modelName: String, maxInputToken: Int, maxOutputToken: Int) -> OpenAILLMClient {
     let session = URLSession(configuration: .default)
     let client = URLSessionHTTPClient(session: session)
     let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
     let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
-    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName, maxResourceToken: maxResourceToken)
+    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName, maxInputToken: maxInputToken, maxOutputToken: maxOutputToken)
 }

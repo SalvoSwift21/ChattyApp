@@ -9,7 +9,7 @@
     },
     {
         "productID": "pro_monthly",
-        "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject", "removeAds", "complexSummaryPDF128kToken", "translation", "complexAIModel", "complexSummary1MToken"],
+        "features": ["simpleSummary", "simpleScan", "icloudBackup", "sharableObject", "removeAds", "complexSummaryPDF128kToken", "translation", "complexAIModel", "complexSummaryMaxTokenAvaible"],
     }
 ]
 

@@ -40,7 +40,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
             let aiPreferences = try await service.getAIPreferences()
             let preferenceModel = try await self.loadAIPreferencereType()
             
-            guard let selected = aiPreferences.avaibleAI.first(where: { $0.aiType == preferenceModel.selectedAI }) else { return }
+            guard let selected = aiPreferences.avaibleAI.first(where: { $0.aiType == preferenceModel.selectedAI.aiType }) else { return }
             guard let selectedLanguage = try? selected.aiType.getAllSupportedLanguages().languages.first(where: {$0.locale.identifier == preferenceModel.selectedLanguage.locale.identifier}) else { return }
             
             let allLanguages = try selected.aiType.getAllSupportedLanguages()
@@ -70,7 +70,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         Task {
             do {
                 guard let defaultLanguage = try model.aiType.getAllSupportedLanguages().languages.first else { return }
-                let preference = PreferenceModel(selectedLanguage: defaultLanguage, selectedAI: model.aiType)
+                let preference = PreferenceModel(selectedLanguage: defaultLanguage, selectedAI: model)
                 try await saveAIPreferencereType(preference)
                 await loadData()
                 updatePreferences()

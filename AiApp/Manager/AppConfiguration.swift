@@ -34,7 +34,7 @@ public class AppConfiguration {
     
     var preferenceService: LocalAIPreferencesService
     
-    private(set) var currentPreference: PreferenceModel = .init(selectedLanguage: LLMLanguage.init(code: "", name: "", locale: Locale.current, id: UUID()), selectedAI: .unowned)
+    private(set) var currentPreference: PreferenceModel = .init(selectedLanguage: LLMLanguage.init(code: "", name: "", locale: Locale.current, id: UUID()), selectedAI: .init(title: "", imageName: "", aiType: .unowned, maxOutputToken: 0, maxInputToken: 0))
     
     private init() {
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
@@ -78,7 +78,7 @@ public class AppConfiguration {
         let result = try? await preferenceService.loadAIPreferencereType()
         
         guard let result = result else {
-            let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: defaultLanguage, selectedAI: defaultAI.aiType)
+            let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: defaultLanguage, selectedAI: defaultAI)
             try await preferenceService.saveAIPreferencereType(preference)
             self.updatePreference(with: preference)
             return
