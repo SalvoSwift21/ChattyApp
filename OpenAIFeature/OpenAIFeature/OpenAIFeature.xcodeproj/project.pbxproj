@@ -28,6 +28,7 @@
 		62DDAB8C2AA7052300E1DB2C /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DDAB8B2AA7052300E1DB2C /* TestHelper.swift */; };
 		62DE22E72AA5B0CE00484DFE /* OpenAIApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DE22E62AA5B0CE00484DFE /* OpenAIApiClient.swift */; };
 		62DE22EA2AA5B38E00484DFE /* OpenAIModelsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DE22E92AA5B38E00484DFE /* OpenAIModelsMapper.swift */; };
+		62E9C4F22D8CDFE60004F131 /* PostNumberOfToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9C4F12D8CDFD90004F131 /* PostNumberOfToken.swift */; };
 		62F11CC92D38EF8A0028996A /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 62F11CC82D38EF8A0028996A /* languages.json */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		62DDAB8B2AA7052300E1DB2C /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		62DE22E62AA5B0CE00484DFE /* OpenAIApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIApiClient.swift; sourceTree = "<group>"; };
 		62DE22E92AA5B38E00484DFE /* OpenAIModelsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModelsMapper.swift; sourceTree = "<group>"; };
+		62E9C4F12D8CDFD90004F131 /* PostNumberOfToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNumberOfToken.swift; sourceTree = "<group>"; };
 		62F11CC82D38EF8A0028996A /* languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = languages.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 		6224B9732A7A3558009B2A23 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				62E9C4F12D8CDFD90004F131 /* PostNumberOfToken.swift */,
 				6224B9702A7A3558009B2A23 /* GetModelsEndpoint.swift */,
 				6224B9712A7A3558009B2A23 /* GetModelDetailEndpoint.swift */,
 				6224B9722A7A3558009B2A23 /* ChatCompletionEndpoint.swift */,
@@ -385,6 +388,7 @@
 				6224B9842A7A3924009B2A23 /* OpenAILLMClient.swift in Sources */,
 				6224B9802A7A3924009B2A23 /* OpenAIConfigurations.swift in Sources */,
 				62DE22EA2AA5B38E00484DFE /* OpenAIModelsMapper.swift in Sources */,
+				62E9C4F22D8CDFE60004F131 /* PostNumberOfToken.swift in Sources */,
 				6224B97E2A7A3924009B2A23 /* ChatCompletionEndpoint.swift in Sources */,
 				62DDAB892AA703CB00E1DB2C /* Encorder+Extensions.swift in Sources */,
 				62DE22E72AA5B0CE00484DFE /* OpenAIApiClient.swift in Sources */,

@@ -50,7 +50,7 @@ public final class TextAnalyzerComposer {
         
         switch currentAi {
         case .gpt_4_o, .gpt_4o_mini:
-            client = makeOpenAIHTTPClient(modelName: currentAi.rawValue)
+            client = makeOpenAIHTTPClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken())
         case .gemini_2_0_flash, .gemini_pro, .gemini_2_0_flash_lite:
             switch fileType {
             case .image, .jpeg, .png:

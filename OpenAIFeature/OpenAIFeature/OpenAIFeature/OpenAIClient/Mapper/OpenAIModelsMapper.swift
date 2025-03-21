@@ -41,3 +41,8 @@ public final class OpenAIModelsMapper {
         return root.data
     }
 }
+
+public struct OpenAITokenResponse: Codable {
+    let model: String
+    let tokenCount: Int
+}

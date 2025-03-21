@@ -24,7 +24,7 @@ public class GoogleAIFileSummizeClient: LLMClient {
         
 
     private var generativeLanguageClient: GenerativeModel
-    private var MAX_RESOURCES_TOKEN = 100000
+    private var MAX_RESOURCES_TOKEN: Int
     
     public init(generativeLanguageClient: GenerativeModel, maxResourceToken: Int) {
         self.generativeLanguageClient = generativeLanguageClient

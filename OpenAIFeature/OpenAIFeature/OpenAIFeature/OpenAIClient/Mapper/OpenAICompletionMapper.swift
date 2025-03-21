@@ -144,3 +144,20 @@ public final class OpenAIStreamCompletionMapper {
         }
     }
 }
+
+public final class OpenAITokenMapper {
+    
+    enum OpenAITokenMapperError: Error {
+        case genericError(String)
+    }
+  
+    public static func map(_ data: Data, from response: HTTPURLResponse) throws -> OpenAITokenResponse {
+        guard response.isOK else {
+            throw OpenAITokenMapperError.genericError("\(response.statusCode)")
+        }
+        
+        let model = try JSONDecoder().decode(OpenAITokenResponse.self, from: data)
+        
+        return model
+    }
+}

@@ -21,7 +21,7 @@ public enum FeatureEnum: String, Codable {
     func getMaxResourcToken() -> Int {
         switch self {
         case .complexSummary1MToken:
-            return 1000 * 100
+            return 1000 * 1000
         case .complexSummaryPDF128kToken:
             return 1000 * 128
         default:

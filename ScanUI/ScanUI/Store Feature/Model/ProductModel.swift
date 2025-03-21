@@ -21,7 +21,7 @@ public struct ProductFeature: Codable {
             return proFeature.getMaxResourcToken()
         }
         
-        if let baseFeature = features.filter({ $0 == .complexSummary1MToken }).first {
+        if let baseFeature = features.filter({ $0 == .complexSummaryPDF128kToken }).first {
             return baseFeature.getMaxResourcToken()
         }
         

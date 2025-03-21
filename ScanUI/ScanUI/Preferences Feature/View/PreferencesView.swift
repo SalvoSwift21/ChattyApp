@@ -140,7 +140,7 @@ public struct PreferencesView: View {
     
     let url = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     
-    var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard, aiPreference: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_2_0_flash))
+    var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard, aiPreference: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_2_0_flash, maxOutputToken: 0, maxInputToken: 0))
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
     
     var presenter = PreferencePresenter(delegate: preferenceStore, service: service, currentAppProductFeature: currentAppProductFeature, menuButton: { }, updatePreferences: { })

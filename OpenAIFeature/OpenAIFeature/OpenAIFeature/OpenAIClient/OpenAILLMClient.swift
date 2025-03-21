@@ -24,15 +24,21 @@ public class OpenAILLMClient: LLMClient {
     private var httpClient: OpenAIApiClient
     private var openAIModelName: String
     
-    public init(openAIHTTPClient: OpenAIApiClient, modelName: String) {
+    private var MAX_RESOURCES_TOKEN: Int
+
+    public init(openAIHTTPClient: OpenAIApiClient, modelName: String, maxResourceToken: Int) {
         self.httpClient = openAIHTTPClient
         self.openAIModelName = modelName
+        self.MAX_RESOURCES_TOKEN = maxResourceToken
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
         
-        #warning("Refactor for support first object !!!!!!!!!!!")
-        let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object])
+        let count = try await httpClient.getToken(model: openAIModelName, text: object.content)
+        
+        guard count < MAX_RESOURCES_TOKEN else { throw OpenAIError.generic("Document too large") }
+        
+        let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object], max_tokens: 16384)
         
         guard let result = try await httpClient.chatCompletetions(for: llmRequestBody),
                 let message = result.genericObject else {
@@ -52,15 +58,15 @@ public class OpenAILLMClient: LLMClient {
         self.history.removeAll()
     }
     
-    private func createRequestBody(messages: [LLMMessage]) -> LLMRequestBody {
-        LLMRequestBody(model: openAIModelName, messages: messages, max_tokens: 275, stream: false, temperature: 1.0, user: nil)
+    private func createRequestBody(messages: [LLMMessage], max_tokens: Int) -> LLMRequestBody {
+        LLMRequestBody(model: openAIModelName, messages: messages, max_tokens: max_tokens, stream: false, temperature: 1.0, user: nil)
     }
 }
 
-public func makeOpenAIHTTPClient(modelName: String) -> OpenAILLMClient {
+public func makeOpenAIHTTPClient(modelName: String, maxResourceToken: Int) -> OpenAILLMClient {
     let session = URLSession(configuration: .default)
     let client = URLSessionHTTPClient(session: session)
     let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
     let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
-    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName)
+    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName, maxResourceToken: maxResourceToken)
 }
