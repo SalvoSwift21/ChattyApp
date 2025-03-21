@@ -52,12 +52,7 @@ public final class TextAnalyzerComposer {
         case .gpt_4_o, .gpt_4o_mini:
             client = makeOpenAIHTTPClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken())
         case .gemini_2_0_flash, .gemini_pro, .gemini_2_0_flash_lite:
-            switch fileType {
-            case .image, .jpeg, .png:
-                client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue) as GoogleAILLMClient
-            default:
-                client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken()) as GoogleAIFileSummizeClient
-            }
+            client = makeGoogleGeminiAIClient(modelName: currentAi.rawValue, maxResourceToken: currentProductFeature.getMaxResourceToken())
         case .unowned:
             fatalError("Not AI selected")
         }

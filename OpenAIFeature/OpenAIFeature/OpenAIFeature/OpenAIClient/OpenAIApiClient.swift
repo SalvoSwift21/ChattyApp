@@ -49,14 +49,13 @@ extension OpenAIApiClient {
 
     
     public func chatCompletetionsStream(for requestBody: LLMRequestBody) async throws -> AsyncThrowingStream<Status, Error> {
-        
         let endpoint = try ChatCompletionEndpoint(llmRequestBody: requestBody, token: configuration.API_KEY)
         let request = try EndpointURLRequestMapper.map(from: endpoint)
         let (data, response) = try await httpClient.makeStreamTaskRequest(from: request).result()
         return try await OpenAIStreamCompletionMapper.map(data, from: response)
     }
     
-    public func getToken(model: String, text: String) async throws -> Int {
+    public func getTokenCount(model: String, text: String) async throws -> Int {
         let endpoint = try PostNumberOfToken(model: model, text: text)
         let request = try EndpointURLRequestMapper.map(from: endpoint)
         let (data, response) = try await httpClient.makeTaskRequest(from: request).result()

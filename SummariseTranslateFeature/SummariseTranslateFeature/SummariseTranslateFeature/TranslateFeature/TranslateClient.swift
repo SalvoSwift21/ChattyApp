@@ -43,19 +43,12 @@ public class TranslateClient: TranslateClientProtocol {
 
 extension GoogleAILLMClient: TranslateServiceProtocol {
     public func translate(fromText text: String) async throws -> String {
-        let message = LLMMessage(role: "user", content: text)
-        let response = try await self.sendMessage(object: message)
-        return response?.content ?? ""
-    }
-}
-
-extension GoogleAIFileSummizeClient: TranslateServiceProtocol {
-    public func translate(fromText text: String) async throws -> String {
         let message = GoogleFileLLMMessage(role: "user", content: text, fileData: nil)
         let response = try await self.sendMessage(object: message)
         return response?.content ?? ""
     }
 }
+
 
 extension OpenAILLMClient: TranslateServiceProtocol {
     public func translate(fromText text: String) async throws -> String {

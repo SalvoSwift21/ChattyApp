@@ -15,13 +15,11 @@
 		6222D56E2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D56D2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift */; };
 		6222D56F2ADF1152005A73EC /* GoogleAIFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6222D5632ADF1152005A73EC /* GoogleAIFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6222D58B2ADF1167005A73EC /* GoogleAIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D5872ADF1167005A73EC /* GoogleAIMapper.swift */; };
-		6222D58E2ADF1167005A73EC /* GoogleAILLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D57F2ADF1166005A73EC /* GoogleAILLMClient.swift */; };
 		6222D5902ADF1167005A73EC /* GoogleAIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D57D2ADF1166005A73EC /* GoogleAIConfigurations.swift */; };
 		6222D5912ADF1167005A73EC /* Encorder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D5842ADF1167005A73EC /* Encorder+Extensions.swift */; };
 		6222D5942ADF1450005A73EC /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6222D5932ADF1450005A73EC /* GoogleGenerativeAI */; };
 		6222D59C2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D59B2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift */; };
 		6222D59D2ADF1CE6005A73EC /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6222D5602ADF1151005A73EC /* GoogleAIFeature.framework */; };
-		6292A9C12D07B35400544803 /* GoogleAIFileSummizeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9C02D07B34100544803 /* GoogleAIFileSummizeClient.swift */; };
 		6292A9C32D07B94500544803 /* GoogleAIFileSummurizeEndToEndTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9C22D07B92200544803 /* GoogleAIFileSummurizeEndToEndTest.swift */; };
 		6292A9C62D07BA2900544803 /* 10-page-sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6292A9C52D07BA2900544803 /* 10-page-sample.pdf */; };
 		6292A9C82D07C62C00544803 /* user-manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6292A9C72D07C62C00544803 /* user-manual.pdf */; };
@@ -29,6 +27,7 @@
 		6292A9CD2D07C86C00544803 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9CC2D07C86700544803 /* URL+Extensions.swift */; };
 		6292A9CF2D07C88A00544803 /* PDFDocument+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292A9CE2D07C88300544803 /* PDFDocument+Extensions.swift */; };
 		629B7B5D2D1233BE0048267B /* DataGenAiThrowingPartsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B7B5C2D1233B40048267B /* DataGenAiThrowingPartsRepresentable.swift */; };
+		62A114AE2D8DBB2B00A66B89 /* GoogleAILLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D57F2ADF1166005A73EC /* GoogleAILLMClient.swift */; };
 		62F11CC12D38EC070028996A /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 62F11CC02D38EC070028996A /* languages.json */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +77,6 @@
 		6222D5872ADF1167005A73EC /* GoogleAIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIMapper.swift; sourceTree = "<group>"; };
 		6222D5992ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleAIFeatureEndToEndTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6222D59B2ADF1CE6005A73EC /* GoogleAIFeatureEndToEndTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIFeatureEndToEndTest.swift; sourceTree = "<group>"; };
-		6292A9C02D07B34100544803 /* GoogleAIFileSummizeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIFileSummizeClient.swift; sourceTree = "<group>"; };
 		6292A9C22D07B92200544803 /* GoogleAIFileSummurizeEndToEndTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAIFileSummurizeEndToEndTest.swift; sourceTree = "<group>"; };
 		6292A9C52D07BA2900544803 /* 10-page-sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "10-page-sample.pdf"; sourceTree = "<group>"; };
 		6292A9C72D07C62C00544803 /* user-manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "user-manual.pdf"; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				6222D57F2ADF1166005A73EC /* GoogleAILLMClient.swift */,
-				6292A9C02D07B34100544803 /* GoogleAIFileSummizeClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -393,13 +390,12 @@
 			files = (
 				6292A9CB2D07C84B00544803 /* GoogleFileLLMMessage.swift in Sources */,
 				6292A9CD2D07C86C00544803 /* URL+Extensions.swift in Sources */,
-				6222D58E2ADF1167005A73EC /* GoogleAILLMClient.swift in Sources */,
 				629B7B5D2D1233BE0048267B /* DataGenAiThrowingPartsRepresentable.swift in Sources */,
 				6222D5902ADF1167005A73EC /* GoogleAIConfigurations.swift in Sources */,
-				6292A9C12D07B35400544803 /* GoogleAIFileSummizeClient.swift in Sources */,
 				6222D5912ADF1167005A73EC /* Encorder+Extensions.swift in Sources */,
 				6222D58B2ADF1167005A73EC /* GoogleAIMapper.swift in Sources */,
 				6292A9CF2D07C88A00544803 /* PDFDocument+Extensions.swift in Sources */,
+				62A114AE2D8DBB2B00A66B89 /* GoogleAILLMClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

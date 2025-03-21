@@ -34,7 +34,7 @@ public class OpenAILLMClient: LLMClient {
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
         
-        let count = try await httpClient.getToken(model: openAIModelName, text: object.content)
+        let count = try await httpClient.getTokenCount(model: openAIModelName, text: object.content)
         
         guard count < MAX_RESOURCES_TOKEN else { throw OpenAIError.generic("Document too large") }
         
