@@ -22,6 +22,7 @@ struct TextFieldAlert: ViewModifier {
         content.alert(title, isPresented: $isShowingAlert) {
             TextField(placeholder, text: $text)
             Button(okButtonTitle, action: action)
+                .disabled(text.isEmpty)
             Button(String(localized: "GENERIC_CANCEL_TITLE"), action: { self.isShowingAlert.toggle() })
         } message: {
             if let message = message {

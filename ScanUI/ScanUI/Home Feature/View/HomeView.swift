@@ -115,18 +115,7 @@ public struct HomeView: View {
                 
                 Spacer()
                 
-                HStack(spacing: 28) {
-                    CircleAnimationView(centerImage: UIImage(named: "gallery_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 64, height: 64))
-                        .onTapGesture {
-                            presenter.uploadImage()
-                        }
-                    
-                    CircleAnimationView(centerImage: UIImage(named: "scan_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 110, height: 110))
-                        .onTapGesture {
-                            presenter.newScan()
-                        }.padding([.trailing], 100)
-                    
-                }
+                BottomView
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -188,6 +177,25 @@ public struct HomeView: View {
                 await presenter.loadData()
             }
         }
+        .ignoresSafeArea(.keyboard)
+
+    }
+    
+    var BottomView: some View {
+        HStack(spacing: 28) {
+            CircleAnimationView(centerImage: UIImage(named: "gallery_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 64, height: 64))
+                .onTapGesture {
+                    presenter.uploadImage()
+                }
+            
+            CircleAnimationView(centerImage: UIImage(named: "scan_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 110, height: 110))
+                .onTapGesture {
+                    presenter.newScan()
+                }.padding([.trailing], 100)
+            
+        }
+        .ignoresSafeArea(.keyboard)
+
     }
 }
 
