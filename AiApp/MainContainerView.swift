@@ -64,6 +64,17 @@ struct MainContainerView: View {
                 isMenuShown.toggle()
             }
         }
+        .sheet(isPresented: $showOnboarding) {
+            OnboardingUIComposer.onboardingComposedWith(forceOnboarding: true) {
+                showOnboarding.toggle()
+            }
+        }
+        .sheet(isPresented: $showTermsAndConditions) {
+            TermsAndConditionsView
+        }
+        .sheet(isPresented: $showPrivacyPolicy) {
+            PrivacyPolicyView
+        }
     }
     
     var HomeSection: some View {
@@ -110,17 +121,6 @@ struct MainContainerView: View {
             })
             .fullScreenCover(isPresented: $showDataScan) {
                 DataScannerSection(storage: scanStorage)
-            }
-            .sheet(isPresented: $showOnboarding) {
-                OnboardingUIComposer.onboardingComposedWith(forceOnboarding: true) {
-                    showOnboarding.toggle()
-                }
-            }
-            .sheet(isPresented: $showTermsAndConditions) {
-                TermsAndConditionsView
-            }
-            .sheet(isPresented: $showPrivacyPolicy) {
-                PrivacyPolicyView
             }
         }
         .tint(.primeAccentColor)

@@ -639,6 +639,28 @@
         }
       }
     },
+    "PREFERENCES_CHOOSE_AI_INFO_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can freely switch between different AI models according to your specific requirements. Each AI model, however, has its own maximum token limit per interaction. This means that even if your subscription or token package includes a large number of tokens (for example, one million tokens), certain advanced models, such as ChatGPT-4, may not support such extensive usage within a single interaction. To fully benefit from your tokens, choose the AI model best aligned with the length and complexity of your content."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Understanding AI Models and Token Usage"
+          }
+        }
+      }
+    },
     "PREFERENCES_CHOOSE_AI_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -657,6 +679,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose Your AI Model"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LA_INFO_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Your Default Translation Language"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LA_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the language you prefer for translating your AI-generated summaries. When you tap the Translate action after creating a summary, your content will automatically be translated into this default language. You can easily update this preference whenever you wish."
           }
         }
       }

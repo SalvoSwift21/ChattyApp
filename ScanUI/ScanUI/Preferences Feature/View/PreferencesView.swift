@@ -14,7 +14,9 @@ public struct PreferencesView: View {
     var presenter: PreferencePresenter
     @ObservedObject var store: PreferenceStore
     @State var showAiModelsList: Bool = false
+    @State var showAiModelsListHelper: Bool = false
     @State var showLanguagesModelsList: Bool = false
+    @State var showLanguagesHelper: Bool = false
 
     var resourceBundle: Bundle
 
@@ -40,18 +42,32 @@ public struct PreferencesView: View {
                                 AICellViewBuilder().AiCell(model: viewModel.selectedAI, isSelected: true, resourceBundle: resourceBundle)
                             }
                         } header: {
-                            VStack(alignment: .leading, spacing: 5.0) {
-                                Text("PREFERENCES_CHOOSE_AI_TITLE")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.system(size: 18))
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.title)
+                            HStack(alignment: .top) {
+                                VStack(alignment: .leading, spacing: 5.0) {
+                                    Text("PREFERENCES_CHOOSE_AI_TITLE")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.system(size: 18))
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.title)
+                                    
+                                    Text("PREFERENCES_CHOOSE_AI_MESSAGE")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.system(size: 12))
+                                        .fontWeight(.regular)
+                                        .foregroundStyle(.subtitle)
+                                }
                                 
-                                Text("PREFERENCES_CHOOSE_AI_MESSAGE")
-                                    .multilineTextAlignment(.leading)
-                                    .font(.system(size: 12))
-                                    .fontWeight(.regular)
-                                    .foregroundStyle(.subtitle)
+                                Spacer()
+                                
+                                Button {
+                                    showAiModelsListHelper.toggle()
+                                } label: {
+                                    Image(systemName: "info.circle")
+                                        .renderingMode(.template)
+                                        .resizable()
+                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .foregroundStyle(.prime)
+                                }
                             }
                         }
                         .padding()
@@ -68,18 +84,33 @@ public struct PreferencesView: View {
                                         .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
                                 }
                             } header: {
-                                VStack(alignment: .leading, spacing: 5.0) {
-                                    Text("PREFERENCES_CHOOSE_LANGUAGE_TITLE")
-                                        .multilineTextAlignment(.leading)
-                                        .font(.system(size: 20))
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(.title)
+                                HStack(alignment: .top) {
                                     
-                                    Text("PREFERENCES_CHOOSE_LANGUAGE_MESSAGE")
-                                        .multilineTextAlignment(.leading)
-                                        .font(.system(size: 14))
-                                        .fontWeight(.regular)
-                                        .foregroundStyle(.subtitle)
+                                    VStack(alignment: .leading, spacing: 5.0) {
+                                        Text("PREFERENCES_CHOOSE_LANGUAGE_TITLE")
+                                            .multilineTextAlignment(.leading)
+                                            .font(.system(size: 20))
+                                            .fontWeight(.semibold)
+                                            .foregroundStyle(.title)
+                                        
+                                        Text("PREFERENCES_CHOOSE_LANGUAGE_MESSAGE")
+                                            .multilineTextAlignment(.leading)
+                                            .font(.system(size: 14))
+                                            .fontWeight(.regular)
+                                            .foregroundStyle(.subtitle)
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    Button {
+                                        showLanguagesHelper.toggle()
+                                    } label: {
+                                        Image(systemName: "info.circle")
+                                            .renderingMode(.template)
+                                            .resizable()
+                                            .frame(width: 20, height: 20, alignment: .center)
+                                            .foregroundStyle(.prime)
+                                    }
                                 }
                             }
                             .padding()
@@ -92,6 +123,12 @@ public struct PreferencesView: View {
                     }
                     .sheet(isPresented: $showLanguagesModelsList) {
                         LanguagesListView(models: viewModel.translateLanguage.languages, selected: viewModel.selectedLanguage, resourceBundle: resourceBundle, delegate: presenter)
+                    }
+                    .sheet(isPresented: $showAiModelsListHelper) {
+                        AIPreferenceHelpView(title: "PREFERENCES_CHOOSE_AI_INFO_TITLE", subtitle: "PREFERENCES_CHOOSE_AI_INFO_DESCRIPTION")
+                    }
+                    .sheet(isPresented: $showLanguagesHelper) {
+                        AIPreferenceHelpView(title: "PREFERENCES_CHOOSE_LA_INFO_DESCRIPTION", subtitle: "PREFERENCES_CHOOSE_LA_INFO_TITLE")
                     }
                 }
             }
