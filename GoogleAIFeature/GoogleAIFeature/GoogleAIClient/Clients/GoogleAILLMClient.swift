@@ -45,7 +45,7 @@ public class GoogleAILLMClient: LLMClient {
         
         let count = try await generativeLanguageClient.countTokens(prompt, fileData)
         
-        guard count.totalTokens < MAX_RESOURCE_TOKEN else { throw GoogleAIError.generic("Document too large") }
+        guard count.totalTokens < MAX_RESOURCE_TOKEN else { throw GoogleAIError.generic("GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED") }
         
         return try await generativeLanguageClient.generateContent(prompt, fileData)
     }

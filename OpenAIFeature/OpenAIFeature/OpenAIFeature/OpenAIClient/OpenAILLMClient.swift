@@ -11,9 +11,18 @@ import LLMFeature
 
 public class OpenAILLMClient: LLMClient {
    
-    public enum OpenAIError: Error {
+    public enum OpenAIError: Error, LocalizedError {
         case generic(String)
         case notValidChatCompletetionsResult
+        
+        public var errorDescription: String? {
+            switch self {
+            case .generic(let message):
+                return message
+            case .notValidChatCompletetionsResult:
+                return "The chat completion result is not valid."
+            }
+        }
     }
     
     public typealias LLMClientResult = LLMMessage?
@@ -38,9 +47,9 @@ public class OpenAILLMClient: LLMClient {
         
         let count = try await httpClient.getTokenCount(model: openAIModelName, text: object.content)
         
-        guard count < maxInputToken else { throw OpenAIError.generic("Document too large") }
+        guard count < maxInputToken else { throw OpenAIError.generic("GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED") }
         
-        let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object], max_tokens: 16384)
+        let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object])
         
         guard let result = try await httpClient.chatCompletetions(for: llmRequestBody),
                 let message = result.genericObject else {
@@ -60,7 +69,7 @@ public class OpenAILLMClient: LLMClient {
         self.history.removeAll()
     }
     
-    private func createRequestBody(messages: [LLMMessage], max_tokens: Int) -> LLMRequestBody {
+    private func createRequestBody(messages: [LLMMessage]) -> LLMRequestBody {
         LLMRequestBody(model: openAIModelName, messages: messages, max_output_tokens: maxOutputToken, stream: false, temperature: 1.0, user: nil)
     }
 }

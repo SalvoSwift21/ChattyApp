@@ -298,6 +298,17 @@
         }
       }
     },
+    "GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We’re unable to summarize this document because it’s either too large or in an unsupported format. Please try with a smaller or compatible file."
+          }
+        }
+      }
+    },
     "GENERIC_ERROR_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
