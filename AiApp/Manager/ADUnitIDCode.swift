@@ -33,6 +33,7 @@ enum ADUnitIDCode {
 enum Links {
     case privacyPolicy
 
+    
     var url: URL {
         switch self {
         case .privacyPolicy:
