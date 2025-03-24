@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		621C4D4D2A61257200E505CE /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621C4D4C2A61257200E505CE /* RestApi.framework */; };
-		621C4D4E2A61257200E505CE /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 621C4D4C2A61257200E505CE /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6228BF182A55437200E27BA0 /* LLMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228BF172A55437200E27BA0 /* LLMClient.swift */; };
 		6228BF1C2A5545A600E27BA0 /* LLMConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228BF1B2A5545A600E27BA0 /* LLMConfiguration.swift */; };
 		6239AE9C2A55C0F000972588 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6239AE9B2A55C0F000972588 /* SharedTestHelpers.swift */; };
@@ -33,20 +32,6 @@
 			remoteInfo = LLVMFeature;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		621C4D4F2A61257200E505CE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				621C4D4E2A61257200E505CE /* RestApi.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		621C4D472A61243700E505CE /* LLMFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LLMFeature.xctestplan; sourceTree = "<group>"; };
@@ -203,7 +188,6 @@
 				628A79DC2A53F05100ECEAF8 /* Sources */,
 				628A79DD2A53F05100ECEAF8 /* Frameworks */,
 				628A79DE2A53F05100ECEAF8 /* Resources */,
-				621C4D4F2A61257200E505CE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

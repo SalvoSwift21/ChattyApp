@@ -11,9 +11,7 @@
 		6224B95F2A7A354A009B2A23 /* OpenAICompletionMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B95E2A7A354A009B2A23 /* OpenAICompletionMapperTests.swift */; };
 		6224B9602A7A354A009B2A23 /* OpenAIFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6224B9542A7A354A009B2A23 /* OpenAIFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6224B9772A7A35BB009B2A23 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9762A7A35BB009B2A23 /* LLMFeature.framework */; };
-		6224B9782A7A35BB009B2A23 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B9762A7A35BB009B2A23 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6224B97B2A7A35C1009B2A23 /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B97A2A7A35C1009B2A23 /* RestApi.framework */; };
-		6224B97C2A7A35C1009B2A23 /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6224B97A2A7A35C1009B2A23 /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6224B97E2A7A3924009B2A23 /* ChatCompletionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9722A7A3558009B2A23 /* ChatCompletionEndpoint.swift */; };
 		6224B97F2A7A3924009B2A23 /* GetModelsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9702A7A3558009B2A23 /* GetModelsEndpoint.swift */; };
 		6224B9802A7A3924009B2A23 /* OpenAIConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6224B9692A7A3558009B2A23 /* OpenAIConfigurations.swift */; };
@@ -48,21 +46,6 @@
 			remoteInfo = OpenAIFeature;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		6224B9792A7A35BB009B2A23 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6224B9782A7A35BB009B2A23 /* LLMFeature.framework in Embed Frameworks */,
-				6224B97C2A7A35C1009B2A23 /* RestApi.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6224B9512A7A354A009B2A23 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,7 +249,6 @@
 				6224B94D2A7A354A009B2A23 /* Sources */,
 				6224B94E2A7A354A009B2A23 /* Frameworks */,
 				6224B94F2A7A354A009B2A23 /* Resources */,
-				6224B9792A7A35BB009B2A23 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

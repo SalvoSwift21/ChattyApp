@@ -106,7 +106,6 @@
 		6299061C2B74507F005B43A7 /* TextAnalyzerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299061B2B74507F005B43A7 /* TextAnalyzerServiceProtocol.swift */; };
 		6299061E2B745107005B43A7 /* TextAnalyzerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299061D2B745107005B43A7 /* TextAnalyzerService.swift */; };
 		629906222B74552B005B43A7 /* SummariseTranslateFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629906212B74552B005B43A7 /* SummariseTranslateFeature.framework */; };
-		629906232B74552B005B43A7 /* SummariseTranslateFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 629906212B74552B005B43A7 /* SummariseTranslateFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		629906262B74569D005B43A7 /* TextAnalyzerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629906252B74569D005B43A7 /* TextAnalyzerViewModel.swift */; };
 		629906282B7457AD005B43A7 /* TextAnalyzerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629906272B7457AD005B43A7 /* TextAnalyzerStore.swift */; };
 		6299062A2B745816005B43A7 /* TextAnalyzerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629906292B745816005B43A7 /* TextAnalyzerProtocols.swift */; };
@@ -173,20 +172,6 @@
 			remoteInfo = ScanUI;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		629906242B74552C005B43A7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				629906232B74552B005B43A7 /* SummariseTranslateFeature.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		620A746E2BB23FDE007CC315 /* SwiftDataStore+ScanStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDataStore+ScanStorage.swift"; sourceTree = "<group>"; };
@@ -1396,7 +1381,6 @@
 				62CFB5652B04A9F3006D70A5 /* Sources */,
 				62CFB5662B04A9F3006D70A5 /* Frameworks */,
 				62CFB5672B04A9F3006D70A5 /* Resources */,
-				629906242B74552C005B43A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
