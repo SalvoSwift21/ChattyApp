@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "62128CA82A1F8F92005D732A"
-               BuildableName = "AiApp.app"
+               BuildableName = "Scaney.app"
                BlueprintName = "AiApp"
                ReferencedContainer = "container:AiApp.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62128CA82A1F8F92005D732A"
-            BuildableName = "AiApp.app"
+            BuildableName = "Scaney.app"
             BlueprintName = "AiApp"
             ReferencedContainer = "container:AiApp.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "62128CA82A1F8F92005D732A"
-            BuildableName = "AiApp.app"
+            BuildableName = "Scaney.app"
             BlueprintName = "AiApp"
             ReferencedContainer = "container:AiApp.xcodeproj">
          </BuildableReference>
