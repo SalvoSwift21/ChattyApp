@@ -52,6 +52,7 @@ extension OpenAIApiClient {
         let endpoint = try ChatCompletionEndpoint(llmRequestBody: requestBody, token: configuration.API_KEY)
         let request = try EndpointURLRequestMapper.map(from: endpoint)
         let (data, response) = try await httpClient.makeStreamTaskRequest(from: request).result()
+        debugPrint("Response \(response)")
         return try await OpenAIStreamCompletionMapper.map(data, from: response)
     }
     

@@ -129,7 +129,8 @@ public final class OpenAIStreamCompletionMapper {
                     guard let text = response.choices.first?.delta.content else {
                         return .error(throwing: OpenAIMapperError.invalidResponse)
                     }
-                    
+                    debugPrint("Response Stream \(responseText)")
+
                     responseText += text
                     return .stream(text)
                 }

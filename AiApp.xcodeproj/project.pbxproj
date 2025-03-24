@@ -74,7 +74,7 @@
 
 /* Begin PBXFileReference section */
 		6204E4002B801D9600B268A9 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
-		62128CA92A1F8F92005D732A /* AiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62128CA92A1F8F92005D732A /* Scaney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scaney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62128CAC2A1F8F92005D732A /* AiAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiAppApp.swift; sourceTree = "<group>"; };
 		62128CB02A1F8F92005D732A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62128CB32A1F8F92005D732A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		62128CAA2A1F8F92005D732A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62128CA92A1F8F92005D732A /* AiApp.app */,
+				62128CA92A1F8F92005D732A /* Scaney.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 			);
 			name = AiApp;
 			productName = AiApp;
-			productReference = 62128CA92A1F8F92005D732A /* AiApp.app */;
+			productReference = 62128CA92A1F8F92005D732A /* Scaney.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

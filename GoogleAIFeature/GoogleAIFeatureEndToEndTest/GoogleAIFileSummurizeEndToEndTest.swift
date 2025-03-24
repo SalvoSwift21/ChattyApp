@@ -31,7 +31,7 @@ final class GoogleAIFileSummurizeEndToEndTest: XCTestCase {
         }
         
         do {
-            let responseMessage = try await getSummariseText(pdfURL: PDFURL)
+            let responseMessage = try await getSummariseText(pdfURL: PDFURL, maxToken: 3000)
             debugPrint(responseMessage?.content ?? "No response")
             XCTAssertNotEqual(responseMessage, nil)
         } catch {
@@ -39,16 +39,31 @@ final class GoogleAIFileSummurizeEndToEndTest: XCTestCase {
         }
     }
     
+    func test_endToEndTestServerGETPDFSummarise_documentToLargeResponse() async throws {
+        guard let PDFURL = self.fileURL else {
+            XCTFail("Could not find test PDF")
+            return
+        }
+        
+        do {
+            let responseMessage = try await getSummariseText(pdfURL: PDFURL, maxToken: 2)
+            debugPrint(responseMessage?.content ?? "No response")
+            XCTFail("Expected Eroor chat completions result, got \(String(describing: responseMessage?.content)) instead")
+        } catch {
+            XCTAssertEqual(error.localizedDescription, GoogleAILLMClient.GoogleAIError.generic("GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED").localizedDescription)
+        }
+    }
+    
     // MARK: - Helpers
     
-    private func makeGoogleAIHTTPClient(file: StaticString = #filePath, line: UInt = #line) -> GoogleAIFileSummizeClient {
+    private func makeGoogleAIHTTPClient(file: StaticString = #filePath, line: UInt = #line, maxToken: Int) -> GoogleAILLMClient {
         let gl = GenerativeModel(name: "gemini-1.5-flash", apiKey: GoogleAIConfigurations.TEST_API_KEY)
-        let sut = GoogleAIFileSummizeClient(generativeLanguageClient: gl)
+        let sut = GoogleAILLMClient(generativeLanguageClient: gl, maxResourceToken: maxToken)
         return sut
     }
 
-    private func getSummariseText(file: StaticString = #filePath, line: UInt = #line, pdfURL: URL) async throws -> LLMMessage? {
-        let client = makeGoogleAIHTTPClient()
+    private func getSummariseText(file: StaticString = #filePath, line: UInt = #line, pdfURL: URL, maxToken: Int) async throws -> LLMMessage? {
+        let client = makeGoogleAIHTTPClient(file: file, line: line, maxToken: maxToken)
         let exp = XCTestExpectation(description: "Wait for load completion")
         let prompt = """
                     Summarise the following document

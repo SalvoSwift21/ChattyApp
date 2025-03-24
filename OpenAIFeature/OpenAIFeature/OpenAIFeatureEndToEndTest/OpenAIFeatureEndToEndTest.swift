@@ -85,7 +85,7 @@ final class OpenAIEndToEndTests: XCTestCase {
         let exp = XCTestExpectation(description: "Wait for load completion")
 
         let testMessage = LLMMessage(role: "user", content: "Ciao piacere di conoscerti. Spiegami in breve cos'è un linguaggio di programmazione")
-        let requesBody = LLMRequestBody(model: "gpt-3.5-turbo", messages: [testMessage], max_tokens: 10, stream: true)
+        let requesBody = LLMRequestBody(model: "gpt-3.5-turbo", messages: [testMessage], stream: true)
         let result = try await client.chatCompletetionsStream(for: requesBody)
         exp.fulfill()
         await fulfillment(of: [exp])
