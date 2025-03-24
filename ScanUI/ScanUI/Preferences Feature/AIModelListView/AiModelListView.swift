@@ -36,7 +36,28 @@ public struct AiModelListView: View {
                                 AICellViewBuilder().AiCell(model: ai, isSelected: selected.aiType == ai.aiType, resourceBundle: resourceBundle)
                             }
                             .disabled(!ai.aiType.isEnabledFor(productID: currentAppProductFeature.productID))
-                            .opacity(ai.aiType.isEnabledFor(productID: currentAppProductFeature.productID) ? 1 : 0.5)
+                            .overlay {
+                                if !ai.aiType.isEnabledFor(productID: currentAppProductFeature.productID) {
+                                    ZStack(alignment: .topTrailing) {
+                                        LinearGradient(
+                                            colors: [Color.gray.opacity(0.45), Color.prime.opacity(0.25)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                        .edgesIgnoringSafeArea(.all)
+                                        
+                                        Image(systemName: "lock.fill")
+                                            .foregroundColor(.white)
+                                            .padding(10)
+                                            .background(
+                                                Circle()
+                                                    .fill(Color.black.opacity(0.4))
+                                            )
+                                            .padding()
+                                        
+                                    }.clipShape(.buttonBorder)
+                                }
+                            }
                         }
                     })
                     .padding()

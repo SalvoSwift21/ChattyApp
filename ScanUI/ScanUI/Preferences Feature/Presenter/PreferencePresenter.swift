@@ -10,19 +10,21 @@ import UIKit
 import LLMFeature
 
 public class PreferencePresenter: PreferencePresenterProtocol {
-        
+    
     internal var resourceBundle: Bundle
 
     private var service: AIPreferencesServiceProtocol
     private weak var delegate: PreferenceDelegate?
     public var menuButton: (() -> Void)
     public var updatePreferences: (() -> Void)
+    public var privacyButtonTapped: (() -> Void)
     var currentAppProductFeature: ProductFeature
 
 
     public init(delegate: PreferenceDelegate,
                 service: AIPreferencesServiceProtocol,
                 currentAppProductFeature: ProductFeature,
+                privacyButtonTapped: @escaping (() -> Void),
                 menuButton: @escaping (() -> Void),
                 updatePreferences: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
@@ -32,6 +34,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         self.updatePreferences = updatePreferences
         self.resourceBundle = bundle
         self.currentAppProductFeature = currentAppProductFeature
+        self.privacyButtonTapped = privacyButtonTapped
     }
     
     @MainActor
@@ -113,6 +116,10 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 await self.delegate?.render(errorState: nil)
             }
         }
+    }
+    
+    public func loadPrivacyPolicyManager() {
+        privacyButtonTapped()
     }
 }
 

@@ -5,6 +5,7 @@
 //  Created by Salvatore Milazzo on 2/9/25.
 //
 
+import Foundation
 
 enum ADUnitIDCode {
     case bannerID
@@ -28,3 +29,14 @@ enum ADUnitIDCode {
     }
 }
 
+
+enum Links {
+    case privacyPolicy
+
+    var url: URL {
+        switch self {
+        case .privacyPolicy:
+            return URL(string: "https://www.iubenda.com/privacy-policy/20572265")!
+        }
+    }
+}

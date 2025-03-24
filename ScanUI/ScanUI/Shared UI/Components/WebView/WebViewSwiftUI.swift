@@ -27,6 +27,7 @@ public struct WebViewSwiftUI: View {
                         dismiss()
                     }) {
                         Image(systemName: "xmark")
+                            .foregroundColor(.prime)
                     }
                 }
             }

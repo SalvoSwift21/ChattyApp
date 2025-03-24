@@ -7,7 +7,7 @@
 
 import SwiftUI
 import ScanUI
-
+import UserMessagingPlatform
 
 struct MainContainerView: View {
 
@@ -135,6 +135,10 @@ struct MainContainerView: View {
                 isMenuShown.toggle()
             } updatePreferences: {
                 AppConfiguration.shared.updatePreferences()
+            } privacyButtonTapped: {
+                Task {
+                    try? await AppConfiguration.shared.userMessageManager.presentPrivacyOptionsForm()
+                }
             }
         }
     }
@@ -156,7 +160,7 @@ struct MainContainerView: View {
     
     var PrivacyPolicyView: some View {
         NavigationStack {
-            WebViewUIComposer.webViewComposedWith(url: URL.init(string: "https://www.google.com/")!)
+            WebViewUIComposer.webViewComposedWith(url: Links.privacyPolicy.url)
                 .navigationBarTitle("PRIVACY_POLICY_TITLE")
         }
     }

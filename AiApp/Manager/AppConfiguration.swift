@@ -23,6 +23,9 @@ public class AppConfiguration {
     let purchaseManager: PurchaseManager
     let adMobManager: AdMobManager
     let changeManager: ChangeManager
+    let userMessageManager: UserMessagubgPlatformManager
+    
+    private var bootAppIsFinished: Bool = false
     
     var storeURL: URL = {
         guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
@@ -44,12 +47,19 @@ public class AppConfiguration {
         purchaseManager = PurchaseManager(storeService: storeService, productFeatureService: productFeatureService)
         adMobManager = AdMobManager(bannerUnitId: ADUnitIDCode.bannerID.id, interstitialUnitId: ADUnitIDCode.interstitialID.id)
         changeManager = ChangeManager()
+        userMessageManager = UserMessagubgPlatformManager()
     }
     
     public func bootApp() async throws {
+        guard bootAppIsFinished == false else { return }
         try await purchaseManager.startManager()
         try await selectAIIfNeeded()
-        try await adMobManager.startManager()
+        try await userMessageManager.askConsentInfo()
+        if userMessageManager.canRequestAds {
+            try await adMobManager.startManager()
+        }
+        
+        bootAppIsFinished = true
     }
     
     public func updatePreferences() {

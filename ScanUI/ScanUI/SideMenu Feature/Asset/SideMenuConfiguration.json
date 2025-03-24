@@ -33,11 +33,6 @@
                 "rowType": "help"
             },
             {
-                "title": "SIDE_MENU_TERMS_AND_COND",
-                "imageName": "side_menu_terms_and_cond",
-                "rowType": "termsAndConditions"
-            },
-            {
                 "title": "SIDE_MENU_PRIVACY_POLICY",
                 "imageName": "side_menu_privacy",
                 "rowType": "privacyPolicy"
