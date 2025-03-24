@@ -20,9 +20,7 @@
 		627B901C2D590F9800E190D9 /* ADUnitIDCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B901B2D590F8E00E190D9 /* ADUnitIDCode.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
 		6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; };
-		6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; };
-		628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
 		629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */; };
 		629E8BAD2D41B3EF00FECBAC /* Store.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 629E8BAC2D41B3EF00FECBAC /* Store.storekit */; };
@@ -31,13 +29,9 @@
 		62A114BB2D8F3CE600A66B89 /* UserMessagubgPlatformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */; };
 		62B2A90C2CC9B8790051CBFB /* PreferencesUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */; };
 		62BB197E2B719E48004A0748 /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; };
-		62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62BB19802B719E48004A0748 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; };
-		62BB19812B719E48004A0748 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62BB19832B719E9C004A0748 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; };
-		62BB19842B719E9D004A0748 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62C09EA02B711F7800490915 /* SummariseTranslateFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; };
-		62C09EA12B711F7800490915 /* SummariseTranslateFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */; };
 		62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */; };
 		62C468F32B2FC0AB002DD3A3 /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F22B2FC0AB002DD3A3 /* AppRootManager.swift */; };
@@ -49,28 +43,7 @@
 		62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62CC50F12D8B3CEA00404494 /* GoogleService-Info.plist */; };
 		62CC50FB2D8B898C00404494 /* WebViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */; };
 		62D242002B31159700B0EF1A /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; };
-		62D242012B31159700B0EF1A /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		628B86A12B156DA0009C6895 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */,
-				62D242012B31159700B0EF1A /* RestApi.framework in Embed Frameworks */,
-				628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */,
-				62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */,
-				62C09EA12B711F7800490915 /* SummariseTranslateFeature.framework in Embed Frameworks */,
-				62BB19842B719E9D004A0748 /* LLMFeature.framework in Embed Frameworks */,
-				62BB19812B719E48004A0748 /* OpenAIFeature.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6204E4002B801D9600B268A9 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
@@ -256,7 +229,6 @@
 				62128CA52A1F8F92005D732A /* Sources */,
 				62128CA62A1F8F92005D732A /* Frameworks */,
 				62128CA72A1F8F92005D732A /* Resources */,
-				628B86A12B156DA0009C6895 /* Embed Frameworks */,
 				62CC50F32D8B815900404494 /* Crashlytics */,
 			);
 			buildRules = (
