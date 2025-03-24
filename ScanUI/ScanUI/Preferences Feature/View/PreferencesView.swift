@@ -216,7 +216,7 @@ public struct PreferencesView: View {
                     Image(systemName: "shield.lefthalf.filled")
                         .foregroundColor(.prime)
                     
-                    Text("Show Privacy Policy Manager")
+                    Text("PREFERENCES_PRIVACY_BUTTON")
                         .font(.system(size: 14))
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
@@ -235,11 +235,19 @@ public struct PreferencesView: View {
             }
         } header: {
             HStack {
-                Text("PREFERENCES_CHOOSE_AI_TITLE")
-                    .multilineTextAlignment(.leading)
-                    .font(.system(size: 18))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.title)
+                VStack(alignment: .leading, spacing: 5.0) {
+                    Text("PREFERENCES_PRIVACY_TITLE")
+                        .multilineTextAlignment(.leading)
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.title)
+                    
+                    Text("PREFERENCES_PRIVACY_DESCRIPTION")
+                        .multilineTextAlignment(.leading)
+                        .font(.system(size: 14))
+                        .fontWeight(.regular)
+                        .foregroundStyle(.subtitle)
+                }
                 
                 Spacer()
             }

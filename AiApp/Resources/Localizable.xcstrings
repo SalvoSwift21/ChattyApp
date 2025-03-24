@@ -727,6 +727,39 @@
         }
       }
     },
+    "PREFERENCES_PRIVACY_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Settings"
+          }
+        }
+      }
+    },
+    "PREFERENCES_PRIVACY_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manage your privacy preferences and consent choices. You can review, adjust, or withdraw your consent at any time."
+          }
+        }
+      }
+    },
+    "PREFERENCES_PRIVACY_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy & Consent"
+          }
+        }
+      }
+    },
     "PRIVACY_POLICY_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
