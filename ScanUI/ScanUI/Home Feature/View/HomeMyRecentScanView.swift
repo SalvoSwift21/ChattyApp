@@ -26,7 +26,7 @@ struct HomeMyRecentScanView: View {
                     Button {
                         scanTapped(scan)
                     } label: {
-                        ScanItemView(resourceBundle: resourceBundle, scan: scan)
+                        ScanItemView(resourceBundle: resourceBundle, scan: scan, showShareButton: true)
                     }
                 }
             }

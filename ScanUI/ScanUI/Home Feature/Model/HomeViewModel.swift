@@ -30,6 +30,15 @@ public struct Scan: Hashable {
     }
 }
 
+struct ScanSharableModel {
+    public var image: UIImage?
+    public var description: String
+    
+    func getAnyArray() -> [Any] {
+        return [image, description].compactMap({ $0 })
+    }
+}
+
 public struct Folder: Hashable {
     var id: UUID = UUID()
     var creationDate: Date = Date()
