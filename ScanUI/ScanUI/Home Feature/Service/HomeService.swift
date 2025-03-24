@@ -27,22 +27,25 @@ public class HomeService: HomeServiceProtocol {
         self.client = client
     }
     
-    public func getMyFolder() async throws -> [Folder] {
-        guard let folders = try await client.retrieveFolders() else {
+    
+    public func getFoldersAndRecentScan() async throws -> ([Folder], [Scan]) {
+        guard let allFolders = try await client.retrieveFolders() else {
             throw HomeServiceError.RetriveFoldersError
         }
-        return folders
-    }
-    
-    public func getRecentScans() async throws -> [Scan] {
-        let allFolders = try await self.getMyFolder()
-        let allScan = allFolders
-            .map({ $0.scans })
+        
+        let dataFolders = allFolders.compactMap({ $0 })
+        
+        let allScan = dataFolders
+            .compactMap({ $0.scans })
             .flatMap { $0 }
             .sorted(by: { $0.scanDate > $1.scanDate })
             .prefix(5)
+            .map({ $0.toLocal(image: true) })
         
-        return Array(allScan)
+        let localFolders = allFolders
+            .compactMap({ $0.toLocal(loadScans: false, scanImage: false) })
+        
+        return (localFolders, Array(allScan))
     }
     
     public func createFolder(name: String) async throws {
@@ -56,8 +59,9 @@ public class HomeService: HomeServiceProtocol {
             .filter({ folder in
                 return folder.title.contains(query)
             })
+            .map({ $0.toLocal(loadScans: false, scanImage: false) })
         
-        let scans = try await client.retrieveScans(title: query) ?? []
+        let scans = try await client.retrieveScans(title: query)?.compactMap({ $0.toLocal(image: true) }) ?? []
         
         return (folders, scans)
     }

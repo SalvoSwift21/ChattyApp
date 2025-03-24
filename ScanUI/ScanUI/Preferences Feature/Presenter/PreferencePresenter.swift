@@ -10,19 +10,21 @@ import UIKit
 import LLMFeature
 
 public class PreferencePresenter: PreferencePresenterProtocol {
-        
+    
     internal var resourceBundle: Bundle
 
     private var service: AIPreferencesServiceProtocol
     private weak var delegate: PreferenceDelegate?
     public var menuButton: (() -> Void)
     public var updatePreferences: (() -> Void)
+    public var privacyButtonTapped: (() -> Void)
     var currentAppProductFeature: ProductFeature
 
 
     public init(delegate: PreferenceDelegate,
                 service: AIPreferencesServiceProtocol,
                 currentAppProductFeature: ProductFeature,
+                privacyButtonTapped: @escaping (() -> Void),
                 menuButton: @escaping (() -> Void),
                 updatePreferences: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
@@ -32,6 +34,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         self.updatePreferences = updatePreferences
         self.resourceBundle = bundle
         self.currentAppProductFeature = currentAppProductFeature
+        self.privacyButtonTapped = privacyButtonTapped
     }
     
     @MainActor
@@ -40,7 +43,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
             let aiPreferences = try await service.getAIPreferences()
             let preferenceModel = try await self.loadAIPreferencereType()
             
-            guard let selected = aiPreferences.avaibleAI.first(where: { $0.aiType == preferenceModel.selectedAI }) else { return }
+            guard let selected = aiPreferences.avaibleAI.first(where: { $0.aiType == preferenceModel.selectedAI.aiType }) else { return }
             guard let selectedLanguage = try? selected.aiType.getAllSupportedLanguages().languages.first(where: {$0.locale.identifier == preferenceModel.selectedLanguage.locale.identifier}) else { return }
             
             let allLanguages = try selected.aiType.getAllSupportedLanguages()
@@ -70,7 +73,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         Task {
             do {
                 guard let defaultLanguage = try model.aiType.getAllSupportedLanguages().languages.first else { return }
-                let preference = PreferenceModel(selectedLanguage: defaultLanguage, selectedAI: model.aiType)
+                let preference = PreferenceModel(selectedLanguage: defaultLanguage, selectedAI: model)
                 try await saveAIPreferencereType(preference)
                 await loadData()
                 updatePreferences()
@@ -113,6 +116,10 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 await self.delegate?.render(errorState: nil)
             }
         }
+    }
+    
+    public func loadPrivacyPolicyManager() {
+        privacyButtonTapped()
     }
 }
 

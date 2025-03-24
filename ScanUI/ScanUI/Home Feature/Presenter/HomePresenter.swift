@@ -24,6 +24,9 @@ public class HomePresenter: HomePresenterProtocol {
     private weak var delegate: HomePresenterDelegate?
     
     private var homeViewModel: HomeViewModel
+    
+    
+    private var isInLoading: Bool = false
 
     public init(service: HomeService, 
                 delegate: HomePresenterDelegate,
@@ -48,6 +51,8 @@ public class HomePresenter: HomePresenterProtocol {
     
     @MainActor
     public func loadData() async {
+        guard !isInLoading else { return }
+        
         await self.showLoader(true)
         
         do {
@@ -57,6 +62,8 @@ public class HomePresenter: HomePresenterProtocol {
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
+        
+        self.isInLoading = false
     }
     
     @MainActor
@@ -76,16 +83,14 @@ public class HomePresenter: HomePresenterProtocol {
     }
     
     internal func getHome() async throws -> HomeViewModel {
-        let myFolders = try await service.getMyFolder()
-        let myRecentScan = try await service.getRecentScans()
+        let result = try await service.getFoldersAndRecentScan()
         
-        return HomeViewModel(recentScans: myRecentScan, myFolders: myFolders)
+        return HomeViewModel(recentScans: result.1, myFolders: result.0)
     }
     
     internal func createNewFolder(name: String) async {
         do {
             try await self.service.createFolder(name: name)
-            await self.loadData()
         } catch {
             await self.delegate?.render(errorMessage: error.localizedDescription)
         }
@@ -94,7 +99,6 @@ public class HomePresenter: HomePresenterProtocol {
     func renameFolder(folder: Folder) async {
         do {
             try await self.service.renameFolder(folder: folder)
-            await self.loadData()
         } catch {
             await self.delegate?.render(errorMessage: error.localizedDescription)
         }
@@ -103,7 +107,6 @@ public class HomePresenter: HomePresenterProtocol {
     func deleteFolder(folder: Folder) async {
         do {
             try await self.service.deleteFolder(folder: folder)
-            await self.loadData()
         } catch {
             await self.delegate?.render(errorMessage: error.localizedDescription)
         }
@@ -121,11 +124,13 @@ public class HomePresenter: HomePresenterProtocol {
 extension HomePresenter {
     
     fileprivate func showLoader(_ show: Bool) async {
+        self.isInLoading = show
         await self.delegate?.renderLoading(visible: show)
     }
     
+    @MainActor
     fileprivate func resetSearchMode() async {
         self.homeViewModel.searchResult = nil
-        await self.delegate?.render(viewModel: homeViewModel)
+        self.delegate?.render(viewModel: homeViewModel)
     }
 }

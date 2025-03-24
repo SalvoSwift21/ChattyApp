@@ -11,6 +11,7 @@ import LLMFeature
 import GoogleGenerativeAI
 
 public class GoogleAILLMClient: LLMClient {
+    
    
     public enum GoogleAIError: Error {
         case generic(String)
@@ -18,40 +19,49 @@ public class GoogleAILLMClient: LLMClient {
     }
     
     public typealias LLMClientResult = LLMMessage?
-    public typealias LLMClientObject = LLMMessage
+    public typealias LLMClientObject = GoogleFileLLMMessage
         
     private var history: [LLMMessage] = []
 
     private var generativeLanguageClient: GenerativeModel
+    private var MAX_RESOURCE_TOKEN: Int
     
-    public init(generativeLanguageClient: GenerativeModel) {
+    public init(generativeLanguageClient: GenerativeModel, maxResourceToken: Int) {
         self.generativeLanguageClient = generativeLanguageClient
+        self.MAX_RESOURCE_TOKEN = maxResourceToken
     }
 
-    public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
-        
-        let prompt = object.content
-        let response = try await generativeLanguageClient.generateContent(prompt)
-        
-        guard let message: LLMMessage = try GoogleAIMapper.map(response) else { throw GoogleAIError.notValidChatResult }
-        
-        try await saveInHistory(newObject: object)
-        try await saveInHistory(newObject: message)
-        
-        return message
+    public func sendMessage(object: GoogleFileLLMMessage) async throws -> LLMMessage? {
+        let response = try await handleCorrectResponse(object)
+        return try GoogleAIMapper.map(response)
     }
     
-    public func saveInHistory(newObject: LLMMessage) async throws {
-        self.history.append(newObject)
+    fileprivate func handleCorrectResponse(_ object: GoogleFileLLMMessage) async throws -> GenerateContentResponse {
+        let prompt = object.content
+        
+        guard let fileData = object.fileData else {
+            return try await generativeLanguageClient.generateContent(prompt)
+        }
+        
+        let count = try await generativeLanguageClient.countTokens(prompt, fileData)
+        
+        guard count.totalTokens < MAX_RESOURCE_TOKEN else { throw GoogleAIError.generic("GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED") }
+        
+        return try await generativeLanguageClient.generateContent(prompt, fileData)
+    }
+    
+    
+    public func saveInHistory(newObject: GoogleFileLLMMessage) async throws {
+//        self.history.append(newObject)
     }
     
     public func deleteFromHistory() async throws {
-        self.history.removeAll()
+//        self.history.removeAll()
     }
 }
 
-public func makeGoogleGeminiAIClient(modelName: String) -> GoogleAILLMClient {
+public func makeGoogleGeminiAIClient(modelName: String, maxResourceToken: Int) -> GoogleAILLMClient {
     let gl = GenerativeModel(name: modelName, apiKey: GoogleAIConfigurations.TEST_API_KEY)
-    let sut = GoogleAILLMClient(generativeLanguageClient: gl)
+    let sut = GoogleAILLMClient(generativeLanguageClient: gl, maxResourceToken: maxResourceToken)
     return sut
 }

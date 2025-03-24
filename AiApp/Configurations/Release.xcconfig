@@ -8,8 +8,10 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-OTHER_SWIFT_FLAGS = $(inherited) PROD
+//OTHER_SWIFT_FLAGS = $(inherited) PROD
 MARKETING_VERSION = 0.1.0
 
 BASE_URL = chat_app_prod
 APP_AD_MOB_ID = ca-app-pub-6751063947323511~3068965169
+
+TARGET_NAME = Scaney

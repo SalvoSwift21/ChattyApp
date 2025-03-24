@@ -42,7 +42,7 @@ public struct ScanView: View {
                                 }, label: {
                                     Image(systemName: "xmark")
                                         .resizable()
-                                        .frame(width: 20, height: 20, alignment: .center)
+                                        .frame(width: 15, height: 15, alignment: .center)
                                         .foregroundStyle(.buttonTitle)
                                 })
                                 .padding(.bottom, 10)
@@ -51,10 +51,10 @@ public struct ScanView: View {
                                 
                                 Text("SCAN_INFO_TITLE")
                                     .multilineTextAlignment(.center)
-                                    .font(.system(size: 18))
-                                    .fontWeight(.regular)
+                                    .font(.system(size: 16))
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.buttonTitle)
-                                    .padding(.top, 10)
+                                    .padding(.top, 6)
                                 
                                 Spacer()
                             })

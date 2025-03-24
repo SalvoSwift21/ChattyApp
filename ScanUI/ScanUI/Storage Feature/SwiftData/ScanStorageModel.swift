@@ -11,8 +11,8 @@ import UIKit
 
 
 @Model 
-final class ScanStorageModel {
-    var id: UUID = UUID()
+public final class ScanStorageModel {
+    public var id: UUID = UUID()
     
     var title: String = ""
     var contentText: String = ""
@@ -23,7 +23,7 @@ final class ScanStorageModel {
     
     var folder: FolderStorageModel?
     
-    init(id: UUID = UUID(), title: String, contentText: String, scanDate: Date, mainImage: Data? = nil) {
+    public init(id: UUID = UUID(), title: String, contentText: String, scanDate: Date, mainImage: Data? = nil) {
         self.id = id
         self.title = title
         self.scanDate = scanDate
@@ -31,7 +31,7 @@ final class ScanStorageModel {
         self.mainImage = mainImage
     }
     
-    var local: Scan {
-        return Scan(id: id, title: title, contentText: contentText, scanDate: scanDate, mainImage: UIImage(data: mainImage ?? Data()))
+    public func toLocal(image: Bool = false) -> Scan {
+        return Scan(id: id, title: title, contentText: contentText, scanDate: scanDate, mainImageData: image ? mainImage : nil)
     }
 }

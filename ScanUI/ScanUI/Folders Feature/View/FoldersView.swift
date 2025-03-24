@@ -135,9 +135,10 @@ public struct AllFoldersView: View {
                                 .foregroundColor(Color.prime)
                         }
                         .textFieldAlert(text: $newFolderName,
-                                        title: "Create new Folder",
-                                        okButtonTitle: "Ok",
-                                        placeholder: "Folder Name",
+                                        title: "HOME_VIEW_CREATE_ALERT_TITLE",
+                                        okButtonTitle: "HOME_VIEW_CREATE_ALERT_ACTION_BUTTON",
+                                        message: "HOME_VIEW_CREATE_ALERT_MESSAGE",
+                                        placeholder: "HOME_VIEW_CREATE_ALERT_PLACEHOLDER",
                                         isShowingAlert: $isShowingAlert) {
                             Task {
                                 await presenter.createNewFolder(name: newFolderName)

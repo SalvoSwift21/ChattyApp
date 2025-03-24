@@ -33,9 +33,16 @@ public struct FolderDetailView: View {
                         LoadingView()
                     }
                 case .loaded(let viewModel):
-                    makeDetailView(viewModel: viewModel)
-                        .navigationTitle(viewModel.folder.title)
-                        .navigationBarTitleDisplayMode(.inline)
+                    VStack {
+                        if viewModel.folder.scans.isEmpty {
+                            EmptyStateView(iconSystemName: "folder", title: "EMPTY_VIEW_NO_FOLDER_SCAN_TITLE", subtitle: "EMPTY_VIEW_NO_FOLDER_SCAN_SUB")
+                                .padding(.vertical, 80)
+                        } else {
+                            makeDetailView(viewModel: viewModel)
+                        }
+                    }
+                    .navigationTitle(viewModel.folder.title)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
                 Spacer()
             }

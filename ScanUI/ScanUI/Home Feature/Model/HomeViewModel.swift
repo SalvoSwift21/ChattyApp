@@ -9,12 +9,34 @@ import Foundation
 import UIKit
 
 public struct Scan: Hashable {
-    var id: UUID = UUID()
+    var id: UUID
     
     var title: String
     var contentText: String
     var scanDate: Date
-    var mainImage: UIImage?
+    private var mainImageData: Data?
+    
+    init(id: UUID = UUID(), title: String, contentText: String, scanDate: Date, mainImageData: Data? = nil) {
+        self.id = id
+        self.title = title
+        self.contentText = contentText
+        self.scanDate = scanDate
+        self.mainImageData = mainImageData
+    }
+    
+    var mainImage: UIImage? {
+        guard let data = mainImageData else { return nil }
+        return UIImage(data: data)
+    }
+}
+
+struct ScanSharableModel {
+    public var image: UIImage?
+    public var description: String
+    
+    func getAnyArray() -> [Any] {
+        return [image, description].compactMap({ $0 })
+    }
 }
 
 public struct Folder: Hashable {
@@ -22,7 +44,11 @@ public struct Folder: Hashable {
     var creationDate: Date = Date()
     
     var title: String
+    
+    ///For only count use alweys scancount, because sometimes scans is empty because is not used. We need only the count.
     var scans: [Scan]
+    
+    var scanCount: Int = 0
     
     var canEdit: Bool = true
 }

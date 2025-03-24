@@ -56,6 +56,6 @@ public class TextAnalyzerService: TextAnalyzerServiceProtocol {
         guard let folder = try storageClient.retrieveFolders(title: storageClient.getDefaultFolderName())?.first else {
             throw TextAnalyzerServiceError.noDefaultFolder
         }
-        return folder
+        return folder.toLocal()
     }
 }

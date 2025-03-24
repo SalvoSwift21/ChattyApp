@@ -11,9 +11,18 @@ import LLMFeature
 
 public class OpenAILLMClient: LLMClient {
    
-    public enum OpenAIError: Error {
+    public enum OpenAIError: Error, LocalizedError {
         case generic(String)
         case notValidChatCompletetionsResult
+        
+        public var errorDescription: String? {
+            switch self {
+            case .generic(let message):
+                return message
+            case .notValidChatCompletetionsResult:
+                return "The chat completion result is not valid."
+            }
+        }
     }
     
     public typealias LLMClientResult = LLMMessage?
@@ -24,14 +33,22 @@ public class OpenAILLMClient: LLMClient {
     private var httpClient: OpenAIApiClient
     private var openAIModelName: String
     
-    public init(openAIHTTPClient: OpenAIApiClient, modelName: String) {
+    private var maxInputToken: Int
+    private var maxOutputToken: Int
+
+    public init(openAIHTTPClient: OpenAIApiClient, modelName: String, maxInputToken: Int, maxOutputToken: Int) {
         self.httpClient = openAIHTTPClient
         self.openAIModelName = modelName
+        self.maxInputToken = maxInputToken
+        self.maxOutputToken = maxOutputToken
     }
 
     public func sendMessage(object: LLMMessage) async throws -> LLMMessage? {
         
-        #warning("Refactor for support first object !!!!!!!!!!!")
+        let count = try await httpClient.getTokenCount(model: openAIModelName, text: object.content)
+        
+        guard count < maxInputToken else { throw OpenAIError.generic("GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED") }
+        
         let llmRequestBody: LLMRequestBody = createRequestBody(messages: [object])
         
         guard let result = try await httpClient.chatCompletetions(for: llmRequestBody),
@@ -53,14 +70,14 @@ public class OpenAILLMClient: LLMClient {
     }
     
     private func createRequestBody(messages: [LLMMessage]) -> LLMRequestBody {
-        LLMRequestBody(model: openAIModelName, messages: messages, max_tokens: 275, stream: false, temperature: 1.0, user: nil)
+        LLMRequestBody(model: openAIModelName, messages: messages, max_output_tokens: maxOutputToken, stream: false, temperature: 1.0, user: nil)
     }
 }
 
-public func makeOpenAIHTTPClient(modelName: String) -> OpenAILLMClient {
+public func makeOpenAIHTTPClient(modelName: String, maxInputToken: Int, maxOutputToken: Int) -> OpenAILLMClient {
     let session = URLSession(configuration: .default)
     let client = URLSessionHTTPClient(session: session)
     let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
     let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
-    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName)
+    return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName, maxInputToken: maxInputToken, maxOutputToken: maxOutputToken)
 }

@@ -22,7 +22,7 @@ public class FolderDetailService: FolderDetailServiceProtocol {
             return self.folder
         }
         
-        return folder
+        return folder.toLocal(loadScans: true, scanImage: true)
     }
     
     public func deleteScan(scan: Scan) async throws {

@@ -17,6 +17,7 @@ protocol PreferencePresenterProtocol: AnyObject {
     
     func saveAIPreferencereType(_ preferenceModel: PreferenceModel) async throws
     func loadAIPreferencereType() async throws -> PreferenceModel
+    func loadPrivacyPolicyManager()
     
     func transactionServiceIsEnabled() -> Bool
     

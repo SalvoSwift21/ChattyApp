@@ -10,19 +10,32 @@ import RestApi
 import ScanUI
 import VisionKit
 import LLMFeature
+import SwiftData
+import FirebaseCore
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
+}
 
 @main
 struct AiAppApp: App {
     
     @StateObject private var appRootManager = AppRootManager()
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @MainActor
-    private func getStorage() -> ScanStorege {
+    private var storage: ScanStorege {
         let url = AppConfiguration.shared.storeURL
         do {
-            return try SwiftDataStore(storeURL: url, defaultFolderName: AppConfiguration.defaultFolderName)
+            let dataStore = try SwiftDataStore(storeURL: url, defaultFolderName: AppConfiguration.defaultFolderName, changeManager: AppConfiguration.shared.changeManager)
+            return dataStore
         } catch {
-            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: AppConfiguration.defaultFolderName)
+            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: AppConfiguration.defaultFolderName, changeManager: AppConfiguration.shared.changeManager)
         }
     }
 
@@ -37,13 +50,14 @@ struct AiAppApp: App {
                         }
                     }
                 case .mainContainer:
-                    MainContainerView(storage: getStorage())
+                    MainContainerView(storage: storage)
                 default:
-                    Text("Empty state")
+                    EmptyView()
                 }
             }
             .environmentObject(appRootManager)
             .environment(AppConfiguration.shared.purchaseManager)
+            .environment(AppConfiguration.shared.changeManager)
             .task {
                 await bootApp()
             }

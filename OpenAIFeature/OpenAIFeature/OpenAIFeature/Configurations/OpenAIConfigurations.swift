@@ -47,7 +47,7 @@ public class OpenAiConfiguration: LLMFileConfigurationProtocol {
     public static let BASE_PATH = "/v1"
     
     public static func getSupportedUTType() -> [UTType] {
-        [.image, .png, .jpeg]
+        [.image, .png, .jpeg, .pdf]
     }
     
     public static func getSupportedLanguages() throws -> LLMSuppotedLanguages {

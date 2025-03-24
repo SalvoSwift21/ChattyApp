@@ -12,8 +12,8 @@ public func getFakeStorage() -> ScanStorege {
     let storeDirectory = FileManager.default.urls(for: .applicationDirectory, in: .userDomainMask).first!
 
     do {
-        return try SwiftDataStore(storeURL: storeDirectory, defaultFolderName: "Default")
+        return try SwiftDataStore(storeURL: storeDirectory, defaultFolderName: "Default", changeManager: ChangeManager())
     } catch {
-        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: "Default")
+        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: "Default", changeManager: ChangeManager())
     }
 }

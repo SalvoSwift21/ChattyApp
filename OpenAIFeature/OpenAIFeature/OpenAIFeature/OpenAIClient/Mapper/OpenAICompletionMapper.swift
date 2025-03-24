@@ -129,7 +129,8 @@ public final class OpenAIStreamCompletionMapper {
                     guard let text = response.choices.first?.delta.content else {
                         return .error(throwing: OpenAIMapperError.invalidResponse)
                     }
-                    
+                    debugPrint("Response Stream \(responseText)")
+
                     responseText += text
                     return .stream(text)
                 }
@@ -142,5 +143,22 @@ public final class OpenAIStreamCompletionMapper {
             
             return nil
         }
+    }
+}
+
+public final class OpenAITokenMapper {
+    
+    enum OpenAITokenMapperError: Error {
+        case genericError(String)
+    }
+  
+    public static func map(_ data: Data, from response: HTTPURLResponse) throws -> OpenAITokenResponse {
+        guard response.isOK else {
+            throw OpenAITokenMapperError.genericError("\(response.statusCode)")
+        }
+        
+        let model = try JSONDecoder().decode(OpenAITokenResponse.self, from: data)
+        
+        return model
     }
 }

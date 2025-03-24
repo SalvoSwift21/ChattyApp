@@ -7,8 +7,12 @@
 
 import SwiftUI
 import RestApi
+import SwiftData
 
 public struct HomeView: View {
+    
+    @EnvironmentObject var changeManager: ChangeManager
+
     var presenter: HomePresenter
     @ObservedObject var store: HomeStore
 
@@ -45,8 +49,10 @@ public struct HomeView: View {
                                 HomeSearchResultView(resourceBundle: resourceBundle, 
                                                      folders: searchResult.folders, 
                                                      scans: searchResult.scans) { scan in
+                                    searchText = ""
                                     presenter.scanTapped(scan)
                                 } folderTapped: { folder in
+                                    searchText = ""
                                     presenter.folderTapped(folder)
                                 }
                             } else {
@@ -109,18 +115,7 @@ public struct HomeView: View {
                 
                 Spacer()
                 
-                HStack(spacing: 28) {
-                    CircleAnimationView(centerImage: UIImage(named: "gallery_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 64, height: 64))
-                        .onTapGesture {
-                            presenter.uploadImage()
-                        }
-                    
-                    CircleAnimationView(centerImage: UIImage(named: "scan_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 110, height: 110))
-                        .onTapGesture {
-                            presenter.newScan()
-                        }.padding([.trailing], 100)
-                    
-                }
+                BottomView
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -160,13 +155,9 @@ public struct HomeView: View {
                 }
             }
             .padding(.horizontal)
-            .task {
-                await presenter.loadData()
-            }
             .task(id: self.searchText, priority: .high) {
                 await presenter.getSearchResult(for: searchText)
             }
-            
             if let errorState = store.errorState {
                 Color
                     .scanBackground
@@ -178,6 +169,33 @@ public struct HomeView: View {
                 }, secondaryButtonTitle: nil, secondaryAction: nil)
             }
         }
+        .task {
+            await presenter.loadData()
+        }
+        .onChange(of: changeManager.changes) {
+            Task {
+                await presenter.loadData()
+            }
+        }
+        .ignoresSafeArea(.keyboard)
+
+    }
+    
+    var BottomView: some View {
+        HStack(spacing: 28) {
+            CircleAnimationView(centerImage: UIImage(named: "gallery_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 64, height: 64))
+                .onTapGesture {
+                    presenter.uploadImage()
+                }
+            
+            CircleAnimationView(centerImage: UIImage(named: "scan_icon", in: resourceBundle, compatibleWith: nil) ?? UIImage(), frame: .init(width: 110, height: 110))
+                .onTapGesture {
+                    presenter.newScan()
+                }.padding([.trailing], 100)
+            
+        }
+        .ignoresSafeArea(.keyboard)
+
     }
 }
 

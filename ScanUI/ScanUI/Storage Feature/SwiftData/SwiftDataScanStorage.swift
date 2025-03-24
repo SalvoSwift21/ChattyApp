@@ -13,7 +13,9 @@ import CoreData
 public final class SwiftDataStore {
 
     private var configuration = ModelConfiguration()
-    var modelContainer: ModelContainer
+    internal var modelContainer: ModelContainer
+    internal var changeManager: ChangeManager
+    
     var defaultFolderName: String
     
     enum SwiftDataStore: Error {
@@ -42,9 +44,10 @@ public final class SwiftDataStore {
         }
     }
     
-    public init(storeURL: URL, defaultFolderName: String) throws {
+    public init(storeURL: URL, defaultFolderName: String, changeManager: ChangeManager) throws {
         do {
             self.defaultFolderName = defaultFolderName
+            self.changeManager = changeManager
             let schema = Schema([
                 FolderStorageModel.self
             ])

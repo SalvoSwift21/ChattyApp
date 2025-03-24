@@ -9,8 +9,8 @@ import Foundation
 import SwiftData
 
 @Model
-final class FolderStorageModel {
-    var id: UUID = UUID()
+public final class FolderStorageModel {
+    public var id: UUID = UUID()
     var creationDate = Date()
     var title: String = ""
     var canEdit: Bool = true
@@ -26,7 +26,18 @@ final class FolderStorageModel {
         self.canEdit = canEdit
     }
     
-    var local: Folder {
-        return Folder(id: self.id, creationDate: creationDate, title: title, scans: (scans ?? []).map({ $0.local }), canEdit: canEdit)
+    var scanCount: Int {
+        (scans?.count) ?? 0
+    }
+    
+    func toLocal(loadScans: Bool = true, scanImage: Bool = false) -> Folder {
+        Folder(
+            id: self.id,
+            creationDate: creationDate,
+            title: title,
+            scans: loadScans ? (scans ?? []).map({ $0.toLocal(image: scanImage) }) : [],
+            scanCount: scanCount,
+            canEdit: canEdit
+        )
     }
 }

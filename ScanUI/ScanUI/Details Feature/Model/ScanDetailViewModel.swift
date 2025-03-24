@@ -18,18 +18,16 @@ public struct ScanDetailViewModel {
     
     
     func getSharableObject() -> ScanShareModel {
-        let image = Image(uiImage: scan.mainImage ?? UIImage())
-        return ScanShareModel(image: image, description: scan.contentText)
+        return ScanShareModel(image: scan.mainImage, description: scan.contentText)
     }
 }
 
-struct ScanShareModel: Transferable {
-    static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation(exporting: \.description)
-    }
-
-
-    public var image: Image
+struct ScanShareModel {
+    public var image: UIImage?
     public var description: String
+    
+    func getAnyArray() -> [Any] {
+        return [image, description].compactMap({ $0 })
+    }
 }
 
