@@ -17,13 +17,17 @@ enum ADUnitIDCode {
             #if DEBUG
             return "ca-app-pub-3940256099942544/2435281174"
             #else
-            return "ca-app-pub-6751063947323511/1625953189"
+            return "ca-app-pub-3940256099942544/2435281174"
+
+//            return "ca-app-pub-6751063947323511/1625953189"
             #endif
         case .interstitialID:
             #if DEBUG
             return "ca-app-pub-3940256099942544/4411468910"
             #else
-            return "ca-app-pub-6751063947323511/5433104749"
+            return "ca-app-pub-3940256099942544/4411468910"
+
+//            return "ca-app-pub-6751063947323511/5433104749"
             #endif
         }
     }

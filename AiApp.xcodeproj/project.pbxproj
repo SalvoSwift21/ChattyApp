@@ -35,7 +35,6 @@
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
 		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
 		629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */; };
-		629E8BAD2D41B3EF00FECBAC /* Store.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 629E8BAC2D41B3EF00FECBAC /* Store.storekit */; };
 		62A114B62D8F3A3400A66B89 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 62A114B52D8F3A3400A66B89 /* PrivacyInfo.xcprivacy */; };
 		62A114B92D8F3BDC00A66B89 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 62A114B82D8F3BDC00A66B89 /* GoogleUserMessagingPlatform */; };
 		62A114BB2D8F3CE600A66B89 /* UserMessagubgPlatformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */; };
@@ -312,7 +311,6 @@
 				62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */,
 				622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */,
 				62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */,
-				629E8BAD2D41B3EF00FECBAC /* Store.storekit in Resources */,
 				62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
