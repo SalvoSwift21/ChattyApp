@@ -6,6 +6,7 @@
 //
 
 import StoreKit
+import SwiftUICore
 
 public struct ProductFeature: Codable {
     public var features: [FeatureEnum]
@@ -22,5 +23,11 @@ public struct ProductFeature: Codable {
         }
         
         return 10000
+    }
+    
+    public func getLocalizedDescription() -> (title: LocalizedStringKey, description: LocalizedStringKey) {
+        let title = LocalizedStringKey(productID + "_title")
+        let description = LocalizedStringKey(productID + "_description")
+        return (title, description)
     }
 }

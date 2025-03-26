@@ -91,7 +91,6 @@
 		628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileComposer.swift; sourceTree = "<group>"; };
 		629A8F562BA90927004C5221 /* AiApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AiApp.entitlements; sourceTree = "<group>"; };
 		629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerComposer.swift; sourceTree = "<group>"; };
-		629E8BAC2D41B3EF00FECBAC /* Store.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Store.storekit; sourceTree = "<group>"; };
 		62A114B52D8F3A3400A66B89 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessagubgPlatformManager.swift; sourceTree = "<group>"; };
 		62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUIComposer.swift; sourceTree = "<group>"; };
@@ -191,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */,
-				629E8BAC2D41B3EF00FECBAC /* Store.storekit */,
 				62128CB02A1F8F92005D732A /* Assets.xcassets */,
 			);
 			path = Resources;

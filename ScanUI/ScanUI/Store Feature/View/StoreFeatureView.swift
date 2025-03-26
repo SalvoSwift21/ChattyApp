@@ -30,11 +30,16 @@ public struct StoreFeatureView: View {
                 case .unowned:
                     EmptyView()
                 case .loaded(let viewModel):
-                    SubscriptionStoreView(
-                        productIDs: viewModel.products.map(\.productID)
-                    )
+                    SubscriptionStoreView(productIDs: viewModel.getOnlyPaidModels().map(\.productID), marketingContent: {
+                        VStack {
+                            ForEach(viewModel.getOnlyPaidModels(), id: \.productID) { element in
+                                PassMarketingContent(product: element)
+                                    .padding()
+                            }
+                        }
+                    })
                     .subscriptionStoreButtonLabel(.multiline)
-                    .subscriptionStoreControlStyle(.automatic)
+                    .subscriptionStoreControlStyle(.prominentPicker)
                     .subscriptionStorePickerItemBackground(.backgroundFolder.opacity(0.5))
                     .background(Color.mainBackground)
                     .onInAppPurchaseCompletion { product, result in
@@ -69,6 +74,7 @@ public struct StoreFeatureView: View {
                 }
             }
         }
+        .navigationTitle("Scanny Pass")
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
@@ -79,6 +85,48 @@ public struct StoreFeatureView: View {
             await presenter.loadData()
         }
     }
+}
+
+private struct PassMarketingContent: View {
+    var product: ProductFeature
+    
+    init(product: ProductFeature) {
+        self.product = product
+    }
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            title
+                .font(.title3.bold())
+                .foregroundStyle(.title)
+            
+            description
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.body.weight(.medium))
+                .multilineTextAlignment(.leading)
+                .foregroundStyle(.subtitle)
+                .padding([.bottom, .horizontal])
+        }
+        .padding()
+        .background(.backgroundFolder.opacity(0.5))
+        .multilineTextAlignment(.center)
+    }
+    
+    @ViewBuilder
+    private var subscriptionName: some View {
+        Text("Backyard Birds Pass")
+    }
+    
+    @ViewBuilder
+    private var title: some View {
+        Text(product.getLocalizedDescription().title)
+    }
+    
+    @ViewBuilder
+    private var description: some View {
+        Text(product.getLocalizedDescription().description)
+    }
+    
 }
 
 #Preview {
