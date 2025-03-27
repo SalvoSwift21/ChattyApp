@@ -8,4 +8,8 @@
 
 public struct StoreViewModel {
     var products: [ProductFeature]
+    
+    func getOnlyPaidModels() -> [ProductFeature] {
+        products.filter({ $0.productID != "free" })
+    }
 }

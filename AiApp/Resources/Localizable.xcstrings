@@ -67,6 +67,28 @@
         }
       }
     },
+    "base_monthly_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock essential features to streamline your tasks and stay focused.  \\n\\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \\n\\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease.  \\n\\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \\n\\nEverything you need to stay organized and efficient — start your Essential Plan today!"
+          }
+        }
+      }
+    },
+    "base_monthly_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essential Plan"
+          }
+        }
+      }
+    },
     "CHOOSE_AI_LANGUAGE" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -778,6 +800,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Privacy & Policy"
+          }
+        }
+      }
+    },
+    "pro_monthly_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take your productivity to the next level with advanced features and limitless capabilities.  \\n\\n• 📄 Unlimited Document Scanning — No 128k token limit, scan as much as you need.  \\n\\n• 🧠 Access to Advanced Models — Leverage powerful AI like Gemini 2 and ChatGPT-4 for in-depth analysis and enhanced functionality.  \\n\\nPerfect for power users and professionals — unlock the full potential of AI with the Pro Plan!"
+          }
+        }
+      }
+    },
+    "pro_monthly_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro Plan"
           }
         }
       }

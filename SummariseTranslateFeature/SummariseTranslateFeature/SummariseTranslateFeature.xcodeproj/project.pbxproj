@@ -15,11 +15,8 @@
 		622C3D8C2B70505500E6B9C5 /* SummariseTranslateFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3D8B2B70505500E6B9C5 /* SummariseTranslateFeatureTests.swift */; };
 		622C3D8D2B70505500E6B9C5 /* SummariseTranslateFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 622C3D812B70505400E6B9C5 /* SummariseTranslateFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		622C3D9B2B70508C00E6B9C5 /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D982B70508C00E6B9C5 /* GoogleAIFeature.framework */; };
-		622C3D9C2B70508C00E6B9C5 /* GoogleAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D982B70508C00E6B9C5 /* GoogleAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		622C3D9D2B70508C00E6B9C5 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D992B70508C00E6B9C5 /* LLMFeature.framework */; };
-		622C3D9E2B70508C00E6B9C5 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D992B70508C00E6B9C5 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		622C3D9F2B70508C00E6B9C5 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */; };
-		622C3DA02B70508C00E6B9C5 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 622C3D9A2B70508C00E6B9C5 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		622C3DA32B7050A300E6B9C5 /* SummaryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA22B7050A300E6B9C5 /* SummaryServiceProtocol.swift */; };
 		622C3DA52B70526100E6B9C5 /* SummaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622C3DA42B70526100E6B9C5 /* SummaryClient.swift */; };
 		628D185D2C19E3AE00CF868C /* TranslateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628D185C2C19E3AE00CF868C /* TranslateServiceProtocol.swift */; };
@@ -37,22 +34,6 @@
 			remoteInfo = SummariseTranslateFeature;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		622C3DA12B70508C00E6B9C5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				622C3D9C2B70508C00E6B9C5 /* GoogleAIFeature.framework in Embed Frameworks */,
-				622C3D9E2B70508C00E6B9C5 /* LLMFeature.framework in Embed Frameworks */,
-				622C3DA02B70508C00E6B9C5 /* OpenAIFeature.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		62292E692B73030D00A0AEBD /* IdentificationLanguageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationLanguageProtocol.swift; sourceTree = "<group>"; };
@@ -207,7 +188,6 @@
 				622C3D7A2B70505400E6B9C5 /* Sources */,
 				622C3D7B2B70505400E6B9C5 /* Frameworks */,
 				622C3D7C2B70505400E6B9C5 /* Resources */,
-				622C3DA12B70508C00E6B9C5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -478,6 +458,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.SummariseTranslateFeature;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.ariel.SummariseTranslateFeature.mac;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -512,6 +493,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.SummariseTranslateFeature;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.ariel.SummariseTranslateFeature.mac;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

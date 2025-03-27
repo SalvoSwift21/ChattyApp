@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		6204E4012B801D9600B268A9 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6204E4002B801D9600B268A9 /* MainContainerView.swift */; };
+		62097F292D91E0F500ABD541 /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; };
+		62097F2A2D91E0F500ABD541 /* GoogleAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62097F2C2D91E0F800ABD541 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; };
+		62097F2D2D91E0F800ABD541 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62097F2E2D91E0FB00ABD541 /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; };
+		62097F2F2D91E0FB00ABD541 /* OCRFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62097F302D91E0FE00ABD541 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; };
+		62097F312D91E0FE00ABD541 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62097F322D91E10000ABD541 /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; };
+		62097F332D91E10000ABD541 /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62097F342D91E10100ABD541 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; };
+		62097F352D91E10100ABD541 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62097F362D91E10200ABD541 /* SummariseTranslateFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; };
+		62097F372D91E10200ABD541 /* SummariseTranslateFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62128CAD2A1F8F92005D732A /* AiAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62128CAC2A1F8F92005D732A /* AiAppApp.swift */; };
 		62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB02A1F8F92005D732A /* Assets.xcassets */; };
 		62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62128CB32A1F8F92005D732A /* Preview Assets.xcassets */; };
@@ -19,25 +33,12 @@
 		6253D7492D47710B00843E38 /* StoreUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253D7482D47710B00843E38 /* StoreUIComposer.swift */; };
 		627B901C2D590F9800E190D9 /* ADUnitIDCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B901B2D590F8E00E190D9 /* ADUnitIDCode.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
-		6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; };
-		6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6281B29C2B311158002BD527 /* OCRFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; };
-		628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 628B869E2B156DA0009C6895 /* ScanUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
 		629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */; };
-		629E8BAD2D41B3EF00FECBAC /* Store.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 629E8BAC2D41B3EF00FECBAC /* Store.storekit */; };
 		62A114B62D8F3A3400A66B89 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 62A114B52D8F3A3400A66B89 /* PrivacyInfo.xcprivacy */; };
 		62A114B92D8F3BDC00A66B89 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 62A114B82D8F3BDC00A66B89 /* GoogleUserMessagingPlatform */; };
 		62A114BB2D8F3CE600A66B89 /* UserMessagubgPlatformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */; };
 		62B2A90C2CC9B8790051CBFB /* PreferencesUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */; };
-		62BB197E2B719E48004A0748 /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; };
-		62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA22B71203200490915 /* GoogleAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		62BB19802B719E48004A0748 /* OpenAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; };
-		62BB19812B719E48004A0748 /* OpenAIFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09EA32B71203200490915 /* OpenAIFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		62BB19832B719E9C004A0748 /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; };
-		62BB19842B719E9D004A0748 /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62BB19822B719E9C004A0748 /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		62C09EA02B711F7800490915 /* SummariseTranslateFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; };
-		62C09EA12B711F7800490915 /* SummariseTranslateFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */; };
 		62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */; };
 		62C468F32B2FC0AB002DD3A3 /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F22B2FC0AB002DD3A3 /* AppRootManager.swift */; };
@@ -48,24 +49,22 @@
 		62CC50F02D8B3CD200404494 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 62CC50EF2D8B3CD200404494 /* FirebaseRemoteConfig */; };
 		62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62CC50F12D8B3CEA00404494 /* GoogleService-Info.plist */; };
 		62CC50FB2D8B898C00404494 /* WebViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */; };
-		62D242002B31159700B0EF1A /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; };
-		62D242012B31159700B0EF1A /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62D241FF2B31159700B0EF1A /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		628B86A12B156DA0009C6895 /* Embed Frameworks */ = {
+		62097F2B2D91E0F500ABD541 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6281B29E2B311158002BD527 /* OCRFeature.framework in Embed Frameworks */,
-				62D242012B31159700B0EF1A /* RestApi.framework in Embed Frameworks */,
-				628B86A02B156DA0009C6895 /* ScanUI.framework in Embed Frameworks */,
-				62BB197F2B719E48004A0748 /* GoogleAIFeature.framework in Embed Frameworks */,
-				62C09EA12B711F7800490915 /* SummariseTranslateFeature.framework in Embed Frameworks */,
-				62BB19842B719E9D004A0748 /* LLMFeature.framework in Embed Frameworks */,
-				62BB19812B719E48004A0748 /* OpenAIFeature.framework in Embed Frameworks */,
+				62097F2A2D91E0F500ABD541 /* GoogleAIFeature.framework in Embed Frameworks */,
+				62097F332D91E10000ABD541 /* RestApi.framework in Embed Frameworks */,
+				62097F2D2D91E0F800ABD541 /* LLMFeature.framework in Embed Frameworks */,
+				62097F372D91E10200ABD541 /* SummariseTranslateFeature.framework in Embed Frameworks */,
+				62097F352D91E10100ABD541 /* ScanUI.framework in Embed Frameworks */,
+				62097F2F2D91E0FB00ABD541 /* OCRFeature.framework in Embed Frameworks */,
+				62097F312D91E0FE00ABD541 /* OpenAIFeature.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +91,6 @@
 		628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileComposer.swift; sourceTree = "<group>"; };
 		629A8F562BA90927004C5221 /* AiApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AiApp.entitlements; sourceTree = "<group>"; };
 		629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzerComposer.swift; sourceTree = "<group>"; };
-		629E8BAC2D41B3EF00FECBAC /* Store.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Store.storekit; sourceTree = "<group>"; };
 		62A114B52D8F3A3400A66B89 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessagubgPlatformManager.swift; sourceTree = "<group>"; };
 		62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUIComposer.swift; sourceTree = "<group>"; };
@@ -115,18 +113,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62097F292D91E0F500ABD541 /* GoogleAIFeature.framework in Frameworks */,
+				62097F322D91E10000ABD541 /* RestApi.framework in Frameworks */,
 				62CC50F02D8B3CD200404494 /* FirebaseRemoteConfig in Frameworks */,
-				6281B29D2B311158002BD527 /* OCRFeature.framework in Frameworks */,
-				62D242002B31159700B0EF1A /* RestApi.framework in Frameworks */,
+				62097F342D91E10100ABD541 /* ScanUI.framework in Frameworks */,
 				62CC50EE2D8B3CD200404494 /* FirebasePerformance in Frameworks */,
+				62097F2C2D91E0F800ABD541 /* LLMFeature.framework in Frameworks */,
 				62CC50EA2D8B3CD200404494 /* FirebaseAnalytics in Frameworks */,
-				628B869F2B156DA0009C6895 /* ScanUI.framework in Frameworks */,
-				62BB197E2B719E48004A0748 /* GoogleAIFeature.framework in Frameworks */,
-				62C09EA02B711F7800490915 /* SummariseTranslateFeature.framework in Frameworks */,
+				62097F362D91E10200ABD541 /* SummariseTranslateFeature.framework in Frameworks */,
+				62097F2E2D91E0FB00ABD541 /* OCRFeature.framework in Frameworks */,
 				62CC50EC2D8B3CD200404494 /* FirebaseCrashlytics in Frameworks */,
-				62BB19832B719E9C004A0748 /* LLMFeature.framework in Frameworks */,
 				62A114B92D8F3BDC00A66B89 /* GoogleUserMessagingPlatform in Frameworks */,
-				62BB19802B719E48004A0748 /* OpenAIFeature.framework in Frameworks */,
+				62097F302D91E0FE00ABD541 /* OpenAIFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */,
-				629E8BAC2D41B3EF00FECBAC /* Store.storekit */,
 				62128CB02A1F8F92005D732A /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -256,8 +253,7 @@
 				62128CA52A1F8F92005D732A /* Sources */,
 				62128CA62A1F8F92005D732A /* Frameworks */,
 				62128CA72A1F8F92005D732A /* Resources */,
-				628B86A12B156DA0009C6895 /* Embed Frameworks */,
-				62CC50F32D8B815900404494 /* Crashlytics */,
+				62097F2B2D91E0F500ABD541 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,38 +309,11 @@
 				62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */,
 				622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */,
 				62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */,
-				629E8BAD2D41B3EF00FECBAC /* Store.storekit in Resources */,
 				62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		62CC50F32D8B815900404494 /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
-				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		62128CA52A1F8F92005D732A /* Sources */ = {
@@ -499,7 +468,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AiApp/AiApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"AiApp/Preview Content\"";
 				DEVELOPMENT_TEAM = P8QQ67A73Y;
 				ENABLE_PREVIEWS = YES;
@@ -537,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AiApp/AiApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"AiApp/Preview Content\"";
 				DEVELOPMENT_TEAM = P8QQ67A73Y;
 				ENABLE_PREVIEWS = YES;

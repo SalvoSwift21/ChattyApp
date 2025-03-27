@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		62095BB62ADFDEE800FBEBEF /* LLMFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */; };
-		62095BB72ADFDEE800FBEBEF /* LLMFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		62095BB82ADFDEE800FBEBEF /* RestApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB52ADFDEE800FBEBEF /* RestApi.framework */; };
-		62095BB92ADFDEE800FBEBEF /* RestApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62095BB52ADFDEE800FBEBEF /* RestApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6222D5692ADF1152005A73EC /* GoogleAIFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6222D5602ADF1151005A73EC /* GoogleAIFeature.framework */; };
 		6222D56E2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222D56D2ADF1152005A73EC /* GoogleAICompletionMapperTests.swift */; };
 		6222D56F2ADF1152005A73EC /* GoogleAIFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 6222D5632ADF1152005A73EC /* GoogleAIFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,21 +45,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		62095BBA2ADFDEE800FBEBEF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				62095BB72ADFDEE800FBEBEF /* LLMFeature.framework in Embed Frameworks */,
-				62095BB92ADFDEE800FBEBEF /* RestApi.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		62095BB22ADFDB1C00FBEBEF /* GoogleAIFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GoogleAIFeature.xctestplan; sourceTree = "<group>"; };
 		62095BB42ADFDEE800FBEBEF /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +75,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6222D5942ADF1450005A73EC /* GoogleGenerativeAI in Frameworks */,
-				62095BB82ADFDEE800FBEBEF /* RestApi.framework in Frameworks */,
 				62095BB62ADFDEE800FBEBEF /* LLMFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +243,6 @@
 				6222D55C2ADF1151005A73EC /* Sources */,
 				6222D55D2ADF1151005A73EC /* Frameworks */,
 				6222D55E2ADF1151005A73EC /* Resources */,
-				62095BBA2ADFDEE800FBEBEF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -581,6 +561,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.GoogleAIFeature;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.ariel.GoogleAIFeature.mac;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -613,6 +594,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariel.GoogleAIFeature;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.ariel.GoogleAIFeature.mac;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

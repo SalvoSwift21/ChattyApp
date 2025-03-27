@@ -23,13 +23,13 @@ public class UserMessagubgPlatformManager {
     
     @MainActor
     public func askConsentInfo() async throws {
-        let parameters = UMPRequestParameters()
-        let debugSettings = UMPDebugSettings()
-
-        debugSettings.testDeviceIdentifiers = ["TEST-DEVICE-HASHED-ID"]
-        parameters.debugSettings = debugSettings
-        
-        try await UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters)
+//        let parameters = UMPRequestParameters()
+//        let debugSettings = UMPDebugSettings()
+//
+//        debugSettings.testDeviceIdentifiers = ["TEST-DEVICE-HASHED-ID"]
+//        parameters.debugSettings = debugSettings
+//        
+        try await UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: nil)
         try await UMPConsentForm.loadAndPresentIfRequired(from: nil)
     }
     
