@@ -1,0 +1,1039 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "AI_MODEL_DESCRIPTION_GEMINI_1.5_FLASH" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instant and precise summaries, optimized for speed. Perfect for quickly processing large text volumes."
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GEMINI_1.5FLASH_8B" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightning-fast and accurate summaries, built for rapid analysis of large texts.\n"
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GEMINI_PRO" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed, high-quality summaries, ideal for analyzing documents, PDFs, and other file types."
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GPT4_O" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The most advanced model delivers highly detailed and accurate summaries, capturing even the subtlest text nuances. Perfect for deep analysis and human-level understanding."
+          }
+        }
+      }
+    },
+    "AI_MODEL_DESCRIPTION_GPT4_O_MINI" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A lighter version of GPT-4, providing concise, high-quality summaries. Ideal for quick and effective analysis."
+          }
+        }
+      }
+    },
+    "ALL_FOLDER_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Your Folders"
+          }
+        }
+      }
+    },
+    "base_monthly_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock essential features to streamline your tasks and stay focused.  \\n\\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \\n\\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease.  \\n\\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \\n\\nEverything you need to stay organized and efficient — start your Essential Plan today!"
+          }
+        }
+      }
+    },
+    "base_monthly_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essential Plan"
+          }
+        }
+      }
+    },
+    "CHOOSE_AI_LANGUAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Languages"
+          }
+        }
+      }
+    },
+    "CHOOSE_AI_LANGUAGE_SEARCH_BAR_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find your language"
+          }
+        }
+      }
+    },
+    "CHOOSE_AI_MODEL_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI Models"
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FAILEDTOLOADPERSISTENTCONTAINER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load data. Please check your storage or try restarting the app."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FOLDERALREADYEXIST" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A folder with this name already exists. Please choose a different name."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FOLDERNAMENOTVALID" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid folder name. Make sure the name is not empty and doesn’t contain unsupported characters."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_FOLDERNOTEXIST" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The folder you are trying to access does not exist. It might have been deleted or renamed."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_MODELNOTFOUND" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data model not found. Please try restarting the app."
+          }
+        }
+      }
+    },
+    "DATA_STORE_ERROR_SCANNOTFOUND" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document not found. Make sure the scan exists or try refreshing the view."
+          }
+        }
+      }
+    },
+    "DEFAULT_FOLDER_NAME" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home Folder"
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_FOLDER_SCAN_SUB" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start adding scans to keep your documents organized."
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_FOLDER_SCAN_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Folder is Empty"
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_RESULTS_SUB" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn’t find any scans or folders matching your search."
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_RESULTS_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Results Found"
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_SCAN_SUB" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan a document or upload an image to get started."
+          }
+        }
+      }
+    },
+    "EMPTY_VIEW_NO_SCAN_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Recent Scans"
+          }
+        }
+      }
+    },
+    "FOLDER_DETAIL_LOAD_ERROR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was an issue loading the folder’s content. Please try reloading or check your connection."
+          }
+        }
+      }
+    },
+    "GENERIC_BACK_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
+    "GENERIC_CANCEL_TITLE" : {
+      "comment" : "Generic cancel button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "GENERIC_CLOSE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "GENERIC_COPY_CLIPBOARD_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy on clipoboard"
+          }
+        }
+      }
+    },
+    "GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We’re unable to summarize this document because it’s either too large or in an unsupported format. Please try with a smaller or compatible file."
+          }
+        }
+      }
+    },
+    "GENERIC_ERROR_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
+    "GENERIC_OK_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "GENERIC_RELOAD_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reload"
+          }
+        }
+      }
+    },
+    "GENERIC_SAVE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "GENERIC_SHARE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share"
+          }
+        }
+      }
+    },
+    "GENERIC_TRANSLATE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translate"
+          }
+        }
+      }
+    },
+    "GENERIC_TRY_AGAIN" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_COUNT_ITEMS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Items"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_DELETE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_RENAME_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rename"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_SEE_ALL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See All"
+          }
+        }
+      }
+    },
+    "HOME_MY_FOLDER_SECTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Folders"
+          }
+        }
+      }
+    },
+    "HOME_RECENT_SECTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Scans"
+          }
+        }
+      }
+    },
+    "HOME_SERVICE_ERROR_RETRIEVEFOLDERERROR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred while loading the folders. Please try reloading or check your connection."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_ACTION_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a name for your new folder."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folder name"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_CREATE_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create New Folder"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_DELETE_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete this folder? This action cannot be undone."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_ACTION_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rename"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a new name for your folder to keep your documents organized."
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter folder name…"
+          }
+        }
+      }
+    },
+    "HOME_VIEW_RENAME_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rename folder"
+          }
+        }
+      }
+    },
+    "ONBORDING_FIRST_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use your camera or upload images to effortlessly scan documents and extract text in seconds."
+          }
+        }
+      }
+    },
+    "ONBORDING_FIRST_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Documents Easily"
+          }
+        }
+      }
+    },
+    "ONBORDING_FORTH_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search through your saved summaries and documents with advanced tools to keep your workflow seamless."
+          }
+        }
+      }
+    },
+    "ONBORDING_FORTH_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find What You Need, When You Need It"
+          }
+        }
+      }
+    },
+    "ONBORDING_SECOND_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let AI summarize your scanned text instantly. Prefer custom AI settings? Choose your model later in the app settings."
+          }
+        }
+      }
+    },
+    "ONBORDING_SECOND_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summarize with AI"
+          }
+        }
+      }
+    },
+    "ONBORDING_THIRD_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translate your summaries into multiple languages and organize them directly into folders stored safely on iCloud."
+          }
+        }
+      }
+    },
+    "ONBORDING_THIRD_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translate and Save"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_INFO_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can freely switch between different AI models according to your specific requirements. Each AI model, however, has its own maximum token limit per interaction. This means that even if your subscription or token package includes a large number of tokens (for example, one million tokens), certain advanced models, such as ChatGPT-4, may not support such extensive usage within a single interaction. To fully benefit from your tokens, choose the AI model best aligned with the length and complexity of your content."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Understanding AI Models and Token Usage"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the AI model you want to use for generating summaries. Pick the option that best suits your needs."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_AI_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose Your AI Model"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LA_INFO_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Your Default Translation Language"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LA_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the language you prefer for translating your AI-generated summaries. When you tap the Translate action after creating a summary, your content will automatically be translated into this default language. You can easily update this preference whenever you wish."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LANGUAGE_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the language you want to use for translations. This will be the default language for your content."
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LANGUAGE_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Your Default Translation Language"
+          }
+        }
+      }
+    },
+    "PREFERENCES_PRIVACY_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Settings"
+          }
+        }
+      }
+    },
+    "PREFERENCES_PRIVACY_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manage your privacy preferences and consent choices. You can review, adjust, or withdraw your consent at any time."
+          }
+        }
+      }
+    },
+    "PREFERENCES_PRIVACY_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy & Consent"
+          }
+        }
+      }
+    },
+    "PRIVACY_POLICY_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy & Policy"
+          }
+        }
+      }
+    },
+    "pro_monthly_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take your productivity to the next level with advanced features and limitless capabilities.  \\n\\n• 📄 Unlimited Document Scanning — No 128k token limit, scan as much as you need.  \\n\\n• 🧠 Access to Advanced Models — Leverage powerful AI like Gemini 2 and ChatGPT-4 for in-depth analysis and enhanced functionality.  \\n\\nPerfect for power users and professionals — unlock the full potential of AI with the Pro Plan!"
+          }
+        }
+      }
+    },
+    "pro_monthly_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro Plan"
+          }
+        }
+      }
+    },
+    "SCAN_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for the text, select it, then tap to capture the photo"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_CHOOSE_AI" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferences"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_HELP" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_HOME" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_MORE_SECTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_PRIVACY_POLICY" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy & Policy"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_RATE_US" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate Us"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_REMOVE_ADS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove Ads"
+          }
+        }
+      }
+    },
+    "SIDE_MENU_TERMS_AND_COND" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms & Conditions"
+          }
+        }
+      }
+    },
+    "TERMS_AND_CONDIITIONS_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
+          }
+        }
+      }
+    },
+    "TERMS_AND_CONDITIONS_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms and Conditions"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_CHOOSE_FOLDER_ACTION_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose folder"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_NEW_SCAN_ALERT_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a title for your new scan"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_NEW_SCAN_ALERT_PLACEHOLDER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan name"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_NEW_SCAN_ALERT_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save new scan"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_SUMMURIZE_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generate summary"
+          }
+        }
+      }
+    },
+    "TEXT_ANALYZER_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Summary"
+          }
+        }
+      }
+    },
+    "UPLOAD_FILE_ACCESS_FILE_ERROR_MESSAGE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to access the file. Please check permissions and try again."
+          }
+        }
+      }
+    },
+    "UPLOAD_FILE_TRY_ANOTHER_ALERT_ACTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try a different file"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

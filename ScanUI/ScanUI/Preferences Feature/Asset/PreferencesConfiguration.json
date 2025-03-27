@@ -1,0 +1,40 @@
+{
+    "avaibleAI": [
+        {
+            "title": "ChatGPT 4o",
+            "imageName": "open_ai",
+            "aiType": "chatgpt-4o-latest",
+            "max_output_token": 16384,
+            "max_input_token": 500000
+        },
+        {
+            "title": "ChatGPT 4o mini",
+            "imageName": "open_ai",
+            "aiType": "gpt-4o-mini",
+            "max_output_token": 16384,
+            "max_input_token": 200000
+        },
+        {
+            "title": "Google Gemini Flash 2.0",
+            "imageName": "gemini",
+            "aiType": "gemini-2.0-flash",
+            "max_output_token": 8192,
+            "max_input_token": 1048576
+        },
+        {
+            "title": "Google Gemini Flash 2.0 Lite",
+            "imageName": "gemini",
+            "aiType": "gemini-2.0-flash-lite",
+            "max_output_token": 8192,
+            "max_input_token": 1048576
+        },
+        {
+            "title": "Google Gemini Pro",
+            "imageName": "gemini",
+            "aiType": "gemini-2.0-pro-exp-02-05",
+            "max_output_token": 8192,
+            "max_input_token": 2048576
+        }
+    ]
+}
+

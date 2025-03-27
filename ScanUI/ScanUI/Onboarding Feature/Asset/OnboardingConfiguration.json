@@ -1,0 +1,19 @@
+{
+    "onboardingCards": [
+        {
+            "title": "ONBORDING_FIRST_CARD_TITLE",
+            "subtitle": "ONBORDING_FIRST_CARD_DESCR",
+            "image": "onboarding 1"
+        },
+        {
+            "title": "ONBORDING_SECOND_CARD_TITLE",
+            "subtitle": "ONBORDING_SECOND_CARD_DESCR",
+            "image": "onboarding 2"
+        },
+        {
+            "title": "ONBORDING_THIRD_CARD_TITLE",
+            "subtitle": "ONBORDING_THIRD_CARD_DESCR",
+            "image": "onboarding 3"
+        }
+    ]
+}

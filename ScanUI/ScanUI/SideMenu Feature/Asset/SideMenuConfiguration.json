@@ -1,0 +1,42 @@
+[
+    {
+        "title": "",
+        "rows": [
+            {
+                "title": "SIDE_MENU_HOME",
+                "imageName": "side_menu_premium",
+                "rowType": "home"
+            },
+            {
+                "title": "SIDE_MENU_REMOVE_ADS",
+                "imageName": "side_menu_remove_ads",
+                "rowType": "premium"
+            },
+            {
+                "title": "SIDE_MENU_CHOOSE_AI",
+                "imageName": "side_menu_premium",
+                "rowType": "chooseAi"
+            },
+            {
+                "title": "SIDE_MENU_RATE_US",
+                "imageName": "side_menu_rate",
+                "rowType": "rateUs"
+            }
+        ]
+    },
+    {
+        "title": "SIDE_MENU_MORE_SECTION_TITLE",
+        "rows": [
+            {
+                "title": "SIDE_MENU_HELP",
+                "imageName": "side_menu_help",
+                "rowType": "help"
+            },
+            {
+                "title": "SIDE_MENU_PRIVACY_POLICY",
+                "imageName": "side_menu_privacy",
+                "rowType": "privacyPolicy"
+            }
+        ]
+    }
+]

@@ -1,0 +1,40 @@
+{
+  "configurations" : [
+    {
+      "id" : "F192FD86-1468-467E-9184-68805617327F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:OpenAIFeature.xcodeproj",
+          "identifier" : "6224B9502A7A354A009B2A23",
+          "name" : "OpenAIFeature"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:OpenAIFeature.xcodeproj",
+        "identifier" : "6224B9582A7A354A009B2A23",
+        "name" : "OpenAIFeatureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:OpenAIFeature.xcodeproj",
+        "identifier" : "62DDAB7B2AA6FF1700E1DB2C",
+        "name" : "OpenAIFeatureEndToEndTest"
+      }
+    }
+  ],
+  "version" : 1
+}

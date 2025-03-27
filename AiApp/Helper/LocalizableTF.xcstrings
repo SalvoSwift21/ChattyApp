@@ -1,0 +1,97 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "ONBORDING_FIRST_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flash will turn your phone into portable amazing scanner!"
+          }
+        }
+      }
+    },
+    "ONBORDING_FIRST_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simple way to scan"
+          }
+        }
+      }
+    },
+    "ONBORDING_FORTH_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say no to mess, Add your folders, or just search with advanced search."
+          }
+        }
+      }
+    },
+    "ONBORDING_FORTH_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organize is easy 4"
+          }
+        }
+      }
+    },
+    "ONBORDING_SECOND_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say no to mess, Add your folders, or just search with advanced search."
+          }
+        }
+      }
+    },
+    "ONBORDING_SECOND_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organize is easy"
+          }
+        }
+      }
+    },
+    "ONBORDING_THIRD_CARD_DESCR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say no to mess, Add your folders, or just search with advanced search."
+          }
+        }
+      }
+    },
+    "ONBORDING_THIRD_CARD_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organize is easy 3"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

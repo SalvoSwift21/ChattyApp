@@ -1,0 +1,11 @@
+//
+//  Debug.xcconfig
+//  ScanUI
+//
+//  Created by Salvatore Milazzo on 2/10/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_AD_MOB_ID = ca-app-pub-6751063947323511~3068965169

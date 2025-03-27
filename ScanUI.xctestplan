@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "611AC0ED-9B70-40AA-AA87-8BE011DA6404",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ScanUI.xcodeproj",
+        "identifier" : "62AD7DC42B1FD6390014BC91",
+        "name" : "ScanUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

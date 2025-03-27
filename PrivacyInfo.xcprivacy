@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PrivacyStatement</key>
+	<dict>
+		<key>Purpose</key>
+		<dict>
+			<key>Description</key>
+			<string>Collection of analytical data to improve user experience and application stability</string>
+			<key>DataTypes</key>
+			<array>
+				<string>Identifiers</string>
+				<string>Usage Data</string>
+				<string>Diagnostic Data</string>
+				<string>Interaction Information</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Libraries</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Firebase Analytics</string>
+			<key>Version</key>
+			<string>10.29.0</string>
+			<key>Purpose</key>
+			<string>Collection of analytical data</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Firebase Crashlytics</string>
+			<key>Version</key>
+			<string>10.29.0</string>
+			<key>Purpose</key>
+			<string>Collection of diagnostic data</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Firebase RemoteConfig</string>
+			<key>Version</key>
+			<string>10.29.0</string>
+			<key>Purpose</key>
+			<string>Managing and updating application configurations</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Google Mobile Ads SDK</string>
+			<key>Version</key>
+			<string>11.7.0</string>
+			<key>Purpose</key>
+			<string>Managing and displaying advertisements</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Core Data</string>
+			<key>Version</key>
+			<string>1.0</string>
+			<key>Purpose</key>
+			<string>Local data management and synchronization with user&apos;s iCloud account for cross-device access (iOS, macOS, watchOS)</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>UserDefaults</string>
+			<key>Version</key>
+			<string>1.0</string>
+			<key>Purpose</key>
+			<string>Improving application quality through user settings and preferences</string>
+		</dict>
+	</array>
+</dict>
+</plist>

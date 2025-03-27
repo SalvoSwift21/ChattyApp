@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:SummariseTranslateFeature/SummariseTranslateFeature/SummariseTranslateFeature.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:OCRFeature/OCRFeature/OCRFeature.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GoogleAIFeature/GoogleAIFeature.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:OpenAIFeature/OpenAIFeature/OpenAIFeature.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LLMFeature/LLMFeature.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RestApi/RestApi.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ScanUI/ScanUI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AiApp.xcodeproj">
+   </FileRef>
+</Workspace>

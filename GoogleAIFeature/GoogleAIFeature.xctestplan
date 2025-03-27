@@ -1,0 +1,53 @@
+{
+  "configurations" : [
+    {
+      "id" : "CF7BE089-877F-46B4-AD82-41E279212A60",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:GoogleAIFeature.xcodeproj",
+          "identifier" : "6222D55F2ADF1151005A73EC",
+          "name" : "GoogleAIFeature"
+        }
+      ]
+    },
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-GoogleGenerativeAIDebugLogEnabled"
+      }
+    ],
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "GoogleAIFeatureEndToEndTest",
+        "GoogleAIFeatureEndToEndTest\/test_endToEndTestServerGETTextSummarise_notNilResponse()"
+      ],
+      "target" : {
+        "containerPath" : "container:GoogleAIFeature.xcodeproj",
+        "identifier" : "6222D5982ADF1CE6005A73EC",
+        "name" : "GoogleAIFeatureEndToEndTest"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:GoogleAIFeature.xcodeproj",
+        "identifier" : "6222D5672ADF1152005A73EC",
+        "name" : "GoogleAIFeatureTests"
+      }
+    }
+  ],
+  "version" : 1
+}
