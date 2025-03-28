@@ -28,17 +28,6 @@ struct AiAppApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    @MainActor
-    private var storage: ScanStorege {
-        let url = AppConfiguration.shared.storeURL
-        do {
-            let dataStore = try SwiftDataStore(storeURL: url, defaultFolderName: AppConfiguration.defaultFolderName, changeManager: AppConfiguration.shared.changeManager)
-            return dataStore
-        } catch {
-            return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: AppConfiguration.defaultFolderName, changeManager: AppConfiguration.shared.changeManager)
-        }
-    }
-
     var body: some Scene {
         WindowGroup {
             Group {
@@ -50,16 +39,19 @@ struct AiAppApp: App {
                         }
                     }
                 case .mainContainer:
-                    MainContainerView(storage: storage)
+                    MainContainerView(storage: AppConfiguration.shared.dataConfigurationManager.storage)
                 default:
                     EmptyView()
                 }
             }
             .environmentObject(appRootManager)
             .environment(AppConfiguration.shared.purchaseManager)
-            .environment(AppConfiguration.shared.changeManager)
+            .environment(AppConfiguration.shared.dataConfigurationManager.changeManager)
             .task {
                 await bootApp()
+            }
+            .task {
+                await AppConfiguration.shared.bootSecondaryService()
             }
         }
     }
