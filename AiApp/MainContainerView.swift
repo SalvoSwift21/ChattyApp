@@ -127,6 +127,9 @@ struct MainContainerView: View {
         .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
             path.append(resultOfScan)
         }))
+        .task {
+            try? (AppConfiguration.shared.dataConfigurationManager.storage as! SwiftDataStore).createDefaultFolderIfNeeded()
+        }
     }
     
     var PreferencesView: some View {

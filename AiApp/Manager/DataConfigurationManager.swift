@@ -31,10 +31,11 @@ public class DataConfigurationManager {
         
         do {
             let schema = Schema([
-                FolderStorageModel.self
+                FolderStorageModel.self, ScanStorageModel.self
             ])
             let modelConfiguration = ModelConfiguration(nil,
                                                         schema: schema,
+                                                        url: storeURL,
                                                         allowsSave: true,
                                                         cloudKitDatabase: .automatic)
             do {
