@@ -16,24 +16,13 @@ public class AppConfiguration {
     
     static public var shared = AppConfiguration()
     
-    static let appGroupName = "group.com.ariel.ai.scan.app"
-    static let defaultFolderName = String(localized: "DEFAULT_FOLDER_NAME")
-    
     let preferencesStoreManager = UserDefaults(suiteName: "PREFERENCES_STORE_MANAGER")
     let purchaseManager: PurchaseManager
     let adMobManager: AdMobManager
-    let changeManager: ChangeManager
     let userMessageManager: UserMessagubgPlatformManager
+    var dataConfigurationManager: DataConfigurationManager
     
     private var bootAppIsFinished: Bool = false
-    
-    var storeURL: URL = {
-        guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
-            return URL(string: "Test")!
-        }
-        let storeURLResult = storeURL.appendingPathComponent("AI.SCAN.sqlite")
-        return storeURLResult
-    }()
     
     var preferenceService: LocalAIPreferencesService
     
@@ -46,20 +35,27 @@ public class AppConfiguration {
         let productFeatureService = ProductFeatureService(resourceBundle: bundle)
         purchaseManager = PurchaseManager(storeService: storeService, productFeatureService: productFeatureService)
         adMobManager = AdMobManager(bannerUnitId: ADUnitIDCode.bannerID.id, interstitialUnitId: ADUnitIDCode.interstitialID.id)
-        changeManager = ChangeManager()
         userMessageManager = UserMessagubgPlatformManager()
+        dataConfigurationManager = DataConfigurationManager()
     }
     
     public func bootApp() async throws {
         guard bootAppIsFinished == false else { return }
         try await purchaseManager.startManager()
         try await selectAIIfNeeded()
-        try await userMessageManager.askConsentInfo()
-        if userMessageManager.canRequestAds {
-            try await adMobManager.startManager()
-        }
         
         bootAppIsFinished = true
+    }
+    
+    public func bootSecondaryService() async {
+        do {
+            try await userMessageManager.askConsentInfo()
+            if userMessageManager.canRequestAds {
+                try await adMobManager.startManager()
+            }
+        } catch {
+            debugPrint("Error secondry service: \(error)")
+        }
     }
     
     public func updatePreferences() {

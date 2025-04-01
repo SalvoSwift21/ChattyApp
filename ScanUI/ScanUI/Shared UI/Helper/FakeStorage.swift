@@ -6,14 +6,26 @@
 //
 
 import Foundation
+import SwiftData
 
 @MainActor
 public func getFakeStorage() -> ScanStorege {
     let storeDirectory = FileManager.default.urls(for: .applicationDirectory, in: .userDomainMask).first!
-
+    
     do {
-        return try SwiftDataStore(storeURL: storeDirectory, defaultFolderName: "Default", changeManager: ChangeManager())
+        let schema = Schema([
+            FolderStorageModel.self
+        ])
+        
+        let modelConfiguration = ModelConfiguration(nil,
+                                                    schema: schema,
+                                                    url: storeDirectory,
+                                                    allowsSave: true,
+                                                    cloudKitDatabase: .none)
+        let container: ModelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
+        return try SwiftDataStore(modelContainer: container, defaultFolderName: "defaultFolderName", changeManager: ChangeManager())
+        
     } catch {
-        return try! SwiftDataStore(storeURL: URL(string: "Fatal ERROR")!, defaultFolderName: "Default", changeManager: ChangeManager())
+        fatalError()
     }
 }

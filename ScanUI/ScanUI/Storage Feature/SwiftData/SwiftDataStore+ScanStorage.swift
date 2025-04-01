@@ -55,7 +55,7 @@ extension SwiftDataStore: ScanStorege {
             throw SwiftDataStore.folderAlreadyExist
         }
         
-        let storeFolder = FolderStorageModel(id: folder.id, title: folder.title, scans: folder.scans.map({ ScanStorageModel(id: $0.id, title: $0.title, contentText: $0.contentText, scanDate: $0.scanDate, mainImage: $0.mainImage?.pngData())}), canEdit: folder.canEdit)
+        let storeFolder = FolderStorageModel(id: folder.id, title: folder.title, scans: folder.scans.map({ ScanStorageModel(id: $0.id, title: $0.title, contentText: $0.contentText, scanDate: $0.scanDate, mainImage: $0.mainImage?.jpegData(compressionQuality: 0.1))}), canEdit: folder.canEdit)
         
         modelContainer.mainContext.insert(storeFolder)
         
@@ -119,11 +119,13 @@ extension SwiftDataStore: ScanStorege {
     
     //MARK: Helper
     
+    @MainActor
     private func getAllFolders() throws -> [FolderStorageModel] {
         let folderDescriptor = FetchDescriptor<FolderStorageModel>(sortBy: [SortDescriptor(\.title)])
         return try modelContainer.mainContext.fetch(folderDescriptor)
     }
     
+    @MainActor
     private func findFoldersByID(id: UUID) throws -> [FolderStorageModel] {
         let findFolder = #Predicate<FolderStorageModel> {
             $0.id == id
@@ -132,6 +134,7 @@ extension SwiftDataStore: ScanStorege {
         return try modelContainer.mainContext.fetch(descriptor)
     }
     
+    @MainActor
     private func findFoldersByTitle(title: String) throws -> [FolderStorageModel] {
         let findFolder = #Predicate<FolderStorageModel> {
             $0.title == title
@@ -140,6 +143,7 @@ extension SwiftDataStore: ScanStorege {
         return try modelContainer.mainContext.fetch(descriptor)
     }
     
+    @MainActor
     private func findScanByID(id: UUID) throws -> ScanStorageModel? {
         let findScan = #Predicate<ScanStorageModel> {
             $0.id == id
