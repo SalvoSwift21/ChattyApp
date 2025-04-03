@@ -45,7 +45,7 @@ public class StorePresenter: StorePresenterProtocol {
                 $0.productID == productFeature.productID ? true : ($1.productID == productFeature.productID ? false : true)
             }
             
-            let vModel = StoreViewModel(products: products)
+            let vModel = StoreViewModel(products: products, selectedProduct: self.productFeature)
             self.allProductsFeature = products
             if products.isEmpty {
                 self.delegate?.render(errorMessage: "No products avaible")

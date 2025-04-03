@@ -73,7 +73,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unlock essential features to streamline your tasks and stay focused.  \\n\\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \\n\\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease.  \\n\\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \\n\\nEverything you need to stay organized and efficient — start your Essential Plan today!"
+            "value" : "Unlock essential features to streamline your tasks and stay focused.  \\n\\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \\n\\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease. \\n\\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \\n\\nEverything you need to stay organized and efficient — start your Essential Plan today!"
           }
         }
       }
@@ -921,6 +921,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terms & Conditions"
+          }
+        }
+      }
+    },
+    "STORE_VIEW_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanny Pass"
           }
         }
       }

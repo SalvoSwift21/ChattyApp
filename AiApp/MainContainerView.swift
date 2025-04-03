@@ -25,6 +25,7 @@ struct MainContainerView: View {
     @State private var showOnboarding: Bool = false
     @State private var showTermsAndConditions: Bool = false
     @State private var showPrivacyPolicy: Bool = false
+    @State private var showStoreView: Bool = false
 
     @State private var path: NavigationPath = .init()
     
@@ -58,6 +59,8 @@ struct MainContainerView: View {
                     showTermsAndConditions.toggle()
                 case .privacyPolicy:
                     showPrivacyPolicy.toggle()
+                case .premium:
+                    showStoreView.toggle()
                 default:
                     selectedSideMenuTab = row.rowType
                 }
@@ -74,6 +77,9 @@ struct MainContainerView: View {
         }
         .sheet(isPresented: $showPrivacyPolicy) {
             PrivacyPolicyView
+        }
+        .sheet(isPresented: $showStoreView) {
+            StoreUIComposer.storeComposedWith { }
         }
     }
     
