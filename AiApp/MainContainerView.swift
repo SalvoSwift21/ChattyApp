@@ -79,7 +79,9 @@ struct MainContainerView: View {
             PrivacyPolicyView
         }
         .sheet(isPresented: $showStoreView) {
-            StoreUIComposer.storeComposedWith { }
+            StoreUIComposer.storeComposedWith {
+                showStoreView.toggle()
+            }
         }
     }
     

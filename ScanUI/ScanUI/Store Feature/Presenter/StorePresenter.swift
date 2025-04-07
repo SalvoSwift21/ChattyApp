@@ -16,7 +16,7 @@ public class StorePresenter: StorePresenterProtocol {
     private var productFeature: ProductFeature
     
     private weak var delegate: StoreDelegate?
-    public var menuButton: (() -> Void)
+    public var closeAction: (() -> Void)
     public var productFeatureTapped: ((ProductFeature) -> Void)
     
     private var allProductsFeature: [ProductFeature] = []
@@ -26,11 +26,11 @@ public class StorePresenter: StorePresenterProtocol {
                 service: ProductFeatureService,
                 productFeature: ProductFeature,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main,
-                menuButton: @escaping (() -> Void),
+                closeAction: @escaping (() -> Void),
                 productFeatureTapped: @escaping ((ProductFeature) -> Void)) {
         self.service = service
         self.delegate = delegate
-        self.menuButton = menuButton
+        self.closeAction = closeAction
         self.resourceBundle = bundle
         self.productFeature = productFeature
         self.productFeatureTapped = productFeatureTapped
@@ -41,9 +41,9 @@ public class StorePresenter: StorePresenterProtocol {
         do {
             let products = try await service.getProductFeatures()
             //Not used for now
-            let sortedProductIDs = products.sorted {
-                $0.productID == productFeature.productID ? true : ($1.productID == productFeature.productID ? false : true)
-            }
+//            let sortedProductIDs = products.sorted {
+//                $0.productID == productFeature.productID ? true : ($1.productID == productFeature.productID ? false : true)
+//            }
             
             let vModel = StoreViewModel(products: products, selectedProduct: self.productFeature)
             self.allProductsFeature = products
@@ -65,13 +65,14 @@ public class StorePresenter: StorePresenterProtocol {
                 guard let newProductFeature = self.allProductsFeature.first(where: { $0.productID  == productModelID }) else { return }
                 productFeatureTapped(newProductFeature)
                 productFeature = newProductFeature
+                closeAction()
             case .pending: break
             case .userCancelled: break
             default: break
             }
         case .failure(let error):
             Task {
-                await self.delegate?.render(errorMessage: "L'acquisto non è stato completato")
+                await self.delegate?.render(errorMessage: "Error on purchase \(error.localizedDescription)")
             }
         }
         refreshView()

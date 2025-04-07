@@ -50,6 +50,7 @@
 		62CC50F02D8B3CD200404494 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 62CC50EF2D8B3CD200404494 /* FirebaseRemoteConfig */; };
 		62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62CC50F12D8B3CEA00404494 /* GoogleService-Info.plist */; };
 		62CC50FB2D8B898C00404494 /* WebViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */; };
+		62F10E0E2D9F50D2001F8A34 /* Store.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 62F10E0D2D9F50D2001F8A34 /* Store.storekit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -108,6 +109,7 @@
 		62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewUIComposer.swift; sourceTree = "<group>"; };
 		62D241FF2B31159700B0EF1A /* RestApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RestApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E510A02A5376EF00A40773 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		62F10E0D2D9F50D2001F8A34 /* Store.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Store.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		622959D52CFFC80F00A2EE3D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				62F10E0D2D9F50D2001F8A34 /* Store.storekit */,
 				622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */,
 				62128CB02A1F8F92005D732A /* Assets.xcassets */,
 			);
@@ -310,6 +313,7 @@
 			files = (
 				62A114B62D8F3A3400A66B89 /* PrivacyInfo.xcprivacy in Resources */,
 				62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */,
+				62F10E0E2D9F50D2001F8A34 /* Store.storekit in Resources */,
 				622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */,
 				62CC50F22D8B3CEA00404494 /* GoogleService-Info.plist in Resources */,
 				62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */,

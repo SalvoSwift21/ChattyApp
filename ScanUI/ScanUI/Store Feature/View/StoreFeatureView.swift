@@ -143,7 +143,7 @@ private struct PassMarketingContent: View {
     var storeFeature = StoreFeatureStore()
     var service = ProductFeatureService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
     let productFeature = ProductFeature(features: [], productID: "free")
-    var presenter = StorePresenter(delegate: storeFeature, service: service, productFeature: productFeature, menuButton: { }) { _ in }
+    var presenter = StorePresenter(delegate: storeFeature, service: service, productFeature: productFeature, closeAction: { }) { _ in }
     
     return NavigationView {
         StoreFeatureView(store: storeFeature, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
