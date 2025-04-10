@@ -760,6 +760,17 @@
         }
       }
     },
+    "PREFERENCES_MEMBERSHIP_BUTTON" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Membership"
+          }
+        }
+      }
+    },
     "PREFERENCES_PRIVACY_BUTTON" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -777,7 +788,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manage your privacy preferences and consent choices. You can review, adjust, or withdraw your consent at any time."
+            "value" : "Manage your privacy and subscription settings. You can view or update your preferences anytime."
           }
         }
       }
@@ -788,7 +799,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Privacy & Consent"
+            "value" : "Account Settings"
           }
         }
       }

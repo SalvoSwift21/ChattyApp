@@ -184,6 +184,7 @@ public struct PreferencesView: View {
                     }
                 }
             }
+            .padding(!viewModel.transactionServiceIsEnabled ? 8 : 0)
         }
         .overlay(
             ZStack(alignment: .topTrailing) {
@@ -221,6 +222,7 @@ public struct PreferencesView: View {
                     HStack(alignment: .center, spacing: 8) {
                         Image(systemName: "shield.lefthalf.filled")
                             .foregroundColor(.prime)
+                            .frame(width: 24, height: 24)
                         
                         Text("PREFERENCES_PRIVACY_BUTTON")
                             .font(.system(size: 14))
@@ -234,20 +236,19 @@ public struct PreferencesView: View {
                         Image(systemName: "chevron.right")
                             .foregroundColor(.gray)
                     }
-                    .padding()
-                    .background(.white)
-                    .clipShape(.buttonBorder)
-                    .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
                 }
+                .padding()
+
                 Divider()
                 Button {
                     presenter.storeButtonTapped()
                 } label: {
                     HStack(alignment: .center, spacing: 8) {
-                        Image(systemName: "shield.lefthalf.filled")
+                        Image(systemName: "crown")
                             .foregroundColor(.prime)
+                            .frame(width: 24, height: 24)
                         
-                        Text("Store preference")
+                        Text("PREFERENCES_MEMBERSHIP_BUTTON")
                             .font(.system(size: 14))
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
@@ -259,12 +260,14 @@ public struct PreferencesView: View {
                         Image(systemName: "chevron.right")
                             .foregroundColor(.gray)
                     }
-                    .padding()
-                    .background(.white)
-                    .clipShape(.buttonBorder)
-                    .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
                 }
+                .padding()
+
             }
+            .background(.white)
+            .clipShape(.rect(cornerRadius: 8))
+            .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
+            
         } header: {
             HStack {
                 VStack(alignment: .leading, spacing: 5.0) {

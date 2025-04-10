@@ -30,7 +30,9 @@ public final class SideMenuUIComposer {
             SideMenuUIComposer.sideMenuStore = menuStore
         }
         
-        let sideMenuPresenter = SideMenuPresenter(delegate: SideMenuUIComposer.sideMenuStore ?? menuStore, service: menuService, didSelectRow: didSelectRow, bundle: bundle)
+        let currentProductFeature = AppConfiguration.shared.purchaseManager.currentAppProductFeature
+
+        let sideMenuPresenter = SideMenuPresenter(delegate: SideMenuUIComposer.sideMenuStore ?? menuStore, service: menuService, currentProductFeature: currentProductFeature, didSelectRow: didSelectRow, bundle: bundle)
         
         let menu = SideMenuView(store: SideMenuUIComposer.sideMenuStore ?? menuStore, presenter: sideMenuPresenter, resourceBundle: bundle)
         

@@ -47,7 +47,9 @@ public struct SideMenu: View {
 public struct SideMenuView: View {
     var presenter: SideMenuPresenter
     @ObservedObject var store: SideMenuStore
-
+    @EnvironmentObject
+    private var purchaseManager: PurchaseManager
+    
     var resourceBundle: Bundle
     
 //    @Binding var presentSideMenu: Bool
@@ -86,7 +88,11 @@ public struct SideMenuView: View {
                 await presenter.loadData()
             }
             Spacer()
-        }.background(.clear)
+        }
+        .background(.clear)
+        .onChange(of: purchaseManager.currentAppProductFeature) {
+            presenter.handleNewProductFeature(productFeature: purchaseManager.currentAppProductFeature)
+        }
     }
     
     func SectionView(section: MenuSection) -> some View {
@@ -150,7 +156,7 @@ func create(didSelectRow: @escaping (MenuRow) -> Void = { _ in }) -> SideMenu {
     let menuStore = SideMenuStore()
     let menuService = LocalSideMenuService(resourceBundle: bundle)
     
-    let sideMenuPresenter = SideMenuPresenter(delegate: menuStore, service: menuService, didSelectRow: didSelectRow, bundle: bundle)
+    let sideMenuPresenter = SideMenuPresenter(delegate: menuStore, service: menuService, currentProductFeature: ProductFeature(features: [], productID: ""), didSelectRow: didSelectRow, bundle: bundle)
     
     let menu = SideMenuView(store: menuStore, presenter: sideMenuPresenter, resourceBundle: bundle)
     return SideMenu(isShowing: .constant(true), content: AnyView(menu))
