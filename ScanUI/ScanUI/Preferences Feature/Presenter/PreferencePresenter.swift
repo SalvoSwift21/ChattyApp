@@ -18,6 +18,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     public var menuButton: (() -> Void)
     public var updatePreferences: (() -> Void)
     public var privacyButtonTapped: (() -> Void)
+    public var storeViewTapped: (() -> Void)
     var currentAppProductFeature: ProductFeature
 
 
@@ -27,6 +28,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 privacyButtonTapped: @escaping (() -> Void),
                 menuButton: @escaping (() -> Void),
                 updatePreferences: @escaping (() -> Void),
+                storeViewTapped: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
@@ -35,6 +37,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         self.resourceBundle = bundle
         self.currentAppProductFeature = currentAppProductFeature
         self.privacyButtonTapped = privacyButtonTapped
+        self.storeViewTapped = storeViewTapped
     }
     
     @MainActor
@@ -118,8 +121,19 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         }
     }
     
-    public func loadPrivacyPolicyManager() {
+    func handleNewProductFeature(productFeature: ProductFeature) {
+        currentAppProductFeature = productFeature
+        Task {
+            await loadData()
+        }
+    }
+    
+    public func privacySettingTapped() {
         privacyButtonTapped()
+    }
+    
+    public func storeButtonTapped() {
+        storeViewTapped()
     }
 }
 

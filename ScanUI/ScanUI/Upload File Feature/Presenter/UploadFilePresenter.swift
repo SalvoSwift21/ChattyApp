@@ -34,20 +34,29 @@ public class UploadFilePresenter: UploadFileProtocols {
     }
     
     
-    @MainActor
     public func startScan(atURL url: URL) async {
+        
+        guard url.startAccessingSecurityScopedResource() else {
+            self.delegate?.render(errorMessage: "UPLOAD_FILE_ACCESS_FILE_ERROR_MESSAGE")
+            return
+        }
+        
+        async let scanResult = self.service.startScan(atURL: url)
+       
         do {
-            guard url.startAccessingSecurityScopedResource() else {
-                self.delegate?.render(errorMessage: "UPLOAD_FILE_ACCESS_FILE_ERROR_MESSAGE")
-                return
-            }
-            let scanResult = try await self.service.startScan(atURL: url)
-            resultOfScan(scanResult)
-            url.stopAccessingSecurityScopedResource()
+            let result = try await scanResult
+            resultOfScan(result)
         } catch {
             self.delegate?.render(errorMessage: error.localizedDescription)
         }
+        
+        url.stopAccessingSecurityScopedResource()
+        
+        showAdvFromViewModelIfNeeded()
+        
     }
+    
+        
     
     @MainActor
     @Sendable public func loadFilesType() async {
@@ -77,7 +86,8 @@ public class UploadFilePresenter: UploadFileProtocols {
         !currentProductFeature.features.contains(.removeAds)
     }
     
-    public func showAdvFromViewModel() {
+    public func showAdvFromViewModelIfNeeded() {
+        guard adIsEnabled() else { return }
         adViewModel.showAd()
     }
     

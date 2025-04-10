@@ -112,7 +112,9 @@ struct MainContainerView: View {
                 }
             }
             .navigationDestination(for: ScanResult.self) { scanResult in
-                if let view = TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage) {
+                if let view = TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage, storeViewButtonTapped: {
+                    showStoreView.toggle()
+                }) {
                     view
                 }
             }
@@ -150,6 +152,8 @@ struct MainContainerView: View {
                 Task {
                     try? await AppConfiguration.shared.userMessageManager.presentPrivacyOptionsForm()
                 }
+            } storeViewButtonTapped: {
+                showStoreView.toggle()
             }
         }
     }
@@ -182,6 +186,7 @@ struct DataScannerSection: View {
     @State private var pathOfScanSection: NavigationPath = .init()
     @State private var scanStorage: ScanStorege
     @Environment(\.presentationMode) var isPresented
+    @State private var showStoreView: Bool = false
 
     init(storage: ScanStorege) {
         self.scanStorage = storage
@@ -195,7 +200,14 @@ struct DataScannerSection: View {
             .navigationDestination(for: ScanResult.self) { scanResult in
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage, done: {
                     isPresented.wrappedValue.dismiss()
-                })
+                }) {
+                    showStoreView.toggle()
+                }
+                .sheet(isPresented: $showStoreView) {
+                    StoreUIComposer.storeComposedWith {
+                        showStoreView.toggle()
+                    }
+                }
             }
         }
     }

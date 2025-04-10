@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-public class TextAnalyzerPresenter {
+public class TextAnalyzerPresenter: ObservableObject {
         
     public var resourceBundle: Bundle
 
@@ -27,6 +27,7 @@ public class TextAnalyzerPresenter {
     
     private var currentProductFeature: ProductFeature
     private var bannerID: String
+    private var storeViewTapped: (() -> Void)
 
     public init(delegate: TextAnalyzerProtocolDelegate,
                 service: TextAnalyzerService,
@@ -34,7 +35,8 @@ public class TextAnalyzerPresenter {
                 currentProductFeature: ProductFeature,
                 bannerID: String,
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main,
-                done: @escaping () -> Void = {  }) {
+                done: @escaping () -> Void = {  },
+                storeViewTapped: @escaping (() -> Void)) {
         self.service = service
         self.delegate = delegate
         self.scannedResult = scannedResult
@@ -43,6 +45,7 @@ public class TextAnalyzerPresenter {
         self.textAnalyzerViewModel = TextAnalyzerViewModel(chatHistory: [])
         self.currentProductFeature = currentProductFeature
         self.bannerID = bannerID
+        self.storeViewTapped = storeViewTapped
     }
     
     @MainActor 
@@ -51,6 +54,7 @@ public class TextAnalyzerPresenter {
         await makeSummary(forScan: scannedResult)
     }
     
+
     @MainActor
     fileprivate func makeSummary(forScan scan: ScanResult) async {
         do {
@@ -265,5 +269,20 @@ extension TextAnalyzerPresenter: TextAnalyzerProtocol {
     
     public func getStoredService() -> ScanStorege {
         return self.service.storageClient
+    }
+}
+
+//Handle store view
+
+extension TextAnalyzerPresenter {
+    
+    @MainActor
+    public func storeButtonTapped() {
+        storeViewTapped()
+    }
+    
+    @MainActor
+    func handleNewProductFeature(productFeature: ProductFeature) {
+        self.currentProductFeature = productFeature
     }
 }

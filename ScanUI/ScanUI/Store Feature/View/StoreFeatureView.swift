@@ -33,7 +33,7 @@ public struct StoreFeatureView: View {
                 case .loaded(let viewModel):
                     SubscriptionStoreView(productIDs: viewModel.getOnlyPaidModels().map(\.productID), content: {
                         SubscriptionOptionGroupSet { product in
-                            return viewModel.products.first(where: { $0.productID == product.id }) ??                             ProductFeature(features: [], productID: "product")
+                            return viewModel.products.first(where: { $0.productID == product.id }) ?? ProductFeature(features: [], productID: "product")
                         } label: { product in
                             Text(product.getLocalizedDescription().title)
                         } marketingContent: { product in
