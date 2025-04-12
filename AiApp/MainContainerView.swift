@@ -134,9 +134,14 @@ struct MainContainerView: View {
             }
         }
         .tint(.primeAccentColor)
-        .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
-            path.append(resultOfScan)
-        }))
+        .fullScreenCover(isPresented: $showUpload) {
+            EmptyView()
+                .background(TransparentBackground())
+                .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
+                    path.append(resultOfScan)
+                }))
+
+        }
         .task {
             try? (AppConfiguration.shared.dataConfigurationManager.storage as! SwiftDataStore).createDefaultFolderIfNeeded()
         }
@@ -211,4 +216,16 @@ struct DataScannerSection: View {
             }
         }
     }
+}
+
+struct TransparentBackground: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        DispatchQueue.main.async {
+            view.superview?.superview?.backgroundColor = .clear
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
