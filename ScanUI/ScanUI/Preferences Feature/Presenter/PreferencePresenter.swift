@@ -75,8 +75,14 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     fileprivate func savePreferenceFromAI(_ model: AIPreferenceModel) {
         Task {
             do {
-                guard let defaultLanguage = try model.aiType.getAllSupportedLanguages().languages.first else { return }
-                let preference = PreferenceModel(selectedLanguage: defaultLanguage, selectedAI: model)
+                let currentLanguage = try await loadAIPreferencereType().selectedLanguage
+                let defaultLanguages = try model.aiType.getAllSupportedLanguages().languages
+                
+                guard !defaultLanguages.isEmpty else { return }
+                let correctLanguage = defaultLanguages.contains(where: { $0.code == currentLanguage.code }) ? currentLanguage : defaultLanguages.first!
+                
+                let preference = PreferenceModel(selectedLanguage: correctLanguage, selectedAI: model)
+                
                 try await saveAIPreferencereType(preference)
                 await loadData()
                 updatePreferences()
