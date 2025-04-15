@@ -25,6 +25,7 @@ struct MainContainerView: View {
     @State private var showOnboarding: Bool = false
     @State private var showTermsAndConditions: Bool = false
     @State private var showPrivacyPolicy: Bool = false
+    @State private var showStoreView: Bool = false
 
     @State private var path: NavigationPath = .init()
     
@@ -58,6 +59,8 @@ struct MainContainerView: View {
                     showTermsAndConditions.toggle()
                 case .privacyPolicy:
                     showPrivacyPolicy.toggle()
+                case .premium:
+                    showStoreView.toggle()
                 default:
                     selectedSideMenuTab = row.rowType
                 }
@@ -74,6 +77,11 @@ struct MainContainerView: View {
         }
         .sheet(isPresented: $showPrivacyPolicy) {
             PrivacyPolicyView
+        }
+        .sheet(isPresented: $showStoreView) {
+            StoreUIComposer.storeComposedWith {
+                showStoreView.toggle()
+            }
         }
     }
     
@@ -104,7 +112,9 @@ struct MainContainerView: View {
                 }
             }
             .navigationDestination(for: ScanResult.self) { scanResult in
-                if let view = TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage) {
+                if let view = TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage, storeViewButtonTapped: {
+                    showStoreView.toggle()
+                }) {
                     view
                 }
             }
@@ -124,9 +134,14 @@ struct MainContainerView: View {
             }
         }
         .tint(.primeAccentColor)
-        .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
-            path.append(resultOfScan)
-        }))
+        .fullScreenCover(isPresented: $showUpload) {
+            EmptyView()
+                .background(TransparentBackground())
+                .modifier(UploadFileComposer.uploadFileModifierView(isPresented: $showUpload, scanResult: { resultOfScan in
+                    path.append(resultOfScan)
+                }))
+
+        }
         .task {
             try? (AppConfiguration.shared.dataConfigurationManager.storage as! SwiftDataStore).createDefaultFolderIfNeeded()
         }
@@ -142,6 +157,8 @@ struct MainContainerView: View {
                 Task {
                     try? await AppConfiguration.shared.userMessageManager.presentPrivacyOptionsForm()
                 }
+            } storeViewButtonTapped: {
+                showStoreView.toggle()
             }
         }
     }
@@ -174,6 +191,7 @@ struct DataScannerSection: View {
     @State private var pathOfScanSection: NavigationPath = .init()
     @State private var scanStorage: ScanStorege
     @Environment(\.presentationMode) var isPresented
+    @State private var showStoreView: Bool = false
 
     init(storage: ScanStorege) {
         self.scanStorage = storage
@@ -187,8 +205,27 @@ struct DataScannerSection: View {
             .navigationDestination(for: ScanResult.self) { scanResult in
                 TextAnalyzerComposer.textAnalyzerComposedWith(scanResult: scanResult, scanStorage: scanStorage, done: {
                     isPresented.wrappedValue.dismiss()
-                })
+                }) {
+                    showStoreView.toggle()
+                }
+                .sheet(isPresented: $showStoreView) {
+                    StoreUIComposer.storeComposedWith {
+                        showStoreView.toggle()
+                    }
+                }
             }
         }
     }
+}
+
+struct TransparentBackground: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        DispatchQueue.main.async {
+            view.superview?.superview?.backgroundColor = .clear
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }

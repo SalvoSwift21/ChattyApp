@@ -65,8 +65,12 @@ public enum AIModelType: String, CaseIterable, Codable {
     
     public func getAISupportedFileTypes(forProductFeature productFeature: ProductFeature) -> [UTType] {
         switch self {
-            case .gpt_4_o, .gpt_4o_mini:
-            return OpenAiConfiguration.getSupportedUTType()
+        case .gpt_4_o, .gpt_4o_mini:
+            if productFeature.features.contains(where: { $0.rawValue == FeatureEnum.removeAds.rawValue }) {
+                return OpenAiConfiguration.getSupportedUTType()
+            } else {
+                return [.image, .png, .jpeg]
+            }
         case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro:
             if productFeature.features.contains(where: { $0.rawValue == FeatureEnum.removeAds.rawValue }) {
                 return GoogleAIConfigurations.getSupportedUTType()

@@ -18,7 +18,8 @@ public final class PreferencesUIComposer {
     public static func preferencesComposedWith(
         menuButtonTapped: @escaping () -> Void = { },
         updatePreferences: @escaping () -> Void = { },
-        privacyButtonTapped: @escaping () -> Void = { }
+        privacyButtonTapped: @escaping () -> Void = { },
+        storeViewButtonTapped: @escaping () -> Void = { }
     ) -> PreferencesView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
@@ -29,7 +30,7 @@ public final class PreferencesUIComposer {
             PreferencesUIComposer.preferenceStore = preferenceStore
         }
         
-        let preferencePresenter = PreferencePresenter(delegate: PreferencesUIComposer.preferenceStore ?? preferenceStore, service: preferenceAIService, currentAppProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, privacyButtonTapped: privacyButtonTapped, menuButton: menuButtonTapped, updatePreferences: updatePreferences, bundle: bundle)
+        let preferencePresenter = PreferencePresenter(delegate: PreferencesUIComposer.preferenceStore ?? preferenceStore, service: preferenceAIService, currentAppProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, privacyButtonTapped: privacyButtonTapped, menuButton: menuButtonTapped, updatePreferences: updatePreferences, storeViewTapped: storeViewButtonTapped, bundle: bundle)
                 
         return PreferencesView(store: PreferencesUIComposer.preferenceStore ?? preferenceStore, presenter: preferencePresenter, resourceBundle: bundle)
     }

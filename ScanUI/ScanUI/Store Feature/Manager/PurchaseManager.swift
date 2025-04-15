@@ -9,7 +9,7 @@ import Foundation
 
 public class PurchaseManager: ObservableObject, Observable {
     
-    public var currentAppProductFeature: ProductFeature
+    @Published public var currentAppProductFeature: ProductFeature
 
     enum PurchaseManagerError: Error {
         case noProductAvailable
@@ -28,6 +28,7 @@ public class PurchaseManager: ObservableObject, Observable {
         currentAppProductFeature = try await self.loadCurrentFeatureProduct()
     }
     
+    @MainActor
     public func saveNewPurchase(_ productFeature: ProductFeature) async {
         do {
             let newProduct = try await loadCurrentFeatureProduct()

@@ -45,6 +45,7 @@ public struct UploadFileView: ViewModifier {
                         }
                     }
                 
+                
                 if self.isLoading {
                     LoadingView()
                         .frame(
@@ -53,9 +54,6 @@ public struct UploadFileView: ViewModifier {
                             alignment: .center
                         )
                         .background(.white)
-                        .onDisappear {
-                            presenter.showAdvFromViewModel()
-                        }
                 }
                 
                 if let errorState = store.errorState {

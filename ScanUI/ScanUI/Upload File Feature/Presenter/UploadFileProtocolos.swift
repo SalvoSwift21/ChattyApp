@@ -13,7 +13,7 @@ public protocol UploadFileProtocols: ScanProtocol {
 
     func startScan(atURL url: URL) async
     func adIsEnabled() -> Bool
-    func showAdvFromViewModel()
+    func showAdvFromViewModelIfNeeded()
     
     @Sendable func loadFilesType() async
     @Sendable func loadAd() async

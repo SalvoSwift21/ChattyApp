@@ -15,11 +15,13 @@ import UniformTypeIdentifiers
 public final class TextAnalyzerComposer {
     
     private init() {}
-        
+    
+
     public static func textAnalyzerComposedWith(
         scanResult: ScanResult,
         scanStorage: ScanStorege,
-        done: @escaping () -> Void = {  }
+        done: @escaping () -> Void = {  },
+        storeViewButtonTapped: @escaping () -> Void = { }
     ) -> TextAnalyzerView? {
         
         guard let fileType = scanResult.getFileUTType() else { return nil  }
@@ -34,7 +36,7 @@ public final class TextAnalyzerComposer {
         
         let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: scanStorage)
         
-        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId(), bundle: bundle, done: done)
+        let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: AppConfiguration.shared.purchaseManager.currentAppProductFeature, bannerID: AppConfiguration.shared.adMobManager.getBannerUnitId(), bundle: bundle, done: done, storeViewTapped: storeViewButtonTapped)
         
         return TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
     }
