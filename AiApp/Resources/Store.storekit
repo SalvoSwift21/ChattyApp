@@ -21,9 +21,9 @@
     "_billingGracePeriodEnabled" : false,
     "_billingIssuesEnabled" : false,
     "_compatibilityTimeRate" : {
-      "3" : 6
+      "3" : 3
     },
-    "_disableDialogs" : true,
+    "_disableDialogs" : false,
     "_failTransactionsEnabled" : false,
     "_locale" : "en_US",
     "_renewalBillingIssuesEnabled" : false,
@@ -35,7 +35,10 @@
         "name" : "Load Products"
       },
       {
-        "current" : null,
+        "current" : {
+          "index" : 1,
+          "type" : "purchase"
+        },
         "enabled" : false,
         "name" : "Purchase"
       },
@@ -75,7 +78,7 @@
         "name" : "Offer Code Redeem Sheet"
       }
     ],
-    "_timeRate" : 13
+    "_timeRate" : 10
   },
   "subscriptionGroups" : [
     {

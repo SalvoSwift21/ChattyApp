@@ -23,13 +23,24 @@
         }
       }
     },
+    "AI_MODEL_DESCRIPTION_GEMINI_2.5_PRO" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optimized for shorter inputs with extended, high-quality outputs — ideal for generating detailed responses, content expansion, and deep exploration of compact content."
+          }
+        }
+      }
+    },
     "AI_MODEL_DESCRIPTION_GEMINI_PRO" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Detailed, high-quality summaries, ideal for analyzing documents, PDFs, and other file types."
+            "value" : "Detailed, high-quality summaries designed specifically for longer documents such as PDFs, reports, and other file types. Ideal for in-depth analysis and understanding."
           }
         }
       }
