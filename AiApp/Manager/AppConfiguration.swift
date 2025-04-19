@@ -89,7 +89,7 @@ public class AppConfiguration {
         
         let result = try? await preferenceService.loadAIPreferencereType()
         
-        guard let result = result else {
+        guard let result = result, result.selectedAI.aiType.isEnabledFor(productID: purchaseManager.currentAppProductFeature.productID) else {
             let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: chosenLanguage, selectedAI: defaultAI)
             try await preferenceService.saveAIPreferencereType(preference)
             self.updatePreference(with: preference)

@@ -12,7 +12,7 @@ import LLMFeature
 class PostNumberOfToken: Endpoint {
     
     var scheme: Schema = .HTTPS
- 
+    
     var host: String = "counttokens-ulnfu45kta-uc.a.run.app"
     
     var path: String = ""

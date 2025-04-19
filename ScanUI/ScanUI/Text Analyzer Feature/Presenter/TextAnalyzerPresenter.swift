@@ -117,13 +117,13 @@ extension TextAnalyzerPresenter {
     
     fileprivate func getCorrectPlaceholderImage(forScan scan: ScanResult) -> UIImage {
         
-        let placeholderImage = UIImage(systemName: "document")?.withTintColor(.prime.withAlphaComponent(0.7), renderingMode: .alwaysOriginal)
+        let placeholderImage = UIImage(systemName: "document")?.withTintColor(.prime.withAlphaComponent(0.7), renderingMode: .alwaysTemplate)
         
-        let icon = getIconFromDocumentController(data: scan.fileData ?? Data())
+//        let icon = getIconFromDocumentController(data: scan.fileData ?? Data())
         
         let scanImageData = UIImage(data: scan.fileData ?? Data())
         
-        return scanImageData ?? icon ?? placeholderImage ?? UIImage()
+        return scanImageData ?? placeholderImage ?? UIImage()
     }
     
     fileprivate func getIconFromDocumentController(data: Data) -> UIImage? {
