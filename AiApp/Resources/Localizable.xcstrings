@@ -1,24 +1,84 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "AI_MODEL_DESCRIPTION_GEMINI_1.5FLASH_8B" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blitzschnelle und präzise Zusammenfassungen, entwickelt für die schnelle Analyse großer Texte."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lightning-fast and accurate summaries, built for rapid analysis of large texts.\n"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resúmenes rápidos y precisos, diseñados para un análisis rápido de textos extensos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des résumés rapides et précis, conçus pour une analyse rapide des textes volumineux."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סיכומים מהירים ומדויקים, שנבנו לניתוח מהיר של טקסטים גדולים"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riepiloghi fulminei e accurati, creati per un'analisi rapida di ampi testi."
+          }
+        }
+      }
+    },
     "AI_MODEL_DESCRIPTION_GEMINI_1.5_FLASH" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sofortige und präzise Zusammenfassungen, optimiert für Geschwindigkeit Perfekt zum schnellen Verarbeiten großer Textmengen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Instant and precise summaries, optimized for speed. Perfect for quickly processing large text volumes."
           }
-        }
-      }
-    },
-    "AI_MODEL_DESCRIPTION_GEMINI_1.5FLASH_8B" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lightning-fast and accurate summaries, built for rapid analysis of large texts.\n"
+            "value" : "Resúmenes instantáneos y precisos, optimizados para la velocidad. Perfecto para procesar rápidamente grandes volúmenes de texto."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résumés instantanés et précis, optimisés pour la vitesse. Parfait pour traiter rapidement de grands volumes de texte."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סיכומים מיידיים ומדויקים, מותאמים למהירות. מושלם לעיבוד מהיר של כמויות גדולות של טקסט."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riassunti istantanei e precisi, ottimizzati per la velocità. Perfetti per elaborare rapidamente grandi volumi di testo."
           }
         }
       }
@@ -26,10 +86,40 @@
     "AI_MODEL_DESCRIPTION_GEMINI_2.5_PRO" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optimiert für kürzere Eingaben mit erweiterten, hochqualitativen Ausgaben — ideal für das Erzeugen detaillierter Antworten, Inhaltserweiterung und tiefgehende Erkundung kompakter Inhalte."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Optimized for shorter inputs with extended, high-quality outputs — ideal for generating detailed responses, content expansion, and deep exploration of compact content."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optimizado para entradas más cortas con salidas extensas y de alta calidad, ideal para generar respuestas detalladas, expansión de contenido y exploración profunda de contenido compacto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optimisé pour des entrées plus courtes avec des sorties étendues et de haute qualité — idéal pour générer des réponses détaillées, l'expansion de contenu et une exploration approfondie de contenus compacts"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מותאם להזנות קצרות עם פלטים מורחבים ואיכותיים — אידיאלי ליצירת תגובות מפורטות, הרחבת תוכן וחקר מעמיק של תוכן מוקטן"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ottimizzato per input più brevi con output estesi e di alta qualità — ideale per generare risposte dettagliate, espansione dei contenuti ed esplorazione approfondita di contenuti compatti."
           }
         }
       }
@@ -37,10 +127,40 @@
     "AI_MODEL_DESCRIPTION_GEMINI_PRO" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detaillierte, hochwertige Zusammenfassungen, die speziell für längere Dokumente wie PDFs, Berichte und andere Dateitypen entwickelt wurden. Ideal für eingehende Analysen und Verständnis."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Detailed, high-quality summaries designed specifically for longer documents such as PDFs, reports, and other file types. Ideal for in-depth analysis and understanding."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resúmenes detallados y de alta calidad diseñados específicamente para documentos más largos, como PDFs, informes y otros tipos de archivos. Ideal para un análisis profundo y comprensión."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résumés détaillés et de haute qualité conçus spécifiquement pour les documents plus longs tels que les PDF, les rapports et d'autres types de fichiers Idéal pour une analyse approfondie et une compréhension approfondie"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סיכומים מפורטים ואיכותיים המיועדים במיוחד למסמכים ארוכים כמו קבצי PDF, דוחות וסוגי קבצים אחרים. אידיאלי לניתוח מעמיק והבנה."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riepiloghi dettagliati e di alta qualità progettati specificamente per documenti più lunghi come PDF, rapporti e altri tipi di file. Ideali per analisi approfondite e comprensione."
           }
         }
       }
@@ -48,10 +168,40 @@
     "AI_MODEL_DESCRIPTION_GPT4_O" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das fortschrittlichste Modell liefert hochdetaillierte und präzise Zusammenfassungen und erfasst selbst die subtilsten Nuancen des Textes Perfekt für tiefgehende Analysen und menschliches Verständnis"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "The most advanced model delivers highly detailed and accurate summaries, capturing even the subtlest text nuances. Perfect for deep analysis and human-level understanding."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El modelo más avanzado ofrece resúmenes altamente detallados y precisos, capturando incluso las sutilezas más finas del texto. Perfecto para un análisis profundo y comprensión a nivel humano."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le modèle le plus avancé offre des résumés très détaillés et précis, capturant même les nuances les plus subtiles du texte. Parfait pour une analyse approfondie et une compréhension au niveau humain."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הדגם המתקדם ביותר מספק סיכומים מפורטים ומדויקים ביותר, ולוכד אף את הניואנסים הדקים ביותר של הטקסט. מושלם לניתוח מעמיק והבנה ברמת בני אדם."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il modello più avanzato offre riassunti altamente dettagliati e accurati, catturando anche le sfumature più sottili del testo. Perfetto per analisi approfondite e comprensione a livello umano."
           }
         }
       }
@@ -59,10 +209,40 @@
     "AI_MODEL_DESCRIPTION_GPT4_O_MINI" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine leichtere Version von GPT-4, die prägnante, hochwertige Zusammenfassungen bietet. Ideal für schnelle und effektive Analysen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "A lighter version of GPT-4, providing concise, high-quality summaries. Ideal for quick and effective analysis."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una versión más ligera de GPT-4, que ofrece resúmenes concisos y de alta calidad. Ideal para un análisis rápido y efectivo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une version allégée de GPT-4, offrant des résumés concis et de haute qualité. Idéal pour une analyse rapide et efficace."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "גרסה קלה יותר של GPT-4, מספקת סיכומים תמציתיים ואיכותיים. אידיאלי לניתוח מהיר ויעיל."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una versione più leggera di GPT-4, che fornisce sintesi concise e di alta qualità. Ideale per un'analisi rapida ed efficace."
           }
         }
       }
@@ -70,32 +250,40 @@
     "ALL_FOLDER_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Ihre Ordner"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "All Your Folders"
           }
-        }
-      }
-    },
-    "base_monthly_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unlock essential features to streamline your tasks and stay focused.  \\n\\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \\n\\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease. \\n\\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \\n\\nEverything you need to stay organized and efficient — start your Essential Plan today!"
+            "value" : "Todas tus carpetas"
           }
-        }
-      }
-    },
-    "base_monthly_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essential Plan"
+            "value" : "Tous vos dossiers"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כל התיקיות שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutte le tue cartelle"
           }
         }
       }
@@ -103,10 +291,40 @@
     "CAMERA_USAGE_DESCRIPTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir benötigen Zugriff auf die Kamera, um Text zu scannen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "We need access to the camera to scan text."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Necesitamos acceso a la cámara para escanear texto."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous avons besoin d'accéder à la caméra pour scanner le texte."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אנו צריכים גישה למצלמה כדי לסרוק טקסט"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbiamo bisogno di accedere alla fotocamera per scansionare il testo."
           }
         }
       }
@@ -114,10 +332,40 @@
     "CHOOSE_AI_LANGUAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprachen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Languages"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idiomas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langues"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שפות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lingue"
           }
         }
       }
@@ -125,10 +373,40 @@
     "CHOOSE_AI_LANGUAGE_SEARCH_BAR_PLACEHOLDER" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finden Sie Ihre Sprache"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Find your language"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar tu idioma"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouvez votre langue"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מצא את השפה שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova la tua lingua"
           }
         }
       }
@@ -136,10 +414,40 @@
     "CHOOSE_AI_MODEL_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KI-Modelle"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "AI Models"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modelos de IA"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modèles d'IA"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מודלים של AI"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modelli AI"
           }
         }
       }
@@ -147,10 +455,40 @@
     "DATA_STORE_ERROR_FAILEDTOLOADPERSISTENTCONTAINER" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler beim Laden der Daten. Bitte überprüfen Sie Ihren Speicher oder versuchen Sie, die App neu zu starten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Failed to load data. Please check your storage or try restarting the app."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo cargar los datos. Por favor, verifica tu almacenamiento o intenta reiniciar la aplicación."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec du chargement des données Veuillez vérifier votre stockage ou essayer de redémarrer l'application"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הטענת הנתונים נכשלה. אנא בדוק את האחסון שלך או נסה להפעיל מחדש את האפליקציה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caricamento dei dati non riuscito. Controlla il tuo spazio di archiviazione o prova a riavviare l'app."
           }
         }
       }
@@ -158,10 +496,40 @@
     "DATA_STORE_ERROR_FOLDERALREADYEXIST" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Ordner mit diesem Namen existiert bereits. Bitte wähle einen anderen Namen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "A folder with this name already exists. Please choose a different name."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya existe una carpeta con este nombre. Por favor elige un nombre diferente."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un dossier portant ce nom existe déjà Veuillez choisir un autre nom"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיקייה בשם זה כבר קיימת. אנא בחר שם אחר."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una cartella con questo nome esiste già Scegli un nome diverso"
           }
         }
       }
@@ -169,10 +537,40 @@
     "DATA_STORE_ERROR_FOLDERNAMENOTVALID" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültiger Ordnername Stellen Sie sicher dass der Name nicht leer ist und keine nicht unterstützten Zeichen enthält"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid folder name. Make sure the name is not empty and doesn’t contain unsupported characters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de carpeta no válido Asegúrate de que el nombre no esté vacío y no contenga caracteres no admitidos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom de dossier invalide Assurez-vous que le nom n'est pas vide et ne contient pas de caractères non pris en charge"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שם תיקייה לא חוקי. ודא שהשם אינו ריק ואינו כולל תווים שאינם נתמכים."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome cartella non valido Assicurati che il nome non sia vuoto e non contenga caratteri non supportati"
           }
         }
       }
@@ -180,10 +578,40 @@
     "DATA_STORE_ERROR_FOLDERNOTEXIST" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Ordner, auf den Sie zugreifen möchten, existiert nicht. Er wurde möglicherweise gelöscht oder umbenannt."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "The folder you are trying to access does not exist. It might have been deleted or renamed."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La carpeta a la que intenta acceder no existe. Podría haber sido eliminada o renombrada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le dossier auquel vous essayez d'accéder n'existe pas. Il a peut-être été supprimé ou renommé."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התיקייה שאתה מנסה לגשת אליה לא קיימת. ייתכן שהיא נמחקה או הוסבה מחדש."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La cartella a cui stai tentando di accedere non esiste. Potrebbe essere stata eliminata o rinominata."
           }
         }
       }
@@ -191,10 +619,40 @@
     "DATA_STORE_ERROR_MODELNOTFOUND" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenmodell nicht gefunden Bitte versuchen Sie, die Anwendung neu zu starten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Data model not found. Please try restarting the app."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modelo de datos no encontrado. Intenta reiniciar la aplicación."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modèle de données introuvable. Veuillez essayer de redémarrer l'application."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "המודל לא נמצא. אנא נסה להפעיל מחדש את האפליקציה."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modello dei dati non trovato. Prova a riavviare l'app."
           }
         }
       }
@@ -202,20 +660,80 @@
     "DATA_STORE_ERROR_SCANNOTFOUND" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument nicht gefunden Stellen Sie sicher dass der Scan existiert oder versuchen Sie die Ansicht zu aktualisieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Document not found. Make sure the scan exists or try refreshing the view."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documento no encontrado Asegúrese de que el escaneo exista o intente actualizar la vista"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document introuvable. Assurez-vous que le scan existe ou essayez de rafraîchir la vue."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "המסמך לא נמצא ודא שהסריקה קיימת או נסה לרענן את התצוגה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documento non trovato. Assicurati che la scansione esista o prova ad aggiornare la vista."
           }
         }
       }
     },
     "DEFAULT_FOLDER_NAME" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Persönlicher Ordner"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home Folder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carpeta Principal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dossier personnel"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיקיית הבית"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cartella Home"
           }
         }
       }
@@ -223,10 +741,40 @@
     "EMPTY_VIEW_NO_FOLDER_SCAN_SUB" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beginnen Sie mit dem Hinzufügen von Scans, um Ihre Dokumente organisiert zu halten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Start adding scans to keep your documents organized."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comienza a añadir escaneos para mantener tus documentos organizados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencez à ajouter des numérisations pour garder vos documents organisés"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התחל להוסיף סריקות כדי לשמור על המסמכים שלך מאורגנים"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inizia ad aggiungere scansioni per mantenere i tuoi documenti organizzati"
           }
         }
       }
@@ -234,10 +782,40 @@
     "EMPTY_VIEW_NO_FOLDER_SCAN_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Ordner ist leer"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "This Folder is Empty"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta carpeta está vacía"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce dossier est vide"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התיקייה ריקה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa cartella è vuota"
           }
         }
       }
@@ -245,10 +823,40 @@
     "EMPTY_VIEW_NO_RESULTS_SUB" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir konnten keine Scans oder Ordner finden, die Ihrer Suche entsprechen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "We couldn’t find any scans or folders matching your search."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No pudimos encontrar escaneos ni carpetas que coincidan con tu búsqueda."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun scan ou dossier correspondant à votre recherche n’a été trouvé."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לא מצאנו סריקות או תיקיות התואמות את החיפוש שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non siamo riusciti a trovare scansioni o cartelle che corrispondano alla tua ricerca."
           }
         }
       }
@@ -256,10 +864,40 @@
     "EMPTY_VIEW_NO_RESULTS_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Ergebnisse gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Results Found"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontraron resultados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun résultat trouvé"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לא נמצאו תוצאות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun risultato trovato"
           }
         }
       }
@@ -267,10 +905,40 @@
     "EMPTY_VIEW_NO_SCAN_SUB" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen Sie ein Dokument oder laden Sie ein Bild hoch, um zu beginnen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan a document or upload an image to get started."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escanea un documento o carga una imagen para comenzar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numérisez un document ou téléchargez une image pour commencer."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סרוק מסמך או העלה תמונה כדי להתחיל"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona un documento o carica un'immagine per iniziare"
           }
         }
       }
@@ -278,10 +946,40 @@
     "EMPTY_VIEW_NO_SCAN_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine kürzlichen Scans"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Recent Scans"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay escaneos recientes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune analyse récente"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אין סריקות אחרונות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna scansione recente"
           }
         }
       }
@@ -289,10 +987,40 @@
     "FOLDER_DETAIL_LOAD_ERROR" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es gab ein Problem beim Laden des Inhalts des Ordners. Bitte versuchen Sie, neu zu laden oder überprüfen Sie Ihre Verbindung."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "There was an issue loading the folder’s content. Please try reloading or check your connection."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubo un problema al cargar el contenido de la carpeta. Intenta recargar o verifica tu conexión."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un problème est survenu lors du chargement du contenu du dossier. Veuillez essayer de recharger ou vérifier votre connexion."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אירעה בעיה בטעינת תוכן התיקייה. אנא נסה לטעון מחדש או בדוק את החיבור שלך."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un problema nel caricamento del contenuto della cartella. Riprova a ricaricare o controlla la tua connessione."
           }
         }
       }
@@ -300,10 +1028,40 @@
     "GENERIC_BACK_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Back"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrás"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חזרה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
           }
         }
       }
@@ -312,10 +1070,40 @@
       "comment" : "Generic cancel button",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ביטול"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annulla"
           }
         }
       }
@@ -323,10 +1111,40 @@
     "GENERIC_CLOSE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Close"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סגור"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi"
           }
         }
       }
@@ -334,10 +1152,40 @@
     "GENERIC_COPY_CLIPBOARD_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Zwischenablage kopieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copy on clipoboard"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar en el portapapeles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier dans le presse-papiers"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "העתק ללוח"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia negli appunti"
           }
         }
       }
@@ -345,10 +1193,40 @@
     "GENERIC_ERROR_DOCUMENT_TO_LARGE_NOT SUPPORTED" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir können dieses Dokument nicht zusammenfassen, da es entweder zu groß oder in einem nicht unterstützten Format vorliegt. Bitte versuchen Sie es mit einer kleineren oder kompatiblen Datei."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "We’re unable to summarize this document because it’s either too large or in an unsupported format. Please try with a smaller or compatible file."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No podemos resumir este documento porque es demasiado grande o está en un formato no compatible. Inténtalo con un archivo más pequeño o compatible."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous ne pouvons pas résumer ce document car il est soit trop volumineux soit dans un format non pris en charge Veuillez essayer avec un fichier plus petit ou compatible"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "איננו יכולים לסכם את המסמך הזה משום שהוא או גדול מדי או בפורמט לא נתמך. אנא נסה עם קובץ קטן יותר או תואם."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non siamo in grado di riassumere questo documento perché è troppo grande o in un formato non supportato Per favore prova con un file più piccolo o compatibile"
           }
         }
       }
@@ -356,10 +1234,40 @@
     "GENERIC_ERROR_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שגיאה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore"
           }
         }
       }
@@ -367,7 +1275,37 @@
     "GENERIC_OK_BUTTON" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D'accord"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אישור"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ok"
@@ -378,10 +1316,40 @@
     "GENERIC_RELOAD_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neu laden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reload"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recargar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recharger"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "טען מחדש"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricarica"
           }
         }
       }
@@ -389,10 +1357,40 @@
     "GENERIC_SAVE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שמור"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
           }
         }
       }
@@ -400,10 +1398,40 @@
     "GENERIC_SHARE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teilen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Share"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartir"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שתף"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Condividi"
           }
         }
       }
@@ -411,10 +1439,40 @@
     "GENERIC_TRANSLATE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translate"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traducir"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduire"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תרגם"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduci"
           }
         }
       }
@@ -422,10 +1480,40 @@
     "GENERIC_TRY_AGAIN" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try again"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inténtalo de nuevo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réessayer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נסה שוב"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riprova"
           }
         }
       }
@@ -433,10 +1521,40 @@
     "HOME_MY_FOLDER_SECTION_COUNT_ITEMS" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Artikel"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ Items"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ artículos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ éléments"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פריטים %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ elementi"
           }
         }
       }
@@ -444,10 +1562,40 @@
     "HOME_MY_FOLDER_SECTION_DELETE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Delete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מחק"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina"
           }
         }
       }
@@ -455,10 +1603,40 @@
     "HOME_MY_FOLDER_SECTION_RENAME_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umbenennen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rename"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renombrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renommer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שנה שם"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rinomina"
           }
         }
       }
@@ -466,10 +1644,40 @@
     "HOME_MY_FOLDER_SECTION_SEE_ALL" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "See All"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir tout"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הצג הכל"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vedi tutto"
           }
         }
       }
@@ -477,10 +1685,40 @@
     "HOME_MY_FOLDER_SECTION_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meine Ordner"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "My Folders"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mis carpetas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes dossiers"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התיקיות שלי"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le mie cartelle"
           }
         }
       }
@@ -488,10 +1726,40 @@
     "HOME_RECENT_SECTION_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neueste Scans"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recent Scans"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exploraciones recientes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analyses récentes"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סריקות אחרונות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansioni Recenti"
           }
         }
       }
@@ -499,10 +1767,40 @@
     "HOME_SERVICE_ERROR_RETRIEVEFOLDERERROR" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Laden der Ordner ist ein Fehler aufgetreten. Bitte versuchen Sie, neu zu laden, oder überprüfen Sie Ihre Verbindung."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occurred while loading the folders. Please try reloading or check your connection."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se produjo un error al cargar las carpetas. Intenta recargar o verifica tu conexión."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur s'est produite lors du chargement des dossiers. Veuillez essayer de recharger ou vérifier votre connexion."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אירעה שגיאה בעת טעינת התיקיות נא נסה לטעון מחדש או בדוק את החיבור שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un errore durante il caricamento delle cartelle. Riprova a ricaricare o controlla la tua connessione."
           }
         }
       }
@@ -510,10 +1808,40 @@
     "HOME_VIEW_CREATE_ALERT_ACTION_BUTTON" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Create"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "צור"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea"
           }
         }
       }
@@ -521,10 +1849,40 @@
     "HOME_VIEW_CREATE_ALERT_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie einen Namen für Ihren neuen Ordner ein."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter a name for your new folder."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduzca un nombre para su nueva carpeta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez un nom pour votre nouveau dossier."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הזן שם לתיקיה החדשה שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci un nome per la tua nuova cartella."
           }
         }
       }
@@ -532,10 +1890,40 @@
     "HOME_VIEW_CREATE_ALERT_PLACEHOLDER" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordnername"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Folder name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de la carpeta"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom du dossier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שם תיקייה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome della cartella"
           }
         }
       }
@@ -543,10 +1931,40 @@
     "HOME_VIEW_CREATE_ALERT_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neuen Ordner erstellen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Create New Folder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear nueva carpeta"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer un nouveau dossier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "צור תיקייה חדשה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea una nuova cartella"
           }
         }
       }
@@ -554,10 +1972,40 @@
     "HOME_VIEW_DELETE_ALERT_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchten Sie diesen Ordner wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to delete this folder? This action cannot be undone."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Está seguro de que desea eliminar esta carpeta? Esta acción no se puede deshacer."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes-vous sûr de vouloir supprimer ce dossier ? Cette action est irréversible."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "האם אתה בטוח שברצונך למחוק את התיקיה הזו? פעולה זו לא ניתנת לביטול."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei sicuro di voler eliminare questa cartella? Questa azione non può essere annullata."
           }
         }
       }
@@ -565,10 +2013,40 @@
     "HOME_VIEW_RENAME_ALERT_ACTION_BUTTON" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umbenennen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rename"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renombrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renommer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שנה שם"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rinomina"
           }
         }
       }
@@ -576,10 +2054,40 @@
     "HOME_VIEW_RENAME_ALERT_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie einen neuen Namen für Ihren Ordner, um Ihre Dokumente organisiert zu halten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose a new name for your folder to keep your documents organized."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige un nuevo nombre para tu carpeta para mantener tus documentos organizados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez un nouveau nom pour votre dossier afin de garder vos documents organisés"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחר שם חדש לתיקייתך כדי לשמור על המסמכים שלך מאורגנים"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli un nuovo nome per la tua cartella per mantenere i tuoi documenti organizzati."
           }
         }
       }
@@ -587,10 +2095,40 @@
     "HOME_VIEW_RENAME_ALERT_PLACEHOLDER" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordnernamen eingeben…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter folder name…"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduzca el nombre de la carpeta…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez le nom du dossier…"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הזן שם תיקייה…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci il nome della cartella..."
           }
         }
       }
@@ -598,10 +2136,40 @@
     "HOME_VIEW_RENAME_ALERT_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordner umbenennen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rename folder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar nombre de carpeta"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renommer le dossier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שנה שם תיקיה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rinomina cartella"
           }
         }
       }
@@ -609,10 +2177,40 @@
     "ONBORDING_FIRST_CARD_DESCR" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwenden Sie Ihre Kamera oder laden Sie Bilder hoch, um mühelos Dokumente zu scannen und Text in Sekundenschnelle zu extrahieren."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Use your camera or upload images to effortlessly scan documents and extract text in seconds."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa tu cámara o sube imágenes para escanear documentos fácilmente y extraer texto en segundos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez votre appareil photo ou téléchargez des images pour numériser des documents sans effort et extraire du texte en quelques secondes."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "השתמש במצלמה שלך או העלה תמונות כדי לסרוק מסמכים בקלות ולחלץ טקסט בשניות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa la tua fotocamera o carica immagini per scansionare facilmente documenti ed estrarre testo in pochi secondi"
           }
         }
       }
@@ -620,10 +2218,40 @@
     "ONBORDING_FIRST_CARD_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumente einfach scannen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan Documents Easily"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escanee Documentos Fácilmente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numérisez des documents facilement"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סרוק מסמכים בקלות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona Documenti Facilmente"
           }
         }
       }
@@ -631,10 +2259,40 @@
     "ONBORDING_FORTH_CARD_DESCR" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchsuchen Sie Ihre gespeicherten Zusammenfassungen und Dokumente mit erweiterten Werkzeugen, um Ihren Arbeitsablauf nahtlos zu gestalten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search through your saved summaries and documents with advanced tools to keep your workflow seamless."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca en tus resúmenes y documentos guardados con herramientas avanzadas para mantener tu flujo de trabajo sin interrupciones."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherchez dans vos résumés et documents sauvegardés avec des outils avancés pour maintenir votre flux de travail fluide."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חפש בתקצירים ובמסמכים ששמרת בעזרת כלים מתקדמים כדי לשמור על זרימת עבודה חלקה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca tra i tuoi riepiloghi e documenti salvati con strumenti avanzati per mantenere il tuo flusso di lavoro senza intoppi"
           }
         }
       }
@@ -642,10 +2300,40 @@
     "ONBORDING_FORTH_CARD_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finden Sie, was Sie brauchen, wenn Sie es brauchen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Find What You Need, When You Need It"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encuentra lo que necesitas, cuando lo necesitas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouvez ce dont vous avez besoin, quand vous en avez besoin"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מצא את מה שאתה צריך, מתי שאתה צריך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova ciò di cui hai bisogno, quando ne hai bisogno"
           }
         }
       }
@@ -653,10 +2341,40 @@
     "ONBORDING_SECOND_CARD_DESCR" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lassen Sie die KI Ihren gescannten Text sofort zusammenfassen. Bevorzugen Sie benutzerdefinierte KI-Einstellungen? Wählen Sie Ihr Modell später in den App-Einstellungen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Let AI summarize your scanned text instantly. Prefer custom AI settings? Choose your model later in the app settings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deja que la IA resuma tu texto escaneado al instante. ¿Prefieres configuraciones de IA personalizadas? Elige tu modelo más tarde en la configuración de la aplicación."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laissez l'IA résumer instantanément votre texte numérisé. Préférez-vous des paramètres d'IA personnalisés ? Choisissez votre modèle plus tard dans les paramètres de l'application."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תן לבינה מלאכותית לסכם את הטקסט הסרוק שלך באופן מיידי. מעדיף הגדרות בינה מלאכותית מותאמות אישית? בחר את הדגם שלך מאוחר יותר בהגדרות האפליקציה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lascia che l'IA riassuma istantaneamente il tuo testo scansionato. Preferisci impostazioni personalizzate per l'IA? Scegli il tuo modello successivamente nelle impostazioni dell'app."
           }
         }
       }
@@ -664,10 +2382,40 @@
     "ONBORDING_SECOND_CARD_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit KI zusammenfassen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Summarize with AI"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resumir con IA"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résumer avec l'IA"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סכם בעזרת בינה מלאכותית"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riepiloga con AI"
           }
         }
       }
@@ -675,10 +2423,40 @@
     "ONBORDING_THIRD_CARD_DESCR" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzen Sie Ihre Zusammenfassungen in mehrere Sprachen und organisieren Sie sie direkt in Ordner, die sicher auf iCloud gespeichert sind."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translate your summaries into multiple languages and organize them directly into folders stored safely on iCloud."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduce tus resúmenes a varios idiomas y organízalos directamente en carpetas almacenadas de forma segura en iCloud"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduisez vos résumés en plusieurs langues et organisez-les directement dans des dossiers stockés en toute sécurité sur iCloud."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תרגם את הסיכומים שלך למספר שפות וארגן אותם ישירות לתיקיות המאוחסנות בבטחה ב-iCloud"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduci i tuoi riassunti in più lingue e organizzarli direttamente in cartelle archiviate in modo sicuro su iCloud"
           }
         }
       }
@@ -686,10 +2464,40 @@
     "ONBORDING_THIRD_CARD_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzen und speichern"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translate and Save"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traducir y Guardar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduire et enregistrer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תרגם ושמור"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduci e salva"
           }
         }
       }
@@ -697,10 +2505,40 @@
     "PREFERENCES_CHOOSE_AI_INFO_DESCRIPTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie können je nach Ihren spezifischen Anforderungen frei zwischen verschiedenen KI-Modellen wechseln. Jedes KI-Modell hat jedoch eine eigene maximale Token-Grenze pro Interaktion. Das bedeutet, dass selbst wenn Ihr Abonnement oder Token-Paket eine große Anzahl an Tokens umfasst (zum Beispiel eine Million Tokens), bestimmte fortgeschrittene Modelle wie ChatGPT-4 möglicherweise eine derart umfangreiche Nutzung innerhalb einer einzigen Interaktion nicht unterstützen. Um den vollen Nutzen aus Ihren Tokens zu ziehen, wählen Sie das KI-Modell, das am besten zur Länge und Komplexität Ihres Inhalts passt."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can freely switch between different AI models according to your specific requirements. Each AI model, however, has its own maximum token limit per interaction. This means that even if your subscription or token package includes a large number of tokens (for example, one million tokens), certain advanced models, such as ChatGPT-4, may not support such extensive usage within a single interaction. To fully benefit from your tokens, choose the AI model best aligned with the length and complexity of your content."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puede cambiar libremente entre diferentes modelos de IA según sus requisitos específicos. Sin embargo, cada modelo de IA tiene su propio límite máximo de tokens por interacción. Esto significa que incluso si su suscripción o paquete de tokens incluye un gran número de tokens (por ejemplo, un millón de tokens), ciertos modelos avanzados, como ChatGPT-4, pueden no soportar un uso tan extenso dentro de una sola interacción. Para beneficiarse completamente de sus tokens, elija el modelo de IA que mejor se alinee con la longitud y complejidad de su contenido."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez librement passer d'un modèle d'IA à un autre en fonction de vos besoins spécifiques. Chaque modèle d'IA a cependant sa propre limite maximale de jetons par interaction. Cela signifie que même si votre abonnement ou votre forfait de jetons inclut un grand nombre de jetons (par exemple, un million de jetons), certains modèles avancés, comme ChatGPT-4, peuvent ne pas prendre en charge une utilisation aussi étendue au sein d'une seule interaction. Pour profiter pleinement de vos jetons, choisissez le modèle d'IA le mieux adapté à la longueur et à la complexité de votre contenu."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "באפשרותך לעבור בחופשיות בין דגמי AI שונים בהתאם לדרישות המדויקות שלך. עם זאת, לכל דגם AI יש מגבלת אסימונים מקסימלית משלו לכל אינטראקציה. משמעות הדבר היא שגם אם המנוי או חבילת האסימונים שלך כוללים מספר גדול של אסימונים (למשל, מיליון אסימונים), דגמים מתקדמים מסוימים, כגון ChatGPT-4, עשויים שלא לתמוך בשימוש כה נרחב באינטראקציה בודדת. כדי להפיק את המרב מהאסימונים שלך, בחר את דגם ה-AI המתאים ביותר לאורך ולמורכבות התוכן שלך."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puoi passare liberamente tra diversi modelli di intelligenza artificiale in base alle tue esigenze specifiche. Tuttavia, ogni modello di intelligenza artificiale ha il proprio limite massimo di token per interazione. Questo significa che anche se il tuo abbonamento o pacchetto di token include un grande numero di token (per esempio, un milione di token), alcuni modelli avanzati, come ChatGPT-4, potrebbero non supportare un uso così esteso in una singola interazione. Per trarre pieno vantaggio dai tuoi token, scegli il modello di intelligenza artificiale più in linea con la lunghezza e la complessità dei tuoi contenuti."
           }
         }
       }
@@ -708,10 +2546,40 @@
     "PREFERENCES_CHOOSE_AI_INFO_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verstehen von KI-Modellen und Token-Nutzung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Understanding AI Models and Token Usage"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprender los modelos de IA y el uso de tokens"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprendre les modèles d'IA et l'utilisation des jetons"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הבנת דגמי AI ושימוש בטוקנים"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprendere i modelli di intelligenza artificiale e l'uso dei token"
           }
         }
       }
@@ -719,10 +2587,40 @@
     "PREFERENCES_CHOOSE_AI_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie das KI-Modell, das Sie zum Erstellen von Zusammenfassungen verwenden möchten. Wählen Sie die Option, die am besten zu Ihren Anforderungen passt."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select the AI model you want to use for generating summaries. Pick the option that best suits your needs."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione el modelo de IA que desea usar para generar resúmenes. Elija la opción que mejor se adapte a sus necesidades."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez le modèle d'IA que vous souhaitez utiliser pour générer des résumés Choisissez l'option qui correspond le mieux à vos besoins"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחר את מודל הבינה המלאכותית שבו אתה רוצה להשתמש ליצירת סיכומים. בחר באפשרות המתאימה ביותר לצרכים שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleziona il modello di AI che desideri utilizzare per generare i riassunti. Scegli l'opzione che meglio si adatta alle tue esigenze."
           }
         }
       }
@@ -730,32 +2628,40 @@
     "PREFERENCES_CHOOSE_AI_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie Ihr KI-Modell"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose Your AI Model"
           }
-        }
-      }
-    },
-    "PREFERENCES_CHOOSE_LA_INFO_DESCRIPTION" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Set Your Default Translation Language"
+            "value" : "Elige tu modelo de IA"
           }
-        }
-      }
-    },
-    "PREFERENCES_CHOOSE_LA_INFO_TITLE" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Choose the language you prefer for translating your AI-generated summaries. When you tap the Translate action after creating a summary, your content will automatically be translated into this default language. You can easily update this preference whenever you wish."
+            "value" : "Choisissez votre modèle d'IA"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחר את מודל ה-AI שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli il tuo modello AI"
           }
         }
       }
@@ -763,10 +2669,40 @@
     "PREFERENCES_CHOOSE_LANGUAGE_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie die Sprache, die Sie für Übersetzungen verwenden möchten. Dies wird die Standardsprache für Ihre Inhalte sein."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose the language you want to use for translations. This will be the default language for your content."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elija el idioma que desea usar para las traducciones Este será el idioma predeterminado para su contenido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez la langue que vous souhaitez utiliser pour les traductions. Ce sera la langue par défaut pour votre contenu."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחר את השפה שבה תרצה להשתמש לתרגומים. זו תהיה שפת ברירת המחדל לתוכן שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli la lingua che desideri usare per le traduzioni. Questa sarà la lingua predefinita per i tuoi contenuti."
           }
         }
       }
@@ -774,10 +2710,122 @@
     "PREFERENCES_CHOOSE_LANGUAGE_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legen Sie Ihre Standardsprache für Übersetzungen fest"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set Your Default Translation Language"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configura tu idioma de traducción predeterminado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Définir votre langue de traduction par défaut"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הגדר את שפת התרגום המוגדרת כברירת מחדל"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imposta la tua lingua di traduzione predefinita"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LA_INFO_DESCRIPTION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legen Sie Ihre Standardübersetzungssprache fest"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Your Default Translation Language"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establece Tu Idioma de Traducción Predeterminado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Définir votre langue de traduction par défaut"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הגדר את שפת התרגום המועדפת עליך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imposta la tua lingua di traduzione predefinita"
+          }
+        }
+      }
+    },
+    "PREFERENCES_CHOOSE_LA_INFO_TITLE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie die Sprache, die Sie für die Übersetzung Ihrer KI-generierten Zusammenfassungen bevorzugen. Wenn Sie nach dem Erstellen einer Zusammenfassung auf die Schaltfläche Übersetzen tippen, wird Ihr Inhalt automatisch in diese Standardsprache übersetzt. Sie können diese Einstellung jederzeit problemlos aktualisieren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the language you prefer for translating your AI-generated summaries. When you tap the Translate action after creating a summary, your content will automatically be translated into this default language. You can easily update this preference whenever you wish."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige el idioma que prefieras para traducir tus resúmenes generados por IA. Cuando toques la acción de Traducir después de crear un resumen, tu contenido se traducirá automáticamente a este idioma predeterminado. Puedes actualizar esta preferencia fácilmente cuando lo desees."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez la langue que vous préférez pour traduire vos résumés générés par l'IA. Lorsque vous appuyez sur l'action Traduire après avoir créé un résumé, votre contenu sera automatiquement traduit dans cette langue par défaut. Vous pouvez facilement mettre à jour cette préférence quand vous le souhaitez."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחר את השפה המועדפת עליך לתרגום הסיכומים שנוצרו על ידי הבינה המלאכותית שלך. כשתלחץ על פעולת התרגום לאחר יצירת סיכום, התוכן שלך יתורגם אוטומטית לשפה ברירת מחדל זו. תוכל לעדכן העדפה זו בקלות בכל עת שתחפוץ."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli la lingua preferita per tradurre i riassunti generati dall'IA. Quando tocchi l'azione Traduci dopo aver creato un riassunto, il contenuto verrà automaticamente tradotto in questa lingua predefinita. Puoi facilmente aggiornare questa preferenza ogni volta che lo desideri."
           }
         }
       }
@@ -785,10 +2833,40 @@
     "PREFERENCES_MEMBERSHIP_BUTTON" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitgliedschaft"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Membership"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Membresía"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adhésion"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חֲבֵרוּת"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbonamento"
           }
         }
       }
@@ -796,10 +2874,40 @@
     "PREFERENCES_PRIVACY_BUTTON" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzeinstellungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Privacy Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración de privacidad"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres de confidentialité"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הגדרות פרטיות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impostazioni sulla Privacy"
           }
         }
       }
@@ -807,10 +2915,40 @@
     "PREFERENCES_PRIVACY_DESCRIPTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwalten Sie Ihre Datenschutz- und Abonnementeinstellungen. Sie können Ihre Präferenzen jederzeit einsehen oder aktualisieren."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Manage your privacy and subscription settings. You can view or update your preferences anytime."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Administra tus configuraciones de privacidad y suscripción. Puedes ver o actualizar tus preferencias en cualquier momento."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gérez vos paramètres de confidentialité et d'abonnement. Vous pouvez consulter ou mettre à jour vos préférences à tout moment."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נהל את הגדרות הפרטיות והמנוי שלך. באפשרותך להציג או לעדכן את ההעדפות שלך בכל עת"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestisci le tue impostazioni di privacy e abbonamento. Puoi visualizzare o aggiornare le tue preferenze in qualsiasi momento."
           }
         }
       }
@@ -818,10 +2956,40 @@
     "PREFERENCES_PRIVACY_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontoeinstellungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Account Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración de la cuenta"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres du compte"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הגדרות חשבון"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impostazioni account"
           }
         }
       }
@@ -829,32 +2997,40 @@
     "PRIVACY_POLICY_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutz & Richtlinien"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Privacy & Policy"
           }
-        }
-      }
-    },
-    "pro_monthly_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Take your productivity to the next level with advanced features and limitless capabilities.  \\n\\n• 📄 Unlimited Document Scanning — No 128k token limit, scan as much as you need.  \\n\\n• 🧠 Access to Advanced Models — Leverage powerful AI like Gemini 2 and ChatGPT-4 for in-depth analysis and enhanced functionality.  \\n\\nPerfect for power users and professionals — unlock the full potential of AI with the Pro Plan!"
+            "value" : "Privacidad y política"
           }
-        }
-      }
-    },
-    "pro_monthly_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pro Plan"
+            "value" : "Confidentialité et Politique"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פרטיות ומדיניות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy e politica"
           }
         }
       }
@@ -862,10 +3038,40 @@
     "SCAN_INFO_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen Sie den Text, markieren Sie ihn, und tippen Sie dann, um das Foto aufzunehmen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search for the text, select it, then tap to capture the photo"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca el texto, selecciónalo, luego toca para capturar la foto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherchez le texte, sélectionnez-le, puis appuyez pour capturer la photo"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חפש את הטקסט, בחר אותו, ואז הקש כדי לצלם את התמונה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca il testo, selezionalo, poi tocca per catturare la foto"
           }
         }
       }
@@ -873,10 +3079,40 @@
     "SIDE_MENU_CHOOSE_AI" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preferences"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencias"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Préférences"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "העדפות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferenze"
           }
         }
       }
@@ -884,10 +3120,40 @@
     "SIDE_MENU_HELP" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfe"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Help"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aide"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "עזרה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aiuto"
           }
         }
       }
@@ -895,7 +3161,37 @@
     "SIDE_MENU_HOME" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startseite"
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accueil"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בית"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
@@ -906,10 +3202,40 @@
     "SIDE_MENU_MORE_SECTION_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "More"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "עוד"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altro"
           }
         }
       }
@@ -917,10 +3243,40 @@
     "SIDE_MENU_PRIVACY_POLICY" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutz und Richtlinien"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Privacy & Policy"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacidad y política"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confidentialité et Politique"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פרטיות ומדיניות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy e politica"
           }
         }
       }
@@ -928,10 +3284,40 @@
     "SIDE_MENU_RATE_US" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bewerten Sie uns"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rate Us"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Califícanos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notez-nous"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "דרג אותנו"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valutaci"
           }
         }
       }
@@ -939,10 +3325,40 @@
     "SIDE_MENU_REMOVE_ADS" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werbung entfernen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Remove Ads"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar anuncios"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer les publicités"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הסר פרסומות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rimuovi annunci"
           }
         }
       }
@@ -950,10 +3366,40 @@
     "SIDE_MENU_TERMS_AND_COND" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemeine Geschäftsbedingungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terms & Conditions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos y condiciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termes et conditions"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תנאים והגבלות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termini e condizioni"
           }
         }
       }
@@ -961,7 +3407,37 @@
     "STORE_VIEW_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanny Pass"
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanny Pass"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pase Scanny"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanny Pass"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מַעֲבָר סְרִיקָה"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scanny Pass"
@@ -971,10 +3447,40 @@
     },
     "TERMS_AND_CONDIITIONS_TITLE" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemeine Geschäftsbedingungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terms and Conditions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos y condiciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conditions générales"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תנאים והגבלות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termini e condizioni"
           }
         }
       }
@@ -982,10 +3488,40 @@
     "TERMS_AND_CONDITIONS_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemeine Geschäftsbedingungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terms and Conditions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos y condiciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conditions générales"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תנאים והגבלות"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termini e condizioni"
           }
         }
       }
@@ -993,10 +3529,40 @@
     "TEXT_ANALYZER_CHOOSE_FOLDER_ACTION_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordner auswählen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose folder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elegir carpeta"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir un dossier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחר תיקייה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli cartella"
           }
         }
       }
@@ -1004,10 +3570,40 @@
     "TEXT_ANALYZER_NEW_SCAN_ALERT_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte geben Sie einen Titel für Ihren neuen Scan ein"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Please enter a title for your new scan"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, ingrese un título para su nuevo escaneo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez entrer un titre pour votre nouvelle analyse"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אנא הזן כותרת לסריקה חדשה שלך"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci un titolo per la tua nuova scansione"
           }
         }
       }
@@ -1015,10 +3611,40 @@
     "TEXT_ANALYZER_NEW_SCAN_ALERT_PLACEHOLDER" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan-Name"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de la exploración"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom de l'analyse"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שם הסריקה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome scansione"
           }
         }
       }
@@ -1026,10 +3652,40 @@
     "TEXT_ANALYZER_NEW_SCAN_ALERT_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neuen Scan speichern"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save new scan"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar nuevo escaneo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer la nouvelle analyse"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שמור סריקה חדשה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva nuova scansione"
           }
         }
       }
@@ -1037,10 +3693,40 @@
     "TEXT_ANALYZER_SUMMURIZE_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zusammenfassung erstellen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Generate summary"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generar resumen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Générer un résumé"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "צור סיכום"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genera riepilogo"
           }
         }
       }
@@ -1048,10 +3734,40 @@
     "TEXT_ANALYZER_TITLE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan-Zusammenfassung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan Summary"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resumen de análisis"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résumé de l'analyse"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סיכום סריקה"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riepilogo scansione"
           }
         }
       }
@@ -1059,10 +3775,40 @@
     "UPLOAD_FILE_ACCESS_FILE_ERROR_MESSAGE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zugriff auf die Datei nicht möglich. Überprüfen Sie die Berechtigungen und versuchen Sie es erneut."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unable to access the file. Please check permissions and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se puede acceder al archivo. Por favor verifica los permisos y vuelve a intentarlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'accéder au fichier. Veuillez vérifier les autorisations et réessayer."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אין אפשרות לגשת לקובץ. נא לבדוק הרשאות ולנסות שוב."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile accedere al file. Controlla le autorizzazioni e riprova."
           }
         }
       }
@@ -1070,10 +3816,204 @@
     "UPLOAD_FILE_TRY_ANOTHER_ALERT_ACTION" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versuchen Sie eine andere Datei"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try a different file"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prueba con un archivo diferente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayez un autre fichier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נסה קובץ אחר"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova un file diverso"
+          }
+        }
+      }
+    },
+    "base_monthly_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schalten Sie essenzielle Funktionen frei, um Ihre Aufgaben zu rationalisieren und konzentriert zu bleiben.  \n\n• 🚫 Werbefreie Erfahrung — Beseitigen Sie Ablenkungen und arbeiten Sie ungestört.  \n\n• 📄 Dokumentenscan — Scannen Sie mühelos bis zu 10 Seiten (128k Tokens). \n\n• ✍️ Schnelle Zusammenfassungen & Übersetzungen — Erstellen und übersetzen Sie Zusammenfassungen in Sekunden, um Zeit zu sparen.  \n\nAlles, was Sie brauchen, um organisiert und effizient zu bleiben — starten Sie noch heute Ihren Essential-Plan!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock essential features to streamline your tasks and stay focused.  \\n\\n• 🚫 Ad-Free Experience — Eliminate distractions and work uninterrupted.  \\n\\n• 📄 Document Scanning — Scan up to 10 pages (128k tokens) with ease. \\n\\n• ✍️ Quick Summaries & Translations — Generate and translate summaries in seconds to save time.  \\n\\nEverything you need to stay organized and efficient — start your Essential Plan today!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea funciones esenciales para agilizar tus tareas y mantenerte enfocado.  \\n\\n• 🚫 Experiencia sin anuncios — Elimina distracciones y trabaja sin interrupciones.  \\n\\n• 📄 Escaneo de documentos — Escanea hasta 10 páginas (128k tokens) con facilidad. \\n\\n• ✍️ Resúmenes y traducciones rápidas — Genera y traduce resúmenes en segundos para ahorrar tiempo.  \\n\\nTodo lo que necesitas para mantenerte organizado y eficiente — empieza tu Plan Esencial hoy mismo!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Débloquer des fonctionnalités essentielles pour simplifier vos tâches et rester concentré.  \\n\\n• 🚫 Expérience sans publicités — Éliminez les distractions et travaillez sans interruption.  \\n\\n• 📄 Numérisation de documents — Numérisez jusqu'à 10 pages (128k tokens) facilement. \\n\\n• ✍️ Résumés et traductions rapides — Générez et traduisez des résumés en quelques secondes pour gagner du temps.  \\n\\nTout ce dont vous avez besoin pour rester organisé et efficace — commencez votre Plan Essentiel dès aujourd'hui !"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פתיחת תכונות חיוניות להקלת המשימות ולשמירה על ריכוז. \n\n• 🚫 חוויית נטולת פרסומות — סלק הסחות דעת ועבוד ללא הפרעות.\n\n• 📄 סריקת מסמכים — סרוק עד 10 עמודים (128k טוקנים) בקלות.\n\n• ✍️ סיכומים ותרגומים מהירים — צור ותרגם סיכומים תוך שניות כדי לחסוך זמן.\n\nכל מה שאתה צריך כדי להישאר מאורגן ויעיל — התחל את תוכנית ה-Essential שלך היום!"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sblocca le funzionalità essenziali per semplificare le tue attività e rimanere concentrato.\n\n• 🚫 Esperienza Senza Annunci — Elimina le distrazioni e lavora senza interruzioni.\n\n• 📄 Scansione Documenti — Scansiona fino a 10 pagine (128k token) con facilità.\n\n• ✍️ Sommari e Traduzioni Veloci — Genera e traduci sommari in pochi secondi per risparmiare tempo.\n\nTutto ciò di cui hai bisogno per rimanere organizzato ed efficiente — inizia il tuo Piano Essenziale oggi!"
+          }
+        }
+      }
+    },
+    "base_monthly_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essentieller Plan"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essential Plan"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan Esencial"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offre Essentielle"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תוכנית חיונית"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piano essenziale"
+          }
+        }
+      }
+    },
+    "pro_monthly_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steigern Sie Ihre Produktivität mit erweiterten Funktionen und unbegrenzten Möglichkeiten.\n\n• 📄 Unbegrenztes Dokumentenscannen — Kein 128k-Token-Limit, scannen Sie so viel, wie Sie benötigen.\n\n• 🧠 Zugriff auf erweiterte Modelle — Nutzen Sie leistungsstarke KI wie Gemini 2 und ChatGPT-4 für eine tiefgehende Analyse und erweiterte Funktionalität.\n\nPerfekt für Power-User und Profis — schalten Sie das volle Potenzial der KI mit dem Pro-Plan frei!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take your productivity to the next level with advanced features and limitless capabilities.  \\n\\n• 📄 Unlimited Document Scanning — No 128k token limit, scan as much as you need.  \\n\\n• 🧠 Access to Advanced Models — Leverage powerful AI like Gemini 2 and ChatGPT-4 for in-depth analysis and enhanced functionality.  \\n\\nPerfect for power users and professionals — unlock the full potential of AI with the Pro Plan!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lleve su productividad al siguiente nivel con funciones avanzadas y capacidades ilimitadas.  \\n\\n• 📄 Escaneo de Documentos Ilimitado — Sin límite de 128k tokens, escanee tanto como necesite.  \\n\\n• 🧠 Acceso a Modelos Avanzados — Aproveche potentes IA como Gemini 2 y ChatGPT-4 para un análisis profundo y una funcionalidad mejorada.  \\n\\nPerfecto para usuarios avanzados y profesionales — ¡desbloquee todo el potencial de la IA con el Plan Pro!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Améliorez votre productivité avec des fonctionnalités avancées et des capacités illimitées. \\n\\n• 📄 Numérisation de documents illimitée — Pas de limite de 128k tokens, numérisez autant que nécessaire. \\n\\n• 🧠 Accès à des modèles avancés — Exploitez la puissance de l'IA comme Gemini 2 et ChatGPT-4 pour une analyse approfondie et une fonctionnalité améliorée. \\n\\nParfait pour les utilisateurs intensifs et les professionnels — libérez tout le potentiel de l'IA avec le Pro Plan !"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "קח את הפרודוקטיביות שלך לשלב הבא עם תכונות מתקדמות ויכולות בלתי מוגבלות.  \\n\\n• 📄 סריקת מסמכים בלתי מוגבלת — ללא הגבלת 128k טוקן, סרוק כמה שאתה צריך.  \\n\\n• 🧠 גישה לדגמים מתקדמים — נצל AI חזק כמו Gemini 2 ו-ChatGPT-4 לניתוח מעמיק ולשיפור הפונקציונליות.  \\n\\nמושלם למשתמשים מקצועיים ומכורים — פתח את כל הפוטנציאל של AI עם התכנית המקצועית!"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Porta la tua produttività al livello successivo con funzionalità avanzate e capacità illimitate.  \n\n• 📄 Scansione Documento Illimitata — Nessun limite di 128k token, scansiona quanto ti serve.  \n\n• 🧠 Accesso a Modelli Avanzati — Sfrutta potenti intelligenze artificiali come Gemini 2 e ChatGPT-4 per analisi approfondite e funzionalità potenziate.  \n\nPerfetto per utenti esperti e professionisti — sblocca il pieno potenziale dell'IA con il Piano Pro!"
+          }
+        }
+      }
+    },
+    "pro_monthly_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro-Plan"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro Plan"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan Pro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan Pro"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תוכנית פרו"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piano Pro"
           }
         }
       }

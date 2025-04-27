@@ -295,6 +295,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				it,
+				de,
+				fr,
+				es,
 			);
 			mainGroup = 62128CA02A1F8F92005D732A;
 			packageReferences = (
