@@ -35,7 +35,6 @@
 		627B901C2D590F9800E190D9 /* ADUnitIDCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B901B2D590F8E00E190D9 /* ADUnitIDCode.swift */; };
 		6281B29B2B310D87002BD527 /* ScanViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281B29A2B310D87002BD527 /* ScanViewUIComposer.swift */; };
 		628EE84D2B4CB24B005DFA76 /* UploadFileComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628EE84C2B4CB24B005DFA76 /* UploadFileComposer.swift */; };
-		629B784E2DA49B07004DF136 /* Store.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 629B784D2DA49B07004DF136 /* Store.storekit */; };
 		629E60A02B7ADD5B00B1501A /* TextAnalyzerComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629E609F2B7ADD5B00B1501A /* TextAnalyzerComposer.swift */; };
 		62A114B62D8F3A3400A66B89 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 62A114B52D8F3A3400A66B89 /* PrivacyInfo.xcprivacy */; };
 		62A114B92D8F3BDC00A66B89 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 62A114B82D8F3BDC00A66B89 /* GoogleUserMessagingPlatform */; };
@@ -52,6 +51,7 @@
 		62CC50F02D8B3CD200404494 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 62CC50EF2D8B3CD200404494 /* FirebaseRemoteConfig */; };
 		62CC50FB2D8B898C00404494 /* WebViewUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC50FA2D8B898300404494 /* WebViewUIComposer.swift */; };
 		62D4352B2DA49A0900893471 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D4352A2DA49A0900893471 /* StoreKit.framework */; };
+		62EC40822DBEA38200CBC8D3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 62EC40812DBEA38200CBC8D3 /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,6 +122,7 @@
 				62097F292D91E0F500ABD541 /* GoogleAIFeature.framework in Frameworks */,
 				62097F322D91E10000ABD541 /* RestApi.framework in Frameworks */,
 				62CC50F02D8B3CD200404494 /* FirebaseRemoteConfig in Frameworks */,
+				62EC40822DBEA38200CBC8D3 /* FirebaseCrashlytics in Frameworks */,
 				62097F342D91E10100ABD541 /* ScanUI.framework in Frameworks */,
 				62CC50EE2D8B3CD200404494 /* FirebasePerformance in Frameworks */,
 				62097F2C2D91E0F800ABD541 /* LLMFeature.framework in Frameworks */,
@@ -264,6 +265,7 @@
 				62128CA62A1F8F92005D732A /* Frameworks */,
 				62128CA72A1F8F92005D732A /* Resources */,
 				62097F2B2D91E0F500ABD541 /* Embed Frameworks */,
+				62EC40802DBEA33600CBC8D3 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -321,7 +323,6 @@
 			files = (
 				62A114B62D8F3A3400A66B89 /* PrivacyInfo.xcprivacy in Resources */,
 				62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */,
-				629B784E2DA49B07004DF136 /* Store.storekit in Resources */,
 				622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */,
 				62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */,
 				626FA3052DB175130077CCBF /* GoogleService-Info.plist in Resources */,
@@ -329,6 +330,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62EC40802DBEA33600CBC8D3 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		62128CA52A1F8F92005D732A /* Sources */ = {
@@ -493,9 +520,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan text";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Prova fotocamera";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Test desktop";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Questa app necessita dell'accesso ai file per importare documenti.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "This app requires access to files to import documents.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We need to track your data to improve the product experience, to resolve crashes efficiently and to understand how to improve application usage.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -538,9 +563,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan text";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Prova fotocamera";
-				INFOPLIST_KEY_NSDesktopFolderUsageDescription = "Test desktop";
-				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Questa app necessita dell'accesso ai file per importare documenti.";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "This app requires access to files to import documents.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We need to track your data to improve the product experience, to resolve crashes efficiently and to understand how to improve application usage.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -633,6 +656,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 62CC50E82D8B3CD200404494 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
+		};
+		62EC40812DBEA38200CBC8D3 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
