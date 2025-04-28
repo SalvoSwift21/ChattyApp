@@ -183,5 +183,7 @@
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to scan text</string>
 </dict>
 </plist>

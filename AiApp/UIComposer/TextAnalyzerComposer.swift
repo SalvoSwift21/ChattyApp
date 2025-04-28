@@ -59,7 +59,7 @@ public final class TextAnalyzerComposer {
             }
             
             client = makeOpenAIHTTPClient(modelName: currentAi.aiType.rawValue, maxInputToken: maxInputToken, maxOutputToken: currentAi.maxOutputToken)
-        case .gemini_2_0_flash, .gemini_pro, .gemini_2_0_flash_lite:
+        case .gemini_2_0_flash, .gemini_pro, .gemini_2_0_flash_lite, .gemini_2_5_pro:
             var maxResourceToken: Int = currentProductFeature.getMaxResourceToken()
             
             if let _ = currentProductFeature.features.filter({ $0 == .complexSummaryMaxTokenAvaible }).first {

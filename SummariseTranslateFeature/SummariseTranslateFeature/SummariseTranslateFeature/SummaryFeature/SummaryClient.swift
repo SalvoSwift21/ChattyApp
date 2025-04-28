@@ -25,12 +25,21 @@ public class SummaryClient: SummaryClientProtocol {
     }
     
     public func makeSummary(fromText text: String) async throws -> String {
-        let summPrompt = "Summarise the following text: \(text)"
+        let summPrompt = """
+        Summarize the following text focusing on the main ideas, arguments, and conclusions. \
+        Write a coherent and natural summary in paragraph form. Avoid missing critical information. \
+        Only output the final summarized text.
+        Text: \(text)
+        """
         return try await self.summariseService.makeSummary(fromText: summPrompt)
     }
     
     public func makeSummary(forData data: Data, mimeType: String) async throws -> String {
-        let summPrompt = "Summarize the following text highlighting the main arguments"
+        let summPrompt = """
+            Analyze and summarize the following document. Focus on capturing key ideas, main arguments, and important conclusions. \
+            Structure the summary in a clear and readable format, using paragraphs or bullet points depending on the document's complexity. \
+            Be concise but do not omit essential information. Only output the final summarized text.
+            """
         return try await summariseService.makeFileSummary(fromText: summPrompt, data: data, mimeType: mimeType)
     }
 }
