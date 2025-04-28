@@ -16,7 +16,7 @@ public final class StoreUIComposer {
     static var storeFeatureStore: StoreFeatureStore?
     
     public static func storeComposedWith(
-        menuButtonTapped: @escaping () -> Void = { }
+        closeAction: @escaping () -> Void = { }
     ) -> StoreFeatureView {
         
         let bundle = Bundle.init(identifier: "com.ariel.ScanUI") ?? .main
@@ -33,7 +33,7 @@ public final class StoreUIComposer {
                                                  service: productFeatureService,
                                                  productFeature: current,
                                                  bundle: bundle,
-                                                 menuButton: menuButtonTapped) { newProduct in
+                                                 closeAction: closeAction) { newProduct in
             Task {
                 await AppConfiguration.shared.purchaseManager.saveNewPurchase(newProduct)
             }

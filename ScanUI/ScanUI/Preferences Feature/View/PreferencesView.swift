@@ -17,6 +17,8 @@ public struct PreferencesView: View {
     @State var showAiModelsListHelper: Bool = false
     @State var showLanguagesModelsList: Bool = false
     @State var showLanguagesHelper: Bool = false
+    @EnvironmentObject
+    private var purchaseManager: PurchaseManager
 
     var resourceBundle: Bundle
 
@@ -94,6 +96,9 @@ public struct PreferencesView: View {
         .background(.clear)
         .task {
             await presenter.loadData()
+        }
+        .onChange(of: purchaseManager.currentAppProductFeature) {
+            presenter.handleNewProductFeature(productFeature: purchaseManager.currentAppProductFeature)
         }
     }
     
@@ -179,6 +184,7 @@ public struct PreferencesView: View {
                     }
                 }
             }
+            .padding(!viewModel.transactionServiceIsEnabled ? 8 : 0)
         }
         .overlay(
             ZStack(alignment: .topTrailing) {
@@ -209,30 +215,59 @@ public struct PreferencesView: View {
     @ViewBuilder
     func PrivacySection() -> some View {
         Section {
-            Button {
-                presenter.loadPrivacyPolicyManager()
-            } label: {
-                HStack(alignment: .center, spacing: 8) {
-                    Image(systemName: "shield.lefthalf.filled")
-                        .foregroundColor(.prime)
-                    
-                    Text("PREFERENCES_PRIVACY_BUTTON")
-                        .font(.system(size: 14))
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
-                        .foregroundStyle(.title)
-                        .lineLimit(1)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
+            VStack(spacing: 0) {
+                Button {
+                    presenter.privacySettingTapped()
+                } label: {
+                    HStack(alignment: .center, spacing: 8) {
+                        Image(systemName: "shield.lefthalf.filled")
+                            .foregroundColor(.prime)
+                            .frame(width: 24, height: 24)
+                        
+                        Text("PREFERENCES_PRIVACY_BUTTON")
+                            .font(.system(size: 14))
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                            .foregroundStyle(.title)
+                            .lineLimit(1)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                    }
                 }
                 .padding()
-                .background(.white)
-                .clipShape(.buttonBorder)
-                .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
+
+                Divider()
+                Button {
+                    presenter.storeButtonTapped()
+                } label: {
+                    HStack(alignment: .center, spacing: 8) {
+                        Image(systemName: "crown")
+                            .foregroundColor(.prime)
+                            .frame(width: 24, height: 24)
+                        
+                        Text("PREFERENCES_MEMBERSHIP_BUTTON")
+                            .font(.system(size: 14))
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                            .foregroundStyle(.title)
+                            .lineLimit(1)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding()
+
             }
+            .background(.white)
+            .clipShape(.rect(cornerRadius: 8))
+            .shadow(color: .gray.opacity(0.4), radius: 8.0, x: 0.0, y: 0.0)
+            
         } header: {
             HStack {
                 VStack(alignment: .leading, spacing: 5.0) {
@@ -263,7 +298,7 @@ public struct PreferencesView: View {
     var service = LocalAIPreferencesService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main, userDefault: UserDefaults.standard, aiPreference: AIPreferenceModel(title: "", imageName: "", aiType: .gemini_2_0_flash, maxOutputToken: 0, maxInputToken: 0))
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
     
-    var presenter = PreferencePresenter(delegate: preferenceStore, service: service, currentAppProductFeature: currentAppProductFeature, privacyButtonTapped: { }, menuButton: { }, updatePreferences: { })
+    var presenter = PreferencePresenter(delegate: preferenceStore, service: service, currentAppProductFeature: currentAppProductFeature, privacyButtonTapped: { }, menuButton: { }, updatePreferences: { }, storeViewTapped: { })
     
     NavigationView {
         PreferencesView(store: preferenceStore, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)

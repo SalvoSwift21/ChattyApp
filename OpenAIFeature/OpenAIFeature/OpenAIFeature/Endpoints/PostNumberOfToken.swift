@@ -13,7 +13,7 @@ class PostNumberOfToken: Endpoint {
     
     var scheme: Schema = .HTTPS
     
-    var host: String = "counttokens-3vvvjwx6ca-uc.a.run.app"
+    var host: String = "counttokens-ulnfu45kta-uc.a.run.app"
     
     var path: String = ""
     

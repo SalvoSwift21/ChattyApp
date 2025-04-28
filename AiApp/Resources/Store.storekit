@@ -1,0 +1,154 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "E010D57A",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_compatibilityTimeRate" : {
+      "3" : 3
+    },
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : {
+          "index" : 1,
+          "type" : "purchase"
+        },
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ],
+    "_timeRate" : 10
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "7EC8E6AF",
+      "localizations" : [
+
+      ],
+      "name" : "Chatty Pass",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "97E5323B",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Sblocca il pacchetto premium per rimuovere gli annunci, scansionare documenti (fino a 10 pagine e 128k token), generare riassunti e tradurli facilmente, ottimizzando la tua produttività.\nScansioni da fotocamere\n\nArchiviazione iCloud\n\nCondivisione del riassunto",
+              "displayName" : "Base subscription",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "base_monthly",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "Base",
+          "subscriptionGroupID" : "7EC8E6AF",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "19.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "51C1C809",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Sblocca il pacchetto Pro per scansionare documenti senza limiti di 128k token e accedere a modelli avanzati come Gemini 2 o ChatGPT-4 per analisi e funzionalità di livello superiore.",
+              "displayName" : "Pro",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "pro_monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro",
+          "subscriptionGroupID" : "7EC8E6AF",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

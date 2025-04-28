@@ -13,8 +13,8 @@ public class ChangeManager: ObservableObject, Observable {
     
     public init() {}
     
+    @MainActor
     func addNewChange(newStrings: String) {
         self.changes.append(newStrings)
     }
-    
 }

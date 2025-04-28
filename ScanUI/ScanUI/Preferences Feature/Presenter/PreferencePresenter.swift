@@ -18,6 +18,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     public var menuButton: (() -> Void)
     public var updatePreferences: (() -> Void)
     public var privacyButtonTapped: (() -> Void)
+    public var storeViewTapped: (() -> Void)
     var currentAppProductFeature: ProductFeature
 
 
@@ -27,6 +28,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
                 privacyButtonTapped: @escaping (() -> Void),
                 menuButton: @escaping (() -> Void),
                 updatePreferences: @escaping (() -> Void),
+                storeViewTapped: @escaping (() -> Void),
                 bundle: Bundle = Bundle(identifier: "com.ariel.ScanUI") ?? .main) {
         self.service = service
         self.delegate = delegate
@@ -35,6 +37,7 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         self.resourceBundle = bundle
         self.currentAppProductFeature = currentAppProductFeature
         self.privacyButtonTapped = privacyButtonTapped
+        self.storeViewTapped = storeViewTapped
     }
     
     @MainActor
@@ -72,8 +75,14 @@ public class PreferencePresenter: PreferencePresenterProtocol {
     fileprivate func savePreferenceFromAI(_ model: AIPreferenceModel) {
         Task {
             do {
-                guard let defaultLanguage = try model.aiType.getAllSupportedLanguages().languages.first else { return }
-                let preference = PreferenceModel(selectedLanguage: defaultLanguage, selectedAI: model)
+                let currentLanguage = try await loadAIPreferencereType().selectedLanguage
+                let defaultLanguages = try model.aiType.getAllSupportedLanguages().languages
+                
+                guard !defaultLanguages.isEmpty else { return }
+                let correctLanguage = defaultLanguages.contains(where: { $0.code == currentLanguage.code }) ? currentLanguage : defaultLanguages.first!
+                
+                let preference = PreferenceModel(selectedLanguage: correctLanguage, selectedAI: model)
+                
                 try await saveAIPreferencereType(preference)
                 await loadData()
                 updatePreferences()
@@ -118,8 +127,19 @@ public class PreferencePresenter: PreferencePresenterProtocol {
         }
     }
     
-    public func loadPrivacyPolicyManager() {
+    func handleNewProductFeature(productFeature: ProductFeature) {
+        currentAppProductFeature = productFeature
+        Task {
+            await loadData()
+        }
+    }
+    
+    public func privacySettingTapped() {
         privacyButtonTapped()
+    }
+    
+    public func storeButtonTapped() {
+        storeViewTapped()
     }
 }
 

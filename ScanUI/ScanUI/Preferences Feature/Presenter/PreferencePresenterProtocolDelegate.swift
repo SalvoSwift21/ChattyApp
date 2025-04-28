@@ -17,11 +17,13 @@ protocol PreferencePresenterProtocol: AnyObject {
     
     func saveAIPreferencereType(_ preferenceModel: PreferenceModel) async throws
     func loadAIPreferencereType() async throws -> PreferenceModel
-    func loadPrivacyPolicyManager()
+    func privacySettingTapped()
+    func storeButtonTapped()
     
     func transactionServiceIsEnabled() -> Bool
     
     func handleErrorMessageButton(errorState: PreferenceStore.ErrorState)
+    func handleNewProductFeature(productFeature: ProductFeature)
 }
 
 @MainActor

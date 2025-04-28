@@ -16,24 +16,13 @@ public class AppConfiguration {
     
     static public var shared = AppConfiguration()
     
-    static let appGroupName = "group.com.ariel.ai.scan.app"
-    static let defaultFolderName = String(localized: "DEFAULT_FOLDER_NAME")
-    
     let preferencesStoreManager = UserDefaults(suiteName: "PREFERENCES_STORE_MANAGER")
     let purchaseManager: PurchaseManager
     let adMobManager: AdMobManager
-    let changeManager: ChangeManager
     let userMessageManager: UserMessagubgPlatformManager
+    var dataConfigurationManager: DataConfigurationManager
     
     private var bootAppIsFinished: Bool = false
-    
-    var storeURL: URL = {
-        guard var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppConfiguration.appGroupName) else {
-            return URL(string: "Test")!
-        }
-        let storeURLResult = storeURL.appendingPathComponent("AI.SCAN.sqlite")
-        return storeURLResult
-    }()
     
     var preferenceService: LocalAIPreferencesService
     
@@ -46,20 +35,27 @@ public class AppConfiguration {
         let productFeatureService = ProductFeatureService(resourceBundle: bundle)
         purchaseManager = PurchaseManager(storeService: storeService, productFeatureService: productFeatureService)
         adMobManager = AdMobManager(bannerUnitId: ADUnitIDCode.bannerID.id, interstitialUnitId: ADUnitIDCode.interstitialID.id)
-        changeManager = ChangeManager()
         userMessageManager = UserMessagubgPlatformManager()
+        dataConfigurationManager = DataConfigurationManager()
     }
     
     public func bootApp() async throws {
         guard bootAppIsFinished == false else { return }
         try await purchaseManager.startManager()
         try await selectAIIfNeeded()
-        try await userMessageManager.askConsentInfo()
-        if userMessageManager.canRequestAds {
-            try await adMobManager.startManager()
-        }
         
         bootAppIsFinished = true
+    }
+    
+    public func bootSecondaryService() async {
+        do {
+            try await userMessageManager.askConsentInfo()
+            if userMessageManager.canRequestAds {
+                try await adMobManager.startManager()
+            }
+        } catch {
+            debugPrint("Error secondry service: \(error)")
+        }
     }
     
     public func updatePreferences() {
@@ -76,19 +72,25 @@ public class AppConfiguration {
     fileprivate func selectAIIfNeeded() async throws {
         let allAI = try await preferenceService.getAIPreferences()
         
-        
         guard let defaultAI = allAI.avaibleAI.first(where: { $0.aiType.isEnabledFor(productID: purchaseManager.currentAppProductFeature.productID ) }) else {
             fatalError("No AI Avaible")
         }
         
-        guard let defaultLanguage = try defaultAI.aiType.getAllSupportedLanguages().languages.first else {
+        var chosenLanguage: LLMLanguage
+        
+        let currentLocalLanguage = Locale.current
+        let defaultLanguage = try defaultAI.aiType.getAllSupportedLanguages().languages
+        
+        guard !defaultLanguage.isEmpty else {
             fatalError("No supported Language")
         }
         
+        chosenLanguage = defaultLanguage.first(where: { $0.locale.region?.identifier == currentLocalLanguage.region?.identifier }) ?? defaultLanguage.first ?? LLMLanguage(code: currentLocalLanguage.identifier, name: currentLocalLanguage.description, locale: currentLocalLanguage, id: .init())
+        
         let result = try? await preferenceService.loadAIPreferencereType()
         
-        guard let result = result else {
-            let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: defaultLanguage, selectedAI: defaultAI)
+        guard let result = result, result.selectedAI.aiType.isEnabledFor(productID: purchaseManager.currentAppProductFeature.productID) else {
+            let preference: PreferenceModel = PreferenceModel.init(selectedLanguage: chosenLanguage, selectedAI: defaultAI)
             try await preferenceService.saveAIPreferencereType(preference)
             self.updatePreference(with: preference)
             return

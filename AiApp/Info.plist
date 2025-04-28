@@ -2,22 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>We need to track your data to improve the product experience, to resolve crashes efficiently and to understand how to improve application usage.</string>
 	<key>BASE_URL</key>
 	<string>$(BASE_URL)</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-	</array>
-	<key>NSDocumentsFolderUsageDescription</key>
-	<string>Questa app necessita dell&apos;accesso ai file per importare documenti.</string>
-	<key>UIFileSharingEnabled</key>
-	<true/>
-	<key>LSSupportsOpeningDocumentsInPlace</key>
-	<true/>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>GADApplicationIdentifier</key>
 	<string>$(APP_AD_MOB_ID)</string>
 	<key>SKAdNetworkItems</key>
@@ -191,5 +177,13 @@
 			<string>3qcr597p9d.skadnetwork</string>
 		</dict>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to scan text</string>
 </dict>
 </plist>

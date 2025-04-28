@@ -42,8 +42,9 @@ public enum AIModelType: String, CaseIterable, Codable {
     case gpt_4o_mini = "gpt-4o-mini"
     case gemini_2_0_flash = "gemini-2.0-flash"
     case gemini_2_0_flash_lite = "gemini-2.0-flash-lite"
-    case gemini_pro = "gemini-2.0-pro-exp-02-05"
-    
+    case gemini_pro = "gemini-1.5-pro-latest"
+    case gemini_2_5_pro = "gemini-2.5-pro-preview-03-25"
+
     case unowned
     
     func getDescription() -> String {
@@ -58,6 +59,8 @@ public enum AIModelType: String, CaseIterable, Codable {
             return "AI_MODEL_DESCRIPTION_GEMINI_PRO"
         case .gemini_2_0_flash_lite:
             return "AI_MODEL_DESCRIPTION_GEMINI_1.5FLASH_8B"
+        case .gemini_2_5_pro:
+            return "AI_MODEL_DESCRIPTION_GEMINI_2.5_PRO"
         case .unowned:
             return "Error"
         }
@@ -65,15 +68,19 @@ public enum AIModelType: String, CaseIterable, Codable {
     
     public func getAISupportedFileTypes(forProductFeature productFeature: ProductFeature) -> [UTType] {
         switch self {
-            case .gpt_4_o, .gpt_4o_mini:
-            return OpenAiConfiguration.getSupportedUTType()
-        case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro:
+        case .gpt_4_o, .gpt_4o_mini:
+            if productFeature.features.contains(where: { $0.rawValue == FeatureEnum.removeAds.rawValue }) {
+                return OpenAiConfiguration.getSupportedUTType()
+            } else {
+                return [.image, .png, .jpeg]
+            }
+        case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro, .gemini_2_5_pro:
             if productFeature.features.contains(where: { $0.rawValue == FeatureEnum.removeAds.rawValue }) {
                 return GoogleAIConfigurations.getSupportedUTType()
             } else {
                 return [.image, .png, .jpeg]
             }
-        default:
+        case .unowned:
             return []
         }
     }
@@ -82,7 +89,7 @@ public enum AIModelType: String, CaseIterable, Codable {
         switch self {
         case .gpt_4_o, .gpt_4o_mini:
             return try OpenAiConfiguration.getSupportedLanguages()
-        case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro, .unowned:
+        case .gemini_2_0_flash, .gemini_2_0_flash_lite, .gemini_pro, .gemini_2_5_pro, .unowned:
             return try GoogleAIConfigurations.getSupportedLanguages()
         }
     }
@@ -99,7 +106,7 @@ public enum AIModelType: String, CaseIterable, Codable {
             licenseType = ["free", "base_monthly", "pro_monthly"]
         case .gemini_2_0_flash_lite:
             licenseType = ["base_monthly", "pro_monthly"]
-        case .gemini_pro:
+        case .gemini_pro, .gemini_2_5_pro:
             licenseType = ["pro_monthly"]
         case .unowned:
             break

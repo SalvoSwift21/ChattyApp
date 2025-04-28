@@ -7,12 +7,13 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
+
 import CoreData
 
-@MainActor
+
 public final class SwiftDataStore {
 
-    private var configuration = ModelConfiguration()
     internal var modelContainer: ModelContainer
     internal var changeManager: ChangeManager
     
@@ -44,34 +45,46 @@ public final class SwiftDataStore {
         }
     }
     
-    public init(storeURL: URL, defaultFolderName: String, changeManager: ChangeManager) throws {
-        do {
-            self.defaultFolderName = defaultFolderName
-            self.changeManager = changeManager
-            let schema = Schema([
-                FolderStorageModel.self
-            ])
-            let modelConfiguration = ModelConfiguration(nil,
-                                                        schema: schema,
-                                                        url: storeURL,
-                                                        allowsSave: true,
-                                                        cloudKitDatabase: .automatic)
-            modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
-            try createDefaultFolderIfNeeded()
-        } catch {
-            throw SwiftDataStore.failedToLoadPersistentContainer(error)
-        }
-    } 
     
-    private func createDefaultFolderIfNeeded() throws {
-        guard let folders = try self.retrieveFolders(), folders.isEmpty else {
-            return
-        }
+    public init(modelContainer: ModelContainer,
+                defaultFolderName: String,
+                changeManager: ChangeManager) throws {
+        self.modelContainer = modelContainer
+        self.defaultFolderName = defaultFolderName
+        self.changeManager = changeManager
         
-        //Create folder
-        let folder = Folder(title: defaultFolderName, scans: [], canEdit: false)
-        try self.create(folder)
+        startObservingDataChanges()
     }
     
-    deinit { }
+    
+    public func createDefaultFolderIfNeeded() throws {
+        Task {
+            guard let folders = try await self.retrieveFolders(), folders.isEmpty else {
+                return
+            }
+            
+            //Create folder
+            let folder = Folder(title: defaultFolderName, scans: [], canEdit: false)
+            try await self.create(folder)
+        }
+    }
+    
+    
+    func startObservingDataChanges() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateFromICloud(_:)),
+                                               name: .NSPersistentStoreRemoteChange,
+                                               object: nil)
+    }
+
+   
+    @MainActor
+    @objc private func updateFromICloud(_ notification: Notification) {
+        debugPrint("Changes from iCloud detected.")
+    }
+    
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

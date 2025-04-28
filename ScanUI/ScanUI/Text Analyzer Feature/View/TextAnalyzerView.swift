@@ -19,8 +19,8 @@ public struct TextAnalyzerView: View {
 
     @State private var showingCopyConfirmView = false
 
-    var presenter: TextAnalyzerPresenter
-    @ObservedObject var store: TextAnalyzerStore
+    @StateObject var presenter: TextAnalyzerPresenter
+    @StateObject var store: TextAnalyzerStore
 
     var resourceBundle: Bundle
     
@@ -35,8 +35,8 @@ public struct TextAnalyzerView: View {
     @State private var isSharing = false
 
     public init(store: TextAnalyzerStore, presenter: TextAnalyzerPresenter, resourceBundle: Bundle = .main) {
-        self.store = store
-        self.presenter = presenter
+        _store = StateObject(wrappedValue: store)
+        _presenter = StateObject(wrappedValue: presenter)
         self.resourceBundle = resourceBundle
     }
     
@@ -87,6 +87,9 @@ public struct TextAnalyzerView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
+        .onChange(of: purchaseManager.currentAppProductFeature) {
+            presenter.handleNewProductFeature(productFeature: purchaseManager.currentAppProductFeature)
+        }
         .sheet(isPresented: $showFoldersView) {
             FoldersView
         }
@@ -106,19 +109,21 @@ public struct TextAnalyzerView: View {
                     }.padding()
                 }
                 .background(.clear)
-                .defaultScrollAnchor(.bottom)
+                .defaultScrollAnchor(.top)
 
                 
                 HStack(alignment: .center, spacing: 10) {
                     Menu {
-                        if presenter.transactionFeatureIsEnabled() {
-                            Button(action: {
-                                Task(priority: .background) {
+                        Button(action: {
+                            Task {
+                                if presenter.transactionFeatureIsEnabled() {
                                     await presenter.makeTranslation()
+                                } else {
+                                    presenter.storeButtonTapped()
                                 }
-                            }) {
-                                Label("GENERIC_TRANSLATE_ACTION", systemImage: "bubble.left.and.text.bubble.right")
                             }
+                        }) {
+                            Label("GENERIC_TRANSLATE_ACTION", systemImage: presenter.transactionFeatureIsEnabled() ? "bubble.left.and.text.bubble.right" : "lock")
                         }
                         
                         Button(action: {
@@ -214,7 +219,7 @@ public struct TextAnalyzerView: View {
     let service = TextAnalyzerService(summaryClient: summaryClient, translateClient: trClient, storageClient: getFakeStorage())
     var currentAppProductFeature: ProductFeature = ProductFeature(features: [.complexAIModel], productID: "")
 
-    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: currentAppProductFeature, bannerID: "ca-app-pub-3940256099942544/2435281174", bundle: bundle)
+    let textAnalyzerPresenter = TextAnalyzerPresenter(delegate: textAnalyzerStore, service: service, scannedResult: scanResult, currentProductFeature: currentAppProductFeature, bannerID: "ca-app-pub-3940256099942544/2435281174", bundle: bundle, storeViewTapped: { })
     
     TextAnalyzerView(store: textAnalyzerStore, presenter: textAnalyzerPresenter, resourceBundle: bundle)
 }

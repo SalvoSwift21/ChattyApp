@@ -11,7 +11,7 @@ import StoreKit
 
 protocol StorePresenterProtocol: AnyObject {
     var resourceBundle: Bundle { get set }
-    var menuButton: (() -> Void) { get set }
+    var closeAction: (() -> Void) { get set }
 
     func loadData() async
     

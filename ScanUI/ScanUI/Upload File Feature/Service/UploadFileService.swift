@@ -34,11 +34,9 @@ public class UploadFileService: UploadFileServiceProtocol {
         }
         
         switch fileType {
-        case .pdf:
-            return try extractDataFromFiles(url)
         case .image, .jpeg, .png:
             return try await extractScanFromImage(url)
-        default: throw UploadFileServiceError.invalidFileType
+        default: return try extractDataFromFiles(url)
         }
     }
 }

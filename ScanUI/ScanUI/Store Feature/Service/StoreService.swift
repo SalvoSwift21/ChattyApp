@@ -53,13 +53,15 @@ public class StoreService: StoreServiceProtocol {
             case .verified(let transaction):
                 // Check the type of product for the transaction
                 // and provide access to the content as appropriate.
-                if transaction.isUpgraded {
+                if let revocationDate = transaction.revocationDate {
+                    // La transazione è stata revocata, puoi gestirla di conseguenza.
                     continue
                 } else {
-                    if transaction.revocationDate == nil {
-                        return transaction.productID
-                    } else {
+                    // La transazione è attiva e non è stata cancellata.
+                    if transaction.isUpgraded {
                         continue
+                    } else {
+                        return transaction.productID
                     }
                 }
             case .unverified(let unverifiedTransaction, let verificationError):

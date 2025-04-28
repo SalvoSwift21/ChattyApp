@@ -16,6 +16,7 @@ public struct StoreFeatureView: View {
     @ObservedObject var store: StoreFeatureStore
 
     var resourceBundle: Bundle
+    @State private var currentProductSelected = ProductFeature(features: [], productID: "")
 
     public init(store: StoreFeatureStore, presenter: StorePresenter, resourceBundle: Bundle = .main) {
         self.store = store
@@ -30,24 +31,31 @@ public struct StoreFeatureView: View {
                 case .unowned:
                     EmptyView()
                 case .loaded(let viewModel):
-                    SubscriptionStoreView(productIDs: viewModel.getOnlyPaidModels().map(\.productID), marketingContent: {
-                        VStack {
-                            ForEach(viewModel.getOnlyPaidModels(), id: \.productID) { element in
-                                PassMarketingContent(product: element)
-                                    .padding()
-                            }
+                    SubscriptionStoreView(productIDs: viewModel.getOnlyPaidModels().map(\.productID), content: {
+                        SubscriptionOptionGroupSet { product in
+                            return viewModel.products.first(where: { $0.productID == product.id }) ?? ProductFeature(features: [], productID: "product")
+                        } label: { product in
+                            Text(product.getLocalizedDescription().title)
+                        } marketingContent: { product in
+                            PassMarketingContent(product: product, bundle: self.resourceBundle)
                         }
                     })
-                    .subscriptionStoreButtonLabel(.multiline)
-                    .subscriptionStoreControlStyle(.prominentPicker)
+                    .subscriptionStoreControlStyle(.compactPicker, placement: .bottomBar)
+                    .subscriptionStoreOptionGroupStyle(.tabs)
                     .subscriptionStorePickerItemBackground(.backgroundFolder.opacity(0.5))
                     .background(Color.mainBackground)
+                    .onInAppPurchaseStart(perform: { product in
+                        currentProductSelected = viewModel.getOnlyPaidModels().first(where: { $0.productID == product.id }) ?? ProductFeature(features: [], productID: "")
+                    })
                     .onInAppPurchaseCompletion { product, result in
                         presenter.productTapped(productModelID: product.id,
                                                 productPurchaseResult: result)
                     }
                     .tint(.prime)
                     .foregroundColor(.title)
+                    .onAppear {
+                        self.currentProductSelected = viewModel.selectedProduct
+                    }
                 }
             }
             
@@ -63,18 +71,7 @@ public struct StoreFeatureView: View {
             }
             
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                HStack {
-                    Button {
-                        presenter.menuButton()
-                    } label: {
-                        Image("menu_icon", bundle: resourceBundle)
-                    }
-                }
-            }
-        }
-        .navigationTitle("Scanny Pass")
+        .navigationBarHidden(true)
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
@@ -89,32 +86,43 @@ public struct StoreFeatureView: View {
 
 private struct PassMarketingContent: View {
     var product: ProductFeature
+    var resourceBundle: Bundle
     
-    init(product: ProductFeature) {
+    init(product: ProductFeature, bundle: Bundle) {
         self.product = product
+        self.resourceBundle = bundle
     }
     
     var body: some View {
-        VStack(spacing: 10) {
-            title
-                .font(.title3.bold())
-                .foregroundStyle(.title)
+        
+        ZStack(alignment: .top) {
+            LinearGradient(
+                gradient: Gradient(colors: [Color.backgroundFolder.opacity(0.8), Color.prime.opacity(0.3)]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
             
-            description
-                .fixedSize(horizontal: false, vertical: true)
-                .font(.body.weight(.medium))
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(.subtitle)
-                .padding([.bottom, .horizontal])
+            
+            VStack(spacing: 15) {
+                Image("AppIconStoreView", bundle: resourceBundle)
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .clipShape(.circle)
+                    
+                VStack(spacing: 25) {
+                    Text("STORE_VIEW_TITLE")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.title)
+                    
+                    description
+                        .font(.callout.weight(.medium))
+                        .multilineTextAlignment(.leading)
+                        .foregroundStyle(.subtitle)
+                }
+            }
+            .padding()
         }
-        .padding()
-        .background(.backgroundFolder.opacity(0.5))
-        .multilineTextAlignment(.center)
-    }
-    
-    @ViewBuilder
-    private var subscriptionName: some View {
-        Text("Backyard Birds Pass")
     }
     
     @ViewBuilder
@@ -125,6 +133,8 @@ private struct PassMarketingContent: View {
     @ViewBuilder
     private var description: some View {
         Text(product.getLocalizedDescription().description)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .fixedSize(horizontal: false, vertical: true)
     }
     
 }
@@ -133,7 +143,7 @@ private struct PassMarketingContent: View {
     var storeFeature = StoreFeatureStore()
     var service = ProductFeatureService(resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
     let productFeature = ProductFeature(features: [], productID: "free")
-    var presenter = StorePresenter(delegate: storeFeature, service: service, productFeature: productFeature, menuButton: { }) { _ in }
+    var presenter = StorePresenter(delegate: storeFeature, service: service, productFeature: productFeature, closeAction: { }) { _ in }
     
     return NavigationView {
         StoreFeatureView(store: storeFeature, presenter: presenter, resourceBundle: Bundle.init(identifier: "com.ariel.ScanUI") ?? .main)
