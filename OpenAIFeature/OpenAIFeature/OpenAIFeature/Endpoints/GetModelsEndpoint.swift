@@ -23,7 +23,7 @@ class GetModelEndpoint: Endpoint {
     
     var body: [String : Any]? = nil
     
-    init(token: String = OpenAiConfiguration.TEST_API_KEY) {
+    init(token: String = OpenAiConfiguration.API_KEY) {
         self.header = ["Authorization": "Bearer \(token)"]
     }
 }
