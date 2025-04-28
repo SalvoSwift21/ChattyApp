@@ -109,7 +109,7 @@ public struct TextAnalyzerView: View {
                     }.padding()
                 }
                 .background(.clear)
-                .defaultScrollAnchor(.bottom)
+                .defaultScrollAnchor(.top)
 
                 
                 HStack(alignment: .center, spacing: 10) {
