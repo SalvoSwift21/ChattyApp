@@ -173,7 +173,7 @@ struct MainContainerView: View {
     
     var TermsAndConditionsView: some View {
         NavigationStack {
-            WebViewUIComposer.webViewComposedWith(url: URL.init(string: "https://www.google.com/")!)
+            WebViewUIComposer.webViewComposedWith(url: Links.termsAndConditions.url)
                 .navigationBarTitle("TERMS_AND_CONDIITIONS_TITLE")
         }
     }
