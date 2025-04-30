@@ -32,12 +32,14 @@ enum ADUnitIDCode {
 
 enum Links {
     case privacyPolicy
-
+    case termsAndConditions
     
     var url: URL {
         switch self {
         case .privacyPolicy:
             return URL(string: "https://www.iubenda.com/privacy-policy/53826001")!
+        case .termsAndConditions:
+            return URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
         }
     }
 }

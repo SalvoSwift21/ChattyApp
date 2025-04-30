@@ -25,7 +25,7 @@ class ChatCompletionEndpoint: Endpoint {
     
     var body: [String : Any]?
         
-    init(llmRequestBody: LLMRequestBody, token: String = OpenAiConfiguration.TEST_API_KEY) throws {
+    init(llmRequestBody: LLMRequestBody, token: String = OpenAiConfiguration.API_KEY) throws {
                 
         let jsonData = try JSONEncoder().encode(llmRequestBody)
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]

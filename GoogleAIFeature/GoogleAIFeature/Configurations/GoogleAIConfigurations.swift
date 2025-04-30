@@ -34,7 +34,7 @@ public class GoogleAIConfigurations: LLMFileConfigurationProtocol {
     
     public static var BASE_PATH: String = ""
     
-    static public let TEST_API_KEY: String = {
+    static public let API_KEY: String = {
         let base64Value = "QUl6YVN5Qi1aQWpmTXdjQm9ES0p1NGxpZTlsaGZrZkVGbEFlTWhn"
         guard let data = Data(base64Encoded: base64Value) else {
             return "Error"

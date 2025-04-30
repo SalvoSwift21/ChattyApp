@@ -57,7 +57,7 @@ final class GoogleAIFileSummurizeEndToEndTest: XCTestCase {
     // MARK: - Helpers
     
     private func makeGoogleAIHTTPClient(file: StaticString = #filePath, line: UInt = #line, maxToken: Int) -> GoogleAILLMClient {
-        let gl = GenerativeModel(name: "gemini-1.5-flash", apiKey: GoogleAIConfigurations.TEST_API_KEY)
+        let gl = GenerativeModel(name: "gemini-1.5-flash", apiKey: GoogleAIConfigurations.API_KEY)
         let sut = GoogleAILLMClient(generativeLanguageClient: gl, maxResourceToken: maxToken)
         return sut
     }

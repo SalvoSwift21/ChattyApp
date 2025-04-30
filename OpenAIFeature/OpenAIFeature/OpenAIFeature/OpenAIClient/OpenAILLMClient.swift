@@ -77,7 +77,7 @@ public class OpenAILLMClient: LLMClient {
 public func makeOpenAIHTTPClient(modelName: String, maxInputToken: Int, maxOutputToken: Int) -> OpenAILLMClient {
     let session = URLSession(configuration: .default)
     let client = URLSessionHTTPClient(session: session)
-    let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "user")
+    let config = LLMConfiguration(API_KEY: OpenAiConfiguration.API_KEY, USER_ID: "user")
     let clientOpenAi = OpenAIApiClient(httpClient: client, configuration: config)
     return OpenAILLMClient(openAIHTTPClient: clientOpenAi, modelName: modelName, maxInputToken: maxInputToken, maxOutputToken: maxOutputToken)
 }

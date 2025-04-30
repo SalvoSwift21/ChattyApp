@@ -61,7 +61,7 @@ public class GoogleAILLMClient: LLMClient {
 }
 
 public func makeGoogleGeminiAIClient(modelName: String, maxResourceToken: Int) -> GoogleAILLMClient {
-    let gl = GenerativeModel(name: modelName, apiKey: GoogleAIConfigurations.TEST_API_KEY)
+    let gl = GenerativeModel(name: modelName, apiKey: GoogleAIConfigurations.API_KEY)
     let sut = GoogleAILLMClient(generativeLanguageClient: gl, maxResourceToken: maxResourceToken)
     return sut
 }

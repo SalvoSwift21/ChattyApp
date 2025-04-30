@@ -36,6 +36,11 @@
                 "title": "SIDE_MENU_PRIVACY_POLICY",
                 "imageName": "side_menu_privacy",
                 "rowType": "privacyPolicy"
+            },
+            {
+                "title": "TERMS_AND_CONDIITIONS_TITLE",
+                "imageName": "side_menu_terms_and_cond",
+                "rowType": "termsAndConditions"
             }
         ]
     }

@@ -62,7 +62,7 @@ final class OpenAIEndToEndTests: XCTestCase {
     private func makeOpenAIHTTPClient(file: StaticString = #filePath, line: UInt = #line) -> OpenAIApiClient {
         let session = URLSession(configuration: .ephemeral)
         let client = URLSessionHTTPClient(session: session)
-        let config = LLMConfiguration(API_KEY: OpenAiConfiguration.TEST_API_KEY, USER_ID: "testUserFirst")
+        let config = LLMConfiguration(API_KEY: OpenAiConfiguration.API_KEY, USER_ID: "testUserFirst")
         
         let sut = OpenAIApiClient(httpClient: client, configuration: config)
         return sut
