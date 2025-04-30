@@ -26,7 +26,7 @@ class GetModelDetailEndpoint: Endpoint {
     
     var body: [String : Any]? = nil
     
-    init(modelName: String, token: String = OpenAiConfiguration.TEST_API_KEY) {
+    init(modelName: String, token: String = OpenAiConfiguration.API_KEY) {
         self.modelName = modelName
         self.path += modelName
         self.header = ["Authorization": "Bearer \(token)"]
