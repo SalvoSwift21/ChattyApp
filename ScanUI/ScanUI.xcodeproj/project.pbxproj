@@ -136,6 +136,7 @@
 		62B137A92BFD035F00951B46 /* FoldersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379B2BFD00A100951B46 /* FoldersStore.swift */; };
 		62B137AA2BFD046900951B46 /* FoldersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B137A02BFD00A100951B46 /* FoldersPresenter.swift */; };
 		62B137AB2BFD054400951B46 /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1379C2BFD00A100951B46 /* FoldersView.swift */; };
+		62BE07C62DC3E4AB005BC3B8 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 62BE07C52DC3E4AB005BC3B8 /* Release.xcconfig */; };
 		62C303712C16450000E7605A /* ChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C303702C16450000E7605A /* ChatTextView.swift */; };
 		62C468E72B2D1E44002DD3A3 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */; };
 		62C468EA2B2FB5EF002DD3A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468E92B2FB5EF002DD3A3 /* Helper.swift */; };
@@ -303,6 +304,7 @@
 		62B137A12BFD00A200951B46 /* FoldersProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersProtocolDelegate.swift; sourceTree = "<group>"; };
 		62B137A32BFD00A200951B46 /* FoldersLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersLocalService.swift; sourceTree = "<group>"; };
 		62B137A42BFD00A200951B46 /* FoldersServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersServiceProtocol.swift; sourceTree = "<group>"; };
+		62BE07C52DC3E4AB005BC3B8 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		62C303702C16450000E7605A /* ChatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextView.swift; sourceTree = "<group>"; };
 		62C468E62B2D1E44002DD3A3 /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		62C468E92B2FB5EF002DD3A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				627B901F2D59E0A900E190D9 /* Debug.xcconfig */,
+				62BE07C52DC3E4AB005BC3B8 /* Release.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -1459,6 +1462,7 @@
 				62C8EC0E2CC2AF8500647F95 /* SideMenuConfiguration.json in Resources */,
 				62CFB57A2B04AD26006D70A5 /* CommonMedia.xcassets in Resources */,
 				62C75B102B2278AF009D4383 /* OnboardingConfiguration.json in Resources */,
+				62BE07C62DC3E4AB005BC3B8 /* Release.xcconfig in Resources */,
 				622FD87E2CBE469700A2756B /* HomeAsset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1825,6 +1829,7 @@
 		};
 		62CFB5722B04A9F3006D70A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62BE07C52DC3E4AB005BC3B8 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

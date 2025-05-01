@@ -40,6 +40,7 @@
 		62A114B92D8F3BDC00A66B89 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 62A114B82D8F3BDC00A66B89 /* GoogleUserMessagingPlatform */; };
 		62A114BB2D8F3CE600A66B89 /* UserMessagubgPlatformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */; };
 		62B2A90C2CC9B8790051CBFB /* PreferencesUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */; };
+		62BE07C82DC3E534005BC3B8 /* app-ads.txt in Resources */ = {isa = PBXBuildFile; fileRef = 62BE07C72DC3E534005BC3B8 /* app-ads.txt */; };
 		62C468EE2B2FB891002DD3A3 /* OnboardingUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468ED2B2FB891002DD3A3 /* OnboardingUIComposer.swift */; };
 		62C468F02B2FBB92002DD3A3 /* HomeUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468EF2B2FBB92002DD3A3 /* HomeUIComposer.swift */; };
 		62C468F32B2FC0AB002DD3A3 /* AppRootManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C468F22B2FC0AB002DD3A3 /* AppRootManager.swift */; };
@@ -100,6 +101,7 @@
 		62A114BA2D8F3CCC00A66B89 /* UserMessagubgPlatformManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessagubgPlatformManager.swift; sourceTree = "<group>"; };
 		62B2A90B2CC9B8790051CBFB /* PreferencesUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesUIComposer.swift; sourceTree = "<group>"; };
 		62BB19822B719E9C004A0748 /* LLMFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLMFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62BE07C72DC3E534005BC3B8 /* app-ads.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "app-ads.txt"; sourceTree = "<group>"; };
 		62C09E9F2B711F7800490915 /* SummariseTranslateFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SummariseTranslateFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C09EA22B71203200490915 /* GoogleAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C09EA32B71203200490915 /* OpenAIFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenAIFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 		622959D52CFFC80F00A2EE3D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				62BE07C72DC3E534005BC3B8 /* app-ads.txt */,
 				629B784D2DA49B07004DF136 /* Store.storekit */,
 				622959D12CFFBD6300A2EE3D /* Localizable.xcstrings */,
 				62128CB02A1F8F92005D732A /* Assets.xcassets */,
@@ -324,6 +327,7 @@
 				62A114B62D8F3A3400A66B89 /* PrivacyInfo.xcprivacy in Resources */,
 				62128CB42A1F8F92005D732A /* Preview Assets.xcassets in Resources */,
 				622959D22CFFBD6300A2EE3D /* Localizable.xcstrings in Resources */,
+				62BE07C82DC3E534005BC3B8 /* app-ads.txt in Resources */,
 				62128CB12A1F8F92005D732A /* Assets.xcassets in Resources */,
 				626FA3052DB175130077CCBF /* GoogleService-Info.plist in Resources */,
 			);

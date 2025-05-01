@@ -1,0 +1,11 @@
+//
+//  Release.xcconfig
+//  ScanUI
+//
+//  Created by Salvatore Milazzo on 01/05/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+APP_AD_MOB_ID = ca-app-pub-6751063947323511~3068965169
