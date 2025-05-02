@@ -17,7 +17,7 @@ enum ADUnitIDCode {
             #if DEBUG
             return "ca-app-pub-3940256099942544/2435281174"
             #else
-            return "ca-app-pub-6751063947323511/2160074149"
+            return "ca-app-pub-6751063947323511/7641282298"
             #endif
         case .interstitialID:
             #if DEBUG
